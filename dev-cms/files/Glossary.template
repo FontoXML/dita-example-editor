@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glossgroup id="stubbed-template-id" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:xsd:glossgroup.xsd:1.3">
+	<title><?fontoxml-text-placeholder text="Glossary title" ?></title>
+	<glossentry id="another-stubbed-template-id">
+		<glossterm><?fontoxml-text-placeholder text="Type the term" ?></glossterm>
+		<glossdef><?fontoxml-text-placeholder text="Type the definition of this term" ?></glossdef>
+	</glossentry>
+</glossgroup>

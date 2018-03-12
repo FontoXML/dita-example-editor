@@ -1,0 +1,24 @@
+!.gitkeep
+
+# Development dependencies
+/node_modules/
+
+# Directories used for building the application
+/examples/
+/dist/
+/tmp/
+
+# Save directory for the development server
+/dev-cms/uploads/*
+
+# Shared packages
+/packages-shared/
+
+# Linked platform
+/platform-linked/
+
+*.zip
+
+# Proprietary files, please go to sdk.fontoxml.com to download your version of the SDK
+/platform/
+/tools/

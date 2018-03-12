@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<learningAssessment id="stubbed-template-id" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:spec:learning:xsd:learningAssessment.xsd:1.3">
+	<title><?fontoxml-text-placeholder text="Learning assessment title" ?></title>
+	<learningAssessmentbody>
+		<section><p><?fontoxml-text-placeholder text="Type your content" ?></p></section>
+	</learningAssessmentbody>
+</learningAssessment>

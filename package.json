@@ -1,0 +1,17 @@
+{
+  "name": "dita-example-editor",
+  "version": "1.0.0",
+  "description": "Example DITA 1.3 editor serving as starting point for further development.",
+  "private": true,
+  "scripts": {
+    "postinstall": "bower install",
+    "build": "node ./node_modules/fontoxml-build/bin/fontoxml-build",
+    "build-server": "node ./node_modules/fontoxml-dev-server/bin/fontoxml-dev-server --dist",
+    "server": "node ./node_modules/fontoxml-dev-server/bin/fontoxml-dev-server"
+  },
+  "devDependencies": {
+    "bower": "^1.8.2",
+    "fontoxml-build": "./tools/fontoxml-build",
+    "fontoxml-dev-server": "./tools/fontoxml-dev-server"
+  }
+}

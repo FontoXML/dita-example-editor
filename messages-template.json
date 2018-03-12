@@ -1,0 +1,3774 @@
+[
+  {
+    "in": "You’re trying to cut some content.",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You’re trying to copy some content.",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You’re trying to paste some content.",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Ctrl",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Cut, copy and paste in FontoXML",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Unfortunately, this can not be done through a button because of technical and privacy reasons. Instead, you can use these keyboard shortcuts:",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "to cut",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "to copy",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "to paste",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "OK",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/ui/ClipboardInstructionModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Paste",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Use the keyboard shortcut to paste.",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard-instruction-modal",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Template to start with",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/CreateDocumentFormModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select a template",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/CreateDocumentFormModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Save in",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/CreateDocumentFormModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select a folder",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/CreateDocumentFormModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/FolderBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Title",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/CreateDocumentFormModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Cancel",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/CreateDocumentFormModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/FolderBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-operations-browser",
+        "file": "src/ui/OperationsBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/warning-modal/WarningModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/ui/WebReferenceModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Create",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/CreateDocumentFormModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading documents…",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Can’t open this folder",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/FolderBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML can’t open this folder. You can try again, or try a different folder.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/FolderBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "No results",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/FolderBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This folder does not contain files that can be opened with FontoXML.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading document preview…",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Can’t open this document",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You can try again, or try a different document.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select a document",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Insert",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-operations-browser",
+        "file": "src/operations.json"
+      },
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Loading templates…",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading template preview…",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Can’t open this template",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML can’t open this template. You can try again, or try a different template.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentTemplateBrowserModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/FolderBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML can’t open this document. You can try again, or try a different document.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select a link",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/DocumentWithLinkSelectorBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading folders…",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/documents/FolderBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading images…",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This folder does not contain images that can be opened with FontoXML.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading image preview…",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Can’t open this image",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML can’t open this image. You can try again, or try a different image.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This image is larger than 4 megabyte, please select another image or resize it and try again.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML can’t upload this image, please try again.",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select an image",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/images/ImageBrowserModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "My drive",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "Templates",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "Upload",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/shared/ModalBrowserUploadButton.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Create new document",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/CreateDocumentModalStack.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select a template for your document",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/CreateDocumentModalStack.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/OpenOrCreateDocumentModalStack.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select a folder to save your documents in",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/CreateDocumentModalStack.jsx.js"
+      },
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/OpenOrCreateDocumentModalStack.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Create new",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/OpenOrCreateDocumentModalStack.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Open from",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/OpenOrCreateDocumentModalStack.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Open or create document",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/OpenOrCreateDocumentModalStack.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Open",
+    "meta": [
+      {
+        "package": "fontoxml-cms-browser",
+        "file": "src/stacks/OpenOrCreateDocumentModalStack.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "The reused content could not be displayed. Right click to replace or remove it.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/configureAsConref.js"
+      }
+    ]
+  },
+  {
+    "in": "The reused content could not be retrieved and can not be displayed.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/configureAsConref.js"
+      }
+    ]
+  },
+  {
+    "in": "This reused content reference is cyclic and can not be displayed.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/configureAsConref.js"
+      }
+    ]
+  },
+  {
+    "in": "Show the origin",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/popovers/DitaConrefReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "{MARKUP_LABEL, select, undefined{Reused {DOCUMENT_MARKUP_LABEL}} other{Reused {MARKUP_LABEL} from the {DOCUMENT_MARKUP_LABEL}}}:",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/popovers/DitaConrefReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "“{TITLE_CONTENT}” ",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/popovers/DitaConrefReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading the reference…",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/related-link/RelatedLinkWithPermanentIdTemplate.js"
+      }
+    ]
+  },
+  {
+    "in": "This link could not be resolved.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/related-link/RelatedLinkWithPermanentIdTemplate.js"
+      }
+    ]
+  },
+  {
+    "in": "Remove table",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      },
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove the current table from the document.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      },
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add description",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      }
+    ]
+  },
+  {
+    "in": "Add a description to this figure.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      }
+    ]
+  },
+  {
+    "in": "text=\"type the description\"",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      }
+    ]
+  },
+  {
+    "in": "Add title",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      }
+    ]
+  },
+  {
+    "in": "Add a title to this figure.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      }
+    ]
+  },
+  {
+    "in": "text=\"type the title\"",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-cals.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-conref.json"
+      },
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-insert.json"
+      },
+      {
+        "package": "fontoxml-references",
+        "file": "src/operations.json"
+      },
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Sort terms",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-glossary.json"
+      }
+    ]
+  },
+  {
+    "in": "Sorts the terms in this group of terms alphabetically.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-glossary.json"
+      }
+    ]
+  },
+  {
+    "in": "Move up",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-move-sequence-items.json"
+      },
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move this sequence item up.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-move-sequence-items.json"
+      }
+    ]
+  },
+  {
+    "in": "Move down",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-move-sequence-items.json"
+      },
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move this sequence item down.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-move-sequence-items.json"
+      }
+    ]
+  },
+  {
+    "in": "Simple table",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-simpletable.json"
+      }
+    ]
+  },
+  {
+    "in": "A table with a regular structure and without a caption.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-simpletable.json"
+      }
+    ]
+  },
+  {
+    "in": "Move right",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-indent.json"
+      }
+    ]
+  },
+  {
+    "in": "Move the document into the previous one.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-indent.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove the document.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-insert.json"
+      }
+    ]
+  },
+  {
+    "in": "Are you sure you want to remove this document?",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-insert.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove document",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-insert.json"
+      }
+    ]
+  },
+  {
+    "in": "Move the document below the next one.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move to bottom",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move the document below the last one at this level.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move to top",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move the document above the first one at this level.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move the document above the preceding one.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-move.json"
+      }
+    ]
+  },
+  {
+    "in": "Move left",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-outdent.json"
+      }
+    ]
+  },
+  {
+    "in": "Move the document one level up.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/operations-topicref-outdent.json"
+      }
+    ]
+  },
+  {
+    "in": "Find",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/FindAndReplaceDropButton.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Open Find and Replace drop ({SHORTCUT1}) / ({SHORTCUT2})",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/FindAndReplaceDropButton.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Match case",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/FindAndReplace.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "{CURRENT_RESULT_INDEX} of {TOTAL_RESULTS}",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/FindAndReplace.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Find…",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/FindToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Next",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/FindToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Previous",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/FindToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select the previous result ({SHORTCUT})",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/FindToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select the next result ({SHORTCUT})",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/FindToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Replace",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/OpenReplaceToolbarButton.jsx.js"
+      },
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/ReplaceToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Replace all",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/ReplaceToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Replace with…",
+    "meta": [
+      {
+        "package": "fontoxml-find-and-replace",
+        "file": "src/ui/ReplaceToolbar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "No operations found.",
+    "meta": [
+      {
+        "package": "fontoxml-operations-browser",
+        "file": "src/ui/OperationsGrid.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "We couldn’t find any suitable operations for your cursor position. Try again from another location in your document.",
+    "meta": [
+      {
+        "package": "fontoxml-operations-browser",
+        "file": "src/ui/OperationsGrid.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Select an operation",
+    "meta": [
+      {
+        "package": "fontoxml-operations-browser",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Clear",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Filter by subset",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "No symbols found",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Nothing here yet…",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Insert symbol",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "(no results)",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "({COUNTER} results)",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Search by name or codepoint",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "{SYMBOLS_LENGTH} results for “{SEARCH_INPUT_VALUE}”",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "{SYMBOLS_LENGTH} symbols",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "We can’t find any recently used symbols. Click on the “All” tab or search for a symbol.",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "We can’t find any symbols with “{SEARCH_INPUT_VALUE}” in their name or codepoint. Please try something else.",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "All symbols",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Recently used",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Search",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/ui/SpecialCharacterModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Symbol",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a symbol that can not be easily inserted using your keyboard.",
+    "meta": [
+      {
+        "package": "fontoxml-special-characters",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Retrieving spelling suggestions…",
+    "meta": [
+      {
+        "package": "fontoxml-spell-checker",
+        "file": "src/ui/SpellCheckerSuggestionsGroup.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "No spelling suggestions",
+    "meta": [
+      {
+        "package": "fontoxml-spell-checker",
+        "file": "src/ui/SpellCheckerSuggestionsGroup.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Spelling suggestions",
+    "meta": [
+      {
+        "package": "fontoxml-spell-checker",
+        "file": "src/ui/SpellCheckerSuggestionsGroup.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Check spelling",
+    "meta": [
+      {
+        "package": "fontoxml-spell-checker",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Check the document for correct spelling.",
+    "meta": [
+      {
+        "package": "fontoxml-spell-checker",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "This document could not be loaded.",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/api/HierarchyStructureViewNode.js"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/documents-list/DocumentsList.jsx.js"
+      },
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxDocumentLoader.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "(hidden group)",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/api/HierarchyStructureViewNode.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading document",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/api/HierarchyStructureViewNode.js"
+      }
+    ]
+  },
+  {
+    "in": "This document is not yet loaded",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/api/HierarchyStructureViewNode.js"
+      }
+    ]
+  },
+  {
+    "in": "Structure",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "Document structure",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "No documents loaded",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/ui/StructureView.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Currently no documents are loaded.",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/ui/StructureView.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Untitled {MARKUPLABEL}",
+    "meta": [
+      {
+        "package": "fontoxml-structure-view",
+        "file": "src/ui/StructureViewNodeItem.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "All borders",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Draw borders on all sides of every selected cell.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "No borders",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Don't draw any borders on the selected cells.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Top",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Toggle the border at the top of the selected cells.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Bottom",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Toggle the border at the bottom of the selected cells.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Left",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Toggle the border on the left of the selected cells.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Right",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Toggle the border on the right of the selected cells.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-borders.json"
+      }
+    ]
+  },
+  {
+    "in": "Align left",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align the content of the current cell to its left.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align right",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align the content of the current cell to its right.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align center",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Center the content of the current cell.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Justify",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Justify the content of the current cell.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align top",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align the content of the current cell to its top.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align bottom",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Align the content of the current cell to its bottom.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow-cals",
+        "file": "src/operations-cell-alignment.json"
+      }
+    ]
+  },
+  {
+    "in": "Source",
+    "meta": [
+      {
+        "package": "fontoxml-xml-view",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "XML source code",
+    "meta": [
+      {
+        "package": "fontoxml-xml-view",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "Place your cursor in a document to view its XML source here.",
+    "meta": [
+      {
+        "package": "fontoxml-xml-view",
+        "file": "src/ui/XmlSourceSidebar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "No XML source available",
+    "meta": [
+      {
+        "package": "fontoxml-xml-view",
+        "file": "src/ui/XmlSourceSidebar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading XML source…",
+    "meta": [
+      {
+        "package": "fontoxml-xml-view",
+        "file": "src/ui/XmlSourceSidebar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "untitled document",
+    "meta": [
+      {
+        "package": "fontoxml-xml-view",
+        "file": "src/ui/XmlSourceSidebar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "XML source",
+    "meta": [
+      {
+        "package": "fontoxml-xml-view",
+        "file": "src/ui/XmlSourceSidebar.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Collapse element",
+    "meta": [
+      {
+        "package": "fontoxml-base-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Replace a node with its children.",
+    "meta": [
+      {
+        "package": "fontoxml-base-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Clear markup",
+    "meta": [
+      {
+        "package": "fontoxml-base-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove all markup within the selection.",
+    "meta": [
+      {
+        "package": "fontoxml-base-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "To lowercase",
+    "meta": [
+      {
+        "package": "fontoxml-base-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "To uppercase",
+    "meta": [
+      {
+        "package": "fontoxml-base-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Cut",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Cut selected content.",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Copy",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Copy selected content.",
+    "meta": [
+      {
+        "package": "fontoxml-clipboard",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Undo",
+    "meta": [
+      {
+        "package": "fontoxml-core",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Undo your previous action in the current document.",
+    "meta": [
+      {
+        "package": "fontoxml-core",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Redo",
+    "meta": [
+      {
+        "package": "fontoxml-core",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Redo your previously undone action in the current document.",
+    "meta": [
+      {
+        "package": "fontoxml-core",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "This document could not be loaded because it is included in this project more than once.\n You can open this document in FontoXML on its own to view or edit it.",
+    "meta": [
+      {
+        "package": "fontoxml-documents",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "The document \"{DOCUMENT_TITLE}\" could not be loaded because it is included in this project more than once. You can open this document in FontoXML on its own to view or edit it.)",
+    "meta": [
+      {
+        "package": "fontoxml-documents",
+        "file": "src/install.js"
+      }
+    ]
+  },
+  {
+    "in": "It might have been moved, renamed or deleted. Or you might not be allowed to load this document.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/documents-list/DocumentsList.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading document…",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/documents-list/DocumentsList.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "{TOTAL_DOCUMENTS, plural, one{# document} other{# documents}} loaded so far…",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/editor/LoadDocumentsFromURL.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Built on {DATE, fonto_date}, {DATE, time, short}",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/editor/VersionInfo.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "SDK: {SDK_VERSION}, generated on {DATE, fonto_date}, {DATE, time, short}",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/editor/VersionInfo.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Fonto was unable to update the interface due to an unexpected error.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/DefaultErrorRouteContent.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Fonto was unable to complete your action due to an unexpected error.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/DefaultErrorRouteContent.jsx.js"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operation-failed-modal/OperationFailedWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Fonto was unable to save your documents due to an unexpected error.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/DefaultErrorRouteContent.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Fonto was unable to load your content due to an unexpected error.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/DefaultErrorRouteContent.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "We’re sorry. Please contact your support team for further assistance so we can try to get things back on track as quickly as possible.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/DefaultErrorRouteContent.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Details for developers",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/DefaultErrorRouteContent.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "The information presented below is intended for developers of this editor to triage the error. \nPlease include this when contacting your support team for further assistance.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/DefaultErrorRouteContent.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Something went wrong",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/fatal-error/FatalError.jsx.js"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operation-failed-modal/OperationFailedWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "It may be possible to continue normally. If Fonto starts behaving oddly, try restarting Fonto. If the issue persists, please contact your support team for assistance so we can try to get things back on track as quickly as possible.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operation-failed-modal/OperationFailedWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Continue anyway",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operation-failed-modal/OperationFailedWarningModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/save-warning-modal/SaveWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Please wait…",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/please-wait-modal/PleaseWaitModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This document was edited somewhere else",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You can refresh this document to get its latest version, but refreshing it will discard all your unsaved changes. If you want to keep your changes, you can:",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Copy the content you've changed",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Refresh the document",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Paste your content back into the refreshed document",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Undo my changes and refresh",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Refresh this document to get the latest version and start editing.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Refresh",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This document could not be locked",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "The CMS returned an error when attempting to lock this document. Please check your connection and retry.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Retry",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Only you can edit this document",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "If you're done editing this document, you can release the lock so others can edit it.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Release lock",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This document is not editable",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You can't edit this document. It is possibly being edited by someone else, or you don't have the required access rights.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You can refresh the document to see the latest version.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/remote-document-state/DefaultRemoteDocumentStatePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "We have been unable to save your documents for {HOURS, plural, =0{{MINUTES, plural, =0{} other{#m }}} other{#h {MINUTES}m }}{SECONDS}s",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/save-warning-modal/SaveWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Unable to save your documents",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/save-warning-modal/SaveWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This may be caused by problems with your network connection, or the CMS may not be responding correctly.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/save-warning-modal/SaveWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You may continue anyway, however, your changes will not be saved until the problem is resolved.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/save-warning-modal/SaveWarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "(Click to select an item)",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/ScopeSelector.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML can’t run in this browser",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Please use FontoXML with the latest version of a browser from the list below. If you don’t have these installed on your computer, you can go to the browser’s download page by clicking it.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "More about browsers",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "What is a browser?",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "A browser is a program on your computer that you can use to access the internet. Well-known examples are Internet Explorer, Chrome and Firefox. If you have a browser installed, you can open it on your computer like any other software.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "How to download a new browser",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "You can download a browser by clicking one in the list above. This will bring you to that browser’s website, where you can download the latest version.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "How to update your browser",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Instructions on how to update your browser can be found on the website of that browser. Please keep in mind that company computers may require support from the IT department to update a browser.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Why can’t I use this browser?",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "We make use of the latest web technologies so FontoXML can work as reliable and as fast as possible. These technologies are only available in the latest versions of the browsers in the list above.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Chrome (preferred)",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-browser/UnsupportedBrowser.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML can’t run on this device",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-device/UnsupportedDevice.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Please open FontoXML on a laptop or desktop computer.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-device/UnsupportedDevice.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Why can’t I use this device?",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-device/UnsupportedDevice.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "FontoXML requires a desktop grade processor to work as reliable and as fast as possible. Also, we don’t support touch screens and virtual keyboards yet.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/unsupported-device/UnsupportedDevice.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Confirm",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/warning-modal/WarningModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Document view",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-display-mode.json"
+      }
+    ]
+  },
+  {
+    "in": "Display all documents as a single one.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-display-mode.json"
+      }
+    ]
+  },
+  {
+    "in": "75%",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-zoom.json"
+      }
+    ]
+  },
+  {
+    "in": "Display topics at 75% of their normal width.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "100%",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-zoom.json"
+      }
+    ]
+  },
+  {
+    "in": "Display topics at their normal width.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "125%",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-zoom.json"
+      }
+    ]
+  },
+  {
+    "in": "Display topics at 125% of their normal width.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "150%",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-zoom.json"
+      }
+    ]
+  },
+  {
+    "in": "Display topics at 150% of their normal width.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "200%",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      },
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-zoom.json"
+      }
+    ]
+  },
+  {
+    "in": "Display topics at 200% of their normal width.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "Display the text of all topics at 75% of the default size.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "Display the text of all topics at the default size.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "Display the text of all topics at 125% of the default size.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "Display the text of all topics at 150% of the default size.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "Display the text of all topics at 200% of the default size.",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-set-content-view.json"
+      }
+    ]
+  },
+  {
+    "in": "Wide canvas",
+    "meta": [
+      {
+        "package": "fontoxml-editor",
+        "file": "src/operations-wide-canvas.json"
+      }
+    ]
+  },
+  {
+    "in": "The image could not be loaded. Right click to replace or remove it.",
+    "meta": [
+      {
+        "package": "fontoxml-families",
+        "file": "src/inline-object/InlineImageInFrameTemplate.js"
+      },
+      {
+        "package": "fontoxml-families",
+        "file": "src/inline-object/InlineImageTemplate.js"
+      },
+      {
+        "package": "fontoxml-families",
+        "file": "src/object/ImageInFrameTemplate.js"
+      },
+      {
+        "package": "fontoxml-families",
+        "file": "src/object/ImageTemplate.js"
+      }
+    ]
+  },
+  {
+    "in": "The image could not be loaded.",
+    "meta": [
+      {
+        "package": "fontoxml-families",
+        "file": "src/object/ImageInFrameTemplate.js"
+      },
+      {
+        "package": "fontoxml-families",
+        "file": "src/object/ImageTemplate.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading image…",
+    "meta": [
+      {
+        "package": "fontoxml-families",
+        "file": "src/object/ImageInFrameTemplate.js"
+      },
+      {
+        "package": "fontoxml-families",
+        "file": "src/object/ImageTemplate.js"
+      }
+    ]
+  },
+  {
+    "in": "Set ordering attribute",
+    "meta": [
+      {
+        "package": "fontoxml-families",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "There is nothing you can select in this document",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxNodePreviewWithLinkSelector.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Operation {OPERATION_NAME} not found",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxOperation.jsx.js"
+      },
+      {
+        "package": "fontoxml-fx",
+        "file": "src/operations/MultiOperations.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "A table cannot be inserted here.",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxOperationInsertTableMenu.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "{NUMBER_OF_COLUMNS, plural, one{# column} other{# columns}} x {NUMBER_OF_ROWS, plural, one{# row} other{# rows}}",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxOperationInsertTableMenu.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Unable to retrieve this reference",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Loading reference",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Last saved on {TIME_OF_LAST_SAVE, time, short}.",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxSaveButton.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Unable to save for {HOURS, plural, =0{{MINUTES, plural, =0{} other{#m }}} other{#h {MINUTES}m }}{SECONDS}s",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxSaveButton.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Save all documents.",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxSaveButton.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Saving…",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/FxSaveButton.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "“{TEXT_CONTENT}”",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/node-preview/LinkableElementDetails.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This {MARKUP_LABEL} does not contain any textual content.",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/node-preview/LinkableElementDetails.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Selected this {MARKUP_LABEL}:",
+    "meta": [
+      {
+        "package": "fontoxml-fx",
+        "file": "src/node-preview/LinkableElementDetails.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Exit",
+    "meta": [
+      {
+        "package": "fontoxml-iframe-communication",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Save your document(s) and return to the CMS.",
+    "meta": [
+      {
+        "package": "fontoxml-iframe-communication",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Increase indent",
+    "meta": [
+      {
+        "package": "fontoxml-list-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Increase the indentation level of a list item.",
+    "meta": [
+      {
+        "package": "fontoxml-list-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Decrease indent",
+    "meta": [
+      {
+        "package": "fontoxml-list-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Decrease the indentation level of a list item.",
+    "meta": [
+      {
+        "package": "fontoxml-list-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "ctrl",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "alt",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "option",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "cmd",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "shift",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "capslock",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "tab",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "esc",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "return",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "up",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "left",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "down",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "right",
+    "meta": [
+      {
+        "package": "fontoxml-operations",
+        "file": "src/formatKeyBinding.js"
+      }
+    ]
+  },
+  {
+    "in": "Mark as valid",
+    "meta": [
+      {
+        "package": "fontoxml-references",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Mark this reference as valid.",
+    "meta": [
+      {
+        "package": "fontoxml-references",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove this reference.",
+    "meta": [
+      {
+        "package": "fontoxml-references",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Please wait while Fonto unlocks your work. The editor closes automatically.",
+    "meta": [
+      {
+        "package": "fontoxml-remote-documents",
+        "file": "src/operations-lock.json"
+      }
+    ]
+  },
+  {
+    "in": "Please wait while Fonto administers your locks. The editor closes automatically.",
+    "meta": [
+      {
+        "package": "fontoxml-remote-documents",
+        "file": "src/operations-lock.json"
+      }
+    ]
+  },
+  {
+    "in": "Please wait while Fonto administers your locks.",
+    "meta": [
+      {
+        "package": "fontoxml-remote-documents",
+        "file": "src/operations-save.json"
+      }
+    ]
+  },
+  {
+    "in": "Save all documents",
+    "meta": [
+      {
+        "package": "fontoxml-remote-documents",
+        "file": "src/operations-save.json"
+      }
+    ]
+  },
+  {
+    "in": "Please wait while Fonto saves your work.",
+    "meta": [
+      {
+        "package": "fontoxml-remote-documents",
+        "file": "src/operations-save.json"
+      }
+    ]
+  },
+  {
+    "in": "Please wait while Fonto unlocks your work.",
+    "meta": [
+      {
+        "package": "fontoxml-remote-documents",
+        "file": "src/operations-save.json"
+      }
+    ]
+  },
+  {
+    "in": "Table",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add column left",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a column to the left of this one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert column left",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a column to the left of the current one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add column right",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a column to the right of this one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert column right",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a column to the right of the current one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove column",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove this column from the table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove the current column from the table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove row from header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Change the lowest header row to a normal row.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add row to header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Change the row below the lowest header row to a header row.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add row above",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a row above this one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert row above",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a row above the current one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add row below",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a row below this one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert row below",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Insert a row below the current one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove row",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove this row from the table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove the current row from the table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Split to original",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Restore the individual cells that have been merged into this one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Undo merges in cell",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Restore the original cells that have been merged into this one.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Split into rows",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Split this cell into two rows.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Split the current cell into two rows.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Split into columns",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Split this cell into two columns.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Split the current cell into two columns.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove this table figure from the document.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge to right",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge this cell with the cell(s) to its direct right.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge the current cell with the cell(s) to its direct right.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge to left",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge this cell with the cell(s) to its direct left.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge the current cell with the cell(s) to its direct left.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge to above",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge this cell with the cell(s) directly above it.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge the current cell with the cell(s) directly above it.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge to below",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge this cell with the cell(s) directly below it.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Merge the current cell with the cell(s) directly below it.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "With borders, with header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "With borders, with header style for selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Without borders, without header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Without borders, without header style for selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Without borders, with header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Without borders, with header style for selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "With borders, without header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "With borders, without header style for selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add borders",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add borders to the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove borders",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove borders of the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add a header to the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove the header of the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add borders, add header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add borders and a header to the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove borders, remove header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove borders and the header of the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add borders, remove header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Add borders to and remove the header of the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove borders, add header",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Remove borders of and add a header to the selected table.",
+    "meta": [
+      {
+        "package": "fontoxml-table-flow",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Show more",
+    "meta": [
+      {
+        "package": "fontoxml-crosslink-references",
+        "file": "src/CrossReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Show preview",
+    "meta": [
+      {
+        "package": "fontoxml-crosslink-references",
+        "file": "src/CrossReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "This {MARKUP_LABEL} does not contain any textual content. ",
+    "meta": [
+      {
+        "package": "fontoxml-crosslink-references",
+        "file": "src/CrossReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "“{TEXT_REPRESENTATION}” ",
+    "meta": [
+      {
+        "package": "fontoxml-crosslink-references",
+        "file": "src/CrossReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Cross link to the {REFERENCE_MARKUP_LABEL}:",
+    "meta": [
+      {
+        "package": "fontoxml-crosslink-references",
+        "file": "src/CrossReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Preview link",
+    "meta": [
+      {
+        "package": "fontoxml-crosslink-references",
+        "file": "src/ui/DocumentPreviewModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Close",
+    "meta": [
+      {
+        "package": "fontoxml-crosslink-references",
+        "file": "src/ui/DocumentPreviewModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Please enter a valid URL in order to proceed.",
+    "meta": [
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/ui/WebReferenceModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Edit hyperlink",
+    "meta": [
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/ui/WebReferenceModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Web address",
+    "meta": [
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/ui/WebReferenceModal.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Save",
+    "meta": [
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/ui/WebReferenceModal.jsx.js"
+      },
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/operations.json"
+      }
+    ]
+  },
+  {
+    "in": "Hyperlink to:",
+    "meta": [
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/ui/WebReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "Insert hyperlink",
+    "meta": [
+      {
+        "package": "fontoxml-web-references",
+        "file": "src/operations.json"
+      }
+    ]
+  }
+]

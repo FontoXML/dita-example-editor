@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<learningAssessment id="testAssess" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:spec:learning:xsd:learningAssessment.xsd:1.3">
+	<title>Certification Test</title>
+	<shortdesc>Pass this test, and you are a certified genius.</shortdesc>
+	<learningAssessmentbody>
+		<lcIntro><p>Here's your test, folks. Good luck!</p></lcIntro>
+		<lcInteraction>
+			<lcOpenQuestion2 id="oq1">
+				<lcInteractionLabel2>Cows and moon jumps</lcInteractionLabel2>
+				<lcQuestion2><p>Describe how it might be possible for a cow to jump over the moon.</p></lcQuestion2>
+				<lcOpenAnswer2><p>Cows can only jump over the moon in nursery rhymes.</p></lcOpenAnswer2>
+			</lcOpenQuestion2>
+			<lcSingleSelect2 id="singleselect">
+				<lcInteractionLabel2>Multiple Choice - IEEE standards trivia</lcInteractionLabel2>
+				<lcQuestion2><p>Which one of the listed standards committees is responsible for developing the token ring specification?</p></lcQuestion2>
+				<lcAnswerOptionGroup2>
+					<lcAnswerOption2>
+						<lcAnswerContent2><p>IEEE 802.3</p></lcAnswerContent2>
+						<lcFeedback2><p>Sorry. A little low.</p></lcFeedback2>
+					</lcAnswerOption2>
+					<lcAnswerOption2>
+						<lcAnswerContent2><p>IEEE 802.5</p></lcAnswerContent2>
+						<lcCorrectResponse2/>
+						<lcFeedback2><p>That's the one.</p></lcFeedback2>
+					</lcAnswerOption2>
+					<lcAnswerOption2>
+						<lcAnswerContent2><p>IEEE 802.6</p></lcAnswerContent2>
+						<lcFeedback2><p>Nope. Too high.</p></lcFeedback2>
+					</lcAnswerOption2>
+					<lcAnswerOption2>
+						<lcAnswerContent2><p>IEEE 802.11</p></lcAnswerContent2>
+						<lcFeedback2><p>Nope. Way too high.</p></lcFeedback2>
+					</lcAnswerOption2>
+				</lcAnswerOptionGroup2>
+			</lcSingleSelect2>
+			<lcMultipleSelect2>
+				<lcInteractionLabel2>Finding Major League Baseball logos</lcInteractionLabel2>
+				<lcQuestion2><p>Which one of the following is a logo of a Major League Baseball team? (You may choose more than one.)</p></lcQuestion2>
+				<lcAnswerOptionGroup2>
+					<lcAnswerOption2 id="A">
+						<lcAnswerContent2>
+							<image href="pid:::image:::images/logo1.png"/>
+						</lcAnswerContent2>
+						<lcCorrectResponse2/>
+						<lcFeedback2><p>Yes, that's one.</p></lcFeedback2>
+					</lcAnswerOption2>
+					<lcAnswerOption2 id="B">
+						<lcAnswerContent2>
+							<image href="pid:::image:::images/logo2.png"/>
+						</lcAnswerContent2>
+						<lcCorrectResponse2/>
+						<lcFeedback2><p>Yes, that's one.</p></lcFeedback2>
+					</lcAnswerOption2>
+					<lcAnswerOption2 id="C">
+						<lcAnswerContent2>
+							<image href="pid:::image:::images/logo3.jpg"/>
+						</lcAnswerContent2>
+						<lcFeedback2><p>No, not that one. Sorry!</p></lcFeedback2>
+					</lcAnswerOption2>
+					<lcAnswerOption2 id="D">
+						<lcAnswerContent2>
+							<image href="pid:::image:::images/logo4.jpg"/>
+						</lcAnswerContent2>
+						<lcCorrectResponse2/>
+						<lcFeedback2><p>Yes, that's one.</p></lcFeedback2>
+					</lcAnswerOption2>
+				</lcAnswerOptionGroup2>
+			</lcMultipleSelect2>
+			<lcTrueFalse2>
+				<lcInteractionLabel2>True - False sun rising</lcInteractionLabel2>
+				<lcQuestion2><p>On Earth, the sun rises in the West and sets in the East.</p></lcQuestion2>
+				<lcAnswerOptionGroup2>
+					<lcAnswerOption2>
+						<lcAnswerContent2><p>True</p></lcAnswerContent2>
+					</lcAnswerOption2>
+					<lcAnswerOption2>
+						<lcAnswerContent2><p>False</p></lcAnswerContent2>
+						<lcCorrectResponse2/>
+					</lcAnswerOption2>
+				</lcAnswerOptionGroup2>
+				<lcFeedbackIncorrect2><p>No, look to the East.</p></lcFeedbackIncorrect2>
+				<lcFeedbackCorrect2><p>Yes, look to the East.</p></lcFeedbackCorrect2>
+			</lcTrueFalse2>
+			<lcSequencing2>
+				<lcInteractionLabel2>Sequencing City Populations in the U.S.</lcInteractionLabel2>
+				<lcQuestion2><p>Order the following U.S. cities according to population, from largest to smallest.</p></lcQuestion2>
+				<lcSequenceOptionGroup2>
+					<lcSequenceOption2>
+						<lcAnswerContent2><p>Portland, Oregon</p></lcAnswerContent2>
+						<lcSequence2 name="lcSequence2" value="2"/>
+					</lcSequenceOption2>
+					<lcSequenceOption2>
+						<lcAnswerContent2><p>Chicago, Illinois</p></lcAnswerContent2>
+						<lcSequence2 name="lcSequence2" value="1"/>
+					</lcSequenceOption2>
+					<lcSequenceOption2>
+						<lcAnswerContent2><p>Portland, Maine</p></lcAnswerContent2>
+						<lcSequence2 name="lcSequence2" value="4"/>
+					</lcSequenceOption2>
+					<lcSequenceOption2>
+						<lcAnswerContent2><p>Syracuse, New York</p></lcAnswerContent2>
+						<lcSequence2 name="lcSequence2" value="3"/>
+					</lcSequenceOption2>
+				</lcSequenceOptionGroup2>
+				<lcFeedbackIncorrect2><p>No, try again, please.</p></lcFeedbackIncorrect2>
+				<lcFeedbackCorrect2><p>Very good.</p></lcFeedbackCorrect2>
+			</lcSequencing2>
+			<lcMatching2>
+				<lcInteractionLabel2>Matching teams with cities</lcInteractionLabel2>
+				<lcQuestion2><p>Match the team with the city.</p></lcQuestion2>
+				<lcMatchTable2>
+					<lcMatchingHeader2>
+						<lcItem2><p>Team</p></lcItem2>
+						<lcMatchingItem2><p>City</p></lcMatchingItem2>
+					</lcMatchingHeader2>
+					<lcMatchingPair2>
+						<lcItem2><p>Boston</p></lcItem2>
+						<lcMatchingItem2><p>Red Sox</p></lcMatchingItem2>
+						<lcMatchingItemFeedback2>
+							<lcFeedbackCorrect2><p>The Red Sox play in Boston's Fenway Park</p></lcFeedbackCorrect2>
+							<lcFeedbackIncorrect2><p>That is not Boston's home team</p></lcFeedbackIncorrect2>
+						</lcMatchingItemFeedback2>
+					</lcMatchingPair2>
+					<lcMatchingPair2>
+						<lcItem2><p>San Francisco</p></lcItem2>
+						<lcMatchingItem2><p>Giants</p></lcMatchingItem2>
+						<lcMatchingItemFeedback2>
+							<lcFeedbackCorrect2><p>The Giants play in San Franciso's Candlestick Park</p></lcFeedbackCorrect2>
+							<lcFeedbackIncorrect2><p>That is not San Franciso's home team</p></lcFeedbackIncorrect2>
+						</lcMatchingItemFeedback2>
+					</lcMatchingPair2>
+					<lcMatchingPair2>
+						<lcItem2><p>Chicago</p></lcItem2>
+						<lcMatchingItem2><p>Cubs</p></lcMatchingItem2>
+						<lcMatchingItemFeedback2>
+							<lcFeedbackCorrect2><p>The Cubs play in Chicago's Wrigley Field</p></lcFeedbackCorrect2>
+							<lcFeedbackIncorrect2><p>That is not Chicago's home team.</p></lcFeedbackIncorrect2>
+						</lcMatchingItemFeedback2>
+					</lcMatchingPair2>
+					<lcMatchingPair2>
+						<lcItem2><p>Toronto</p></lcItem2>
+						<lcMatchingItem2><p>Blue Jays</p></lcMatchingItem2>
+						<lcMatchingItemFeedback2>
+							<lcFeedbackCorrect2><p>The Blue Jays play in Toronto's SkyDome</p></lcFeedbackCorrect2>
+							<lcFeedbackIncorrect2><p>That is not Toronto's home team.</p></lcFeedbackIncorrect2>
+						</lcMatchingItemFeedback2>
+					</lcMatchingPair2>
+				</lcMatchTable2>
+			</lcMatching2>
+		</lcInteraction>
+		<lcSummary>
+			<title>Summary</title>
+			<p>You are now certified.</p>
+		</lcSummary>
+	</learningAssessmentbody>
+</learningAssessment>

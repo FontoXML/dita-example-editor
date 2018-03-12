@@ -1,0 +1,101 @@
+{
+	"contextual-insert-topicref--from-template": {
+		"label": "Insert new topic",
+		"description": "Insert a new topic below the current one.",
+		"icon": "file-o",
+		"steps": [
+			{
+				"type": "operation/open-document-template-browser-modal"
+			},
+			{
+				"type": "action/createNewDocumentFromRemoteTemplate",
+				"data": {
+					"templateRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromRemoteTarget",
+				"data": {
+					"targetRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			},
+			{
+				"type": "transform/createPermanentIdForReference",
+				"data": {
+					"target": "{{url}}",
+					"referenceType": "document",
+					"metadata": {}
+				}
+			},
+			{
+				"type": "operation/append-topicref",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{permanentId}}"
+				}
+			}
+		]
+	},
+	"contextual-insert-topicref--to-existing-document": {
+		"label": "Insert existing topic",
+		"description": "Insert an existing topic below the current one.",
+		"icon": "file-text-o",
+		"steps": [
+			{
+				"type": "operation/open-document-browser-modal",
+				"data": {
+					"insertOperationName": "append-topicref"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromRemoteTarget",
+				"data": {
+					"targetRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			},
+			{
+				"type": "transform/createPermanentIdForReference",
+				"data": {
+					"target": "{{url}}",
+					"referenceType": "document",
+					"metadata": {}
+				}
+			},
+			{
+				"type": "operation/append-topicref",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{permanentId}}"
+				}
+			}
+		]
+	},
+	"insert-topicref--from-template": {
+		"label": "Insert new topic",
+		"description": "Insert a new topic below the current one.",
+		"icon": "file-o",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToTopicrefReferencingCurrentDocument"
+			},
+			{
+				"type": "operation/contextual-insert-topicref--from-template"
+			}
+		]
+	},
+	"insert-topicref--to-existing-document": {
+		"label": "Insert existing topic",
+		"description": "Insert an existing topic below the current one.",
+		"icon": "file-text-o",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToTopicrefReferencingCurrentDocument"
+			},
+			{
+				"type": "operation/contextual-insert-topicref--to-existing-document"
+			}
+		]
+	}
+}

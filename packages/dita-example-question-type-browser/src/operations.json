@@ -1,0 +1,56 @@
+{
+	"insert-{question}--from-operation-browser": {
+		"label": "New question",
+		"description": "Select a question type and insert it.",
+		"getStateSteps": {
+			"type": "operation/:insert-lcOpenQuestion2"
+		},
+		"steps": [
+			{
+				"type": "operation/open-operations-browser-modal",
+				"data": {
+					"modalIcon": "book",
+					"modalTitle": "Insert a question",
+					"operations": [
+						{
+							"label": "Open question",
+							"description": "An open question where the student answers a question by typing in an input field.",
+							"image": "assets/openQuestion.png",
+							"operationName": ":insert-lcOpenQuestion2"
+						},
+						{
+							"label": "Single choice",
+							"description": "A multiple-choice question where the student selects one answer option.",
+							"image": "assets/singleSelect.png",
+							"operationName": ":insert-lcSingleSelect2"
+						},
+						{
+							"label": "Multiple choice",
+							"description": "A multiple-choice question where the student selects more than one answer option.",
+							"image": "assets/multipleSelect.png",
+							"operationName": ":insert-lcMultipleSelect2"
+						},
+						{
+							"label": "True/false choice",
+							"description": "A true/false-choice question presents the learner with two choices, one correct, the other incorrect, often presented as true/false or yes/no responses.",
+							"image": "assets/trueFalse.png",
+							"operationName": ":insert-lcTrueFalse2"
+						},
+						{
+							"label": "Sequencing question",
+							"description": "An interaction where the student puts items in the correct order.",
+							"image": "assets/sequencing.png",
+							"operationName": ":insert-lcSequencing2"
+						},
+						{
+							"label": "Matching question",
+							"description": "An interaction where the student matches each item to one other item.",
+							"image": "assets/coupleAssociate.png",
+							"operationName": ":insert-lcMatching2"
+						}
+					]
+				}
+			}
+		]
+	}
+}

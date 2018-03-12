@@ -1,0 +1,19 @@
+{
+	"addonNames": [
+		"fontoxml-clipboard-instruction-modal",
+		"fontoxml-cms-browser",
+		"fontoxml-dita",
+		"fontoxml-find-and-replace",
+		"fontoxml-operations-browser",
+		"fontoxml-special-characters",
+		"fontoxml-spell-checker",
+		"fontoxml-structure-view",
+		"fontoxml-table-flow-cals",
+		"fontoxml-xml-view"
+	],
+	"edition": "fontoxml-platform-base",
+	"favicon": null,
+	"name": "dita-example-editor",
+	"sdkBuildDate": "2018-01-23T11:10:55.136Z",
+	"sdkVersion": "7.0.0"
+}

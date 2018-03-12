@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"fontoxml-operations-browser": "platform/fontoxml-operations-browser",
+		"fontoxml-platform-base": "platform/fontoxml-platform-base"
+	}
+}

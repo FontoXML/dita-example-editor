@@ -1,0 +1,234 @@
+{
+	"contextual-edit-note[@conref]": {
+		"label": "Edit",
+		"description": "Edit a conref to another existing node.",
+		"steps": [
+			{
+				"type": "transform/retrieveReferenceFromPermanentId",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"continueOnError": true,
+					"permanentId": "x__$data('contextNode')/@conref"
+				}
+			},
+			{
+				"type": "transform/resolveDitaUrl",
+				"data": {
+					"continueOnError": true,
+					"url": "{{reference.target}}"
+				}
+			},
+			{
+				"type": "operation/open-document-with-link-selector-browser-modal",
+				"data": {
+					"documentId": "{{targetDocumentId}}",
+					"linkableElementsQuery": "/descendant::note[@id]",
+					"modalPrimaryButtonLabel": "Save",
+					"modalTitle": "Replace reused note",
+					"nodeId": "{{targetNodeId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/createPermanentIdForReference",
+				"data": {
+					"target": "{{url}}",
+					"referenceType": "conref",
+					"metadata": {}
+				}
+			},
+			{
+				"type": "operation/replace-node",
+				"data": {
+					"replacementNodeStructure": [
+						"note",
+						{
+							"conref": "{{permanentId}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	"insert-note[@conref]": {
+		"label": "Conref a note",
+		"description": "Insert a conref to an existing node.",
+		"steps": [
+			{
+				"type": "operation/open-document-with-link-selector-browser-modal",
+				"data": {
+					"linkableElementsQuery": "/descendant::note[@id]",
+					"modalTitle": "Add reused note"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/createPermanentIdForReference",
+				"data": {
+					"target": "{{url}}",
+					"referenceType": "conref",
+					"metadata": {}
+				}
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"note",
+						{
+							"conref": "{{permanentId}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	"shift+tab": {
+		"keyBinding": "shift+tab",
+		"alternatives": [
+			"navigate-to-previous-item-in-tab-context",
+			"outdent-list-item"
+		]
+	},
+	"tab": {
+		"keyBinding": "tab",
+		"alternatives": [
+			"navigate-to-next-item-in-tab-context",
+			"indent-list-item"
+		]
+	},
+	":_open-document-with-link-selector-browser-for-edit": {
+		"initialData": {
+			"modalPrimaryButtonLabel": "Save",
+			"modalTitle": "Replace cross link",
+			"referenceType": "document"
+		},
+		"steps": [
+			{
+				"type": "transform/resolveDitaUrl",
+				"data": {
+					"continueOnError": true,
+					"url": "x__$data('contextNode')/@href"
+				}
+			},
+			{
+				"type": "operation/open-document-with-link-selector-browser-modal",
+				"data": {
+					"documentId": "{{targetDocumentId}}",
+					"nodeId": "{{targetNodeId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForPermanentIdOrUrl"
+			}
+		]
+	},
+	":_open-document-with-link-selector-browser-for-insert": {
+		"initialData": {
+			"modalTitle": "Add cross link",
+			"referenceType": "document"
+		},
+		"steps": [
+			{
+				"type": "operation/open-document-with-link-selector-browser-modal"
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForPermanentIdOrUrl"
+			}
+		]
+	},
+	":_open-image-browser-for-edit": {
+		"steps": [
+			{
+				"type": "transform/retrieveReferenceFromPermanentId",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"continueOnError": true,
+					"permanentId": "x__$data('contextNode')/@href"
+				}
+			},
+			{
+				"type": "operation/open-image-browser-modal",
+				"data": {
+					"modalPrimaryButtonLabel": "Replace",
+					"selectedImageId": "{{reference.target}}"
+				}
+			},
+			{
+				"type": "transform/createPermanentIdForReference",
+				"data": {
+					"target": "{{selectedImageId}}",
+					"referenceType": "image",
+					"metadata": {}
+				}
+			},
+			{
+				"type": "transform/setReferenceForPermanentIdOrUrl"
+			}
+		]
+	},
+	":_open-image-browser-for-insert": {
+		"steps": [
+			{
+				"type": "operation/open-image-browser-modal"
+			},
+			{
+				"type": "transform/createPermanentIdForReference",
+				"data": {
+					"target": "{{selectedImageId}}",
+					"referenceType": "image",
+					"metadata": {}
+				}
+			},
+			{
+				"type": "transform/setReferenceForPermanentIdOrUrl"
+			}
+		]
+	},
+	":_open-web-reference-modal-for-edit": {
+		"steps": [
+			{
+				"type": "operation/open-web-reference-modal-for-edit"
+			},
+			{
+				"type": "transform/setReferenceForPermanentIdOrUrl"
+			}
+		]
+	},
+	":_open-web-reference-modal-for-insert": {
+		"steps": [
+			{
+				"type": "operation/open-web-reference-modal-for-insert"
+			},
+			{
+				"type": "transform/setReferenceForPermanentIdOrUrl"
+			}
+		]
+	}
+}
