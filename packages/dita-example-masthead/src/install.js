@@ -1,15 +1,15 @@
 define([
 	'fontoxml-modular-ui/uiManager',
 
-	'./FruxMasthead.jsx'
+	'./DitaExampleMasthead.jsx'
 ], function (
 	uiManager,
 
-	FruxMasthead
+	DitaExampleMasthead
 ) {
 	'use strict';
 
 	return function install () {
-		uiManager.registerReactComponent('Masthead', FruxMasthead);
+		uiManager.registerReactComponent('Masthead', DitaExampleMasthead);
 	};
 });

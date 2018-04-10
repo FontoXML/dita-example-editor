@@ -9,6 +9,10 @@ define([
 	'dita-example-sx-shells-general-task/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-glossgroup/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-learning-assessment/SCHEMA_LOCATIONS',
+	'dita-example-sx-shells-learning-content/SCHEMA_LOCATIONS',
+	'dita-example-sx-shells-learning-overview/SCHEMA_LOCATIONS',
+	'dita-example-sx-shells-learning-plan/SCHEMA_LOCATIONS',
+	'dita-example-sx-shells-learning-summary/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-map/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-task/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-topic/SCHEMA_LOCATIONS'
@@ -23,6 +27,10 @@ define([
 	SCHEMA_LOCATIONS_GENERAL_TASK,
 	SCHEMA_LOCATIONS_GLOSSGROUP,
 	SCHEMA_LOCATIONS_LEARNING_ASSESSMENT,
+	SCHEMA_LOCATIONS_LEARNING_CONTENT,
+	SCHEMA_LOCATIONS_LEARNING_OVERVIEW,
+	SCHEMA_LOCATIONS_LEARNING_PLAN,
+	SCHEMA_LOCATIONS_LEARNING_SUMMARY,
 	SCHEMA_LOCATIONS_MAP,
 	SCHEMA_LOCATIONS_TASK,
 	SCHEMA_LOCATIONS_TOPIC
@@ -53,6 +61,22 @@ define([
 		{
 			package: 'dita-example-sx-shells-learning-assessment',
 			locations: SCHEMA_LOCATIONS_LEARNING_ASSESSMENT
+		},
+		{
+			package: 'dita-example-sx-shells-learning-content',
+			locations: SCHEMA_LOCATIONS_LEARNING_CONTENT
+		},
+		{
+			package: 'dita-example-sx-shells-learning-overview',
+			locations: SCHEMA_LOCATIONS_LEARNING_OVERVIEW
+		},
+		{
+			package: 'dita-example-sx-shells-learning-plan',
+			locations: SCHEMA_LOCATIONS_LEARNING_PLAN
+		},
+		{
+			package: 'dita-example-sx-shells-learning-summary',
+			locations: SCHEMA_LOCATIONS_LEARNING_SUMMARY
 		},
 		{
 			package: 'dita-example-sx-shells-map',

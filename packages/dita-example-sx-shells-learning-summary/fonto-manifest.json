@@ -1,0 +1,13 @@
+{
+	"dependencies": {
+		"dita-example-sx-modules-spec-learning-xsd-learning-base-mod": "packages-shared/dita-example-sx-modules-spec-learning-xsd-learning-base-mod",
+		"dita-example-sx-modules-spec-learning-xsd-learning-interaction-base2domain": "packages-shared/dita-example-sx-modules-spec-learning-xsd-learning-interaction-base2domain",
+		"dita-example-sx-modules-spec-learning-xsd-learning-summary-mod": "packages-shared/dita-example-sx-modules-spec-learning-xsd-learning-summary-mod",
+		"dita-example-sx-modules-spec-learning-xsd-learning2domain": "packages-shared/dita-example-sx-modules-spec-learning-xsd-learning2domain",
+		"dita-example-sx-modules-xsd-common-element-mod": "packages-shared/dita-example-sx-modules-xsd-common-element-mod",
+		"dita-example-sx-modules-xsd-highlight-domain": "packages-shared/dita-example-sx-modules-xsd-highlight-domain",
+		"dita-example-sx-modules-xsd-tbl-decl-mod": "packages-shared/dita-example-sx-modules-xsd-tbl-decl-mod",
+		"dita-example-sx-modules-xsd-topic-mod": "packages-shared/dita-example-sx-modules-xsd-topic-mod",
+		"dita-example-sx-pivot-model-translation": "packages-shared/dita-example-sx-pivot-model-translation"
+	}
+}

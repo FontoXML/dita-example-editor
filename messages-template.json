@@ -662,6 +662,24 @@
     ]
   },
   {
+    "in": "This map ({TITLE}) contains itself. Showing it would result in an infinite structure.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/mapManager.js"
+      }
+    ]
+  },
+  {
+    "in": "This map contains itself. Showing it would result in an infinite structure.",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/mapManager.js"
+      }
+    ]
+  },
+  {
     "in": "Show the origin",
     "meta": [
       {
@@ -685,6 +703,19 @@
       {
         "package": "fontoxml-dita",
         "file": "src/popovers/DitaConrefReferencePopover.jsx.js"
+      }
+    ]
+  },
+  {
+    "in": "(no role)",
+    "meta": [
+      {
+        "package": "fontoxml-dita",
+        "file": "src/related-link/RelatedLinkTemplate.js"
+      },
+      {
+        "package": "fontoxml-dita",
+        "file": "src/related-link/RelatedLinkWithPermanentIdTemplate.js"
       }
     ]
   },
