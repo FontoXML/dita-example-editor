@@ -105,6 +105,7 @@
 	"tab": {
 		"keyBinding": "tab",
 		"alternatives": [
+			"insert-row-on-tab",
 			"navigate-to-next-item-in-tab-context",
 			"indent-list-item"
 		]

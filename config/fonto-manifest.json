@@ -19,6 +19,7 @@
 		"dita-example-sx-shells-topic": "packages/dita-example-sx-shells-topic",
 		"fontoxml-clipboard-instruction-modal": "platform/fontoxml-clipboard-instruction-modal",
 		"fontoxml-cms-browser": "platform/fontoxml-cms-browser",
+		"fontoxml-crosslink-references": "platform/fontoxml-crosslink-references",
 		"fontoxml-dita": "platform/fontoxml-dita",
 		"fontoxml-find-and-replace": "platform/fontoxml-find-and-replace",
 		"fontoxml-operations-browser": "platform/fontoxml-operations-browser",
@@ -27,6 +28,7 @@
 		"fontoxml-spell-checker": "platform/fontoxml-spell-checker",
 		"fontoxml-structure-view": "platform/fontoxml-structure-view",
 		"fontoxml-table-flow-cals": "platform/fontoxml-table-flow-cals",
+		"fontoxml-web-references": "platform/fontoxml-web-references",
 		"fontoxml-xml-view": "platform/fontoxml-xml-view"
 	}
 }

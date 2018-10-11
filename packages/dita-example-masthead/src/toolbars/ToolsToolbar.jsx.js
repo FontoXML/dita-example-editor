@@ -58,11 +58,11 @@ const ToolsToolbar = () => (
 
 		<MastheadToolbarButtons>
 			<FxOperationButton
-				icon="sitemap"
-				label="Structure"
+				icon="align-right icon-flip-vertical"
+				label="Outline"
 				operationData={{ panesId: 'sidebar', paneId: 'structure' }}
 				operationName="toggle-ui-pane"
-				tooltipContent="Document structure"
+				tooltipContent="Document outline"
 			/>
 
 			<FxOperationButton
