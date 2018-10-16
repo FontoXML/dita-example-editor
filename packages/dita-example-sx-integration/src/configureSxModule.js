@@ -1,7 +1,9 @@
 define([
+	'fontoxml-dom-namespaces/namespaceManager',
 	'fontoxml-dita/configureAsConref',
 	'fontoxml-families/configureAsRemoved'
 ], function (
+	namespaceManager,
 	configureAsConref,
 	configureAsRemoved
 ) {
@@ -12,6 +14,9 @@ define([
 		// this package from an *-sx-shell. The best practice is to always depend on the specific *-sx-module packages
 		// from your own shell.
 		sxModule.markAsAddon();
+
+		// Declare the namespace for the dita-example-sx-modules-xsd-mathml-domain / dita-example-sx-modules-xsd-equation-domain packages.
+		namespaceManager.addNamespace('mathml', 'http://www.w3.org/1998/Math/MathML');
 
 		// Configuring any element (with a very low priority selector) as "removed" makes sure Fonto will never crash
 		// if it encounters an unconfigured element - it will simply be hidden.

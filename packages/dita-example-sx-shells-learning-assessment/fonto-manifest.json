@@ -8,6 +8,6 @@
 		"dita-example-sx-modules-xsd-highlight-domain": "packages-shared/dita-example-sx-modules-xsd-highlight-domain",
 		"dita-example-sx-modules-xsd-tbl-decl-mod": "packages-shared/dita-example-sx-modules-xsd-tbl-decl-mod",
 		"dita-example-sx-modules-xsd-topic-mod": "packages-shared/dita-example-sx-modules-xsd-topic-mod",
-		"dita-example-sx-pivot-model-translation": "packages-shared/dita-example-sx-pivot-model-translation"
+		"dita-example-sx-pivot-model-translation": "packages/dita-example-sx-pivot-model-translation"
 	}
 }

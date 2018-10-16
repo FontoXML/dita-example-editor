@@ -1,4 +1,4 @@
-<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="macies-map" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:xsd:basemap.xsd:1.3">
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="macies-map" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:xsd:map.xsd:1.3">
 	<title id="title_03fcdc0d-a7bd-4239-89a7-4c36c4155003">Welcome to the FontoXML Sandbox </title>
 	<topicref href="pid:::document:::clogs/why.xml" id="topicref_989040c5-3071-46dd-fd70-9922b6fa7458">
 		<topicref href="pid:::document:::clogs/sample.xml" id="topicref_512b2e3f-5cab-4fa9-a4db-1ab61463bc2e"/>

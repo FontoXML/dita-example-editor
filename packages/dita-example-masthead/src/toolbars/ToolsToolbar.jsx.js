@@ -1,17 +1,17 @@
 import React from 'react';
 
 import {
-	Drop,
 	ButtonWithDrop,
+	Drop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
 	Menu,
 	MenuGroup
 } from 'fds/components';
 
+import FxMultiOperationsMenuItem from 'fontoxml-fx/FxMultiOperationsMenuItem.jsx';
 import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
 import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
-import FxMultiOperationsMenuItem from 'fontoxml-fx/FxMultiOperationsMenuItem.jsx';
 
 const ToolsToolbar = () => (
 	<MastheadToolbar>

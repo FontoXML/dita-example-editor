@@ -43,7 +43,7 @@ const tabs = result => [
 	{
 		id: 'table',
 		label: 'Table',
-		isVisibleTabQuery: 'ancestor-or-self::*[self::table or self::simpletable or self::dl]',
+		isVisibleTabQuery: 'ancestor-or-self::*[self::table or self::simpletable or self::dl or self::parml or self::properties or self::choicetable]',
 		isHighlightedTab: true,
 		content: <TableToolbar />
 	},

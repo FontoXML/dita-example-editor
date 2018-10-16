@@ -11,14 +11,19 @@
 		"dita-example-sx-modules-spec-learning-xsd-learning2domain": "https://github.com/fontoxml/dita-example-sx-modules-spec-learning-xsd-learning2domain.git#1.1.2",
 		"dita-example-sx-modules-xsd-common-element-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-common-element-mod.git#1.1.1",
 		"dita-example-sx-modules-xsd-concept-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-concept-mod.git#1.0.0",
+		"dita-example-sx-modules-xsd-equation-domain": "https://github.com/fontoxml/dita-example-sx-modules-xsd-equation-domain.git#1.0.0",
 		"dita-example-sx-modules-xsd-glossentry-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-glossentry-mod.git#1.1.0",
 		"dita-example-sx-modules-xsd-glossgroup-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-glossgroup-mod.git#1.1.0",
 		"dita-example-sx-modules-xsd-hazard-domain": "https://github.com/fontoxml/dita-example-sx-modules-xsd-hazard-domain.git#1.0.0",
 		"dita-example-sx-modules-xsd-highlight-domain": "https://github.com/fontoxml/dita-example-sx-modules-xsd-highlight-domain.git#1.0.0",
 		"dita-example-sx-modules-xsd-map-group-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-map-group-mod.git#1.0.0",
 		"dita-example-sx-modules-xsd-map-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-map-mod.git#1.0.0",
+		"dita-example-sx-modules-xsd-mathml-domain": "https://github.com/fontoxml/dita-example-sx-modules-xsd-mathml-domain.git#1.0.0",
+		"dita-example-sx-modules-xsd-programming-domain": "https://github.com/fontoxml/dita-example-sx-modules-xsd-programming-domain.git#2.0.0",
+		"dita-example-sx-modules-xsd-reference-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-reference-mod.git#1.1.0",
 		"dita-example-sx-modules-xsd-task-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-task-mod.git#1.1.0",
 		"dita-example-sx-modules-xsd-tbl-decl-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-tbl-decl-mod.git#1.0.0",
-		"dita-example-sx-modules-xsd-topic-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-topic-mod.git#1.0.0"
+		"dita-example-sx-modules-xsd-topic-mod": "https://github.com/fontoxml/dita-example-sx-modules-xsd-topic-mod.git#1.0.0",
+		"dita-example-sx-modules-xsd-ui-domain": "https://github.com/fontoxml/dita-example-sx-modules-xsd-ui-domain.git#1.1.0"
 	}
 }

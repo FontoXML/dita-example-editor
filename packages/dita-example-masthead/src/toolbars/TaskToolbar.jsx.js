@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {
-	Drop,
 	ButtonWithDrop,
+	Drop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
 	Menu

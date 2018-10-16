@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {
-	Drop,
 	ButtonWithDrop,
+	Drop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
 	Menu,
@@ -13,7 +13,7 @@ import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
 import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
 import FxOperationsSplitButtonWithDropMenu from 'fontoxml-fx/FxOperationsSplitButtonWithDropMenu.jsx';
 
-const StructureToolbar = () => (
+const InlineToolbar = () => (
 	<MastheadToolbar>
 		<MastheadToolbarButtons>
 			<ButtonWithDrop
@@ -90,8 +90,17 @@ const StructureToolbar = () => (
 				]}
 				tooltipContent="Any of the below"
 			/>
+
+			<FxOperationsSplitButtonWithDropMenu
+				operations={[
+					{ operationName: ':insert-equation-inline' },
+					{ operationName: ':insert-equation-figure' },
+					{ operationName: ':insert-equation-block' }
+				]}
+				tooltipContent="Any of the below"
+			/>
 		</MastheadToolbarButtons>
 	</MastheadToolbar>
 );
 
-export default StructureToolbar;
+export default InlineToolbar;

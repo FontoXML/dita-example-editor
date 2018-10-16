@@ -1,16 +1,16 @@
 import React from 'react';
 
-import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/FxBooleanXPathQueryByNameFromSelection.jsx';
-import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
-import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
-
 import {
-	Drop,
 	ButtonWithDrop,
+	Drop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
 	Menu
 } from 'fds/components';
+
+import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/FxBooleanXPathQueryByNameFromSelection.jsx';
+import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
+import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
 
 const QuestionToolbar = () => (
 	<FxBooleanXPathQueryByNameFromSelection

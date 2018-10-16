@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {
-	Drop,
 	ButtonWithDrop,
+	Drop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
 	Menu,
@@ -82,18 +82,35 @@ const StructureToolbar = () => (
 
 							<MenuGroup>
 								<FxOperationMenuItem operationName=":insert-dl" />
+								<FxOperationMenuItem operationName=":insert-parml" />
+								<FxOperationMenuItem operationName=":insert-properties" />
 							</MenuGroup>
 						</Menu>
 					</Drop>
 				)}
 			/>
 
-			<FxOperationButton operationName=":insert-dl" />
+			<FxOperationsSplitButtonWithDropMenu
+				operations={[
+					{ operationName: ':insert-dl' },
+					{ operationName: ':insert-parml' },
+					{ operationName: ':insert-properties' }
+				]}
+			/>
 
 			<FxOperationsSplitButtonWithDropMenu
 				operations={[
 					{ operationName: ':insert-fig.image' },
 					{ operationName: ':insert-image' }
+				]}
+				tooltipContent="Any of the below"
+			/>
+
+			<FxOperationsSplitButtonWithDropMenu
+				operations={[
+					{ operationName: ':insert-equation-figure' },
+					{ operationName: ':insert-equation-block' },
+					{ operationName: ':insert-equation-inline' }
 				]}
 				tooltipContent="Any of the below"
 			/>
@@ -117,8 +134,14 @@ const StructureToolbar = () => (
 				renderDrop={() => (
 					<Drop>
 						<Menu>
-							<FxOperationMenuItem operationName=":insert-section" />
-							<FxOperationMenuItem operationName=":insert-example" />
+							<MenuGroup>
+								<FxOperationMenuItem operationName=":insert-section" />
+								<FxOperationMenuItem operationName=":insert-example" />
+							</MenuGroup>
+
+							<MenuGroup>
+								<FxOperationMenuItem operationName=":insert-refsyn" />
+							</MenuGroup>
 						</Menu>
 					</Drop>
 				)}
@@ -133,7 +156,8 @@ const StructureToolbar = () => (
 							<FxMultiOperationsMenuItem
 								operations={[
 									{ operationName: ':insert-bodydiv' },
-									{ operationName: ':insert-conbodydiv' }
+									{ operationName: ':insert-conbodydiv' },
+									{ operationName: ':insert-refbodydiv' }
 								]}
 							/>
 							<FxOperationMenuItem operationName=":insert-sectiondiv" />

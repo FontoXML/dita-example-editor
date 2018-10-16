@@ -73,8 +73,9 @@ define([
 		);
 		configureContextualOperations(
 			sxModule,
-			'fonto:dita-class(., "map/mapref")',
-			MOVE_TOPICREF_OPERATION_NAMES.map(toContextualOperations)
+			'self::mapref',
+			MOVE_TOPICREF_OPERATION_NAMES.map(toContextualOperations),
+			2
 		);
 	};
 });

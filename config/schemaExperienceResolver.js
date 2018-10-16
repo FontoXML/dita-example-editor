@@ -14,6 +14,7 @@ define([
 	'dita-example-sx-shells-learning-plan/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-learning-summary/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-map/SCHEMA_LOCATIONS',
+	'dita-example-sx-shells-reference/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-task/SCHEMA_LOCATIONS',
 	'dita-example-sx-shells-topic/SCHEMA_LOCATIONS'
 ], function (
@@ -32,6 +33,7 @@ define([
 	SCHEMA_LOCATIONS_LEARNING_PLAN,
 	SCHEMA_LOCATIONS_LEARNING_SUMMARY,
 	SCHEMA_LOCATIONS_MAP,
+	SCHEMA_LOCATIONS_REFERENCE,
 	SCHEMA_LOCATIONS_TASK,
 	SCHEMA_LOCATIONS_TOPIC
 	) {
@@ -81,6 +83,10 @@ define([
 		{
 			package: 'dita-example-sx-shells-map',
 			locations: SCHEMA_LOCATIONS_MAP
+		},
+		{
+			package: 'dita-example-sx-shells-reference',
+			locations: SCHEMA_LOCATIONS_REFERENCE
 		},
 		{
 			package: 'dita-example-sx-shells-task',

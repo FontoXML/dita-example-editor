@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {
-	Drop,
 	ButtonWithDrop,
+	Drop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
 	Menu,
@@ -12,7 +12,7 @@ import {
 import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
 import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
 
-const StructureToolbar = () => (
+const AdvancedToolbar = () => (
 	<MastheadToolbar>
 		<MastheadToolbarButtons>
 			<ButtonWithDrop
@@ -63,7 +63,68 @@ const StructureToolbar = () => (
 				)}
 			/>
 		</MastheadToolbarButtons>
+
+		<MastheadToolbarButtons>
+			<ButtonWithDrop
+				label="Reference"
+				renderDrop={() => (
+					<Drop>
+						<Menu>
+							<FxOperationMenuItem operationName=":insert-refsyn" />
+							<FxOperationMenuItem operationName=":insert-properties" />
+						</Menu>
+					</Drop>
+				)}
+			/>
+		</MastheadToolbarButtons>
+
+		<MastheadToolbarButtons>
+			<ButtonWithDrop
+				label="User interface"
+				renderDrop={() => (
+					<Drop>
+						<Menu>
+							<MenuGroup>
+								<FxOperationMenuItem operationName=":insert-screen" />
+							</MenuGroup>
+
+							<MenuGroup>
+								<FxOperationMenuItem operationName=":toggle-wintitle" />
+								<FxOperationMenuItem operationName=":toggle-shortcut" />
+							</MenuGroup>
+
+							<MenuGroup>
+								<FxOperationMenuItem operationName=":insert-menucascade" />
+								<FxOperationMenuItem operationName=":insert-uicontrol" />
+							</MenuGroup>
+						</Menu>
+					</Drop>
+				)}
+			/>
+
+			<ButtonWithDrop
+				label="Programming"
+				renderDrop={() => (
+					<Drop>
+						<Menu>
+							<MenuGroup>
+								<FxOperationMenuItem operationName=":insert-codeblock" />
+								<FxOperationMenuItem operationName=":insert-parml" />
+							</MenuGroup>
+
+							<MenuGroup>
+								<FxOperationMenuItem operationName=":toggle-apiname" />
+								<FxOperationMenuItem operationName=":toggle-codeph" />
+								<FxOperationMenuItem operationName=":toggle-option" />
+								<FxOperationMenuItem operationName=":toggle-parmname" />
+								<FxOperationMenuItem operationName=":toggle-synph" />
+							</MenuGroup>
+						</Menu>
+					</Drop>
+				)}
+			/>
+		</MastheadToolbarButtons>
 	</MastheadToolbar>
 );
 
-export default StructureToolbar;
+export default AdvancedToolbar;

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {
-	Drop,
 	ButtonWithDrop,
+	Drop,
 	MenuItemWithDrop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
@@ -10,8 +10,8 @@ import {
 	MenuGroup
 } from 'fds/components';
 
-import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
 import FxMultiOperationsMenuItem from 'fontoxml-fx/FxMultiOperationsMenuItem.jsx';
+import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
 
 const TableToolbar = () => (
 	<MastheadToolbar>
@@ -25,7 +25,9 @@ const TableToolbar = () => (
 								operations={[
 									{ operationName: 'row-insert' },
 									{ operationName: ':insert-dlentry--above' },
-									{ operationName: ':insert-chrow--above' }
+									{ operationName: ':insert-plentry--above' },
+									{ operationName: ':insert-chrow--above' },
+									{ operationName: ':insert-property--above' }
 								]}
 							/>
 
@@ -33,7 +35,9 @@ const TableToolbar = () => (
 								operations={[
 									{ operationName: 'row-after-insert' },
 									{ operationName: ':insert-dlentry--below' },
-									{ operationName: ':insert-chrow--below' }
+									{ operationName: ':insert-plentry--below' },
+									{ operationName: ':insert-chrow--below' },
+									{ operationName: ':insert-property--below' }
 								]}
 							/>
 
@@ -41,7 +45,9 @@ const TableToolbar = () => (
 								operations={[
 									{ operationName: 'row-delete' },
 									{ operationName: ':delete-dlentry-dlhead' },
-									{ operationName: ':delete-chrow-chhead' }
+									{ operationName: ':delete-plentry' },
+									{ operationName: ':delete-chrow-chhead' },
+									{ operationName: ':delete-property-prophead' }
 								]}
 							/>
 						</Menu>
@@ -56,7 +62,12 @@ const TableToolbar = () => (
 						<Menu>
 							<FxOperationMenuItem operationName="column-insert" />
 							<FxOperationMenuItem operationName="column-after-insert" />
-							<FxOperationMenuItem operationName="column-delete" />
+							<FxMultiOperationsMenuItem
+								operations={[
+									{ operationName: 'column-delete' },
+									{ operationName: ':delete-properties-column' }
+								]}
+							/>
 						</Menu>
 					</Drop>
 				)}
@@ -103,7 +114,8 @@ const TableToolbar = () => (
 												operations={[
 													{ operationName: 'increase-header-row-count' },
 													{ operationName: ':insert-dlhead' },
-													{ operationName: ':insert-chhead' }
+													{ operationName: ':insert-chhead' },
+													{ operationName: ':insert-prophead' }
 												]}
 											/>
 
@@ -111,7 +123,8 @@ const TableToolbar = () => (
 												operations={[
 													{ operationName: 'decrease-header-row-count' },
 													{ operationName: ':delete-dlhead' },
-													{ operationName: ':delete-chhead' }
+													{ operationName: ':delete-chhead' },
+													{ operationName: ':delete-prophead' }
 												]}
 											/>
 										</Menu>

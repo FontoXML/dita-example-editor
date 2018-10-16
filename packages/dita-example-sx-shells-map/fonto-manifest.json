@@ -5,7 +5,9 @@
 		"dita-example-sx-modules-xsd-highlight-domain": "packages-shared/dita-example-sx-modules-xsd-highlight-domain",
 		"dita-example-sx-modules-xsd-map-group-mod": "packages-shared/dita-example-sx-modules-xsd-map-group-mod",
 		"dita-example-sx-modules-xsd-map-mod": "packages-shared/dita-example-sx-modules-xsd-map-mod",
+		"dita-example-sx-modules-xsd-programming-domain": "packages-shared/dita-example-sx-modules-xsd-programming-domain",
 		"dita-example-sx-modules-xsd-tbl-decl-mod": "packages-shared/dita-example-sx-modules-xsd-tbl-decl-mod",
-		"dita-example-sx-pivot-model-translation": "packages-shared/dita-example-sx-pivot-model-translation"
+		"dita-example-sx-modules-xsd-ui-domain": "packages-shared/dita-example-sx-modules-xsd-ui-domain",
+		"dita-example-sx-pivot-model-translation": "packages/dita-example-sx-pivot-model-translation"
 	}
 }
