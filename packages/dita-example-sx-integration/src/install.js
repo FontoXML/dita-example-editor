@@ -7,13 +7,8 @@ define([
 
 	return function install () {
 		addTransform(
-			'setReferenceForPermanentIdOrUrl',
-			function setReferenceForPermanentIdOrUrl (stepData) {
-				if (stepData.permanentId) {
-					stepData.reference = stepData.permanentId;
-					return stepData;
-				}
-
+			'setReferenceForUrl',
+			function setReferenceForUrl (stepData) {
 				stepData.reference = stepData.url;
 				return stepData;
 			});

@@ -39,27 +39,27 @@
 				<lcAnswerOptionGroup2>
 					<lcAnswerOption2 id="A">
 						<lcAnswerContent2>
-							<image href="pid:::image:::images/logo1.png"/>
+							<image href="images/logo1.png"/>
 						</lcAnswerContent2>
 						<lcCorrectResponse2/>
 						<lcFeedback2><p>Yes, that's one.</p></lcFeedback2>
 					</lcAnswerOption2>
 					<lcAnswerOption2 id="B">
 						<lcAnswerContent2>
-							<image href="pid:::image:::images/logo2.png"/>
+							<image href="images/logo2.png"/>
 						</lcAnswerContent2>
 						<lcCorrectResponse2/>
 						<lcFeedback2><p>Yes, that's one.</p></lcFeedback2>
 					</lcAnswerOption2>
 					<lcAnswerOption2 id="C">
 						<lcAnswerContent2>
-							<image href="pid:::image:::images/logo3.jpg"/>
+							<image href="images/logo3.jpg"/>
 						</lcAnswerContent2>
 						<lcFeedback2><p>No, not that one. Sorry!</p></lcFeedback2>
 					</lcAnswerOption2>
 					<lcAnswerOption2 id="D">
 						<lcAnswerContent2>
-							<image href="pid:::image:::images/logo4.jpg"/>
+							<image href="images/logo4.jpg"/>
 						</lcAnswerContent2>
 						<lcCorrectResponse2/>
 						<lcFeedback2><p>Yes, that's one.</p></lcFeedback2>

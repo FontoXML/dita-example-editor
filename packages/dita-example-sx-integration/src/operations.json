@@ -4,18 +4,10 @@
 		"description": "Edit a conref to another existing node.",
 		"steps": [
 			{
-				"type": "transform/retrieveReferenceFromPermanentId",
-				"data": {
-					"contextNodeId": "{{contextNodeId}}",
-					"continueOnError": true,
-					"permanentId": "x__$data('contextNode')/@conref"
-				}
-			},
-			{
 				"type": "transform/resolveDitaUrl",
 				"data": {
 					"continueOnError": true,
-					"url": "{{reference.target}}"
+					"url": "x__$data('contextNode')/@conref"
 				}
 			},
 			{
@@ -36,20 +28,12 @@
 				}
 			},
 			{
-				"type": "transform/createPermanentIdForReference",
-				"data": {
-					"target": "{{url}}",
-					"referenceType": "conref",
-					"metadata": {}
-				}
-			},
-			{
 				"type": "operation/replace-node",
 				"data": {
 					"replacementNodeStructure": [
 						"note",
 						{
-							"conref": "{{permanentId}}"
+							"conref": "{{url}}"
 						}
 					]
 				}
@@ -75,20 +59,12 @@
 				}
 			},
 			{
-				"type": "transform/createPermanentIdForReference",
-				"data": {
-					"target": "{{url}}",
-					"referenceType": "conref",
-					"metadata": {}
-				}
-			},
-			{
 				"type": "operation/vertical-insert",
 				"data": {
 					"childNodeStructure": [
 						"note",
 						{
-							"conref": "{{permanentId}}"
+							"conref": "{{url}}"
 						}
 					]
 				}
@@ -113,8 +89,7 @@
 	":_open-document-with-link-selector-browser-for-edit": {
 		"initialData": {
 			"modalPrimaryButtonLabel": "Save",
-			"modalTitle": "Replace cross link",
-			"referenceType": "document"
+			"modalTitle": "Replace cross link"
 		},
 		"steps": [
 			{
@@ -139,14 +114,13 @@
 				}
 			},
 			{
-				"type": "transform/setReferenceForPermanentIdOrUrl"
+				"type": "transform/setReferenceForUrl"
 			}
 		]
 	},
 	":_open-document-with-link-selector-browser-for-insert": {
 		"initialData": {
-			"modalTitle": "Add cross link",
-			"referenceType": "document"
+			"modalTitle": "Add cross link"
 		},
 		"steps": [
 			{
@@ -160,37 +134,24 @@
 				}
 			},
 			{
-				"type": "transform/setReferenceForPermanentIdOrUrl"
+				"type": "transform/setReferenceForUrl"
 			}
 		]
 	},
 	":_open-image-browser-for-edit": {
 		"steps": [
 			{
-				"type": "transform/retrieveReferenceFromPermanentId",
-				"data": {
-					"contextNodeId": "{{contextNodeId}}",
-					"continueOnError": true,
-					"permanentId": "x__$data('contextNode')/@href"
-				}
-			},
-			{
 				"type": "operation/open-image-browser-modal",
 				"data": {
 					"modalPrimaryButtonLabel": "Replace",
-					"selectedImageId": "{{reference.target}}"
+					"selectedImageId": "x__$data('contextNode')/@href"
 				}
 			},
 			{
-				"type": "transform/createPermanentIdForReference",
+				"type": "transform/setReferenceForUrl",
 				"data": {
-					"target": "{{selectedImageId}}",
-					"referenceType": "image",
-					"metadata": {}
+					"url": "{{selectedImageId}}"
 				}
-			},
-			{
-				"type": "transform/setReferenceForPermanentIdOrUrl"
 			}
 		]
 	},
@@ -200,15 +161,10 @@
 				"type": "operation/open-image-browser-modal"
 			},
 			{
-				"type": "transform/createPermanentIdForReference",
+				"type": "transform/setReferenceForUrl",
 				"data": {
-					"target": "{{selectedImageId}}",
-					"referenceType": "image",
-					"metadata": {}
+					"url": "{{selectedImageId}}"
 				}
-			},
-			{
-				"type": "transform/setReferenceForPermanentIdOrUrl"
 			}
 		]
 	},
@@ -218,7 +174,7 @@
 				"type": "operation/open-web-reference-modal-for-edit"
 			},
 			{
-				"type": "transform/setReferenceForPermanentIdOrUrl"
+				"type": "transform/setReferenceForUrl"
 			}
 		]
 	},
@@ -228,7 +184,7 @@
 				"type": "operation/open-web-reference-modal-for-insert"
 			},
 			{
-				"type": "transform/setReferenceForPermanentIdOrUrl"
+				"type": "transform/setReferenceForUrl"
 			}
 		]
 	}

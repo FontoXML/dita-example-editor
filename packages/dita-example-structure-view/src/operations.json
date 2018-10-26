@@ -20,19 +20,11 @@
 				}
 			},
 			{
-				"type": "transform/createPermanentIdForReference",
-				"data": {
-					"target": "{{url}}",
-					"referenceType": "document",
-					"metadata": {}
-				}
-			},
-			{
 				"type": "operation/append-topicref",
 				"data": {
 					"contextNodeId": "{{contextNodeId}}",
 					"targetDocumentId": "{{documentId}}",
-					"targetHref": "{{permanentId}}"
+					"targetHref": "{{url}}"
 				}
 			}
 		]
@@ -55,19 +47,11 @@
 				}
 			},
 			{
-				"type": "transform/createPermanentIdForReference",
-				"data": {
-					"target": "{{url}}",
-					"referenceType": "document",
-					"metadata": {}
-				}
-			},
-			{
 				"type": "operation/append-topicref",
 				"data": {
 					"contextNodeId": "{{contextNodeId}}",
 					"targetDocumentId": "{{documentId}}",
-					"targetHref": "{{permanentId}}"
+					"targetHref": "{{url}}"
 				}
 			}
 		]

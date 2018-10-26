@@ -1,11 +1,17 @@
 define([
 	'fontoxml-dom-namespaces/namespaceManager',
 	'fontoxml-dita/configureAsConref',
-	'fontoxml-families/configureAsRemoved'
+	'fontoxml-families/configureAsRemoved',
+
+	'dita-example-sx-modules-xsd-common-element-mod/configureImageWithoutPermanentId',
+	'dita-example-sx-modules-xsd-hazard-domain/configureHazardsymbolWithoutPermanentId'
 ], function (
 	namespaceManager,
 	configureAsConref,
-	configureAsRemoved
+	configureAsRemoved,
+
+	configureImageWithoutPermanentId,
+	configureHazardsymbolWithoutPermanentId
 ) {
 	'use strict';
 
@@ -36,7 +42,12 @@ define([
 			popoverData: {
 				editOperationName: 'contextual-edit-note[@conref]'
 			},
-			blockHeaderLeft:[]
+			blockHeaderLeft:[],
+			blockOutsideAfter: []
 		});
+
+		// Configure everything without permanentIds
+		configureImageWithoutPermanentId(sxModule);
+		configureHazardsymbolWithoutPermanentId(sxModule);
 	};
 });
