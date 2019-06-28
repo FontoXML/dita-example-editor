@@ -1,14 +1,14 @@
 # dita-example-editor
 
-> This is an example editor configuration for DITA 1.3 element support in FontoXML. The code in this repository is for
-  educational purposes. FontoXML does not provide any warranty with regards to feature-completeness or stability of this
+> This is an example editor configuration for DITA 1.3 element support in Fonto. The code in this repository is for
+  educational purposes. Fonto does not provide any warranty with regards to feature-completeness or stability of this
   package. Please see the license file for more information.
 
 The proprietary code in `platform/` and `tools/` is not included with this repository. Please use the [FontoXML
 development tools](https://www.npmjs.com/package/@fontoxml/fontoxml-development-tools) to perform an SDK upgrade in
 order to download this code. See also the install instructions.
 
-This FontoXML editor uses [bower](https://bower.io) to install element configuration for the different XSD modules in
+This Fonto editor uses [bower](https://bower.io) to install element configuration for the different XSD modules in
 [the schema](https://github.com/fontoxml/dita-example-schema-bundle) that is used for this editor.
 
 
