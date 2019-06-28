@@ -1,8 +1,8 @@
 import React from 'react';
 
-import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/FxBooleanXPathQueryByNameFromSelection.jsx';
-import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
-import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
+import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection.jsx';
+import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
+import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
 
 import {
 	ButtonWithDrop,

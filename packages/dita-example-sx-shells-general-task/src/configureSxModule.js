@@ -1,13 +1,6 @@
-define([
-	'fontoxml-families/configureMarkupLabel',
-	'fontoxml-localization/t'
-], function (
-	configureMarkupLabel,
-	t
-) {
-	'use strict';
+import configureMarkupLabel from 'fontoxml-families/src/configureMarkupLabel.js';
+import t from 'fontoxml-localization/src/t.js';
 
-	return function configureSxModule (sxModule) {
-		configureMarkupLabel(sxModule, 'self::task', t('general task'));
-	};
-});
+export default function configureSxModule(sxModule) {
+	configureMarkupLabel(sxModule, 'self::task', t('general task'));
+}

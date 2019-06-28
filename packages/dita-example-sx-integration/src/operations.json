@@ -71,21 +71,6 @@
 			}
 		]
 	},
-	"shift+tab": {
-		"keyBinding": "shift+tab",
-		"alternatives": [
-			"navigate-to-previous-item-in-tab-context",
-			"outdent-list-item"
-		]
-	},
-	"tab": {
-		"keyBinding": "tab",
-		"alternatives": [
-			"insert-row-on-tab",
-			"navigate-to-next-item-in-tab-context",
-			"indent-list-item"
-		]
-	},
 	":_open-document-with-link-selector-browser-for-edit": {
 		"initialData": {
 			"modalPrimaryButtonLabel": "Save",

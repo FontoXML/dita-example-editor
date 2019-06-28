@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MastheadToolbar, MastheadToolbarButtons } from 'fds/components';
 
-import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
+import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
 
 const StartToolbar = () => (
 	<MastheadToolbar>

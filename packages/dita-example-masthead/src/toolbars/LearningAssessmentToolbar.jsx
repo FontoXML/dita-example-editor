@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
+import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
 
 import { MastheadToolbar, MastheadToolbarButtons } from 'fds/components';
 

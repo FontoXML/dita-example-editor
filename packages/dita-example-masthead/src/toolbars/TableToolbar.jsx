@@ -10,8 +10,8 @@ import {
 	MenuGroup
 } from 'fds/components';
 
-import FxMultiOperationsMenuItem from 'fontoxml-fx/FxMultiOperationsMenuItem.jsx';
-import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
+import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem.jsx';
+import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
 
 const TableToolbar = () => (
 	<MastheadToolbar>

@@ -1,17 +1,8 @@
-define([
-	'fontoxml-operations/addTransform'
-], function (
-	addTransform
-	) {
-	'use strict';
+import addTransform from 'fontoxml-operations/src/addTransform.js';
 
-	return function install () {
-		addTransform(
-			'setReferenceForUrl',
-			function setReferenceForUrl (stepData) {
-				stepData.reference = stepData.url;
-				return stepData;
-			});
-
-	};
-});
+export default function install() {
+	addTransform('setReferenceForUrl', function setReferenceForUrl(stepData) {
+		stepData.reference = stepData.url;
+		return stepData;
+	});
+}

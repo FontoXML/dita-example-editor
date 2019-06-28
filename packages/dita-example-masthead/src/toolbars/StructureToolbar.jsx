@@ -10,11 +10,11 @@ import {
 	MenuItemWithDrop
 } from 'fds/components';
 
-import FxMultiOperationsMenuItem from 'fontoxml-fx/FxMultiOperationsMenuItem.jsx';
-import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
-import FxOperationInsertTableMenu from 'fontoxml-fx/FxOperationInsertTableMenu.jsx';
-import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
-import FxOperationsSplitButtonWithDropMenu from 'fontoxml-fx/FxOperationsSplitButtonWithDropMenu.jsx';
+import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem.jsx';
+import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
+import FxOperationInsertTableMenu from 'fontoxml-fx/src/FxOperationInsertTableMenu.jsx';
+import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
+import FxOperationsSplitButtonWithDropMenu from 'fontoxml-fx/src/FxOperationsSplitButtonWithDropMenu.jsx';
 
 const StructureToolbar = () => (
 	<MastheadToolbar>

@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Flex } from 'fds/components';
 
-import FindAndReplaceDropButton from 'fontoxml-find-and-replace/FindAndReplaceDropButton.jsx';
-import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/FxBooleanXPathQueryByNameFromSelection.jsx';
-import FxEditorMasthead from 'fontoxml-fx/FxEditorMasthead.jsx';
-import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
-import FxSaveButton from 'fontoxml-fx/FxSaveButton.jsx';
+import FindAndReplaceDropButton from 'fontoxml-find-and-replace/src/FindAndReplaceDropButton.jsx';
+import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection.jsx';
+import FxEditorMasthead from 'fontoxml-fx/src/FxEditorMasthead.jsx';
+import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
+import FxSaveButton from 'fontoxml-fx/src/FxSaveButton.jsx';
 
 import AdvancedToolbar from './toolbars/AdvancedToolbar.jsx';
 import GlossaryToolbar from './toolbars/GlossaryToolbar.jsx';
@@ -43,7 +43,8 @@ const tabs = result => [
 	{
 		id: 'table',
 		label: 'Table',
-		isVisibleTabQuery: 'ancestor-or-self::*[self::table or self::simpletable or self::dl or self::parml or self::properties or self::choicetable]',
+		isVisibleTabQuery:
+			'ancestor-or-self::*[self::table or self::simpletable or self::dl or self::parml or self::properties or self::choicetable]',
 		isHighlightedTab: true,
 		content: <TableToolbar />
 	},
@@ -64,7 +65,8 @@ const tabs = result => [
 	{
 		id: 'learning',
 		label: 'Learning & training',
-		isVisibleTabQuery: 'ancestor-or-self::*[self::learningAssessment or self::learningPlan or self::learningOverview or self::learningSummary or self::learningContent]',
+		isVisibleTabQuery:
+			'ancestor-or-self::*[self::learningAssessment or self::learningPlan or self::learningOverview or self::learningSummary or self::learningContent]',
 		isHighlightedTab: true,
 		content: <LearningTrainingToolbar />
 	},
@@ -80,7 +82,7 @@ const tabs = result => [
 	{ id: 'tools', label: 'Tools', content: <ToolsToolbar /> }
 ];
 
-export default function DitaExampleMasthead () {
+export default function DitaExampleMasthead() {
 	return (
 		<FxBooleanXPathQueryByNameFromSelection
 			xpathQueryByName={{

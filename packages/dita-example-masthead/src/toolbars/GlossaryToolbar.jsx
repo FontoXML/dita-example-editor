@@ -9,8 +9,8 @@ import {
 	MenuGroup
 } from 'fds/components';
 
-import FxOperationButton from 'fontoxml-fx/FxOperationButton.jsx';
-import FxOperationMenuItem from 'fontoxml-fx/FxOperationMenuItem.jsx';
+import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
+import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
 
 const GlossaryToolbar = () => (
 	<MastheadToolbar>

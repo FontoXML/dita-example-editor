@@ -1,15 +1,6 @@
-define([
-	'fontoxml-modular-ui/uiManager',
+import uiManager from 'fontoxml-modular-ui/src/uiManager.js';
+import DitaExampleMasthead from './DitaExampleMasthead.jsx';
 
-	'./DitaExampleMasthead.jsx'
-], function (
-	uiManager,
-
-	DitaExampleMasthead
-) {
-	'use strict';
-
-	return function install () {
-		uiManager.registerReactComponent('Masthead', DitaExampleMasthead);
-	};
-});
+export default function install() {
+	uiManager.registerReactComponent('Masthead', DitaExampleMasthead);
+}
