@@ -21,7 +21,7 @@ This Fonto editor uses [bower](https://bower.io) to install element configuratio
 - Upgrade the platform code
   ```
   $ cd dita-example-editor
-  $ fdt editor upgrade
+  $ npm install
   ```
 
 

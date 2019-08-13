@@ -4,9 +4,9 @@
   "description": "Example DITA 1.3 editor serving as starting point for further development.",
   "private": true,
   "scripts": {
-    "postinstall": "bower install"
-  },
-  "devDependencies": {
-    "bower": "^1.8.2"
+    "start": "fdt editor run",
+    "postinstall": "npm run install-fonto-platform && npm run install-sx-modules",
+    "install-sx-modules": "npx bower install",
+    "install-fonto-platform": "fdt editor upgrade --non-interactive --remove-backup"
   }
 }
