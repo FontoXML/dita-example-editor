@@ -156,7 +156,10 @@
 	":_open-web-reference-modal-for-edit": {
 		"steps": [
 			{
-				"type": "operation/open-web-reference-modal-for-edit"
+				"type": "operation/open-web-reference-modal-for-edit",
+				"data": {
+					"url": "x__$data('contextNode')/@href"
+				}
 			},
 			{
 				"type": "transform/setReferenceForUrl"
