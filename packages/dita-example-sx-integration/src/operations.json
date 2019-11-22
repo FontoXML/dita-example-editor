@@ -126,10 +126,17 @@
 	":_open-image-browser-for-edit": {
 		"steps": [
 			{
+				"type": "transform/setDocumentIdToDocumentContainingContextNodeId"
+			},
+			{
+				"type": "transform/setRemoteDocumentIdFromDocumentId"
+			},
+			{
 				"type": "operation/open-image-browser-modal",
 				"data": {
 					"modalPrimaryButtonLabel": "Replace",
-					"selectedImageId": "x__$data('contextNode')/@href"
+					"selectedImageId": "x__$data('contextNode')/@href",
+					"browseContextDocumentId": "{{remoteDocumentId}}"
 				}
 			},
 			{
