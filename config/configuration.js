@@ -1,5 +1,9 @@
 import configurationManager from 'fontoxml-configuration/src/configurationManager.js';
 
+import attributesEditorConfigurationJson from './attributesEditorConfiguration.json';
+
+configurationManager.set('attributes-editor-configuration', attributesEditorConfigurationJson);
+
 configurationManager.set('paragraph-node-name-for-pasting', 'p');
 
 configurationManager.set('conrefs-use-permanent-references', false);
