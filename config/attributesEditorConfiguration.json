@@ -1,1 +1,101 @@
-{}
+{
+	"self::p": {
+		"outputclass": {
+			"localName": "outputclass",
+			"label": "Outputclass",
+			"display": "input",
+			"properties": {
+				"type": "text"
+			}
+		},
+		"id": {
+            "localName": "id",
+            "label": "Identifier",
+            "display": "readonly"
+        },
+		"rev": {
+            "localName": "rev",
+            "label": "Revision",
+            "display": "input",
+            "properties": {
+                "type": "number",
+                "numberOfDecimals": 0
+            }
+        },
+		"platform": {
+            "localName": "platform",
+            "label": "Platform",
+            "display": "select",
+            "properties": {
+                "options": [
+                    {
+                        "label": "Microsoft Windows",
+                        "value": "win"
+                    },
+                    {
+                        "label": "Any Linux/Unix distribution",
+                        "value": "unix"
+                    },
+                    {
+                        "label": "Apple OSX",
+                        "value": "osx"
+                    }
+                ]
+            }
+        },
+		"importance": {
+            "localName": "importance",
+            "label": "Importance",
+            "display": "autocomplete",
+            "properties": {
+                "options": [
+                    {
+                        "label": "Deprecated",
+                        "value": "deprecated"
+                    },
+                    {
+                        "label": "Optional",
+                        "value": "optional"
+                    },
+                    {
+                        "label": "Default",
+                        "value": "default"
+                    },
+                    {
+                        "label": "Low",
+                        "value": "low"
+                    },
+                    {
+                        "label": "Normal",
+                        "value": "normal"
+                    },
+                    {
+                        "label": "High",
+                        "value": "high"
+                    },
+                    {
+                        "label": "Recommended",
+                        "value": "recommended"
+                    },
+                    {
+                        "label": "Required",
+                        "value": "required"
+                    },
+                    {
+                        "label": "Urgent",
+                        "value": "urgent"
+                    }
+                ]
+            }
+        },
+		"otherprops": {
+            "localName": "otherprops",
+            "label": "Otherprops",
+            "display": "button-with-value-from-modal",
+            "properties": {
+                "modalComponentName": "OtherpropsModal",
+                "icon": "medal"
+            }
+        }
+	}
+}
