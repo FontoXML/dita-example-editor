@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+		"dita-example-attributes": "packages/dita-example-attributes",
 		"dita-example-masthead": "packages/dita-example-masthead",
 		"dita-example-question-type-browser": "packages/dita-example-question-type-browser",
 		"dita-example-structure-view": "packages/dita-example-structure-view",
