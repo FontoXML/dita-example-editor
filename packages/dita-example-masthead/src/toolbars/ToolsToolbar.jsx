@@ -57,6 +57,32 @@ const ToolsToolbar = () => (
 		</MastheadToolbarButtons>
 
 		<MastheadToolbarButtons>
+			<ButtonWithDrop
+				icon="edit"
+				label="Track Changes"
+				renderDrop={() => (
+					<Drop>
+						<Menu>
+							<FxMultiOperationsMenuItem
+								operations={[
+									{ operationName: 'start-tracking-changes' },
+									{
+										operationName:
+											'accept-all-changes-and-stop-tracking-changes'
+									}
+								]}
+							/>
+							<FxOperationMenuItem operationName="accept-all-changes" />
+							<FxOperationMenuItem operationName="accept-all-changes-in-document" />
+							<FxOperationMenuItem operationName="reject-all-changes" />
+							<FxOperationMenuItem operationName="reject-all-changes-in-document" />
+						</Menu>
+					</Drop>
+				)}
+			/>
+		</MastheadToolbarButtons>
+
+		<MastheadToolbarButtons>
 			<FxOperationButton
 				icon="align-right icon-flip-vertical"
 				label="Outline"
