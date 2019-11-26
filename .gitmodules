@@ -1,0 +1,11 @@
+[submodule "document-history/backend"]
+	path = document-history/backend
+	url = git@bitbucket.org:liones/fontoxml-apps-documenthistory.git
+	branch = master
+[submodule "document-history/compare"]
+	path = document-history/compare
+	url = git@bitbucket.org:liones/dita-document-history-deltaxml.git
+[submodule "packages/fontoxml-review-reference-configuration"]
+	path = packages/fontoxml-review-reference-configuration
+	url = git@github.com:FontoXML/fontoxml-review-reference-configuration.git
+	branch = develop

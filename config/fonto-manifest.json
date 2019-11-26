@@ -19,6 +19,8 @@
 		"dita-example-sx-shells-reference": "packages/dita-example-sx-shells-reference",
 		"dita-example-sx-shells-task": "packages/dita-example-sx-shells-task",
 		"dita-example-sx-shells-topic": "packages/dita-example-sx-shells-topic",
+		"fontoxml-review-reference-configuration": "packages/fontoxml-review-reference-configuration",
+
 		"fontoxml-annotations": "platform/fontoxml-annotations",
 		"fontoxml-attributes-editor": "platform/fontoxml-attributes-editor",
 		"fontoxml-clipboard-instruction-modal": "platform/fontoxml-clipboard-instruction-modal",
@@ -26,6 +28,8 @@
 		"fontoxml-content-quality": "platform/fontoxml-content-quality",
 		"fontoxml-content-quality-languagetool": "platform/fontoxml-content-quality-languagetool",
 		"fontoxml-crosslink-references": "platform/fontoxml-crosslink-references",
+		"fontoxml-document-history": "platform/fontoxml-document-history",
+		"fontoxml-document-history-annotations": "platform/fontoxml-document-history-annotations",
 		"fontoxml-dita": "platform/fontoxml-dita",
 		"fontoxml-feedback": "platform/fontoxml-feedback",
 		"fontoxml-find-and-replace": "platform/fontoxml-find-and-replace",

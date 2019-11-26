@@ -24,6 +24,10 @@
 		"fontoxml-whitespace-visualization",
 		"fontoxml-xml-view"
 	],
+	"legacyAddonNames": [
+		"fontoxml-document-history",
+		"fontoxml-document-history-annotations"
+	],
 	"edition": "fontoxml-platform-base",
 	"name": "Fonto Editor DITA Example",
 	"sdkBuildDate": "2020-02-12T10:11:17.739Z",

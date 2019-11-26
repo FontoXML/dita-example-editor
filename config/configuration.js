@@ -4,10 +4,12 @@ import attributesEditorConfigurationJson from './attributesEditorConfiguration.j
 
 configurationManager.set('attributes-editor-configuration', attributesEditorConfigurationJson);
 
-configurationManager.set('paragraph-node-name-for-pasting', 'p');
+configurationManager.set('content-quality-configuration', {});
 
 configurationManager.set('conrefs-use-permanent-references', false);
 configurationManager.set('map-manager-use-permanent-references', false);
+
+configurationManager.set('paragraph-node-name-for-pasting', 'p');
 
 configurationManager.set('preferred-locales', ['en']);
 

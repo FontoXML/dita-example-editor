@@ -1,6 +1,5 @@
 {
 	"dependencies": {
-		"fontoxml-platform-base": "platform/fontoxml-platform-base",
-		"fontoxml-attributes-editor": "platform/fontoxml-attributes-editor"
+		"fontoxml-platform-base": "platform/fontoxml-platform-base"
 	}
 }
