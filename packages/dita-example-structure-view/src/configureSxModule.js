@@ -1,4 +1,5 @@
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
+import addReducer from 'fontoxml-indices/src/addReducer.js';
 import configureAsStructureViewItem from 'fontoxml-structure-view/src/configureAsStructureViewItem.js';
 
 const INSERT_TOPICREF_OPERATION_NAMES = [
@@ -28,22 +29,41 @@ function toContextualOperations(operationName) {
 export default function configureSxModule(sxModule) {
 	sxModule.markAsAddon();
 
+	addReducer(
+		'http://www.fontoxml.com/app',
+		'calculateStructureViewItemNumber',
+		'self::topicref or self::topicgroup or self::topichead or self::glossentry',
+		'http://www.fontoxml.com/app',
+		'onReduceStructureViewItemToNumber'
+	);
+
 	configureAsStructureViewItem(sxModule, 'self::map', {
 		icon: 'folder-open-o',
 		// Recursion is handled by the documents hierarchy
 		recursionQuery: '()'
 	});
 
+	// TODO: not sure this should be in the structure view
 	configureAsStructureViewItem(sxModule, 'self::topicgroup', {
 		icon: 'folder-open-o',
 		// Recursion is handled by the documents hierarchy
-		recursionQuery: '()'
+		recursionQuery: '()',
+		titleQuery: `
+			import module namespace app = "http://www.fontoxml.com/app";
+			(: TODO: the ./topicmeta/navtitle part here is a bit naive/simplistic, it would be better to use the actual titleQuery for self::topichead here :)
+			string-join(app:calculateStructureViewItemNumber(fonto:current-hierarchy-node-id(), .), ".") || " - " || ./topicmeta/navtitle
+		`
 	});
 
 	configureAsStructureViewItem(sxModule, 'self::topichead', {
 		icon: 'folder-open-o',
 		// Recursion is handled by the documents hierarchy
-		recursionQuery: '()'
+		recursionQuery: '()',
+		titleQuery: `
+			import module namespace app = "http://www.fontoxml.com/app";
+			(: TODO: the ./topicmeta/navtitle part here is a bit naive/simplistic, it would be better to use the actual titleQuery for self::topichead here :)
+			string-join(app:calculateStructureViewItemNumber(fonto:current-hierarchy-node-id(), .), ".") || " - " || ./topicmeta/navtitle
+		`
 	});
 
 	configureAsStructureViewItem(sxModule, 'self::glossgroup', {
@@ -52,8 +72,26 @@ export default function configureSxModule(sxModule) {
 	});
 
 	configureAsStructureViewItem(sxModule, 'fonto:dita-class(., "topic/topic")', {
-		icon: 'file-text-o'
+		icon: 'file-text-o',
+		titleQuery: `
+			import module namespace app = "http://www.fontoxml.com/app";
+			(: TODO: the ./title part here is a bit naive/simplistic, it would be better to use the actual titleQuery for self::topic here :)
+			string-join(app:calculateStructureViewItemNumber(fonto:current-hierarchy-node-id(), .), ".") || " - " || ./title
+		`
 	});
+
+	configureAsStructureViewItem(
+		sxModule,
+		'fonto:dita-class(., "topic/topic") and self::glossentry',
+		{
+			icon: 'file-text-o',
+			titleQuery: `
+				import module namespace app = "http://www.fontoxml.com/app";
+				(: TODO: the ./glossterm part here is a bit naive/simplistic, it would be better to use the actual titleQuery for self::glossentry here :)
+				string-join(app:calculateStructureViewItemNumber(fonto:current-hierarchy-node-id(), .), ".") || " - " || ./glossterm
+			`
+		}
+	);
 
 	configureContextualOperations(
 		sxModule,
