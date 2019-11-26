@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  document-history:
+    build:
+      context: ./backend
+    environment:
+      Cms__ApiBaseUrl: "http://host.docker.internal:8080/connectors/cms/standard/"
+      Compare__ApiBaseUrl: "http://document-history-compare:8080/"
+    image: "fonto/document-history/backend-sdk:latest"
+    ports:
+      - 7000:80
+
+  document-history-compare:
+    build:
+      context: ./compare
+    image: "fonto/document-history/backend-compare:latest"

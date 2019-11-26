@@ -9,6 +9,8 @@ import {
 	MenuGroup
 } from 'fds/components';
 
+import DocumentHistoryShowChangesButton from 'fontoxml-document-history/src/DocumentHistoryShowChangesButton.jsx';
+
 import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem.jsx';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
@@ -53,10 +55,6 @@ const ToolsToolbar = () => (
 		</MastheadToolbarButtons>
 
 		<MastheadToolbarButtons>
-			<FxOperationButton operationName="toggle-spell-checker" />
-		</MastheadToolbarButtons>
-
-		<MastheadToolbarButtons>
 			<ButtonWithDrop
 				icon="edit"
 				label="Track Changes"
@@ -80,6 +78,12 @@ const ToolsToolbar = () => (
 					</Drop>
 				)}
 			/>
+
+			<DocumentHistoryShowChangesButton />
+		</MastheadToolbarButtons>
+
+		<MastheadToolbarButtons>
+			<FxOperationButton operationName="toggle-spell-checker" />
 		</MastheadToolbarButtons>
 
 		<MastheadToolbarButtons>
