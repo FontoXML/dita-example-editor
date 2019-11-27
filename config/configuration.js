@@ -32,3 +32,15 @@ configurationManager.set('unique-id-configurations', [
 		localName: 'id'
 	}
 ]);
+
+const scope = configurationManager.get('scope');
+if (scope.configuration && typeof scope.configuration === 'object') {
+	// eslint-disable-next-line no-console
+	console.info('Reading scope.configuration from the current URL…');
+	Object.keys(scope.configuration).forEach(configurationKey => {
+		const configurationValue = scope.configuration[configurationKey];
+		// eslint-disable-next-line no-console
+		console.info(`Setting "${configurationKey}" to:`, configurationValue);
+		configurationManager.set(configurationKey, configurationValue);
+	});
+}
