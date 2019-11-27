@@ -50,6 +50,9 @@ module.exports = () => {
 
 	return {
 		scope: {
+			configuration: {
+				'app/use-sheet-frame-headers': true
+			},
 			documentIds: documentIds,
 			user: {
 				displayName: userDisplayName,
