@@ -9,6 +9,8 @@ configurationManager.set('content-quality-configuration', {});
 configurationManager.set('conrefs-use-permanent-references', false);
 configurationManager.set('map-manager-use-permanent-references', false);
 
+configurationManager.set('enable-experiment/drag-and-drop-in-structure-view-sidebar', true);
+
 configurationManager.set('paragraph-node-name-for-pasting', 'p');
 
 configurationManager.set('preferred-locales', ['en']);
