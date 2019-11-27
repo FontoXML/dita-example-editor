@@ -11,11 +11,6 @@ the install instructions in this README file.
 This Fonto configuration uses [bower](https://bower.io) to install element configuration for the different XSD modules
 in [the schema](https://github.com/fontoxml/dita-example-schema-bundle) that is used for this editor.
 
-> This is an example editor for (internal) test and development purposes.
-  It integrates as much of the optional functionality we have available via (legacy) addons.
-  Also refer to the test matrix: https://docs.google.com/spreadsheets/d/1eWk6fIQnvTTi0FbT4ihwGQ9OdlDQgGzaeFDUG2tG0sw/edit#gid=0
-  Please read this README carefully to get everything up-and-running locally.
-  Make sure to init/update the git submodules!
 
 ## Installation
 
@@ -104,7 +99,6 @@ Content quality is integrated in this editor with this configuration:
 $ cd ./content-quality
 $ fdt fcq run
 ```
-
 
 
 ## Document history
