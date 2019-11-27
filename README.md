@@ -78,16 +78,12 @@ See also:
 
 Content quality is integrated in this editor with this configuration:
 ```
-<analysis xmlns="http://schemas.fontoxml.com/fcq/1.0/analysis-configuration.xsd" xmlns:words="urn:fontoxml:fcq:annotations:words:1.0.0">
+<analysis xmlns="http://schemas.fontoxml.com/fcq/1.0/analysis-configuration.xsd">
 	<sequential>
 		<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
 			<spellingErrorMapping categories="TYPOS"/>
 			<grammarErrorMapping categories="CASING COMPOUNDING CONFUSED_WORDS GRAMMAR MISC REDUNDANCY SEMANTICS COLLOQUIALISMS"/>
 		</languageToolAnnotator>
-
-		<!-- Custom white list words -->
-		<!-- We do not have a white list configured in LanguageTool -->
-		<regexAnnotator pattern="XPath|Fonto" ignoreCase="true" annotationTypeId="words:whitelisted" />
 	</sequential>
 </analysis>
 ```
