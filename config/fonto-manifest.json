@@ -34,6 +34,7 @@
 		"fontoxml-dita": "platform/fontoxml-dita",
 		"fontoxml-feedback": "platform/fontoxml-feedback",
 		"fontoxml-find-and-replace": "platform/fontoxml-find-and-replace",
+		"fontoxml-integration-connectors": "platform/fontoxml-integration-connectors",
 		"fontoxml-mathml": "platform/fontoxml-mathml",
 		"fontoxml-nodes-browser": "platform/fontoxml-nodes-browser",
 		"fontoxml-operations-browser": "platform/fontoxml-operations-browser",

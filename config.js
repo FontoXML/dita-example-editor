@@ -53,7 +53,7 @@ module.exports = () => {
 			configuration: {
 				'app/use-sheet-frame-headers': true
 			},
-			documentIds: documentIds,
+			documentIds: [],
 			user: {
 				displayName: userDisplayName,
 				id: userId,
