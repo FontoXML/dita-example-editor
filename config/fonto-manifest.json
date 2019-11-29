@@ -4,6 +4,7 @@
 		"dita-example-masthead": "packages/dita-example-masthead",
 		"dita-example-question-type-browser": "packages/dita-example-question-type-browser",
 		"dita-example-sheet-frame-headers": "packages/dita-example-sheet-frame-headers",
+		"dita-example-special-characters": "packages/dita-example-special-characters",
 		"dita-example-structure-view": "packages/dita-example-structure-view",
 		"dita-example-sx-integration": "packages/dita-example-sx-integration",
 		"dita-example-sx-shells-basemap": "packages/dita-example-sx-shells-basemap",
