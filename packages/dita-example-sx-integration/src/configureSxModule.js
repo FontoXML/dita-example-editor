@@ -1,5 +1,6 @@
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager.js';
 import configureAsConref from 'fontoxml-dita/src/configureAsConref.js';
+import configureProperties from 'fontoxml-families/src/configureProperties.js';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved.js';
 import configureImageWithoutPermanentId from 'dita-example-sx-modules-xsd-common-element-mod/src/configureImageWithoutPermanentId.js';
 import configureHazardsymbolWithoutPermanentId from 'dita-example-sx-modules-xsd-hazard-domain/src/configureHazardsymbolWithoutPermanentId.js';
@@ -38,4 +39,14 @@ export default function configureSxModule(sxModule) {
 	// Configure everything without permanentIds
 	configureImageWithoutPermanentId(sxModule);
 	configureHazardsymbolWithoutPermanentId(sxModule);
+
+	// table
+	configureProperties(sxModule, 'self::table', {
+		contextualOperations: [
+			{ name: ':cals-table-insert-title' },
+			{ name: ':cals-table-insert-desc' },
+			{ name: 'cals-open-table-column-sizing-popover' },
+			{ name: 'cals-table-delete' }
+		]
+	});
 }
