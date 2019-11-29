@@ -2,6 +2,8 @@ import React from 'react';
 
 import { MastheadToolbar, MastheadToolbarButtons } from 'fds/components';
 
+import QuickAccessSymbolsDropButton from 'dita-example-special-characters/src/QuickAccessSymbolsDropButton.jsx';
+
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
 
 const StartToolbar = () => (
@@ -33,7 +35,7 @@ const StartToolbar = () => (
 		</MastheadToolbarButtons>
 
 		<MastheadToolbarButtons>
-			<FxOperationButton operationName="default-special-character-insert" />
+			<QuickAccessSymbolsDropButton />
 		</MastheadToolbarButtons>
 	</MastheadToolbar>
 );
