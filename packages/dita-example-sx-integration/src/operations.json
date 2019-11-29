@@ -150,7 +150,19 @@
 	":_open-image-browser-for-insert": {
 		"steps": [
 			{
-				"type": "operation/open-image-browser-modal"
+				"type": "transform/setContextNodeIdToSelectedElement"
+			},
+			{
+				"type": "transform/setDocumentIdToDocumentContainingContextNodeId"
+			},
+			{
+				"type": "transform/setRemoteDocumentIdFromDocumentId"
+			},
+			{
+				"type": "operation/open-image-browser-modal",
+				"data": {
+					"browseContextDocumentId": "{{remoteDocumentId}}"
+				}
 			},
 			{
 				"type": "transform/setReferenceForUrl",
