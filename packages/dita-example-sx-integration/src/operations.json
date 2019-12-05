@@ -194,5 +194,197 @@
 				"type": "transform/setReferenceForUrl"
 			}
 		]
+	},
+
+	":_open-project-browser-for-insert": {
+		"initialData": {
+			"modalTitle": "Add local project link"
+		},
+		"steps": [
+			{
+				"type": "operation/open-project-browser-modal"
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForUrl"
+			}
+		]
+	},
+	":_open-project-browser-for-edit": {
+		"initialData": {
+			"modalPrimaryButtonLabel": "Save",
+			"modalTitle": "Replace local project link"
+		},
+		"steps": [
+			{
+				"type": "transform/resolveDitaUrl",
+				"data": {
+					"continueOnError": true,
+					"url": "x__$data('contextNode')/@href"
+				}
+			},
+			{
+				"type": "operation/open-project-browser-modal",
+				"data": {
+					"documentId": "{{targetDocumentId}}",
+					"nodeId": "{{targetNodeId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForUrl"
+			}
+		]
+	},
+
+	":insert-xref[@format=dita @type=local-project]": {
+		"label": "t__Local project link",
+		"description": "t__A link to content in this or another topic tht is already loaded.",
+		"icon": "link",
+		"steps": [
+			{
+				"type": "operation/:_open-project-browser-for-insert"
+			},
+			{
+				"type": "operation/insert-inline-frame-element",
+				"data": {
+					"nodeName": "xref",
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "dita",
+						"type": "local-project"
+					}
+				}
+			}
+		]
+	},
+	":contextual-edit-xref[@format=dita @type=local-project]": {
+		"label": "t__Edit",
+		"steps": [
+			{
+				"type": "operation/:_open-project-browser-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "dita"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+
+	":_open-nodes-browser-for-insert": {
+		"initialData": {
+			"modalTitle": "Add local node link"
+		},
+		"steps": [
+			{
+				"type": "operation/open-nodes-browser-modal"
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForUrl"
+			}
+		]
+	},
+	":_open-nodes-browser-for-edit": {
+		"initialData": {
+			"modalPrimaryButtonLabel": "Save",
+			"modalTitle": "Replace local node link"
+		},
+		"steps": [
+			{
+				"type": "transform/resolveDitaUrl",
+				"data": {
+					"continueOnError": true,
+					"url": "x__$data('contextNode')/@href"
+				}
+			},
+			{
+				"type": "operation/open-nodes-browser-modal",
+				"data": {
+					"documentId": "{{targetDocumentId}}",
+					"nodeId": "{{targetNodeId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForUrl"
+			}
+		]
+	},
+
+	":insert-xref[@format=dita @type=local-node]": {
+		"label": "t__Local node link",
+		"description": "t__A link to content in this or another topic that is already loaded.",
+		"icon": "link",
+		"steps": [
+			{
+				"type": "operation/:_open-nodes-browser-for-insert"
+			},
+			{
+				"type": "operation/insert-inline-frame-element",
+				"data": {
+					"nodeName": "xref",
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "dita",
+						"type": "local-node"
+					}
+				}
+			}
+		]
+	},
+	":contextual-edit-xref[@format=dita @type=local-node]": {
+		"label": "t__Edit",
+		"steps": [
+			{
+				"type": "operation/:_open-nodes-browser-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "dita"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
 	}
 }

@@ -142,6 +142,7 @@ $ fdt review run
 
 ## Extra configuration options
 
+### Application specific configuration options
 This editor allows you to configure anything that you can configure with a configuration variable in
 `config/configuration.js` through the URL as well.
 
@@ -155,3 +156,21 @@ configurationManager.set('app/use-sheet-frame-headers', true)
 
 You can modify this to switch between using the traditional sheet frame widgets and the recommended and more recent
 sheet frame header React component.
+
+If such overrides are present, there are console info messages to indicate which overrides are applied.
+
+
+### Different browse modals
+
+This editor has a working example for every kind of browse modal the SDK has.
+Images are browsed through the cms browse modals, cross links to other nodes are implemented in
+3 different ways:
+1. Regular "Cross link": this uses the browse modal provided by the fontoxml-cms-browsers addon
+2. "Local project link": this uses the browse modal provided by the fontoxml-project-browser addon
+3. "Local node link": this uses the browse modal provided by the fontoxml-nodes-browser addon
+All of them use the same linkableElementsQuery (which is set to every node that has an @id, which is
+practically every node that is visualized as [editable] content).
+You can find insert menu items under the "Link" dropdown in the "Inline" masthead tab.
+After insertion, each link can be edited with the same browse modal used to insert it.
+(This is done by recording a @type attribute on the created xref to associate the appropriate edit
+operation name.)

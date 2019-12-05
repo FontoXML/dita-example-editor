@@ -1,9 +1,12 @@
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager.js';
 import configureAsConref from 'fontoxml-dita/src/configureAsConref.js';
+import configureAsInlineLink from 'fontoxml-families/src/configureAsInlineLink.js';
 import configureProperties from 'fontoxml-families/src/configureProperties.js';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved.js';
 import configureImageWithoutPermanentId from 'dita-example-sx-modules-xsd-common-element-mod/src/configureImageWithoutPermanentId.js';
 import configureHazardsymbolWithoutPermanentId from 'dita-example-sx-modules-xsd-hazard-domain/src/configureHazardsymbolWithoutPermanentId.js';
+
+import t from 'fontoxml-localization/src/t.js';
 
 export default function configureSxModule(sxModule) {
 	// Mark this configureSxModule.js file as an addon entry file, so that we don't have to explicitly depend on
@@ -48,5 +51,27 @@ export default function configureSxModule(sxModule) {
 			{ name: 'cals-open-table-column-sizing-popover' },
 			{ name: 'cals-table-delete' }
 		]
+	});
+
+	// xref
+	configureAsInlineLink(sxModule, 'self::xref[@type="local-project"]', t('link'), undefined, {
+		emptyElementPlaceholderText: t('type the link text'),
+		popoverComponentName: 'DitaCrossReferencePopover',
+		popoverData: {
+			editOperationName: ':contextual-edit-xref[@format=dita @type=local-project]',
+			targetIsPermanentId: false,
+			targetQuery: '@href'
+		},
+		priority: 1000
+	});
+	configureAsInlineLink(sxModule, 'self::xref[@type="local-node"]', t('link'), undefined, {
+		emptyElementPlaceholderText: t('type the link text'),
+		popoverComponentName: 'DitaCrossReferencePopover',
+		popoverData: {
+			editOperationName: ':contextual-edit-xref[@format=dita @type=local-node]',
+			targetIsPermanentId: false,
+			targetQuery: '@href'
+		},
+		priority: 1000
 	});
 }
