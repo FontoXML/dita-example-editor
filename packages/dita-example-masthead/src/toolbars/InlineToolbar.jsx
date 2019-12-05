@@ -78,6 +78,8 @@ const InlineToolbar = () => (
 						<Menu>
 							<FxOperationMenuItem operationName=":insert-xref[@format=html]" />
 							<FxOperationMenuItem operationName=":insert-xref[@format=dita]" />
+							<FxOperationMenuItem operationName=":insert-xref[@format=dita @type=local-project]" />
+							<FxOperationMenuItem operationName=":insert-xref[@format=dita @type=local-node]" />
 						</Menu>
 					</Drop>
 				)}
