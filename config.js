@@ -51,7 +51,8 @@ module.exports = () => {
 	return {
 		scope: {
 			configuration: {
-				'app/use-sheet-frame-headers': true
+				'app/use-sheet-frame-headers': true,
+				'structure-view-expand-items-until-level': 1
 			},
 			documentIds: [],
 			user: {
