@@ -1,0 +1,66 @@
+{
+	"contextual-cals-table-delete": {
+		"label": "t__Remove table",
+		"description": "t__Remove the current table from the document.",
+		"icon": "times",
+		"steps": [
+			{
+				"type": "operation/table-contextual-delete",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/ancestor::table[1]"
+				}
+			}
+		]
+	},
+	"contextual-cals-table-desc-insert": {
+		"label": "t__Add description",
+		"description": "t__Add a description to this figure.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"desc",
+						[{ "bindTo": "selection.start", "empty": true }],
+						["?fontoxml-text-placeholder", "t__text=\"type the description\""],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "x__$data('contextNode')/ancestor::table[1]"
+				}
+			}
+		]
+	},
+	"contextual-cals-table-title-insert": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this figure.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection.start", "empty": true }],
+						["?fontoxml-text-placeholder", "t__text=\"type the title\""],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "x__$data('contextNode')/ancestor::table[1]"
+				}
+			}
+		]
+	},
+
+	"contextual-cals-open-table-column-sizing-popover": {
+		"label": "t__Edit column sizes",
+		"description": "t__Set the column sizing for this table.",
+		"icon": "column-resizer",
+		"steps": [
+			{
+				"type": "operation/open-table-column-sizing-popover",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/ancestor::table[1]",
+					"popoverAnchorNodeId": "x__$data('contextNode')/ancestor::tgroup[1]"
+				}
+			}
+		]
+	}
+}

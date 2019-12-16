@@ -51,6 +51,7 @@ module.exports = () => {
 	return {
 		scope: {
 			configuration: {
+				'app/use-default-table-context-menu': false,
 				'app/use-sheet-frame-headers': true,
 				'structure-view-expand-items-until-level': 1
 			},

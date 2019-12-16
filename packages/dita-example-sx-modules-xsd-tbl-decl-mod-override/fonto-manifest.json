@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"fontoxml-platform-base": "platform/fontoxml-platform-base",
+		"dita-example-sx-modules-xsd-tbl-decl-mod": "packages-shared/dita-example-sx-modules-xsd-tbl-decl-mod"
+	}
+}
