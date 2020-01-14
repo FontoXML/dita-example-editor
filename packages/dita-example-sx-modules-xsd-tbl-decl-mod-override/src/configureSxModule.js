@@ -2,7 +2,11 @@ import configurationManager from 'fontoxml-configuration/src/configurationManage
 
 import configureProperties from 'fontoxml-families/src/configureProperties.js';
 
+import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget.js';
+
 import t from 'fontoxml-localization/src/t.js';
+
+import addReducer from 'fontoxml-indices/src/addReducer.js';
 
 import configureAsCalsTableElements from 'fontoxml-table-flow-cals/src/configureAsCalsTableElements.js';
 
@@ -10,6 +14,14 @@ export default function configureSxModule(sxModule) {
 	if (configurationManager.get('app/use-default-table-context-menu')) {
 		return;
 	}
+
+	addReducer(
+		'http://www.fontoxml.com/app',
+		'calculateTableNumber',
+		'self::table',
+		'http://www.fontoxml.com/app',
+		'onReduceTableToNumber'
+	);
 
 	configureAsCalsTableElements(sxModule, {
 		// copied this from our dita-example tbl-decl-mod package,
@@ -21,11 +33,18 @@ export default function configureSxModule(sxModule) {
 		entry: {
 			defaultTextContainer: 'p'
 		},
+		showInsertionWidget: true,
 		// OVERRIDE: added this to disable the default (not so flexible) table context menu
 		useDefaultContextMenu: false
 	});
 
 	configureProperties(sxModule, 'self::table', {
+		blockHeaderRight: [
+			createLabelQueryWidget(
+				`import module namespace app = "http://www.fontoxml.com/app";
+				"Table " || app:calculateTableNumber(fonto:current-hierarchy-node-id(), .)`
+			)
+		],
 		// OVERRIDE: added hideIn
 		contextualOperations: [
 			{ name: ':cals-table-insert-title', hideIn: ['context-menu'] },
