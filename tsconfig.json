@@ -1,0 +1,69 @@
+{
+	// Note: this file is written to be used by VSCode's built-in tsc to enable code intelligence.
+	// It is not (yet) suitable to let tsc actually generate JavaScript.
+	// In Fonto, we use FDT, which uses Webpack and Babel, to compile and generate browser-compatible
+	// JavaScript. FDT has included @babel/preset-typescript which strips all TypeScript syntax from
+	// the file before processing it further using other Babel plugins.
+	// http://www.typescriptlang.org/docs/handbook/compiler-options.html
+	"compilerOptions": {
+		// Under no circumstances should tsc actually generate a .js file (done by FDT).
+		"noEmit": true,
+		// Also apply this config for JavaScript files and type check those as well.
+		"allowJs": true,
+		"checkJs": true,
+		// This determines what (modern) syntax is allowed/supported by tsc.
+		"target": "es2017",
+		// Minimize the number of built-in (type) libraries that are used (helps slightly with performance).
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"es2017"
+		],
+		// Enable JSX support (in .tsx files), but do not process it in any way (done by FDT).
+		"jsx": "preserve",
+		// These kind of imports are used by React and other vendor dependencies.
+		"allowSyntheticDefaultImports": true,
+		// Disallow inconsistently-cased references to the same file.
+		"forceConsistentCasingInFileNames": true,
+		// Resolve modules using something similar to NodeJS. The other value "classic" is the 
+		// default value when using es6 modules, however it mainly exists for backwards compatibility
+		// with earlier TypeScript versions, so use the modern/familiar node resolution strategy
+		// instead. Read more at: http://www.typescriptlang.org/docs/handbook/module-resolution.html#module-resolution-strategies
+		"moduleResolution": "node",
+		// Allow imports to .json modules (files).
+		"resolveJsonModule": true,
+		// Start resolving non-relative paths from this baseUrl (which is relative to the location
+		// of this file on disk).
+		"baseUrl": "./",
+		"paths": {
+			"*": [
+				// handle normal relative imports and imports to other libs
+				// and handles imports to other libs (which are located in this folder as well)
+				"*",
+				// 
+				"../../libs/*",
+				"config/*",
+				"packages/*",
+				"packages-shared/*",
+				"../../libs/fontoxml-vendors/src/*",
+				// include extra type definition files from this folder
+				"../../libs/fontoxml-vendors/types/*"
+			],
+			"fds/*": [
+				// directly go to the local source of fds
+				"../../vendor/fds/*"
+			]
+		}
+	},
+	"include": [
+		"**/*.js",
+		"**/*.jsx",
+		"**/*.ts",
+		"**/*.tsx"
+	],
+	"exclude": [
+		"**/node_modules",
+		"**/platform",
+		"**/platform-linked"
+	]
+}
