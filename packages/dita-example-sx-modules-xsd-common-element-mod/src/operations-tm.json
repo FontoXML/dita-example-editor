@@ -1,0 +1,41 @@
+{
+	":insert-tm[@tmtype=reg]": {
+		"label": "t__Registered trademark",
+		"description": "t__Provides notice that the preceding word or symbol is a trademark or service mark that has been registered with a national trademark office.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "tm",
+				"attributes": {
+					"tmtype": "reg"
+				}
+			}
+		}
+	},
+	":insert-tm[@tmtype=service]": {
+		"label": "t__Servicemark",
+		"description": "t__A servicemark is a trademark used in the United States and several other countries to identify a service rather than a product.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "tm",
+				"attributes": {
+					"tmtype": "service"
+				}
+			}
+		}
+	},
+	":insert-tm[@tmtype=tm]": {
+		"label": "t__Trademark",
+		"description": "t__Identifies a term or phrase that is trademarked.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "tm",
+				"attributes": {
+					"tmtype": "tm"
+				}
+			}
+		}
+	}
+}

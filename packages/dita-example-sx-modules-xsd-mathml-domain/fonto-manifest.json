@@ -1,0 +1,7 @@
+{
+	"dependencies": {
+		"fontoxml-dita": "platform/fontoxml-dita",
+		"fontoxml-mathml": "platform/fontoxml-mathml",
+		"fontoxml-platform-base": "platform/fontoxml-platform-base"
+	}
+}

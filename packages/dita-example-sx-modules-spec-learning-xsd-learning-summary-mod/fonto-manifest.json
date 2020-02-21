@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"fontoxml-platform-base": "platform/fontoxml-platform-base"
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "dita-example-sx-modules-xsd-mathml-domain",
+  "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-mathml-domain",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "ab18694b6e451140e8c78db15bc3df85823e9dac"
+  },
+  "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-mathml-domain.git",
+  "_target": "2.0.0",
+  "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-mathml-domain.git"
+}

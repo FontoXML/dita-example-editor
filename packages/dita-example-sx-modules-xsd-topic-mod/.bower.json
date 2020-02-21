@@ -1,0 +1,14 @@
+{
+  "name": "dita-example-sx-modules-xsd-topic-mod",
+  "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-topic-mod",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "e82fb42e2c02385566b8ea9e048d854bac6be72a"
+  },
+  "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-topic-mod.git",
+  "_target": "2.0.0",
+  "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-topic-mod.git"
+}

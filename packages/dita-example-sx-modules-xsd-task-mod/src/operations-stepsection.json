@@ -1,0 +1,30 @@
+{
+	":contextual-insert-stepsection--above": {
+		"label": "t__Add step section above",
+		"description": "t__A section that gives information about the following step(s).",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"stepsection",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-stepsection--below": {
+		"label": "t__Add step section below",
+		"description": "t__A section that gives information about the following step(s).",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"stepsection",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	}
+}

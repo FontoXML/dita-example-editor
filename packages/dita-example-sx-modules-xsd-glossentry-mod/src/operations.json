@@ -1,0 +1,265 @@
+{
+	":contextual-delete-glossAlt": {
+		"label": "t__Remove variation",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-glossentry": {
+		"label": "t__Remove term",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-glossentry--above": {
+		"label": "t__Add entry above",
+		"description": "t__Defines a single sense of a glossary term.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"glossentry",
+					[
+						"glossterm",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					[
+						"glossdef"
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-glossentry--below": {
+		"label": "t__Add entry below",
+		"description": "t__Defines a single sense of a glossary term.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"glossentry",
+					[
+						"glossterm",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					[
+						"glossdef"
+					]
+				]
+			}
+		}
+	},
+	":glossAlt-convert-to-glossAbbreviation": {
+		"label": "t__Change to abbreviation",
+		"description": "t__Provides an abbreviated form of the term.",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"contextNodeId": "x__$data('contextNode')/child::*[self::glossAcronym or self::glossShortForm or self::glossSynonym]",
+				"nodeNames": ["glossAbbreviation"]
+			}
+		}
+	},
+	":glossAlt-convert-to-glossAcronym": {
+		"label": "t__Change to acronym",
+		"description": "t__Provides an abbreviation that is pronounced as a word.",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"contextNodeId": "x__$data('contextNode')/child::*[self::glossAbbreviation or self::glossShortForm or self::glossSynonym]",
+				"nodeNames": ["glossAcronym"]
+			}
+		}
+	},
+	":glossAlt-convert-to-glossShortForm": {
+		"label": "t__Change to short form",
+		"description": "t__Provides a shorter alternative to the term.",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"contextNodeId": "x__$data('contextNode')/child::*[self::glossAbbreviation or self::glossAcronym or self::glossSynonym]",
+				"nodeNames": ["glossShortForm"]
+			}
+		}
+	},
+	":glossAlt-convert-to-glossSynonym": {
+		"label": "t__Change to synonym",
+		"description": "t__Provides a synonym of the term.",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"contextNodeId": "x__$data('contextNode')/child::*[self::glossAbbreviation or self::glossAcronym or self::glossShortForm]",
+				"nodeNames": ["glossSynonym"]
+			}
+		}
+	},
+	":glossAlt-insert-glossUsage": {
+		"label": "t__Add usage",
+		"description": "t__Provides information about the correct use of a variation.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"glossUsage",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":glossentry-insert-glossdef": {
+		"label": "t__Add definition",
+		"description": "t__Specifies the definition of one sense of a term.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"glossdef",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":glossentry-insert-glossUsage": {
+		"label": "t__Add usage",
+		"description": "t__Provides information about the correct use of a term.",
+		"steps": {
+			"type": "operation/:_glossBody-insert-{node}",
+			"data": {
+				"childNodeStructure": [
+					"glossUsage",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-glossAbbreviation": {
+		"label": "t__Abbreviation",
+		"description": "t__Provides an abbreviated form of the term.",
+		"steps": {
+			"type": "operation/:_insert-glossAlt.{node}",
+			"data": {
+				"nodeName": "glossAbbreviation"
+			}
+		}
+	},
+	":insert-glossAcronym": {
+		"label": "t__Acronym",
+		"description": "t__Provides an abbreviation that is pronounced as a word.",
+		"steps": {
+			"type": "operation/:_insert-glossAlt.{node}",
+			"data": {
+				"nodeName": "glossAcronym"
+			}
+		}
+	},
+	":insert-glossdef": {
+		"label": "t__Definition",
+		"description": "t__Specifies the definition of one sense of a term.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::glossentry"
+				}
+			},
+			{
+				"type": "operation/:glossentry-insert-glossdef"
+			}
+		]
+	},
+	":insert-glossShortForm": {
+		"label": "t__Short form",
+		"description": "t__Provides a shorter alternative to the term.",
+		"steps": {
+			"type": "operation/:_insert-glossAlt.{node}",
+			"data": {
+				"nodeName": "glossShortForm"
+			}
+		}
+	},
+	":insert-glossSynonym": {
+		"label": "t__Synonym",
+		"description": "t__Provides a synonym of the term.",
+		"steps": {
+			"type": "operation/:_insert-glossAlt.{node}",
+			"data": {
+				"nodeName": "glossSynonym"
+			}
+		}
+	},
+	":insert-glossUsage--in-glossAlt": {
+		"label": "t__Usage",
+		"description": "t__Provides information about the correct use of a variation.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::glossAlt"
+				}
+			},
+			{
+				"type": "operation/:glossAlt-insert-glossUsage"
+			}
+		]
+	},
+	":insert-glossUsage--in-glossentry": {
+		"label": "t__Usage",
+		"description": "t__Provides information about the correct use of a term.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::glossentry"
+				}
+			},
+			{
+				"type": "operation/:glossentry-insert-glossUsage"
+			}
+		]
+	},
+	":_glossBody-insert-{node}": {
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					"glossentry",
+					[{ "multiple": true }],
+					[
+						"glossBody",
+						[{ "multiple": true, "bindTo": "childNodes"}]
+					]
+				],
+				"insertionStencils": {
+					"childNodes": {
+						"stencil": "{{childNodeStructure}}"
+					}
+				}
+			}
+		}
+	},
+	":_insert-glossAlt.{node}": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::glossentry"
+				}
+			},
+			{
+				"type": "operation/:_glossBody-insert-{node}",
+				"data": {
+					"childNodeStructure": [
+						"glossAlt",
+						["{{nodeName}}",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	}
+}

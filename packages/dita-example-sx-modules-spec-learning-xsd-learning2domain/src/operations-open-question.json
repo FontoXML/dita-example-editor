@@ -1,0 +1,51 @@
+{
+	":insert-lcOpenAnswer2": {
+		"label": "t__Answer",
+		"description": "t__Provides a suggested answer.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcOpenQuestion2"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcOpenAnswer2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcOpenQuestion2": {
+		"label": "t__Open question",
+		"description": "t__Use this to pose an open-ended question in an assessment interaction.",
+		"initialData": {
+			"childNodeStructure": [
+				"lcOpenQuestion2",
+				["lcQuestion2",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				["lcOpenAnswer2"]
+			],
+			"wrapChildNodeStructure": [
+				"lcOpenQuestion2",
+				["lcQuestion2",
+					[{ "bindTo": "selection.start", "empty": true }],
+					[{ "bindTo": "transclude", "multiple": true, "required": false }],
+					[{ "bindTo": "selection.end", "empty": true }]
+				],
+				["lcOpenAnswer2"]
+			]
+		},
+		"alternatives": [
+			":_wrap-in-{question}",
+			":_append-{question}--in-lcInteraction",
+			":_merge-and-insert-{question}--in-lcInteraction",
+			":_vertical-insert-{question}"
+		]
+	}
+}

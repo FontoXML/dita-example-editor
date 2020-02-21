@@ -1,0 +1,89 @@
+{
+	":insert-fn": {
+		"label": "t__Footnote",
+		"description": "t__Displays related information at the bottom of the document.",
+		"icon": "asterisk",
+		"alternatives": [
+			":_wrap-in-fn.p",
+			":_wrap-in-fn",
+			":_vertical-insert-fn"
+		]
+	},
+	":_wrap-in-fn.p": {
+		"steps": [
+			{
+				"type": "action/requireSelectionCollapsed",
+				"data": {
+					"isCollapsed": false
+				}
+			},
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/pre') or fonto:dita-class(., 'topic/div') or fonto:dita-class(., 'topic/ph') or fonto:dita-class(., 'topic/lines') or fonto:dita-class(., 'topic/p')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-or-container-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"fn",
+						[
+							"p",
+							[{ "bindTo": "selection.start", "empty": true }],
+							[{ "bindTo": "transclude", "multiple": true, "required": false }],
+							[{ "bindTo": "selection.end", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":_wrap-in-fn": {
+		"steps": [
+			{
+				"type": "action/requireSelectionCollapsed",
+				"data": {
+					"isCollapsed": false
+				}
+			},
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-or-container-in-structure",
+				"data": {
+					"childNodeStructure": ["p",[
+						"fn",
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					]]
+				}
+			}
+		]
+	},
+	":_vertical-insert-fn": {
+		"steps": [
+			{
+				"type": "action/requireSelectionCollapsed",
+				"data": {
+					"isCollapsed": true
+				}
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"fn",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					"insertAtEnd": true
+				}
+			}
+		]
+	}
+}

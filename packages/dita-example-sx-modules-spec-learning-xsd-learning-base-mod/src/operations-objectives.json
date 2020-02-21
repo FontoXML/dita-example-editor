@@ -1,0 +1,119 @@
+{
+	":contextual-delete-lcObjectives": {
+		"label": "t__Remove objectives",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-lcObjective--above": {
+		"label": "t__Add objective above",
+		"description": "t__Describes a single learning objective.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"lcObjective",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-lcObjective--below": {
+		"label": "t__Add objective below",
+		"description": "t__Describes a single learning objective.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"lcObjective",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcObjectives": {
+		"label": "t__Objectives",
+		"description": "t__Lists or describes the learning goals.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcObjectives",
+						["lcObjectivesStem",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["lcObjectivesGroup",
+							["lcObjective"]
+						]
+					]
+				}
+			}
+		]
+	},
+	":lcObjectives-insert-lcObjectivesGroup": {
+		"label": "t__Add objectives list",
+		"description": "t__Contains a list of one or more learning objectives.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcObjectivesGroup",
+					["lcObjective",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":lcObjectives-append-lcObjectivesGroup": {
+		"label": "t__Add objectives list",
+		"description": "t__Contains a list of one or more learning objectives.",
+		"steps": {
+			"type": "operation/append-structure",
+			"data": {
+				"childNodeStructure": [
+					"lcObjectivesGroup",
+					["lcObjective",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":lcObjectives-insert-lcObjectivesStem": {
+		"label": "t__Add objectives stem",
+		"description": "t__Provides a leading sentence to introduce a list of learning objectives.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcObjectivesStem",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":lcObjectives-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this objectives section.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"title",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	}
+}

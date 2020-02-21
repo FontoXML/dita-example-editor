@@ -1,0 +1,98 @@
+{
+	":contextual-delete-lcDuration": {
+		"label": "t__Remove duration",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcDuration": {
+		"label": "t__Duration",
+		"description": "t__Provides an estimated duration for the learning activity.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "modal/TimeValueModal",
+				"data": {
+					"timeValue": ""
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcDuration",
+						["lcTime",
+							{
+								"value": "{{timeValue}}"
+							},
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":lcDuration-insert-lcTime": {
+		"label": "t__Add time",
+		"description": "t__Specifies the time expected to complete an activity.",
+		"steps": [
+			{
+				"type": "modal/TimeValueModal",
+				"data": {
+					"timeValue": ""
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcTime",
+						{
+							"value": "{{timeValue}}"
+						},
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcDuration-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this duration section.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"title",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":lcTime-edit-@value": {
+		"label": "t__Time value",
+		"steps": [
+			{
+				"type": "modal/TimeValueModal",
+				"data": {
+					"modalPrimaryButtonLabel": "Save",
+					"timeValue": "x__$data('contextNode')/@value"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"value": "{{timeValue}}"
+					}
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,88 @@
+{
+	":cals-table-insert-desc": {
+		"label": "t__Add description",
+		"description": "t__Provides more information than can be contained in the title.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"desc",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	},
+	":cals-table-insert-title": {
+		"label": "t__Add title",
+		"description": "t__A short, descriptive title for the table.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"title",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	},
+	":insert-cals-table": {
+		"label": "t__Table",
+		"description": "t__Insert a generic table that allows, merging and splitting of cells, as well as row or column headers.",
+		"icon": "table",
+		"initialData": {
+			"childNodeStructure": [
+				"table",
+				[
+					"tgroup"
+				]
+			],
+			"rows": 1,
+			"columns": 1
+		},
+		"steps": {
+			"type": "operation/table-insert"
+		}
+	},
+	":set-table[@rowheader=firstcol]": {
+		"label": "t__Header column",
+		"description": "t__Add a header column to the table.",
+		"steps": {
+			"type": "operation/:_set-table-attributes",
+			"data": {
+				"attributes": {
+					"rowheader": "firstcol"
+				}
+			}
+		}
+	},
+	":set-table[@rowheader=null]": {
+		"label": "t__No header column",
+		"description": "t__Remove the header column from the table.",
+		"steps": {
+			"type": "operation/:_set-table-attributes",
+			"data": {
+				"attributes": {
+					"rowheader": null
+				}
+			}
+		}
+	},
+	":_set-table-attributes": {
+		"initialData": {
+			"disabledWhenUnchanged": true
+		},
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::table"
+				}
+			},
+			{
+				"type": "operation/set-attributes"
+			}
+		]
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "dita-example-sx-modules-spec-learning-xsd-learning2domain",
+  "homepage": "https://github.com/fontoxml/dita-example-sx-modules-spec-learning-xsd-learning2domain",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "9f17ca863e19fd0bfc767eb5a03bebad3a5c0e0f"
+  },
+  "_source": "https://github.com/fontoxml/dita-example-sx-modules-spec-learning-xsd-learning2domain.git",
+  "_target": "2.0.0",
+  "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-spec-learning-xsd-learning2domain.git"
+}

@@ -1,0 +1,236 @@
+{
+	":contextual-replace-with-steps-informal": {
+		"label": "t__Replace with informal steps",
+		"description": "t__Remove the steps and replace them with informal steps.",
+		"steps": [
+			{
+				"type": "operation/:_replacement-warning-modal",
+				"data": {
+					"warningTitle": "Replace with informal steps"
+				}
+			},
+			{
+				"type": "operation/replace-node",
+				"data": {
+					"replacementNodeStructure": [
+						"steps-informal",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-step": {
+		"label": "t__Step",
+		"description": "t__Represents an action that a user must follow to accomplish a task.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::steps or self::steps-unordered"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"step",
+							["cmd",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":insert-stepsection": {
+		"label": "t__Step section",
+		"description": "t__A section that gives information about the following step(s).",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step"
+				}
+			},
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/parent::*[self::steps or self::steps-unordered]",
+					"contextStencil":
+					[
+						null,
+						[{ "bindTo": "nonSelectedNodes", "multiple": true, "doesNotContainSelection": "before" }],
+						[{ "multiple": true }]
+					],
+					"insertionStencils": {
+						"nonSelectedNodes.end": {
+							"stencil": [
+								"stepsection",
+								[{ "bindTo": "selection", "empty": true }]
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	":insert-steps": {
+		"label": "t__Ordered steps",
+		"description": "t__A list of actions that a user must follow to accomplish a task.",
+		"icon": "list-ol",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"steps",
+						[
+							"step",
+							[
+								"cmd",
+								[{ "bindTo": "selection", "empty": true }]
+							]
+						]
+					]
+				}
+			}
+		]
+	},
+	":insert-steps-informal": {
+		"label": "t__Informal steps",
+		"description": "t__Describe procedural task information without placing each step in an individual container.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"steps-informal",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-steps-unordered": {
+		"label": "t__Unordered steps",
+		"description": "t__A list of actions of that a user must follow to accomplish a task.",
+		"icon": "list-ul",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"steps-unordered",
+						[
+							"step",
+							[
+								"cmd",
+								[{ "bindTo": "selection", "empty": true }]
+							]
+						]
+					]
+				}
+			}
+		]
+	},
+	":steps-convert-to-steps-unordered": {
+		"label": "t__Change to unordered steps",
+		"description": "t__Change this ordered steps list in to unordered steps.",
+		"steps": [
+			{
+				"type": "operation/convert-element",
+				"data": {
+					"nodeNames": ["steps-unordered"]
+				}
+			}
+		]
+	},
+	":steps-informal-replace-with-steps": {
+		"label": "t__Replace with ordered steps",
+		"description": "t__Remove the informal steps and replace them with ordered steps.",
+		"steps": [
+			{
+				"type": "operation/:_replacement-warning-modal",
+				"data": {
+					"warningTitle": "Replace with ordered steps"
+				}
+			},
+			{
+				"type": "operation/replace-node",
+				"data": {
+					"replacementNodeStructure": [
+						"steps",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":steps-informal-replace-with-steps-unordered": {
+		"label": "t__Replace with unordered steps",
+		"description": "t__Remove the informal steps and replace them with unordered steps.",
+		"steps": [
+			{
+				"type": "operation/:_replacement-warning-modal",
+				"data": {
+					"warningTitle": "Replace with unordered steps"
+				}
+			},
+			{
+				"type": "operation/replace-node",
+				"data": {
+					"replacementNodeStructure": [
+						"steps-unordered",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":steps-unordered-convert-to-steps": {
+		"label": "t__Change to ordered steps",
+		"description": "t__Change this unordered steps list in to ordered steps.",
+		"steps": [
+			{
+				"type": "operation/convert-element",
+				"data": {
+					"nodeNames": ["steps"]
+				}
+			}
+		]
+	},
+	":_replacement-warning-modal": {
+		"initialData": {
+			"warningModalBody": "t__If you replace these steps the existing content will be removed. Are you sure?",
+			"warningModalConfirmButtonLabel": "t__Replace",
+			"warningModalTitle": "t__Replace steps"
+		},
+		"steps": [
+			{
+				"type": "operation/open-warning-modal"
+			}
+		]
+	}
+}

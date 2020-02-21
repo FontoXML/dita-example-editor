@@ -1,0 +1,122 @@
+{
+	":contextual-unwrap-screen": {
+		"label": "t__Unwrap screen",
+		"description": "t__Remove the screen markup but preserve its content.",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"contextNodeId": "x__if($data('contextNode')[@expanse or @frame or @scale or @spectitle or @xml:space]) then false() else $data('contextNode')",
+				"nodeNames": ["p"]
+			}
+		}
+	},
+	":insert-menucascade": {
+		"label": "t__Menu cascade",
+		"description": "t__Used to document a series of menu choices.",
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"menucascade",
+					[
+						"uicontrol",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					[
+						"uicontrol"
+					]
+				]
+			}
+		}
+	},
+	":_wrap-in-screen": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::p or self::pre"
+				}
+			},
+			{
+				"type": "operation/convert-element",
+				"data": {
+					"nodeNames": ["screen"]
+				}
+			}
+		]
+	},
+	":_insert-screen": {
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"screen",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-screen": {
+		"label": "t__Screen",
+		"description": "t__Contains or refers to a textual representation of a computer screen or user interface window.",
+		"alternatives": [
+			":_wrap-in-screen",
+			":_insert-screen"
+		]
+	},
+	":_insert-uicontrol--in-menucascade": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::menucascade"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"uicontrol",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":_toggle-uicontrol": {
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "uicontrol"
+			}
+		}
+	},
+	":insert-uicontrol": {
+		"label": "t__UI control",
+		"description": "t__Used to mark up user interface controls, such as names of buttons, entry fields, menu items, or other objects that allow the user to control the interface",
+		"alternatives": [
+			":_insert-uicontrol--in-menucascade",
+			":_toggle-uicontrol"
+		]
+	},
+	":toggle-shortcut": {
+		"label": "t__Shortcut",
+		"description": "t__Identifies a keyboard shortcut for a menu or window action.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "shortcut"
+			}
+		}
+	},
+	":toggle-wintitle": {
+		"label": "t__Window title",
+		"description": "t__Can be used to mark up names of windows or dialogs, or other user interface elements at the same level of grouping, including wizard titles, wizard page titles, and window pane titles.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "wintitle"
+			}
+		}
+	}
+}

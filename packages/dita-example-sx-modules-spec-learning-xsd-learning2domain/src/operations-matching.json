@@ -1,0 +1,212 @@
+{
+	":contextual-delete-lcMatchingHeader2": {
+		"label": "t__Remove header",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-lcMatchingPair2": {
+		"label": "t__Remove pair",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-lcMatchingPair2--above": {
+		"label": "t__Add matching pair above",
+		"description": "t__Provides a table row with the pair of items that comprise a correct match in a matching interaction and, optionally, feedback on the pair or correct and incorrect matches.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"lcMatchingPair2",
+					["lcItem2",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["lcMatchingItem2"]
+				]
+			}
+		}
+	},
+	":contextual-insert-lcMatchingPair2--below": {
+		"label": "t__Add matching pair below",
+		"description": "t__Provides a table row with the pair of items that comprise a correct match in a matching interaction and, optionally, feedback on the pair or correct and incorrect matches.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"lcMatchingPair2",
+					["lcItem2",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["lcMatchingItem2"]
+				]
+			}
+		}
+	},
+	":insert-lcFeedback2--in-lcMatchingPair2": {
+		"label": "t__Neutral feedback",
+		"description": "t__Provides feedback for the matching pair",
+		"initialData": {
+			"nodeName": "lcFeedback2"
+		},
+		"alternatives": [
+			":_insert-lcMatchingItemFeedback2.{nodeName}",
+			":_insert-{nodeName}--in-lcMatchingItemFeedback2"
+		]
+	},
+	":insert-lcFeedbackCorrect2--in-lcMatchingPair2": {
+		"label": "t__Feedback correct",
+		"description": "t__Provides feedback for correctly answered questions.",
+		"initialData": {
+			"nodeName": "lcFeedbackCorrect2"
+		},
+		"alternatives": [
+			":_insert-lcMatchingItemFeedback2.{nodeName}",
+			":_insert-{nodeName}--in-lcMatchingItemFeedback2"
+		]
+	},
+	":insert-lcFeedbackIncorrect2--in-lcMatchingPair2": {
+		"label": "t__Feedback incorrect",
+		"description": "t__Provides feedback for incorrectly answered questions.",
+		"initialData": {
+			"nodeName": "lcFeedbackIncorrect2"
+		},
+		"alternatives": [
+			":_insert-lcMatchingItemFeedback2.{nodeName}",
+			":_insert-{nodeName}--in-lcMatchingItemFeedback2"
+		]
+	},
+	":_insert-lcMatchingItemFeedback2.{nodeName}": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcMatchingPair2"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcMatchingItemFeedback2",
+						["{{nodeName}}",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":_insert-{nodeName}--in-lcMatchingItemFeedback2": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcMatchingPair2"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::lcMatchingItemFeedback2",
+					"childNodeStructure": [
+						"{{nodeName}}",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcMatching2": {
+		"label": "t__Matching question",
+		"description": "t__The learner identifies the correct choice that matches another choice and, optionally, any feedback for the pair or for correct or incorrect matches.",
+		"initialData": {
+			"childNodeStructure": [
+				"lcMatching2",
+				["lcQuestion2",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				["lcMatchTable2",
+					["lcMatchingPair2",
+						["lcItem2"],
+						["lcMatchingItem2"]
+					]
+				]
+			],
+			"wrapChildNodeStructure": [
+				"lcMatching2",
+				["lcQuestion2",
+					[{ "bindTo": "selection.start", "empty": true }],
+					[{ "bindTo": "transclude", "multiple": true, "required": false }],
+					[{ "bindTo": "selection.end", "empty": true }]
+				],
+				["lcMatchTable2",
+					["lcMatchingPair2",
+						["lcItem2"],
+						["lcMatchingItem2"]
+					]
+				]
+			]
+		},
+		"alternatives": [
+			":_wrap-in-{question}",
+			":_append-{question}--in-lcInteraction",
+			":_merge-and-insert-{question}--in-lcInteraction",
+			":_vertical-insert-{question}"
+		]
+	},
+	":insert-lcMatchingHeader2": {
+		"label": "t__Matching header",
+		"description": "t__Provides column headings for items to present in a matching table.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcMatching2"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::lcMatchTable2",
+					"childNodeStructure": [
+						"lcMatchingHeader2",
+						["lcItem2",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["lcMatchingItem2"]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcMatchingPair2": {
+		"label": "t__Matching pair",
+		"description": "t__Provides a table row with the pair of items that comprise a correct match in a matching interaction and, optionally, feedback on the pair or correct and incorrect matches.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcMatching2"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::lcMatchTable2",
+					"childNodeStructure": [
+						"lcMatchingPair2",
+						["lcItem2",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["lcMatchingItem2"]
+					]
+				}
+			}
+		]
+	}
+}

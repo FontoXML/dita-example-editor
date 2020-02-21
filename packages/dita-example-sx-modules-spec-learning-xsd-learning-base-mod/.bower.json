@@ -1,0 +1,14 @@
+{
+  "name": "dita-example-sx-modules-spec-learning-xsd-learning-base-mod",
+  "homepage": "https://github.com/fontoxml/dita-example-sx-modules-spec-learning-xsd-learning-base-mod",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "d7547a3a5d9e589a051695b047ec2cfa78632613"
+  },
+  "_source": "https://github.com/fontoxml/dita-example-sx-modules-spec-learning-xsd-learning-base-mod.git",
+  "_target": "2.0.0",
+  "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-spec-learning-xsd-learning-base-mod.git"
+}

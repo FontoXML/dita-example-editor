@@ -1,0 +1,46 @@
+{
+	":insert-lcSingleSelect2": {
+		"label": "t__Single choice",
+		"description": "t__A single choice interaction presents three or more choices, only one of which is correct.",
+		"initialData": {
+			"childNodeStructure": [
+				"lcSingleSelect2",
+				["lcQuestion2",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				["lcAnswerOptionGroup2",
+					["lcAnswerOption2",
+						["lcAnswerContent2"],
+						["lcCorrectResponse2"]
+					],
+					["lcAnswerOption2",
+						["lcAnswerContent2"]
+					]
+				]
+			],
+			"wrapChildNodeStructure": [
+				"lcSingleSelect2",
+				["lcQuestion2",
+					[{ "bindTo": "selection.start", "empty": true }],
+					[{ "bindTo": "transclude", "multiple": true, "required": false }],
+					[{ "bindTo": "selection.end", "empty": true }]
+				],
+				["lcAnswerOptionGroup2",
+					["lcAnswerOption2",
+						["lcAnswerContent2"],
+						["lcCorrectResponse2"]
+					],
+					["lcAnswerOption2",
+						["lcAnswerContent2"]
+					]
+				]
+			]
+		},
+		"alternatives": [
+			":_wrap-in-{question}",
+			":_append-{question}--in-lcInteraction",
+			":_merge-and-insert-{question}--in-lcInteraction",
+			":_vertical-insert-{question}"
+		]
+	}
+}

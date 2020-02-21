@@ -1,0 +1,58 @@
+{
+	":contextual-unwrap-div": {
+		"label": "t__Unwrap division",
+		"description": "t__Remove the division markup but preserve its content.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":insert-div": {
+		"label": "t__Division",
+		"description": "t__Groups content without implying meaning.",
+		"alternatives": [
+			":_wrap-in-div",
+			":_horizontal-insert-div"
+		]
+	},
+	":_wrap-in-div": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/abstract') or fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/dd') or fonto:dita-class(., 'topic/desc') or fonto:dita-class(., 'topic/div') or fonto:dita-class(., 'topic/entry') or fonto:dita-class(., 'topic/example') or fonto:dita-class(., 'topic/fig') or fonto:dita-class(., 'topic/fn') or fonto:dita-class(., 'topic/itemgroup') or fonto:dita-class(., 'topic/li') or fonto:dita-class(., 'topic/linkinfo') or fonto:dita-class(., 'topic/lq') or fonto:dita-class(., 'topic/note') or fonto:dita-class(., 'topic/section') or fonto:dita-class(., 'topic/stentry')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"div",
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_horizontal-insert-div": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/abstract') or fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/dd') or fonto:dita-class(., 'topic/desc') or fonto:dita-class(., 'topic/div') or fonto:dita-class(., 'topic/entry') or fonto:dita-class(., 'topic/example') or fonto:dita-class(., 'topic/fig') or fonto:dita-class(., 'topic/fn') or fonto:dita-class(., 'topic/itemgroup') or fonto:dita-class(., 'topic/li') or fonto:dita-class(., 'topic/linkinfo') or fonto:dita-class(., 'topic/lq') or fonto:dita-class(., 'topic/note') or fonto:dita-class(., 'topic/section') or fonto:dita-class(., 'topic/stentry')]"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"div",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,79 @@
+{
+	":contextual-delete-fig": {
+		"label": "t__Remove figure",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":fig-append-image": {
+		"label": "t__Add image",
+		"description": "t__Add an image to this figure.",
+		"icon": "picture-o",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-insert"
+			},
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"childNodeStructure": [
+						"image",
+						{
+							"href": "{{reference}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	":fig-insert-desc": {
+		"label": "t__Add description",
+		"description": "t__Contains further information, e.g. photo credits or citations.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"desc",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	},
+	":fig-insert-image": {
+		"label": "t__Add image",
+		"description": "t__Add an image to this figure.",
+		"icon": "picture-o",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-insert"
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"image",
+						{
+							"href": "{{reference}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	":fig-insert-title": {
+		"label": "t__Add title",
+		"description": "t__A short, descriptive title for the image.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"title",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	}
+}

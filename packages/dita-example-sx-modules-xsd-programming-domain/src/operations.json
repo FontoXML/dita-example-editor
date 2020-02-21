@@ -1,0 +1,148 @@
+{
+	":contextual-unwrap-codeblock": {
+		"label": "t__Unwrap code block",
+		"description": "t__Remove the code block markup but preserve its content.",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"contextNodeId": "x__if($data('contextNode')[@expanse or @frame or @scale or @spectitle or @xml:space]) then false() else $data('contextNode')",
+				"nodeNames": ["p"]
+			}
+		}
+	},
+	":_wrap-in-codeblock": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::p or self::pre"
+				}
+			},
+			{
+				"type": "operation/convert-element",
+				"data": {
+					"nodeNames": ["codeblock"]
+				}
+			}
+		]
+	},
+	":_insert-codeblock": {
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"codeblock",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-codeblock": {
+		"label": "t__Code block",
+		"description": "t__Contains multiple lines of program code.",
+		"alternatives": [
+			":_wrap-in-codeblock",
+			":_insert-codeblock"
+		]
+	},
+	":toggle-apiname": {
+		"label": "t__API name",
+		"description": "t__Provides the name of an application programming interface.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "apiname"
+			}
+		}
+	},
+	":toggle-codeph": {
+		"label": "t__Code phrase",
+		"description": "t__Represents a snippet of code within the main flow of text.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "codeph"
+			}
+		}
+	},
+	":toggle-delim": {
+		"label": "t__Delimiter",
+		"description": "t__Represents a character marking the beginning or end of a section in the code.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "delim"
+			}
+		}
+	},
+	":toggle-kwd": {
+		"label": "t__Keyword",
+		"description": "t__Represents a keyword within the code.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "kwd"
+			}
+		}
+	},
+	":toggle-oper": {
+		"label": "t__Operator",
+		"description": "t__Represents an operation within the code.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "oper"
+			}
+		}
+	},
+	":toggle-option": {
+		"label": "t__Option",
+		"description": "t__Describes an option that can be used to modify a command.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "option"
+			}
+		}
+	},
+	":toggle-parmname": {
+		"label": "t__Parameter name",
+		"description": "t__Represents the name of a parameter.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "parmname"
+			}
+		}
+	},
+	":toggle-sep": {
+		"label": "t__Seperator",
+		"description": "t__Represents a separator character within the code.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "sep"
+			}
+		}
+	},
+	":toggle-synph": {
+		"label": "t__Syntax phrase",
+		"description": "t__Contains syntax definition elements.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "synph"
+			}
+		}
+	},
+	":toggle-var": {
+		"label": "t__Variable",
+		"description": "t__Represents a variable within the code.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "var"
+			}
+		}
+	}
+}
