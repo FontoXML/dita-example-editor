@@ -16,7 +16,7 @@ import SCHEMA_LOCATIONS_REFERENCE from 'dita-example-sx-shells-reference/src/SCH
 import SCHEMA_LOCATIONS_TASK from 'dita-example-sx-shells-task/src/SCHEMA_LOCATIONS.js';
 import SCHEMA_LOCATIONS_TOPIC from 'dita-example-sx-shells-topic/src/SCHEMA_LOCATIONS.js';
 
-var SHELLS = [
+const SHELLS = [
 	{
 		package: 'dita-example-sx-shells-basemap',
 		locations: SCHEMA_LOCATIONS_BASEMAP
@@ -75,7 +75,7 @@ var SHELLS = [
 	}
 ];
 
-var schemaLocationToSchemaExperienceResolver = new SchemaLocationToSchemaExperienceResolver();
+const schemaLocationToSchemaExperienceResolver = new SchemaLocationToSchemaExperienceResolver();
 
 SHELLS.forEach(function(shell) {
 	schemaLocationToSchemaExperienceResolver.register(

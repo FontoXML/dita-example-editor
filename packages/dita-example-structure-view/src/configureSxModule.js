@@ -1,12 +1,12 @@
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
 import configureAsStructureViewItem from 'fontoxml-structure-view/src/configureAsStructureViewItem.js';
 
-var INSERT_TOPICREF_OPERATION_NAMES = [
+const INSERT_TOPICREF_OPERATION_NAMES = [
 	'contextual-insert-topicref--from-template',
 	'contextual-insert-topicref--to-existing-document'
 ];
 
-var MOVE_TOPICREF_OPERATION_NAMES = [
+const MOVE_TOPICREF_OPERATION_NAMES = [
 	'contextual-topicref-move-up',
 	'contextual-topicref-move-down',
 	'contextual-topicref-indent',
