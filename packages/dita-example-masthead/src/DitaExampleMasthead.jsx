@@ -7,6 +7,7 @@ import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPa
 import FxEditorMasthead from 'fontoxml-fx/src/FxEditorMasthead.jsx';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
 import FxSaveButton from 'fontoxml-fx/src/FxSaveButton.jsx';
+import TableToolbar from 'fontoxml-table-flow/src/TableToolbar.jsx';
 
 import AdvancedToolbar from './toolbars/AdvancedToolbar.jsx';
 import GlossaryToolbar from './toolbars/GlossaryToolbar.jsx';
@@ -15,7 +16,6 @@ import LearningTrainingToolbar from './toolbars/LearningTrainingToolbar.jsx';
 import QuestionToolbar from './toolbars/QuestionToolbar.jsx';
 import StartToolbar from './toolbars/StartToolbar.jsx';
 import StructureToolbar from './toolbars/StructureToolbar.jsx';
-import TableToolbar from './toolbars/TableToolbar.jsx';
 import TaskToolbar from './toolbars/TaskToolbar.jsx';
 import ToolsToolbar from './toolbars/ToolsToolbar.jsx';
 
