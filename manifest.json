@@ -1,21 +1,21 @@
 {
 	"addonNames": [
 		"fontoxml-clipboard-instruction-modal",
+		"fontoxml-cms-browser",
+		"fontoxml-crosslink-references",
 		"fontoxml-dita",
 		"fontoxml-find-and-replace",
 		"fontoxml-mathml",
+		"fontoxml-operations-browser",
 		"fontoxml-special-characters",
 		"fontoxml-spell-checker",
 		"fontoxml-structure-view",
 		"fontoxml-table-flow-cals",
-		"fontoxml-xml-view",
-		"fontoxml-cms-browser",
-		"fontoxml-crosslink-references",
-		"fontoxml-operations-browser",
-		"fontoxml-web-references"
+		"fontoxml-web-references",
+		"fontoxml-xml-view"
 	],
 	"edition": "fontoxml-platform-base",
 	"name": "Fonto Editor DITA Example",
-	"sdkBuildDate": "2019-10-28T15:34:22.157Z",
-	"sdkVersion": "7.8.1"
+	"sdkBuildDate": "2020-02-12T10:11:17.739Z",
+	"sdkVersion": "7.9.1"
 }

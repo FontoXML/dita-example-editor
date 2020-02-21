@@ -4,21 +4,16 @@
 /node_modules/
 
 # Directories used for building the application
-/examples/
 /dist/
 /tmp/
 
 # Save directory for the development server
 /dev-cms/uploads/*
 
-# Shared packages
+# Configuration packages that are installed through another package manager such as bower
 /packages-shared/
 
-# Linked platform
-/platform-linked/
-
-*.zip
-
-# Proprietary files, please go to sdk.fontoxml.com to download your version of the SDK
+# Fonto's proprietary files
+# It is recommended that you commit these files to your version control. To this end, please remove the following line
+# from this file:
 /platform/
-/tools/
