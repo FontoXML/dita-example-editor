@@ -1,0 +1,79 @@
+{
+	":contextual-edit-hazardsymbol": {
+		"label": "t__Replace",
+		"description": "t__Replace this hazard symbol with another.",
+		"icon": "exchange",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":hazardstatement-append-hazardsymbol": {
+		"label": "t__Add hazard symbol",
+		"description": "t__A graphic that might represent a hazard, a hazardous situation, a result of not avoiding a hazard, or any combination of these messages.",
+		"icon": "picture-o",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-insert"
+			},
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"childNodeStructure": [
+						"hazardsymbol",
+						{
+							"href": "{{reference}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	":hazardstatement-insert-hazardsymbol": {
+		"label": "t__Add hazard symbol",
+		"description": "t__A graphic that might represent a hazard, a hazardous situation, a result of not avoiding a hazard, or any combination of these messages.",
+		"icon": "picture-o",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-insert"
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"hazardsymbol",
+						{
+							"href": "{{reference}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	":hazardsymbol-insert-alt": {
+		"label": "t__Add alternative text",
+		"description": "t__An alternative text may be used for users or platforms that cannot consume images.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"alt",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	}
+}

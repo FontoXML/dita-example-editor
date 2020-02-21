@@ -1,0 +1,78 @@
+{
+	":insert-abstract": {
+		"label": "t__Abstract",
+		"description": "t__Contains the initial content, usually a summary, of a topic. Use it when the initial paragraph of a topic is unsuitable for use as a link preview or for summaries.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/topic')]"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"abstract",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-searchtitle": {
+		"label": "t__Search title",
+		"description": "t__An alternative title for a topic. Used when the actual title of the topic isn’t appropriate for use in a list of search results.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/topic')]"
+				}
+			},
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						["title", [{"required": false, "multiple": true}]],
+						[
+							"titlealts",
+							[{ "required": false, "multiple": true, "bindTo": "childNodes"}]
+						],
+						[{ "required": false, "multiple": true }]
+					],
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": [
+								"searchtitle",
+								[{ "bindTo": "selection", "empty": true }]
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	":insert-shortdesc": {
+		"label": "t__Short description",
+		"description": "t__Represents the purpose or theme of the topic.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/topic') or self::abstract]"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"shortdesc",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

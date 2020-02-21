@@ -1,0 +1,111 @@
+{
+	":contextual-delete-messagepanel": {
+		"label": "t__Remove message panel",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":hazardstatement-append-messagepanel": {
+		"label": "t__Add message panel",
+		"description": "t__Contains the textual information that is displayed on the hazard statement.",
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "required": true, "multiple": true, "bindTo": "childNodes" }],
+					[{ "required": false, "multiple": true, "restrictTo": "self::hazardsymbol"}]
+				],
+				"insertionStencils": {
+					"childNodes.end": {
+						"stencil": [
+							"messagepanel",
+							["typeofhazard",
+								[{ "bindTo": "selection", "empty": true }]
+							],
+							["howtoavoid"]
+						]
+					}
+				}
+			}
+		}
+	},
+	":hazardstatement-insert-messagepanel": {
+		"label": "t__Add message panel",
+		"description": "t__Contains the textual information that is displayed on the hazard statement.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"messagepanel",
+					["typeofhazard",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["howtoavoid"]
+				]
+			}
+		}
+	},
+	":messagepanel-append-consequence": {
+		"label": "t__Add consequence",
+		"description": "t__Specifies the consequence of failing to avoid a hazard.",
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "multiple": true, "bindTo": "childNodes" }],
+					[{ "required": true, "multiple": true, "restrictTo": "self::howtoavoid"}]
+				],
+				"insertionStencils": {
+					"childNodes.end": {
+						"stencil": [
+							"consequence",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					}
+				}
+			}
+		}
+	},
+	":messagepanel-append-howtoavoid": {
+		"label": "t__Add how to avoid",
+		"description": "t__Contains information about how a user can avoid a hazard.",
+		"steps": {
+			"type": "operation/append-structure",
+			"data": {
+				"childNodeStructure": [
+					"howtoavoid",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":messagepanel-insert-consequence": {
+		"label": "t__Add consequence",
+		"description": "t__Specifies the consequence of failing to avoid a hazard.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"consequence",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":messagepanel-insert-howtoavoid": {
+		"label": "t__Add how to avoid",
+		"description": "t__Contains information about how a user can avoid a hazard.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"howtoavoid",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	}
+}

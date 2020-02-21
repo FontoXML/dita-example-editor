@@ -1,0 +1,315 @@
+{
+	":contextual-delete-hazardstatement": {
+		"label": "t__Remove hazard statement",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":hazardstatement-convert-to-@type=null": {
+		"label": "t__Change to standard hazard",
+		"description": "t__Change this hazard statement to a standard hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": null
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=attention": {
+		"label": "t__Change to attention hazard",
+		"description": "t__Change this hazard statement to a attention hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "attention"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=caution": {
+		"label": "t__Change to caution hazard",
+		"description": "t__Change this hazard statement to a caution hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "caution"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=danger": {
+		"label": "t__Change to danger hazard",
+		"description": "t__Change this hazard statement to a danger hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "danger"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=fastpath": {
+		"label": "t__Change to fastpath hazard",
+		"description": "t__Change this hazard statement to a fastpath hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "fastpath"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=important": {
+		"label": "t__Change to important hazard",
+		"description": "t__Change this hazard statement to an important hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "important"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=notice": {
+		"label": "t__Change to notice hazard",
+		"description": "t__Change this hazard statement to a notice hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "notice"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=other": {
+		"label": "t__Change to other hazard",
+		"description": "t__Change this hazard statement to an other hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "other"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=remember": {
+		"label": "t__Change to remember hazard",
+		"description": "t__Change this hazard statement to a remember hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "remember"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=restriction": {
+		"label": "t__Change to restriction hazard",
+		"description": "t__Change this hazard statement to a restriction hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "restriction"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=tip": {
+		"label": "t__Change to tip hazard",
+		"description": "t__Change this hazard statement to a tip hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "tip"
+				}
+			}
+		}
+	},
+	":hazardstatement-convert-to-@type=warning": {
+		"label": "t__Change to warning hazard",
+		"description": "t__Change this hazard statement to a warning hazard statement.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "warning"
+				}
+			}
+		}
+	},
+	":insert-hazardstatement": {
+		"label": "t__Hazard statement",
+		"description": "t__Contains hazard warning information and is based on the regulations of ANSI Z535 and ISO 3864.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": null
+			}
+		}
+	},
+	":insert-hazardstatement[@type=attention]": {
+		"label": "t__Attention hazard",
+		"description": "t__Please pay extra attention to this note.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "attention"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=caution]": {
+		"label": "t__Caution hazard",
+		"description": "t__Indicates a potentially hazardous situation which, if not avoided, might result in minor or moderate injury.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "caution"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=danger]": {
+		"label": "t__Danger hazard",
+		"description": "t__Indicates an imminently hazardous situation which, if not avoided, will result in death or serious injury.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "danger"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=fastpath]": {
+		"label": "t__Fastpath hazard",
+		"description": "t__This note will speed you on your way.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "fastpath"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=important]": {
+		"label": "t__Important hazard",
+		"description": "t__This note is important.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "important"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=notice]": {
+		"label": "t__Notice hazard",
+		"description": "t__Indicates a potential situation which, if not avoided, might result in property damage or in an undesirable result or state.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "notice"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=other]": {
+		"label": "t__Other hazard",
+		"description": "t__This is something other than a normal hazard.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "other"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=remember]": {
+		"label": "t__Remember hazard",
+		"description": "t__Don't forget to do what this note says.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "remember"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=restriction]": {
+		"label": "t__Restriction hazard",
+		"description": "t__You can't do what this note says.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "restriction"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=tip]": {
+		"label": "t__Tip hazard",
+		"description": "t__This is a fine little tip.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "tip"
+			}
+		}
+	},
+	":insert-hazardstatement[@type=warning]": {
+		"label": "t__Warning hazard",
+		"description": "t__Indicates a potentially hazardous situation which, if not avoided, could result in death or serious injury.",
+		"steps": {
+			"type": "operation/:_insert-hazardstatement",
+			"data": {
+				"hazardstatementType": "warning"
+			}
+		}
+	},
+	":_insert-hazardstatement": {
+		"alternatives": [
+			":_vertical-insert-hazardstatement",
+			":_convert-to-hazardstatement"
+		]
+	},
+	":_vertical-insert-hazardstatement": {
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"hazardstatement",
+					{ "type": "{{hazardstatementType}}" },
+					["messagepanel",
+						["typeofhazard",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["howtoavoid"]
+					]
+				]
+			}
+		}
+	},
+	":_convert-to-hazardstatement": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::hazardstatement"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"type": "{{hazardstatementType}}"
+					},
+					"disabledWhenUnchanged": true
+				}
+			}
+		]
+	}
+}

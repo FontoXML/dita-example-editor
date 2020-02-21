@@ -1,0 +1,23 @@
+{
+	":insert-lcInteractionLabel2": {
+		"label": "t__Interaction label",
+		"description": "t__Provides a label or title for an interaction.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningInteractionBase2-d/lcInteractionBase2')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcInteractionLabel2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

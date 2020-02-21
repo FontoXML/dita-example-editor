@@ -1,0 +1,34 @@
+{
+	":contextual-unwrap-lq": {
+		"label": "t__Unwrap quote",
+		"description": "t__Remove the quote but preserve its content.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":insert-lq": {
+		"label": "t__Long quote",
+		"description": "t__Text quoted from another source. Used for citations that are too long for inline use.",
+		"icon": "quote-left",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/div') or fonto:dita-class(., 'topic/abstract') or fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv') or fonto:dita-class(., 'topic/dd') or fonto:dita-class(., 'topic/desc') or fonto:dita-class(., 'topic/draft-comment') or fonto:dita-class(., 'topic/entry') or fonto:dita-class(., 'topic/example') or fonto:dita-class(., 'topic/fig') or fonto:dita-class(., 'topic/figgroup') or fonto:dita-class(., 'topic/fn') or fonto:dita-class(., 'topic/itemgroup') or fonto:dita-class(., 'topic/li') or fonto:dita-class(., 'topic/linkinfo') or fonto:dita-class(., 'topic/note') or fonto:dita-class(., 'topic/section') or fonto:dita-class(., 'topic/sectiondiv') or fonto:dita-class(., 'topic/stentry')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-or-container-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"lq",
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	}
+}

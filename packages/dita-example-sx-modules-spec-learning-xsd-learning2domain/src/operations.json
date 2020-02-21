@@ -1,0 +1,387 @@
+{
+
+	":contextual-delete-lcArea2": {
+		"label": "t__Remove area",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-question": {
+		"label": "t__Remove question",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-lcAnswerOption2--above": {
+		"label": "t__Add answer option above",
+		"description": "t__Provides the content and feedback for a question option, and can indicate the correct option.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"lcAnswerOption2",
+					["lcAnswerContent2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-lcAnswerOption2--below": {
+		"label": "t__Add answer option below",
+		"description": "t__Provides the content and feedback for a question option, and can indicate the correct option.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"lcAnswerOption2",
+					["lcAnswerContent2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-move-down": {
+		"label": "t__Move down",
+		"description": "t__Switch this question with the question below",
+		"icon": "arrow-down",
+		"keyBinding": "alt+shift+down",
+		"osxKeyBinding": "ctrl+shift+down",
+		"keyBindingDisabled": true,
+		"steps": {
+			"type": "operation/swap-with-next-element"
+		}
+	},
+	":contextual-move-up": {
+		"label": "t__Move up",
+		"description": "t__Switch this question with the question above",
+		"icon": "arrow-up",
+		"keyBinding": "alt+shift+up",
+		"osxKeyBinding": "ctrl+shift+up",
+		"keyBindingDisabled": true,
+		"steps": {
+			"type": "operation/swap-with-previous-element"
+		}
+	},
+	":contextual-move-down-answer-option": {
+		"label": "t__Move down",
+		"description": "t__Switch this answer option with the answer option below",
+		"icon": "arrow-down",
+		"keyBinding": "alt+shift+down",
+		"osxKeyBinding": "ctrl+shift+down",
+		"keyBindingDisabled": true,
+		"steps": {
+			"type": "operation/swap-with-next-element"
+		}
+	},
+	":contextual-move-up-answer-option": {
+		"label": "t__Move up",
+		"description": "t__Switch this answer option with the answer option above",
+		"icon": "arrow-up",
+		"keyBinding": "alt+shift+up",
+		"osxKeyBinding": "ctrl+shift+up",
+		"keyBindingDisabled": true,
+		"steps": {
+			"type": "operation/swap-with-previous-element"
+		}
+	},
+	":insert-image--in-lcAsset2": {
+		"label": "t__Image",
+		"description": "t__Add an image to this question",
+		"icon": "picture-o",
+		"alternatives": [
+			":_merge-and-insert-image--in-lcAsset2",
+			":_append-image--in-lcAsset2"
+		]
+	},
+	":_merge-and-insert-image--in-lcAsset2": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcInteractionLabel2 or self::lcQuestion2 or self::lcAsset2"
+				}
+			},
+			{
+				"type": "operation/:_open-image-browser-for-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/parent::*"
+				}
+			},
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						[{ "required": true, "multiple": true }],
+						[
+							"lcAsset2",
+							[{ "required": false, "multiple": true, "bindTo": "childNodes" }]
+						],
+						[{ "required": false, "multiple": true, "restrictTo": "not(self::lcInteractionLabel2 or self::lcQuestion2 or self::lcAsset2)"}]
+					],
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": [
+								"image",
+								{
+									"href": "{{reference}}"
+								}
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	":_append-image--in-lcAsset2":{
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningInteractionBase2-d/lcInteractionBase2')"
+				}
+			},
+			{
+				"type": "operation/:_open-image-browser-for-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::lcAsset2[last()]"
+				}
+			},
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"childNodeStructure": [
+						"image",
+						{
+							"href": "{{reference}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	":insert-lcAnswerOption2": {
+		"label": "t__Answer option",
+		"description": "t__Provides the content and feedback for a question option, and can indicate the correct option.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningInteractionBase2-d/lcInteractionBase2')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::lcAnswerOptionGroup2",
+					"childNodeStructure": [
+						"lcAnswerOption2",
+						["lcAnswerContent2",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcFeedback2": {
+		"label": "t__Answer option feedback",
+		"description": "t__Provides feedback in context of a specific answer option.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcAnswerOption2"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcFeedback2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcFeedbackCorrect2": {
+		"label": "t__Feedback correct",
+		"description": "t__Provides feedback for correctly answered questions.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningInteractionBase2-d/lcInteractionBase2')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcFeedbackCorrect2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcFeedbackIncorrect2": {
+		"label": "t__Feedback incorrect",
+		"description": "t__Provides feedback for incorrectly answered questions.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningInteractionBase2-d/lcInteractionBase2')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcFeedbackIncorrect2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcInstructornote2": {
+		"label": "t__Instructor note",
+		"description": "t__Provides information or notes you want to provide to the course instructor.",
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcInstructornote2",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":lcAnswerOption2-delete-lcCorrectResponse2": {
+		"label": "t__Switch an answer validity to incorrect",
+		"steps": {
+			"type": "operation/delete-node",
+			"data": {
+				"contextNodeId": "x__$data('contextNode')/child::lcCorrectResponse2"
+			}
+		}
+	},
+	":lcAnswerOption2-insert-lcCorrectResponse2": {
+		"label": "t__Switch an answer validity to correct",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcCorrectResponse2"
+				]
+			}
+		}
+	},
+	":lcAnswerOption2-move-lcCorrectResponse2": {
+		"label": "t__Switch an answer validity to correct and switch all others to incorrect",
+		"steps": {
+			"type": "custom-mutation/insert-node-and-remove-from-siblings",
+			"data": {
+				"nodeName": "lcCorrectResponse2",
+				"referenceNodeQuery": "child::lcFeedback2"
+			}
+		}
+	},
+	":_wrap-in-{question}":{
+		"steps": [
+			{
+				"type": "action/requireSelectionCollapsed",
+				"data": {
+					"isCollapsed": false
+				}
+			},
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[not(ancestor::*[fonto:dita-class(., 'learningInteractionBase2-d/lcInteractionBase2')]) and (fonto:dita-class(., 'topic/abstract') or fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv') or fonto:dita-class(., 'topic/dd') or fonto:dita-class(., 'topic/desc') or fonto:dita-class(., 'topic/div') or fonto:dita-class(., 'topic/draft-comment') or fonto:dita-class(., 'topic/entry') or fonto:dita-class(., 'topic/example') or fonto:dita-class(., 'topic/fig') or fonto:dita-class(., 'topic/figgroup') or fonto:dita-class(., 'topic/fn') or fonto:dita-class(., 'topic/itemgroup') or fonto:dita-class(., 'topic/li') or fonto:dita-class(., 'topic/linkinfo') or fonto:dita-class(., 'topic/lq') or fonto:dita-class(., 'topic/note') or fonto:dita-class(., 'topic/section') or fonto:dita-class(., 'topic/sectiondiv') or fonto:dita-class(., 'topic/stentry'))]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-in-structure",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": "{{wrapChildNodeStructure}}"
+				}
+			}
+		]
+	},
+	":_append-{question}--in-lcInteraction":{
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToPrecedinglcInteraction"
+			},
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"childNodeStructure": "{{childNodeStructure}}"
+				}
+			}
+		]
+	},
+	":_merge-and-insert-{question}--in-lcInteraction":{
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						[{ "required": false, "multiple": true }],
+						[
+							"lcInteraction",
+							[{ "required": false, "multiple": true, "bindTo": "childNodes" }]
+						],
+						[{ "required": false, "multiple": true, "restrictTo": "self::section or self::lcSummary"}]
+					],
+					"contextNodeId": "{{contextNodeId}}",
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": "{{childNodeStructure}}"
+						}
+					}
+				}
+			}
+		]
+	},
+	":_vertical-insert-{question}":{
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'learningInteractionBase2-d/lcInteractionBase2')]"
+				}
+			},
+			{
+				"type": "transform/disableOperationIfContextNode",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": "{{childNodeStructure}}"
+				}
+			}
+		]
+	}
+}

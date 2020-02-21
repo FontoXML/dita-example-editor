@@ -1,0 +1,14 @@
+{
+  "name": "dita-example-sx-modules-xsd-hazard-domain",
+  "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-hazard-domain",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "183e68fb71f91b7743f56b1ca0a22d95775399d0"
+  },
+  "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-hazard-domain.git",
+  "_target": "2.0.0",
+  "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-hazard-domain.git"
+}

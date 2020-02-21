@@ -1,0 +1,179 @@
+{
+	":insert-lcHotspot2": {
+		"label": "t__Hotspot question",
+		"description": "t__A visual interaction where the student finds the right area in an image.",
+		"getStateSteps": [],
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-insert"
+			},
+			{
+				"type": "operation/:_insert-lcHotspot2",
+				"data": {
+					"childNodeStructure": [
+						"lcHotspot2",
+						["lcQuestion2",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						[
+							"lcHotspotMap2",
+							[
+								"image",
+								{ "href": "{{reference}}" }
+							],
+							[
+								"lcArea2",
+								["lcAreaShape2", "rect"],
+								["lcAreaCoords2", "25%,25%,75%,75%"],
+								["lcCorrectResponse2"]
+							]
+						]
+					],
+					"wrapChildNodeStructure": [
+						"lcHotspot2",
+						["lcQuestion2",
+							[{ "bindTo": "selection.start", "empty": true }],
+							[{ "bindTo": "transclude", "multiple": true, "required": false }],
+							[{ "bindTo": "selection.end", "empty": true }]
+						],
+						[
+							"lcHotspotMap2",
+							[
+								"image",
+								{ "href": "{{reference}}" }
+							],
+							[
+								"lcArea2",
+								["lcAreaShape2", "rect"],
+								["lcAreaCoords2", "25%,25%,75%,75%"],
+								["lcCorrectResponse2"]
+							]
+						]
+					]
+				}
+			}
+		]
+	},
+	":_insert-lcHotspot2": {
+		"alternatives": [
+			":_wrap-in-{question}",
+			":_append-{question}--in-lcInteraction",
+			":_merge-and-insert-{question}--in-lcInteraction",
+			":_vertical-insert-{question}"
+		]
+	},
+	":_open-shape-editor-modal-for-edit--lcHotspot2": {
+		"steps": [
+			{
+				"type": "operation/:_open-shape-editor-modal-for-edit",
+				"data": {
+					"queryImageAssetId": "./ancestor-or-self::lcHotspotMap2/image/@href",
+					"queryAreaNodes": "./ancestor-or-self::lcHotspotMap2/lcArea2",
+					"queryAreaShapeFromArea": "./lcAreaShape2",
+					"queryAreaCoordsFromArea": "./lcAreaCoords2"
+				}
+			}
+		]
+	},
+	":_open-shape-editor-modal-for-insert--lcHotspot2": {
+		"steps": [
+			{
+				"type": "operation/:_open-shape-editor-modal-for-insert",
+				"data": {
+					"queryImageAssetId": "./ancestor-or-self::lcHotspotMap2/image/@href",
+					"queryAreaNodes": "./ancestor-or-self::lcHotspotMap2/lcArea2",
+					"queryAreaShapeFromArea": "./lcAreaShape2",
+					"queryAreaCoordsFromArea": "./lcAreaCoords2"
+				}
+			}
+		]
+	},
+	":lcArea2-edit": {
+		"label": "Edit area",
+		"icon": "pencil",
+		"getStateSteps": [],
+		"steps": [
+			{ "type": "operation/:_open-shape-editor-modal-for-edit--lcHotspot2" },
+			{
+				"type": "custom-mutation/replace-nodes-with-mapped-structure",
+				"data": {
+					"contextNodeId": "{{shapeNodeId}}",
+					"queryToReplacementStructureMapping": {
+						"./lcAreaShape2": ["lcAreaShape2", "{{areaShape}}"],
+						"./lcAreaCoords2": ["lcAreaCoords2", "{{areaCoords}}"]
+					}
+				}
+			}
+		]
+	},
+	":insert-lcArea2": {
+		"label": "Area",
+		"getStateSteps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcHotspot2"
+				}
+			},
+			{
+				"type": "transform/setContextNodeIdToFirstMatchingNodeFromContextNode",
+				"data": {
+					"xPathQuery": "./lcHotspotMap2"
+				}
+			},
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"childNodeStructure": [
+						"lcArea2",
+						["lcAreaShape2", "TEST"],
+						["lcAreaCoords2", "TEST"]
+					]
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcHotspot2"
+				}
+			},
+			{
+				"type": "transform/setContextNodeIdToFirstMatchingNodeFromContextNode",
+				"data": {
+					"xPathQuery": "./lcHotspotMap2"
+				}
+			},
+			{
+				"type": "operation/:_open-shape-editor-modal-for-insert--lcHotspot2"
+			},
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"childNodeStructure": [
+						"lcArea2",
+						["lcAreaShape2", "{{areaShape}}"],
+						["lcAreaCoords2", "{{areaCoords}}"],
+						["lcFeedback2", [{ "bindTo": "selection", "empty": true }]]
+					]
+				}
+			}
+		]
+	},
+	":lcArea2-insert-lcFeedback2": {
+		"label": "t__Add feedback",
+		"description": "t__Provides feedback for the area",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcFeedback2",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

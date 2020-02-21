@@ -1,0 +1,55 @@
+{
+	":contextual-delete-lcSummary": {
+		"label": "t__Remove summary",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcSummary": {
+		"label": "t__Summary",
+		"description": "t__Provides a textual summary that describes the main learning goals and lessons learned.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcSummary",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcSummary-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this summary.",
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "required": false, "multiple": true, "restrictTo": "self::title"}],
+					[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
+					[{ "required": false, "multiple": true, "restrictTo": "not(self::title)"}]
+				],
+				"contextNodeId": "{{contextNodeId}}",
+				"insertionStencils": {
+					"childNodes": {
+						"stencil": [
+							"title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						"model": "{{attributes}}"
+					}
+				}
+			}
+		}
+	}
+}

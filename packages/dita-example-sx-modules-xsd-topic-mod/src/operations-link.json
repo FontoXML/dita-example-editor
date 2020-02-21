@@ -1,0 +1,171 @@
+{
+	":contextual-edit-link[@format=dita]": {
+		"label": "t__Edit",
+		"steps": [
+			{
+				"type": "operation/:_open-document-with-link-selector-browser-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "dita"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":contextual-edit-link[@format=html]": {
+		"label": "t__Edit",
+		"steps": [
+			{
+				"type": "operation/:_open-web-reference-modal-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "html"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":insert-link[@format=dita]": {
+		"label": "t__Related cross link",
+		"description": "t__A related link to content in this or another topic.",
+		"icon": "link",
+		"steps": [
+			{
+				"type": "operation/:_open-document-with-link-selector-browser-for-insert"
+			},
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/topic')]"
+				}
+			},
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						[{ "required": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/titlealts')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/shortdesc') or fonto:dita-class(., 'topic/abstract')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/prolog')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/body')]"}],
+						[
+							"related-links",
+							[{ "required": false, "multiple": true, "bindTo": "childNodes"}]
+						],
+						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/topic')]"}]
+					],
+					"contextNodeId": "{{contextNodeId}}",
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": [
+								"link",
+								{
+									"href": "{{reference}}",
+									"format": "dita"
+								},
+								["linktext",
+									[{ "bindTo": "selection", "empty": true }]
+								]
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	":insert-link[@format=html]": {
+		"label": "t__Related hyperlink",
+		"description": "t__Insert a related link to a web address.",
+		"icon": "globe",
+		"steps": [
+			{
+				"type": "operation/:_open-web-reference-modal-for-insert"
+			},
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/topic')]"
+				}
+			},
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						[{ "required": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/titlealts')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/shortdesc') or fonto:dita-class(., 'topic/abstract')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/prolog')]"}],
+						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/body')]"}],
+						[
+							"related-links",
+							[{ "required": false, "multiple": true, "bindTo": "childNodes"}]
+						],
+						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/topic')]"}]
+					],
+					"contextNodeId": "{{contextNodeId}}",
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": [
+								"link",
+								{
+									"href": "{{reference}}",
+									"format": "html",
+									"scope": "external"
+								},
+								["linktext",
+									[{ "bindTo": "selection", "empty": true }]
+								]
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	":link-insert-desc": {
+		"label": "t__Add description",
+		"description": "t__Contains further information about this link.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"desc",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	},
+	":link-insert-linktext": {
+		"label": "t__Add link text",
+		"description": "t__Override the link text.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"linktext",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	}
+}

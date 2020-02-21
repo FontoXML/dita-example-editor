@@ -1,0 +1,14 @@
+{
+  "name": "dita-example-sx-modules-xsd-highlight-domain",
+  "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-highlight-domain",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "45f0600b4b969aa34e7ae5a836c28c864e4c2a1d"
+  },
+  "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-highlight-domain.git",
+  "_target": "2.0.0",
+  "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-highlight-domain.git"
+}

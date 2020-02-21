@@ -1,0 +1,321 @@
+{
+	":contextual-unwrap-note": {
+		"label": "t__Unwrap note",
+		"description": "t__Remove the note but preserve its content.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":insert-note": {
+		"label": "t__Note",
+		"description": "t__Contains information that expands on or calls attention to a particular point. This information is typically differentiated from the main text.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": null
+			}
+		}
+	},
+	":insert-note[@type=attention]": {
+		"label": "t__Attention note",
+		"description": "t__Please pay extra attention to this note.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "attention"
+			}
+		}
+	},
+	":insert-note[@type=caution]": {
+		"label": "t__Caution note",
+		"description": "t__Care is required when proceeding.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "caution"
+			}
+		}
+	},
+	":insert-note[@type=danger]": {
+		"label": "t__Danger note",
+		"description": "t__Important! Be aware of this before doing anything else.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "danger"
+			}
+		}
+	},
+	":insert-note[@type=fastpath]": {
+		"label": "t__Fastpath note",
+		"description": "t__This note will speed you on your way.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "fastpath"
+			}
+		}
+	},
+	":insert-note[@type=important]": {
+		"label": "t__Important note",
+		"description": "t__This note is important.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "important"
+			}
+		}
+	},
+	":insert-note[@type=notice]": {
+		"label": "t__Notice note",
+		"description": "t__Indicates a potential situation which, if not avoided, might result in an undesirable result or state.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "notice"
+			}
+		}
+	},
+	":insert-note[@type=other]": {
+		"label": "t__Other note",
+		"description": "t__This is something other than a normal note.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "other"
+			}
+		}
+	},
+	":insert-note[@type=remember]": {
+		"label": "t__Remember note",
+		"description": "t__Don't forget to do what this note says.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "remember"
+			}
+		}
+	},
+	":insert-note[@type=restriction]": {
+		"label": "t__Restriction note",
+		"description": "t__You can't do what this note says.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "restriction"
+			}
+		}
+	},
+	":insert-note[@type=tip]": {
+		"label": "t__Tip note",
+		"description": "t__This is a fine little tip.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "tip"
+			}
+		}
+	},
+	":insert-note[@type=warning]": {
+		"label": "t__Warning note",
+		"description": "t__Indicates a potentially hazardous situation.",
+		"steps": {
+			"type": "operation/:_insert-note",
+			"data": {
+				"noteType": "warning"
+			}
+		}
+	},
+	":_insert-note": {
+		"alternatives": [
+			":_wrap-in-note",
+			":_convert-to-note"
+		]
+	},
+	":_wrap-in-note": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/div') or fonto:dita-class(., 'topic/abstract') or fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv') or fonto:dita-class(., 'topic/dd') or fonto:dita-class(., 'topic/desc') or fonto:dita-class(., 'topic/draft-comment') or fonto:dita-class(., 'topic/entry') or fonto:dita-class(., 'topic/example') or fonto:dita-class(., 'topic/fig') or fonto:dita-class(., 'topic/figgroup') or fonto:dita-class(., 'topic/fn') or fonto:dita-class(., 'topic/itemgroup') or fonto:dita-class(., 'topic/li') or fonto:dita-class(., 'topic/linkinfo') or fonto:dita-class(., 'topic/lq') or fonto:dita-class(., 'topic/section') or fonto:dita-class(., 'topic/sectiondiv') or fonto:dita-class(., 'topic/stentry')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-or-container-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"note",
+						{ "type": "{{noteType}}" },
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_convert-to-note": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::note"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"type": "{{noteType}}"
+					},
+					"disabledWhenUnchanged": true
+				}
+			}
+		]
+	},
+	":note-convert-to-@type=null": {
+		"label": "t__Change to standard note",
+		"description": "t__Change this note to a standard note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": null
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=attention": {
+		"label": "t__Change to attention note",
+		"description": "t__Change this note to a attention note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "attention"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=caution": {
+		"label": "t__Change to caution note",
+		"description": "t__Change this note to a caution note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "caution"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=danger": {
+		"label": "t__Change to danger note",
+		"description": "t__Change this note to a danger note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "danger"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=fastpath": {
+		"label": "t__Change to fastpath note",
+		"description": "t__Change this note to a fastpath note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "fastpath"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=important": {
+		"label": "t__Change to important note",
+		"description": "t__Change this note to an important note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "important"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=notice": {
+		"label": "t__Change to notice note",
+		"description": "t__Change this note to a notice note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "notice"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=other": {
+		"label": "t__Change to other note",
+		"description": "t__Change this note to an other note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "other"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=remember": {
+		"label": "t__Change to remember note",
+		"description": "t__Change this note to a remember note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "remember"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=restriction": {
+		"label": "t__Change to restriction note",
+		"description": "t__Change this note to a restriction note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "restriction"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=tip": {
+		"label": "t__Change to tip note",
+		"description": "t__Change this note to a tip note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "tip"
+				}
+			}
+		}
+	},
+	":note-convert-to-@type=warning": {
+		"label": "t__Change to warning note",
+		"description": "t__Change this note to a warning note.",
+		"steps": {
+			"type": "operation/set-attributes",
+			"data": {
+				"attributes": {
+					"type": "warning"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,218 @@
+{
+	":contextual-delete-chhead": {
+		"label": "t__Remove header row",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-choicetable": {
+		"label": "t__Remove choice table",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-chrow": {
+		"label": "t__Remove row",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-chrow--above": {
+		"label": "t__Add row above",
+		"description": "t__Add a new choice to this choice table.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"chrow",
+					["choption",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["chdesc"]
+				]
+			}
+		}
+	},
+	":contextual-insert-chrow--below": {
+		"label": "t__Add row below",
+		"description": "t__Add a new choice to this choice table.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"chrow",
+					["choption",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["chdesc"]
+				]
+			}
+		}
+	},
+	":delete-chhead": {
+		"label": "t__Remove header row",
+		"description": "t__Remove the header from the choice table.",
+		"icon": "times",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::choicetable[child::chhead]"
+				}
+			},
+			{
+				"type": "operation/delete-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::chhead"
+				}
+			}
+		]
+	},
+	":delete-chrow-chhead": {
+		"label": "t__Remove row",
+		"description": "t__Remove this row from the choice table.",
+		"icon": "times",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::chrow or self::chhead"
+				}
+			},
+			{
+				"type": "operation/delete-node"
+			}
+		]
+	},
+	":insert-chhead": {
+		"label": "t__Insert header row",
+		"description": "t__Add a header to this choice table.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::choicetable"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"chhead",
+						["choptionhd",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["chdeschd"]
+					]
+				}
+			}
+		]
+	},
+	":insert-choicetable": {
+		"label": "t__Choice table",
+		"description": "t__Add a table outlining various possible choices in this step.",
+		"icon": "table",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"choicetable",
+						["chrow",
+							["choption",
+								[{ "bindTo": "selection", "empty": true }]
+							],
+							["chdesc"]
+						]
+					]
+				}
+			}
+		]
+	},
+	":insert-chrow--above": {
+		"label": "t__Insert row above",
+		"description": "t__Add a new choice to this choice table.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::choicetable"
+				}
+			},
+			{
+				"type": "operation/insert-before-selection",
+				"data": {
+					"childNodeStructure": [
+						"chrow",
+						["choption",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["chdesc"]
+					]
+				}
+			}
+		]
+	},
+	":insert-chrow--below": {
+		"label": "t__Insert row below",
+		"description": "t__Add a new choice to this choice table.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::choicetable"
+				}
+			},
+			{
+				"type": "operation/insert-after-selection",
+				"data": {
+					"childNodeStructure": [
+						"chrow",
+						["choption",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["chdesc"]
+					]
+				}
+			}
+		]
+	},
+	":step-insert-choicetable": {
+		"label": "t__Add choice table",
+		"description": "t__Add a table outlining various possible choices in this step.",
+		"icon": "table",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"choicetable",
+						["chrow",
+							["choption",
+								[{ "bindTo": "selection", "empty": true }]
+							],
+							["chdesc"]
+						]
+					]
+				}
+			}
+		]
+	}
+}

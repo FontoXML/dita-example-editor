@@ -1,0 +1,55 @@
+{
+	":contextual-delete-lcInstruction": {
+		"label": "t__Remove instruction",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcInstruction": {
+		"label": "t__Instruction",
+		"description": "t__Describes the specifics of a learning activity.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcInstruction",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcInstruction-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this instruction section.",
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "required": false, "multiple": true, "restrictTo": "self::title"}],
+					[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
+					[{ "required": false, "multiple": true, "restrictTo": "not(self::title)"}]
+				],
+				"contextNodeId": "{{contextNodeId}}",
+				"insertionStencils": {
+					"childNodes": {
+						"stencil": [
+							"title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						"model": "{{attributes}}"
+					}
+				}
+			}
+		}
+	}
+}

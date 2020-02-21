@@ -1,0 +1,86 @@
+{
+	":contextual-edit-xref[@format=dita]": {
+		"label": "t__Edit",
+		"steps": [
+			{
+				"type": "operation/:_open-document-with-link-selector-browser-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "dita"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":contextual-edit-xref[@format=html]": {
+		"label": "t__Edit",
+		"steps": [
+			{
+				"type": "operation/:_open-web-reference-modal-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "html"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":insert-xref[@format=dita]": {
+		"label": "t__Cross link",
+		"description": "t__A link to content in this or another topic.",
+		"icon": "link",
+		"steps": [
+			{
+				"type": "operation/:_open-document-with-link-selector-browser-for-insert"
+			},
+			{
+				"type": "operation/insert-inline-frame-element",
+				"data": {
+					"nodeName": "xref",
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "dita"
+					}
+				}
+			}
+		]
+	},
+	":insert-xref[@format=html]": {
+		"label": "t__Hyperlink",
+		"description": "t__Insert a link to a web address.",
+		"icon": "globe",
+		"keyBinding": "ctrl+k/cmd+k",
+		"steps": [
+			{
+				"type": "operation/:_open-web-reference-modal-for-insert"
+			},
+			{
+				"type": "operation/insert-inline-frame-element",
+				"data": {
+					"nodeName": "xref",
+					"attributes": {
+						"href": "{{reference}}",
+						"format": "html",
+						"scope": "external"
+					}
+				}
+			}
+		]
+	}
+}

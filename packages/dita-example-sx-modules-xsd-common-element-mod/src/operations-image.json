@@ -1,0 +1,87 @@
+{
+	":contextual-edit-image": {
+		"label": "t__Replace",
+		"description": "t__Replace this image with another.",
+		"icon": "exchange",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-edit",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": "{{reference}}"
+					},
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":image-insert-alt": {
+		"label": "t__Add alternative text",
+		"description": "t__An alternative text may be used for users or platforms that cannot consume images.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"alt",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-fig.image": {
+		"label": "t__Figure with image",
+		"description": "t__A figure that groups an image with its title and description.",
+		"icon": "picture-o",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-insert"
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"fig",
+						[
+							"title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["desc"],
+						[
+							"image",
+							{
+								"href": "{{reference}}"
+							}
+						]
+					]
+				}
+			}
+		]
+	},
+	":insert-image": {
+		"label": "t__Inline image",
+		"description": "t__An image that is part of the flow of the text.",
+		"icon": "picture-o",
+		"steps": [
+			{
+				"type": "operation/:_open-image-browser-for-insert"
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"image",
+						{
+							"href": "{{reference}}"
+						}
+					]
+				}
+			}
+		]
+	}
+}

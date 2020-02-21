@@ -1,0 +1,160 @@
+{
+	":contextual-delete-parml": {
+		"label": "t__Remove parameter table",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-plentry": {
+		"label": "t__Remove row",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-plentry--above": {
+		"label": "t__Add row below",
+		"description": "t__Contains a parameter and a corresponding definition.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"plentry",
+					["pt",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["pd"]
+				]
+			}
+		}
+	},
+	":contextual-insert-plentry--below": {
+		"label": "t__Add row above",
+		"description": "t__Contains a parameter and a corresponding definition.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"dplentry",
+					["pt",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["pd"]
+				]
+			}
+		}
+	},
+	":delete-plentry": {
+		"label": "t__Remove row",
+		"description": "t__Remove this row from the parameter table.",
+		"icon": "times",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::plentry"
+				}
+			},
+			{
+				"type": "operation/delete-node"
+			}
+		]
+	},
+	":plentry-insert-pd": {
+		"label": "t__Add definition",
+		"description": "t__Add a definition which correspondes with the current term",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"pd",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":plentry-insert-pt": {
+		"label": "t__Add term",
+		"description": "t__Add an term which correspondes with the current definition",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"pt",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-parml": {
+		"label": "t__Parameter table",
+		"description": "t__Contains a list of terms and definitions that describes the parameters in an application programming interface.",
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"parml",
+					[
+						"plentry",
+						[
+							"pt",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["pd"]
+					]
+				]
+			}
+		}
+	},
+	":insert-plentry--above": {
+		"label": "t__Insert row above",
+		"description": "t__Contains a parameter and a corresponding definition.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::parml"
+				}
+			},
+			{
+				"type": "operation/insert-before-selection",
+				"data": {
+					"childNodeStructure": [
+						"plentry",
+						["pt",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["pd"]
+					]
+				}
+			}
+		]
+	},
+	":insert-plentry--below": {
+		"label": "t__Insert row below",
+		"description": "t__Contains a parameter and a corresponding definition.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::parml"
+				}
+			},
+			{
+				"type": "operation/insert-after-selection",
+				"data": {
+					"childNodeStructure": [
+						"plentry",
+						["pt",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["pd"]
+					]
+				}
+			}
+		]
+	}
+}

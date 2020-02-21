@@ -17,3 +17,6 @@
 # It is recommended that you commit these files to your version control. To this end, please remove the following line
 # from this file:
 /platform/
+
+# For when working with the platform internally at Fonto
+/platform-linked/

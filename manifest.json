@@ -8,6 +8,8 @@
 		"fontoxml-content-quality-languagetool",
 		"fontoxml-crosslink-references",
 		"fontoxml-dita",
+		"fontoxml-document-history",
+		"fontoxml-document-history-annotations",
 		"fontoxml-feedback",
 		"fontoxml-find-and-replace",
 		"fontoxml-integration-connectors",

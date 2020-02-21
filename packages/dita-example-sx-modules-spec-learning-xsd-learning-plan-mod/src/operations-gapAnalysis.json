@@ -1,0 +1,180 @@
+{
+	":contextual-delete-lcGapAnalysis": {
+		"label": "t__Remove gap analysis",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcGapAnalysis": {
+		"label": "t__Gap analysis",
+		"description": "t__Compares existing learning objectives to current job task analysis.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcGapAnalysis",
+						["lcGapItem",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":lcGapAnalysis-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this gap analysis section.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcGapItem": {
+		"label": "t__Remove gap item",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcGapItem": {
+		"label": "t__Gap item",
+		"description": "t__Describes gaps between existing training objectives and related job-task-analysis content.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcGapAnalysis" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcGapItem",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-insert-lcGapItem--above": {
+		"label": "t__Add gap item above",
+		"description": "t__Describes gaps between existing training objectives and related job-task-analysis content.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"lcGapItem",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-lcGapItem--below": {
+		"label": "t__Add gap item below",
+		"description": "t__Describes gaps between existing training objectives and related job-task-analysis content.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"lcGapItem",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":lcGapItem-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this gap item.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcGapItem-insert-lcGapItemDelta": {
+		"label": "t__Add gap item delta",
+		"description": "t__Describes the gap between the learning objective and the task analysis.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcGapItemDelta",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcGapItemDelta": {
+		"label": "t__Gap item delta",
+		"description": "t__Describes the gap between the learning objective and the task analysis.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcGapItem" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcGapItemDelta",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcGapItem-insert-lcJtaItem": {
+		"label": "t__Add job task analysis",
+		"description": "t__Provides description of job task analysis (JTA) as related to a particular learning objective.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcJtaItem",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcJtaItem": {
+		"label": "t__Job task analysis",
+		"description": "t__Provides description of job task analysis (JTA) as related to a particular learning objective.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcGapItem" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcJtaItem",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

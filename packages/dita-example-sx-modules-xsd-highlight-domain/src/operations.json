@@ -1,0 +1,93 @@
+{
+	":toggle-b": {
+		"label": "t__Bold",
+		"description": "t__Applies bold formatting to text.",
+		"icon": "bold",
+		"keyBinding": "ctrl+b/cmd+b",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "b"
+			}
+		}
+	},
+	":toggle-i": {
+		"label": "t__Italic",
+		"description": "t__Applies italic formatting to text.",
+		"icon": "italic",
+		"keyBinding": "ctrl+i/cmd+i",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "i"
+			}
+		}
+	},
+	":toggle-line-through": {
+		"label": "t__Strike-through",
+		"description": "t__Applies a horizontal line through the middle of the text.",
+		"icon": "strikethrough",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "line-through"
+			}
+		}
+	},
+	":toggle-overline": {
+		"label": "t__Overline",
+		"description": "t__Applies a horizontal line above the text.",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "overline"
+			}
+		}
+	},
+	":toggle-sub": {
+		"label": "t__Subscript",
+		"description": "t__Small text that is positioned below the baseline.",
+		"icon": "subscript",
+		"keyBinding": "ctrl+=/cmd+=",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "sub"
+			}
+		}
+	},
+	":toggle-sup": {
+		"label": "t__Superscript",
+		"description": "t__Small text that is positioned above the baseline.",
+		"icon": "superscript",
+		"keyBinding": "ctrl+shift+=/cmd+shift+=",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "sup"
+			}
+		}
+	},
+	":toggle-tt": {
+		"label": "t__Teletype",
+		"description": "t__Applies monospace highlighting to the text.",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "tt"
+			}
+		}
+	},
+	":toggle-u": {
+		"label": "t__Underline",
+		"description": "t__Applies underline highlighting to the text.",
+		"icon": "underline",
+		"keyBinding": "ctrl+u/cmd+u",
+		"steps": {
+			"type": "operation/toggle-inline-formatting-element",
+			"data": {
+				"nodeName": "u"
+			}
+		}
+	}
+}

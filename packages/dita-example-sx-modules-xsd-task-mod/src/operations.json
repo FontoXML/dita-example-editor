@@ -1,0 +1,136 @@
+{
+	":insert-context": {
+		"label": "t__Context",
+		"description": "t__Provides background information for a task.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"context",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-example--task": {
+		"label": "t__Example",
+		"description": "t__Illustrates or supports the current task.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"example",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-postreq": {
+		"label": "t__Postrequisites",
+		"description": "t__Describes steps or tasks that the user should do after the successful completion of the current task.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"postreq",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-prereq": {
+		"label": "t__Prerequisites",
+		"description": "t__Things the user needs to know or do before starting the current task.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"prereq",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-result": {
+		"label": "t__Result",
+		"description": "t__Describes the expected outcome of a task.",
+		"icon": "flag-checkered",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"result",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-tasktroubleshooting": {
+		"label": "t__Troubleshooting",
+		"description": "t__Explanation about what to do when the result does not match the expected result.",
+		"icon": "bug",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::task"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::taskbody",
+					"childNodeStructure": [
+						"tasktroubleshooting",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

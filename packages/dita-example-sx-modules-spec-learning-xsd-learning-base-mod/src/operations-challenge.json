@@ -1,0 +1,55 @@
+{
+	":contextual-delete-lcChallenge": {
+		"label": "t__Remove challenge",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcChallenge": {
+		"label": "t__Challenge",
+		"descripyion": "t__Refers to what it is that you want the student to practice. For example, if you're studying network diagrams, and challenge might be \"see if you can put this network into its proper sequence\" or \"see if you understand this network flow.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcChallenge",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcChallenge-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this challenge section.",
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "required": false, "multiple": true, "restrictTo": "self::title"}],
+					[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
+					[{ "required": false, "multiple": true, "restrictTo": "not(self::title)"}]
+				],
+				"contextNodeId": "{{contextNodeId}}",
+				"insertionStencils": {
+					"childNodes": {
+						"stencil": [
+							"title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						"model": "{{attributes}}"
+					}
+				}
+			}
+		}
+	}
+}
