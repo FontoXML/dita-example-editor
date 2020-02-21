@@ -88,7 +88,7 @@ const ToolsToolbar = () => (
 
 		<MastheadToolbarButtons>
 			<FxOperationButton
-				icon="align-right icon-flip-vertical"
+				icon="align-left fa-flip-vertical"
 				label="Outline"
 				operationData={{ panesId: 'sidebar', paneId: 'structure' }}
 				operationName="toggle-ui-pane"
