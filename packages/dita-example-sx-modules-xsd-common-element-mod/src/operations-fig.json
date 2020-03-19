@@ -3,7 +3,10 @@
 		"label": "t__Remove figure",
 		"icon": "times",
 		"steps": {
-			"type": "operation/delete-node"
+			"type": "operation/delete-node",
+			"data": {
+				"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
+			}
 		}
 	},
 	":fig-append-image": {
@@ -22,7 +25,8 @@
 						{
 							"href": "{{reference}}"
 						}
-					]
+					],
+					"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
 				}
 			}
 		]
@@ -37,7 +41,7 @@
 					"desc",
 					[{ "bindTo": "selection", "empty": true }]
 				],
-				"contextNodeId": "{{contextNodeId}}"
+				"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
 			}
 		}
 	},
@@ -57,7 +61,8 @@
 						{
 							"href": "{{reference}}"
 						}
-					]
+					],
+					"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
 				}
 			}
 		]
@@ -72,7 +77,7 @@
 					"title",
 					[{ "bindTo": "selection", "empty": true }]
 				],
-				"contextNodeId": "{{contextNodeId}}"
+				"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
 			}
 		}
 	}
