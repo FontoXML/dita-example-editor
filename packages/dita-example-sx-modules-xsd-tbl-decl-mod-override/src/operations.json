@@ -7,7 +7,7 @@
 			{
 				"type": "operation/table-contextual-delete",
 				"data": {
-					"contextNodeId": "x__$data('contextNode')/ancestor::table[1]"
+					"contextNodeId": "x__$data('contextNode')/ancestor-or-self::table[1]"
 				}
 			}
 		]

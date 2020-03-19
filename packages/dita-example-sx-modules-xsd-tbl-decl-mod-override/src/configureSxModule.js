@@ -49,7 +49,8 @@ export default function configureSxModule(sxModule) {
 		contextualOperations: [
 			{ name: ':cals-table-insert-title', hideIn: ['context-menu'] },
 			{ name: ':cals-table-insert-desc', hideIn: ['context-menu'] },
-			{ name: 'cals-table-delete', hideIn: ['context-menu'] }
+			// defined in the operations.json in the same package as this file
+			{ name: 'contextual-cals-table-delete', hideIn: ['context-menu'] }
 		]
 	});
 
