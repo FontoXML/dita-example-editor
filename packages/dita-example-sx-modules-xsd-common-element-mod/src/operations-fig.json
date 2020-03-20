@@ -15,7 +15,10 @@
 		"icon": "picture-o",
 		"steps": [
 			{
-				"type": "operation/:_open-image-browser-for-insert"
+				"type": "operation/:_open-image-browser-for-insert",
+				"data": {
+					"figContextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
+				}
 			},
 			{
 				"type": "operation/append-structure",
@@ -26,7 +29,7 @@
 							"href": "{{reference}}"
 						}
 					],
-					"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
+					"contextNodeId": "{{figContextNodeId}}"
 				}
 			}
 		]
@@ -51,7 +54,10 @@
 		"icon": "picture-o",
 		"steps": [
 			{
-				"type": "operation/:_open-image-browser-for-insert"
+				"type": "operation/:_open-image-browser-for-insert",
+				"data": {
+					"figContextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -62,7 +68,7 @@
 							"href": "{{reference}}"
 						}
 					],
-					"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
+					"contextNodeId": "{{figContextNodeId}}"
 				}
 			}
 		]
