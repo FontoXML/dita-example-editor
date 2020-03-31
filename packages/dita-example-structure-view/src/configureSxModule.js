@@ -1,5 +1,5 @@
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
-import configureAsStructureViewItem from 'fontoxml-families/src/configureasstructureviewitem.js';
+import configureAsStructureViewItem from 'fontoxml-families/src/configureAsStructureViewItem.js';
 
 const INSERT_TOPICREF_OPERATION_NAMES = [
 	'contextual-insert-topicref--from-template',
@@ -7,28 +7,37 @@ const INSERT_TOPICREF_OPERATION_NAMES = [
 ];
 
 const MOVE_TOPICREF_OPERATION_NAMES = [
-	'contextual-topicref-move-up',
-	'contextual-topicref-move-down',
-	'contextual-topicref-indent',
-	'contextual-topicref-outdent',
+	[
+		'contextual-topicref-move-up',
+		'contextual-topicref-move-down',
+		'contextual-topicref-indent',
+		'contextual-topicref-outdent',
 
-	'contextual-topicref-move-to-top',
-	'contextual-topicref-move-to-bottom',
-
-	'contextual-topicref-remove'
+		'contextual-topicref-move-to-top',
+		'contextual-topicref-move-to-bottom'
+	],
+	['contextual-topicref-remove']
 ];
 
-function toContextualOperations(operationName) {
-	return {
-		name: operationName,
-		hideIn: ['context-menu', 'element-menu', 'breadcrumbs-menu']
-	};
+function formatContextualOperationListWithGroups(list) {
+	return list.map(group => ({
+		contents: group.map(operation => ({
+			name: operation,
+			hideIn: ['context-menu', 'breadcrumbs-menu', 'element-menu']
+		}))
+	}));
 }
 
 export default function configureSxModule(sxModule) {
 	sxModule.markAsAddon();
 
-	configureAsStructureViewItem(sxModule, 'self::map', {
+	configureAsStructureViewItem(sxModule, 'fonto:dita-class(., "map/map")', {
+		icon: 'folder-open-o',
+		// Recursion is handled by the documents hierarchy
+		recursionQuery: '()'
+	});
+
+	configureAsStructureViewItem(sxModule, 'fonto:dita-class(., "map/topicref") and not(@href)', {
 		icon: 'folder-open-o',
 		// Recursion is handled by the documents hierarchy
 		recursionQuery: '()'
@@ -58,19 +67,24 @@ export default function configureSxModule(sxModule) {
 	configureContextualOperations(
 		sxModule,
 		'fonto:dita-class(., "map/map")',
-		INSERT_TOPICREF_OPERATION_NAMES.map(toContextualOperations)
+		formatContextualOperationListWithGroups([
+			INSERT_TOPICREF_OPERATION_NAMES
+		]),
+		-3
 	);
 	configureContextualOperations(
 		sxModule,
 		'fonto:dita-class(., "map/topicref")',
-		INSERT_TOPICREF_OPERATION_NAMES.concat(MOVE_TOPICREF_OPERATION_NAMES).map(
-			toContextualOperations
-		)
+		formatContextualOperationListWithGroups([
+			INSERT_TOPICREF_OPERATION_NAMES,
+			...MOVE_TOPICREF_OPERATION_NAMES
+		]),
+		-3
 	);
 	configureContextualOperations(
 		sxModule,
 		'self::mapref',
-		MOVE_TOPICREF_OPERATION_NAMES.map(toContextualOperations),
-		2
+		formatContextualOperationListWithGroups(MOVE_TOPICREF_OPERATION_NAMES),
+		-2
 	);
 }

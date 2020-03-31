@@ -1,0 +1,113 @@
+{
+	"bookmap-insert-title": {
+		"label": "t__Title",
+		"description": "t__Insert a title, this replaces the book title if this exists",
+		"alternatives": [
+			"_bookmap-replace-title",
+			"_bookmap-insert-title"
+		]
+	},
+	"_bookmap-replace-title": {
+		"steps": [
+			{
+				"type": "custom-mutation/replace-booktitle-with-title",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::booktitle"
+				}
+			}
+		]
+	},
+	"_bookmap-insert-title": {
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	"bookmap-insert-book-title": {
+		"label": "t__Book title",
+		"description": "t__Insert a book title, this replaces the title if this exists",
+		"alternatives": [
+			"_bookmap-replace-book-title",
+			"_bookmap-insert-book-title"
+		]
+	},
+	"_bookmap-replace-book-title": {
+		"steps": [
+			{
+				"type": "custom-mutation/replace-title-with-booktitle",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::title"
+				}
+			}
+		]
+	},
+	"_bookmap-insert-book-title": {
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"booktitle",
+						[
+							"mainbooktitle",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	"bookmap-insert-book-library": {
+		"label": "t__Book library",
+		"description": "t__Contains the library information for a book.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::booktitle",
+					"childNodeStructure": [
+						"booklibrary",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	"bookmap-insert-alternative-title": {
+		"label": "t__Alternative title",
+		"description": "t__Contains the alternative title, subtitle, or short title for a book.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::booktitle",
+					"childNodeStructure": [
+						"booktitlealt",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	"contextual-delete-booklibrary": {
+		"label": "t__Remove book library",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	"contextual-delete-booktitlealt": {
+		"label": "t__Remove alternative title",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	}
+}

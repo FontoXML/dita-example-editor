@@ -1,0 +1,121 @@
+{
+	"bookmap-insert-part--from-template": {
+		"label": "t__Insert new topic",
+		"description": "t__Create a new topic and insert it under the book map as a part.",
+		"icon": "file-o",
+		"steps": [
+			{
+				"type": "operation/_insert-from-template--prep"
+			},
+			{
+				"type": "operation/_insert-part",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"bookmap-insert-part--to-existing-document": {
+		"label": "t__Insert existing topic",
+		"description": "t__Insert an existing topic under the book map as a part.",
+		"icon": "file-text-o",
+		"steps": [
+			{
+				"type": "operation/_insert-to-existing-topic--prep"
+			},
+			{
+				"type": "operation/_insert-part",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"bookmap-insert-part--container": {
+		"label": "t__Insert as container",
+		"description": "t__Insert a part under the book map as a container.",
+		"getStateSteps": [
+			{
+				"type": "operation/_merge-and-insert-part",
+				"data": {
+					"attributes": {}
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/_merge-and-insert-part",
+				"data": {
+					"attributes": {}
+				}
+			},
+			{
+				"type": "operation/select-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::part[last()]"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+
+	"_insert-part": {
+		"getStateSteps": [
+			{
+				"type": "operation/_merge-and-insert-part",
+				"data": {
+					"attributes": {
+						"href": "someHref"
+					}
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/_merge-and-insert-part",
+				"data": {
+					"attributes": {
+						"href": "{{targetHref}}"
+					}
+				}
+			},
+			{
+				"type": "operation/_set-cursor-and-scroll-into-view--after-insert-topic"
+			}
+		]
+	},
+	"_merge-and-insert-part": {
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextNodeId": "{{contextNodeId}}",
+				"contextStencil": [
+					null,
+					[{ "multiple": false, "required": false, "restrictTo": "self::title or self::booktitle"}],
+					[{ "multiple": false, "required": false, "restrictTo": "self::bookmeta"}],
+					[{ "multiple": false, "required": false, "restrictTo": "self::frontmatter"}],
+					[{ "multiple": true, "required": false, "restrictTo": "self::chapter" }],
+					[{ "multiple": true, "restrictTo": "self::part", "bindTo": "childNodes" }],
+					[{ "multiple": true, "required": false, "restrictTo": "self::appendices or self::appendix" }],
+					[{ "multiple": false, "required": false, "restrictTo": "self::backmatter" }],
+					[{ "multiple": true, "required": false, "restrictTo": "self::reltable" }]
+				],
+				"insertionStencils": {
+					"childNodes.end": {
+						"stencil": [
+							"part",
+							"{{attributes}}"
+						]
+					}
+				}
+			}
+		}
+	}
+}

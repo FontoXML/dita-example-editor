@@ -16,6 +16,8 @@ import FxOperationInsertTableMenu from 'fontoxml-fx/src/FxOperationInsertTableMe
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
 import FxOperationsSplitButtonWithDropMenu from 'fontoxml-fx/src/FxOperationsSplitButtonWithDropMenu.jsx';
 
+import InsertTopicMenu from '../menus/InsertTopicMenu.jsx'
+
 const StructureToolbar = () => (
 	<MastheadToolbar>
 		<MastheadToolbarButtons>
@@ -23,22 +25,7 @@ const StructureToolbar = () => (
 				label="Insert topic"
 				renderDrop={() => (
 					<Drop>
-						<Menu>
-							<MenuGroup>
-								<FxOperationMenuItem operationName="insert-topicref--from-template" />
-								<FxOperationMenuItem operationName="insert-topicref--to-existing-document" />
-							</MenuGroup>
-
-							<MenuGroup>
-								<FxOperationMenuItem
-									icon="sitemap"
-									label="View the structure panel"
-									operationData={{ panesId: 'sidebar', paneId: 'structure' }}
-									operationName="open-ui-pane"
-									tooltipContent="Document structure"
-								/>
-							</MenuGroup>
-						</Menu>
+						<InsertTopicMenu />
 					</Drop>
 				)}
 			/>

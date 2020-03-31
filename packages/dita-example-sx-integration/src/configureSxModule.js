@@ -1,8 +1,14 @@
-import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager.js';
 import configureAsConref from 'fontoxml-dita/src/configureAsConref.js';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved.js';
-import configureImageWithoutPermanentId from 'dita-example-sx-modules-xsd-common-element-mod/src/configureImageWithoutPermanentId.js';
+import configureProperties from 'fontoxml-families/src/configureProperties.js';
+import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget.js';
+import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
+import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager.js';
+import registerCustomXPathFunction from 'fontoxml-selectors/src/registerCustomXPathFunction.js';
+
+import bookmapElementLabels from 'dita-example-sx-modules-xsd-bookmap-mod/src/api/bookmapElementLabels.js';
 import configureHazardsymbolWithoutPermanentId from 'dita-example-sx-modules-xsd-hazard-domain/src/configureHazardsymbolWithoutPermanentId.js';
+import configureImageWithoutPermanentId from 'dita-example-sx-modules-xsd-common-element-mod/src/configureImageWithoutPermanentId.js';
 
 export default function configureSxModule(sxModule) {
 	// Mark this configureSxModule.js file as an addon entry file, so that we don't have to explicitly depend on
@@ -34,6 +40,45 @@ export default function configureSxModule(sxModule) {
 		blockHeaderLeft: [],
 		blockOutsideAfter: []
 	});
+
+	// Needed for bookmap implementation
+	namespaceManager.addNamespace('bookmap', 'urn:fonto:dita:bookmap');
+	registerCustomXPathFunction(
+		'bookmap:retrieve-element-label',
+		['xs:string'],
+		'xs:string?',
+		function(_dynamicContext, nodeName) {
+			return bookmapElementLabels[nodeName] || null;
+		}
+	);
+	configureProperties(
+		sxModule,
+		'self::*[fonto:dita-class(., "topic/topic")][not(parent::*[fonto:dita-class(., "topic/topic")])]',
+		{
+			titleQuery: `
+			let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name(),
+			$title := ./*[fonto:dita-class(., "topic/title")]//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()
+
+			return
+				if(not($refNodeName) or not(bookmap:retrieve-element-label($refNodeName)))
+				then $title
+				else string-join(upper-case(bookmap:retrieve-element-label($refNodeName)) || ": " || $title)`,
+			blockHeaderLeft: [
+				createLabelQueryWidget('""', {
+					prefixQuery: `
+					let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name()
+
+					return
+						if( not($refNodeName) or not(bookmap:retrieve-element-label($refNodeName)) )
+						then ()
+						else string-join(bookmap:retrieve-element-label($refNodeName) || " | ")`,
+					inline: true
+				}),
+				createMarkupLabelWidget()
+			],
+			priority: 10
+		}
+	);
 
 	// Configure everything without permanentIds
 	configureImageWithoutPermanentId(sxModule);

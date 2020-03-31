@@ -1,0 +1,216 @@
+{
+	"contextual-unwrap-appendices": {
+		"label": "t__Unwrap",
+		"description": "t__Remove this appendices container together with the corresponding topic, while leaving the nested appendix elements.",
+		"initialData": {
+			"warningModalBody": "t__Are you sure you want to remove this appendices document?",
+			"warningModalConfirmButtonLabel": "t__Remove",
+			"warningModalTitle": "t__Remove document"
+		},
+		"steps": [
+			{ "type": "modal/WarningModal" },
+			{
+				"type": "operation/collapse-element"
+			}
+		]
+	},
+	"contextual-unwrap-appendices--container": {
+		"label": "t__Unwrap",
+		"description": "t__Remove this appendices container, while leaving the nested appendix elements.",
+		"steps": [
+			{
+				"type": "operation/collapse-element"
+			}
+		]
+	},
+	"bookmap-insert-appendices--from-template": {
+		"label": "t__Insert new topic",
+		"description": "t__Create a new topic and insert as a appendices container in book map or around existing appendix elements.",
+		"icon": "file-o",
+		"alternatives": [
+			"_bookmap-insert-appendices--from-template",
+			"_bookmap-wrap-appendices--from-template"
+		]
+	},
+	"bookmap-insert-appendices--to-existing-document": {
+		"label": "t__Insert existing topic",
+		"description": "t__Insert an existing topic as a appendices container in book map or around existing appendix elements.",
+		"icon": "file-text-o",
+		"alternatives": [
+			"_bookmap-insert-appendices--to-existing-document",
+			"_bookmap-wrap-appendices--to-existing-document"
+		]
+	},
+	"bookmap-insert-appendices--container": {
+		"label": "t__Insert as container",
+		"description": "t__Insert a appendices container for (existing) appendix elements.",
+		"alternatives": [
+			"_bookmap-insert-appendices--container",
+			"_bookmap-wrap-appendices--container"
+		]
+	},
+
+	"_bookmap-insert-appendices--from-template": {
+		"steps": [
+			{
+				"type": "operation/_insert-from-template--prep"
+			},
+			{
+				"type": "operation/_insert-appendices",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"_bookmap-wrap-appendices--from-template": {
+		"steps": [
+			{
+				"type": "operation/_insert-from-template--prep"
+			},
+			{
+				"type": "operation/_wrap-appendices",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"_bookmap-insert-appendices--to-existing-document": {
+		"steps": [
+			{
+				"type": "operation/_insert-to-existing-topic--prep"
+			},
+			{
+				"type": "operation/_insert-appendices",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"_bookmap-wrap-appendices--to-existing-document": {
+		"steps": [
+			{
+				"type": "operation/_insert-to-existing-topic--prep"
+			},
+			{
+				"type": "operation/_wrap-appendices",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"_bookmap-insert-appendices--container": {
+		"getStateSteps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"appendices"
+					]
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"appendices"
+					]
+				}
+			},
+			{
+				"type": "operation/select-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::appendices"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	"_bookmap-wrap-appendices--container": {
+		"getStateSteps": [
+			{
+				"type": "custom-mutation/wrap-appendix-elements-in-appendices"
+			}
+		],
+		"steps": [
+			{
+				"type": "custom-mutation/wrap-appendix-elements-in-appendices"
+			},
+			{
+				"type": "operation/select-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::appendices"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+
+	"_insert-appendices": {
+		"getStateSteps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"appendices",
+						{ "href": "someHref" }
+					]
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"appendices",
+						{ "href": "{{targetHref}}" }
+					]
+				}
+			},
+			{
+				"type": "operation/_set-cursor-and-scroll-into-view--after-insert-topic"
+			}
+		]
+	},
+	"_wrap-appendices": {
+		"getStateSteps": [
+			{
+				"type": "custom-mutation/wrap-appendix-elements-in-appendices",
+				"data": {
+					"href": "someHref"
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "custom-mutation/wrap-appendix-elements-in-appendices",
+				"data": {
+					"href": "{{targetHref}}"
+				}
+			},
+			{
+				"type": "operation/_set-cursor-and-scroll-into-view--after-insert-topic"
+			}
+		]
+	}
+}

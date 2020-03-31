@@ -1,0 +1,34 @@
+{
+	"contextual-insert-dedication--from-template": {
+		"label": "t__Insert new topic",
+		"description": "t__Create a new topic and insert it under the frontmatter or backmatter as a dedication.",
+		"icon": "file-o",
+		"steps": {
+			"type": "operation/_contextual-insert-{refElementName}--from-template",
+			"data": {
+				"refElementName": "dedication"
+			}
+		}
+	},
+	"contextual-insert-dedication--to-existing-document": {
+		"label": "t__Insert existing topic",
+		"description": "t__Insert an existing topic under the frontmatter or backmatter as a dedication.",
+		"icon": "file-text-o",
+		"steps": {
+			"type": "operation/_contextual-insert-{refElementName}--to-existing-document",
+			"data": {
+				"refElementName": "dedication"
+			}
+		}
+	},
+	"contextual-insert-dedication--placeholder": {
+		"label": "t__Insert as placeholder",
+		"description": "t__Insert a dedication under the frontmatter or backmatter as a placeholder.",
+		"steps": {
+			"type":"operation/_contextual-insert-{elementName}--placeholder-container",
+			"data": {
+				"elementName": "dedication"
+			}
+		}
+	}
+}

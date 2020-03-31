@@ -1,3 +1,14 @@
 {
-	"dependencies": {}
+	"dependencies": {
+		"dita-example-sx-modules-xsd-bookmap-mod": "packages/dita-example-sx-modules-xsd-bookmap-mod",
+		"dita-example-sx-modules-xsd-common-element-mod": "packages-shared/dita-example-sx-modules-xsd-common-element-mod",
+		"dita-example-sx-modules-xsd-hazard-domain": "packages-shared/dita-example-sx-modules-xsd-hazard-domain",
+		"dita-example-sx-modules-xsd-highlight-domain": "packages-shared/dita-example-sx-modules-xsd-highlight-domain",
+		"dita-example-sx-modules-xsd-map-group-mod": "packages-shared/dita-example-sx-modules-xsd-map-group-mod",
+		"dita-example-sx-modules-xsd-map-mod": "packages-shared/dita-example-sx-modules-xsd-map-mod",
+		"dita-example-sx-modules-xsd-programming-domain": "packages-shared/dita-example-sx-modules-xsd-programming-domain",
+		"dita-example-sx-modules-xsd-tbl-decl-mod": "packages-shared/dita-example-sx-modules-xsd-tbl-decl-mod",
+		"dita-example-sx-modules-xsd-ui-domain": "packages-shared/dita-example-sx-modules-xsd-ui-domain",
+		"dita-example-sx-pivot-model-translation": "packages/dita-example-sx-pivot-model-translation"
+	}
 }

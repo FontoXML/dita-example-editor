@@ -1,0 +1,40 @@
+{
+	"contextual-insert-frontmatter": {
+		"label": "t__Frontmatter",
+		"description": "t__Insert a frontmatter container element.",
+		"getStateSteps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"frontmatter"
+					]
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"frontmatter"
+					]
+				}
+			},
+			{
+				"type": "operation/select-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::frontmatter"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	}
+}

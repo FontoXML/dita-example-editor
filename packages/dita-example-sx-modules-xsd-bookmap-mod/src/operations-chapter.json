@@ -1,0 +1,154 @@
+{
+	"contextual-insert-chapter--from-template": {
+		"label": "t__Insert new topic",
+		"description": "t__Create a new topic and insert it under the part as a chapter.",
+		"icon": "file-o",
+		"steps": {
+			"type": "operation/_contextual-insert-{refElementName}--from-template",
+			"data": {
+				"refElementName": "chapter"
+			}
+		}
+	},
+	"contextual-insert-chapter--to-existing-document": {
+		"label": "t__Insert existing topic",
+		"description": "t__Insert an existing topic under the part as a chapter.",
+		"icon": "file-text-o",
+		"steps": {
+			"type": "operation/_contextual-insert-{refElementName}--to-existing-document",
+			"data": {
+				"refElementName": "chapter"
+			}
+		}
+	},
+	"contextual-insert-chapter--container": {
+		"label": "t__Insert as container",
+		"description": "t__Insert a chapter under the part as a container.",
+		"steps": {
+			"type":"operation/_contextual-insert-{elementName}--placeholder-container",
+			"data": {
+				"elementName": "chapter"
+			}
+		}
+	},
+
+	"bookmap-insert-chapter--from-template": {
+		"label": "t__Insert new topic",
+		"description": "t__Create a new topic and insert it under the book map as a chapter.",
+		"icon": "file-o",
+		"steps": [
+			{
+				"type": "operation/_insert-from-template--prep"
+			},
+			{
+				"type": "operation/_insert-chapter",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"bookmap-insert-chapter--to-existing-document": {
+		"label": "t__Insert existing topic",
+		"description": "t__Insert an existing topic under the book map as a chapter.",
+		"icon": "file-text-o",
+		"steps": [
+			{
+				"type": "operation/_insert-to-existing-topic--prep"
+			},
+			{
+				"type": "operation/_insert-chapter",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"bookmap-insert-chapter--container": {
+		"label": "t__Insert as container",
+		"description": "t__Insert a chapter under the book map as a container.",
+		"getStateSteps": [
+			{
+				"type": "operation/_merge-and-insert-chapter",
+				"data": {
+					"attributes": {}
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/_merge-and-insert-chapter",
+				"data": {
+					"attributes": {}
+				}
+			},
+			{
+				"type": "operation/select-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::chapter[last()]"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+
+	"_insert-chapter": {
+		"getStateSteps": [
+			{
+				"type": "operation/_merge-and-insert-chapter",
+				"data": {
+					"attributes": {
+						"href": "someHref"
+					}
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/_merge-and-insert-chapter",
+				"data": {
+					"attributes": {
+						"href": "{{targetHref}}"
+					}
+				}
+			},
+			{
+				"type": "operation/_set-cursor-and-scroll-into-view--after-insert-topic"
+			}
+		]
+	},
+	"_merge-and-insert-chapter": {
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextNodeId": "{{contextNodeId}}",
+				"contextStencil": [
+					null,
+					[{ "multiple": false, "required": false, "restrictTo": "self::title or self::booktitle"}],
+					[{ "multiple": false, "required": false, "restrictTo": "self::bookmeta"}],
+					[{ "multiple": false, "required": false, "restrictTo": "self::frontmatter"}],
+					[{ "multiple": true, "restrictTo": "self::chapter", "bindTo": "childNodes" }],
+					[{ "multiple": true, "required": false, "restrictTo": "self::part" }],
+					[{ "multiple": true, "required": false, "restrictTo": "self::appendices or self::appendix" }],
+					[{ "multiple": false, "required": false, "restrictTo": "self::backmatter" }],
+					[{ "multiple": true, "required": false, "restrictTo": "self::reltable" }]
+				],
+				"insertionStencils": {
+					"childNodes.end": {
+						"stencil": [
+							"chapter",
+							"{{attributes}}"
+						]
+					}
+				}
+			}
+		}
+	}
+}

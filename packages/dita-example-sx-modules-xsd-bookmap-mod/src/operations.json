@@ -1,0 +1,289 @@
+{
+	"contextual-insert-@href--from-template": {
+		"label": "t__Add reference to new topic",
+		"description": "t__Add a reference to a newly created topic",
+		"icon": "file-o",
+		"steps": [
+			{
+				"type": "operation/_insert-from-template--prep"
+			},
+			{
+				"type": "operation/_set-attributes-and-scroll-new-document-in-view",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"contextual-insert-@href--to-existing-document": {
+		"label": "t__Add reference to existing topic",
+		"description": "t__Add a reference to an existing topic",
+		"icon": "file-text-o",
+		"steps": [
+			{
+				"type": "operation/_insert-to-existing-topic--prep"
+			},
+			{
+				"type": "operation/_set-attributes-and-scroll-new-document-in-view",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"contextual-convert-to-placeholder": {
+		"label": "t__Turn into placeholder",
+		"description": "t__Remove the reference to the topic, and turn it into a placeholder",
+		"steps": {
+			"type": "operation/_contextual-remove-@href"
+		}
+	},
+	"contextual-convert-to-container": {
+		"label": "t__Turn into container",
+		"description": "t__Remove the reference to the topic, and turn it into a container",
+		"steps": {
+			"type": "operation/_contextual-remove-@href"
+		}
+	},
+	"_contextual-insert-{refElementName}--from-template": {
+		"steps": [
+			{
+				"type": "operation/_insert-from-template--prep"
+			},
+			{
+				"type": "operation/_append-{refElementName}",
+				"data": {
+					"refElementName": "{{refElementName}}",
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"_contextual-insert-{refElementName}--to-existing-document": {
+		"steps": [
+			{
+				"type": "operation/_insert-to-existing-topic--prep"
+			},
+			{
+				"type": "operation/_append-{refElementName}",
+				"data": {
+					"refElementName": "{{refElementName}}",
+					"targetDocumentId": "{{documentId}}",
+					"targetHref": "{{url}}"
+				}
+			}
+		]
+	},
+	"_contextual-insert-{elementName}--placeholder-container": {
+		"getStateSteps": [
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"{{elementName}}"
+					]
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"{{elementName}}"
+					]
+				}
+			},
+			{
+				"type": "operation/select-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::*[last()]"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+
+	"_disable-when-selected-documented-is-a-map": {
+		"steps": {
+			"type": "action/disableWhenSelectedDocumentedIsAMap"
+		}
+	},
+	"_insert-from-template--prep": {
+		"steps": [
+			{
+				"type": "operation/open-document-template-browser-modal",
+				"data": {
+					"insertOperationName": "_disable-when-selected-documented-is-a-map"
+				}
+			},
+			{
+				"type": "action/createNewDocumentFromRemoteTemplate",
+				"data": {
+					"templateRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromRemoteTarget",
+				"data": {
+					"targetRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			}
+		]
+	},
+	"_insert-to-existing-topic--prep": {
+		"steps": [
+			{
+				"type": "operation/open-document-browser-modal",
+				"data": {
+					"insertOperationName": "_disable-when-selected-documented-is-a-map"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromRemoteTarget",
+				"data": {
+					"targetRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			}
+		]
+	},
+	"_set-attributes-and-scroll-new-document-in-view": {
+		"getStateSteps": [
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"attributes": {
+						"href": "someHref"
+					}
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"attributes": {
+						"href": "{{targetHref}}"
+					}
+				}
+			},
+			{
+				"type": "operation/_set-cursor-and-scroll-into-view--after-insert-topic"
+			}
+		]
+	},
+	"_append-{refElementName}": {
+		"getStateSteps": [
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"{{refElementName}}",
+						{ "href": "someHref" }
+					]
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"{{refElementName}}",
+						{ "href": "{{targetHref}}" }
+					]
+				}
+			},
+			{
+				"type": "operation/_set-cursor-and-scroll-into-view--after-insert-topic"
+			}
+		]
+	},
+	"_set-cursor-and-scroll-into-view--after-insert-topic": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToDocumentElementOfDocument",
+				"data": {
+					"documentId": "{{documentId}}"
+				}
+			},
+			{
+				"type": "transform/setHierarchyNodeIdToLastChildForDocumentForBookmap",
+				"data": {
+					"documentId": "{{documentId}}",
+					"hierarchyNodeId": "{{hierarchyNodeId}}"
+				}
+			},
+			{
+				"type": "operation/set-cursor-to-first-text-position",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	"_contextual-remove-@href": {
+		"steps": [
+			{
+				"type": "operation/set-attributes",
+				"data": {
+					"attributes": {
+						"href": null
+					}
+				}
+			},
+			{
+				"type": "operation/select-node"
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+
+	"contextual-delete-bookmap-container-element": {
+		"label": "t__Remove",
+		"icon": "times",
+		"initialData": {
+			"warningModalBody": "t__Are you sure you want to remove this container? This will also remove descendant documents if there are any.",
+			"warningModalConfirmButtonLabel": "t__Remove",
+			"warningModalTitle": "t__Remove container"
+		},
+		"steps": [
+			{ "type": "modal/WarningModal" },
+			{
+				"type": "operation/delete-node"
+			}
+		]
+	},
+	"contextual-delete-bookmap-placeholder-element": {
+		"label": "t__Remove",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"contextual-insert-backmatter": {
+		"label": "t__Backmatter",
+		"description": "t__Insert a backmatter container element.",
+		"getStateSteps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"backmatter"
+					]
+				}
+			}
+		],
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"backmatter"
+					]
+				}
+			},
+			{
+				"type": "operation/select-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::backmatter"
+				}
+			},
+			{
+				"type": "operation/scroll-node-into-view",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	}
+}
