@@ -1,5 +1,5 @@
 {
-	"contextual-insert-topicref--from-template": {
+	":contextual-insert-topicref--from-template": {
 		"label": "Insert new topic",
 		"description": "Insert a new topic below the current one.",
 		"icon": "file-o",
@@ -29,7 +29,7 @@
 			}
 		]
 	},
-	"contextual-insert-topicref--to-existing-document": {
+	":contextual-insert-topicref--to-existing-document": {
 		"label": "Insert existing topic",
 		"description": "Insert an existing topic below the current one.",
 		"icon": "file-text-o",
@@ -65,7 +65,7 @@
 				"type": "transform/setContextNodeIdToTopicrefReferencingCurrentDocument"
 			},
 			{
-				"type": "operation/contextual-insert-topicref--from-template"
+				"type": "operation/:contextual-insert-topicref--from-template"
 			}
 		]
 	},
@@ -78,7 +78,7 @@
 				"type": "transform/setContextNodeIdToTopicrefReferencingCurrentDocument"
 			},
 			{
-				"type": "operation/contextual-insert-topicref--to-existing-document"
+				"type": "operation/:contextual-insert-topicref--to-existing-document"
 			}
 		]
 	}

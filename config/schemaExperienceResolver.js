@@ -3,6 +3,7 @@ import sxManager from 'fontoxml-modular-schema-experience/src/sxManager.js';
 import SchemaLocationToSchemaExperienceResolver from 'fontoxml-schema-experience-resolver/src/SchemaLocationToSchemaExperienceResolver.js';
 import SCHEMA_LOCATIONS_BASEMAP from 'dita-example-sx-shells-basemap/src/SCHEMA_LOCATIONS.js';
 import SCHEMA_LOCATIONS_BASETOPIC from 'dita-example-sx-shells-basetopic/src/SCHEMA_LOCATIONS.js';
+import SCHEMA_LOCATIONS_BOOKMAP from 'dita-example-sx-shells-bookmap/src/SCHEMA_LOCATIONS.js';
 import SCHEMA_LOCATIONS_CONCEPT from 'dita-example-sx-shells-concept/src/SCHEMA_LOCATIONS.js';
 import SCHEMA_LOCATIONS_GENERAL_TASK from 'dita-example-sx-shells-general-task/src/SCHEMA_LOCATIONS.js';
 import SCHEMA_LOCATIONS_GLOSSGROUP from 'dita-example-sx-shells-glossgroup/src/SCHEMA_LOCATIONS.js';
@@ -24,6 +25,10 @@ const SHELLS = [
 	{
 		package: 'dita-example-sx-shells-basetopic',
 		locations: SCHEMA_LOCATIONS_BASETOPIC
+	},
+	{
+		package: 'dita-example-sx-shells-bookmap',
+		locations: SCHEMA_LOCATIONS_BOOKMAP
 	},
 	{
 		package: 'dita-example-sx-shells-concept',

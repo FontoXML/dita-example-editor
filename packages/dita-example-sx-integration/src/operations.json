@@ -1,4 +1,50 @@
 {
+	":_open-template-browser-for-insert": {
+		"steps": [
+			{
+				"type": "operation/open-document-template-browser-modal",
+				"data": {
+					"insertOperationName": ":_disable-when-selected-documented-is-a-map"
+				}
+			},
+			{
+				"type": "action/createNewDocumentFromRemoteTemplate",
+				"data": {
+					"templateRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromRemoteTarget",
+				"data": {
+					"targetRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForUrl"
+			}
+		]
+	},
+
+	":_open-document-browser-for-insert": {
+		"steps": [
+			{
+				"type": "operation/open-document-browser-modal",
+				"data": {
+					"insertOperationName": ":_disable-when-selected-documented-is-a-map"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromRemoteTarget",
+				"data": {
+					"targetRemoteDocumentId": "{{remoteDocumentId}}"
+				}
+			},
+			{
+				"type": "transform/setReferenceForUrl"
+			}
+		]
+	},
+	
 	"contextual-edit-note[@conref]": {
 		"label": "Edit",
 		"description": "Edit a conref to another existing node.",

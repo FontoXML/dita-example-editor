@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmap id="stubbed-template-id" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:xsd:bookmap.xsd:1.3">
+	<title><?fontoxml-text-placeholder text="Book map title" ?></title>
+</bookmap>

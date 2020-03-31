@@ -7,6 +7,7 @@
 		"dita-example-sx-integration": "packages/dita-example-sx-integration",
 		"dita-example-sx-shells-basemap": "packages/dita-example-sx-shells-basemap",
 		"dita-example-sx-shells-basetopic": "packages/dita-example-sx-shells-basetopic",
+		"dita-example-sx-shells-bookmap": "packages/dita-example-sx-shells-bookmap",
 		"dita-example-sx-shells-concept": "packages/dita-example-sx-shells-concept",
 		"dita-example-sx-shells-general-task": "packages/dita-example-sx-shells-general-task",
 		"dita-example-sx-shells-glossgroup": "packages/dita-example-sx-shells-glossgroup",
