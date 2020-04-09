@@ -1,5 +1,5 @@
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
-import configureAsStructureViewItem from 'fontoxml-families/src/configureasstructureviewitem.js';
+import configureAsStructureViewItem from 'fontoxml-families/src/configureAsStructureViewItem.js';
 
 const INSERT_TOPICREF_OPERATION_NAMES = [
 	'contextual-insert-topicref--from-template',
