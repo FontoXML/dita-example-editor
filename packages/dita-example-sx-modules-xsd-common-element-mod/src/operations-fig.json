@@ -3,10 +3,7 @@
 		"label": "t__Remove figure",
 		"icon": "times",
 		"steps": {
-			"type": "operation/delete-node",
-			"data": {
-				"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
-			}
+			"type": "operation/delete-node"
 		}
 	},
 	":fig-append-image": {
@@ -15,10 +12,7 @@
 		"icon": "picture-o",
 		"steps": [
 			{
-				"type": "operation/:_open-image-browser-for-insert",
-				"data": {
-					"figContextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
-				}
+				"type": "operation/:_open-image-browser-for-insert"
 			},
 			{
 				"type": "operation/append-structure",
@@ -28,8 +22,7 @@
 						{
 							"href": "{{reference}}"
 						}
-					],
-					"contextNodeId": "{{figContextNodeId}}"
+					]
 				}
 			}
 		]
@@ -44,7 +37,7 @@
 					"desc",
 					[{ "bindTo": "selection", "empty": true }]
 				],
-				"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
+				"contextNodeId": "{{contextNodeId}}"
 			}
 		}
 	},
@@ -54,10 +47,7 @@
 		"icon": "picture-o",
 		"steps": [
 			{
-				"type": "operation/:_open-image-browser-for-insert",
-				"data": {
-					"figContextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
-				}
+				"type": "operation/:_open-image-browser-for-insert"
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -67,8 +57,7 @@
 						{
 							"href": "{{reference}}"
 						}
-					],
-					"contextNodeId": "{{figContextNodeId}}"
+					]
 				}
 			}
 		]
@@ -83,7 +72,7 @@
 					"title",
 					[{ "bindTo": "selection", "empty": true }]
 				],
-				"contextNodeId": "x__$data('contextNode')/ancestor-or-self::fig[1]"
+				"contextNodeId": "{{contextNodeId}}"
 			}
 		}
 	}

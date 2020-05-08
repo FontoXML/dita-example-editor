@@ -66,7 +66,6 @@ export default function configureSxModule(sxModule) {
 	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
 	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
 	configureAsMapSheetFrame(sxModule, 'self::topichead', t('topic group'), {
-		showWhen: 'has-focus',
 		titleQuery:
 			'if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)',
 		variation: 'compact-vertical',
@@ -80,7 +79,6 @@ export default function configureSxModule(sxModule) {
 	//     structural hierarchy. It is typically used outside a hierarchy to identify groups for linking
 	//     without affecting the resulting toc/navigation output. Category: Mapgroup elements
 	configureAsMapSheetFrame(sxModule, 'self::topicgroup', t('untitled topic group'), {
-		showWhen: 'has-focus',
 		variation: 'compact-vertical',
 		visibleChildSelectorOrNodeSpec: 'self::topicmeta',
 		blockHeaderLeft: [createMarkupLabelWidget()]

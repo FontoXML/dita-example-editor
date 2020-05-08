@@ -1,14 +1,14 @@
 {
   "name": "dita-example-sx-modules-xsd-ui-domain",
   "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-ui-domain",
-  "version": "2.0.0",
-  "_release": "2.0.0",
+  "version": "2.1.0",
+  "_release": "2.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "2.0.0",
-    "commit": "3417009a8707f21542300748955b68c4c5f9be78"
+    "tag": "2.1.0",
+    "commit": "1b9d01942bd2176a30edb1a5e871cbbc0b6082f8"
   },
   "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-ui-domain.git",
-  "_target": "2.0.0",
+  "_target": "2.1.0",
   "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-ui-domain.git"
 }

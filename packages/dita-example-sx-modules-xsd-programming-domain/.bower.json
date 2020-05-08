@@ -1,14 +1,14 @@
 {
   "name": "dita-example-sx-modules-xsd-programming-domain",
   "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-programming-domain",
-  "version": "3.0.0",
-  "_release": "3.0.0",
+  "version": "3.1.0",
+  "_release": "3.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "3.0.0",
-    "commit": "5f0fea7151cd1269b6f11b72b448a91f6a594f50"
+    "tag": "3.1.0",
+    "commit": "992d5ac74878a2dd42e0277151e26b18c43b57c8"
   },
   "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-programming-domain.git",
-  "_target": "3.0.0",
+  "_target": "3.1.0",
   "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-programming-domain.git"
 }

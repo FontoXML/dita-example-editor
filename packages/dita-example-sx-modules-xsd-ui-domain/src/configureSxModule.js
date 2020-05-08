@@ -29,7 +29,8 @@ export default function configureSxModule(sxModule) {
 		isMonospaced: true,
 		withNewlineBreakToken: true,
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideAfter: [createElementMenuButtonWidget()]
+		blockOutsideAfter: [createElementMenuButtonWidget()],
+		allowAutocapitalization: false
 	});
 
 	// shortcut

@@ -531,7 +531,8 @@ export default function configureSxModule(sxModule) {
 	//     appropriate, such as <codeblock>. Category: Body elements
 	configureAsGroupWithBlock(sxModule, 'self::pre', t('preformatted text'), {
 		expression: 'compact',
-		withNewlineBreakToken: true
+		withNewlineBreakToken: true,
+		allowAutocapitalization: false
 	});
 
 	// q
