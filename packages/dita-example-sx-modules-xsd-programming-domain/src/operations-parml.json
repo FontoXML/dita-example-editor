@@ -14,7 +14,7 @@
 		}
 	},
 	":contextual-insert-plentry--above": {
-		"label": "t__Add row below",
+		"label": "t__Add row above",
 		"description": "t__Contains a parameter and a corresponding definition.",
 		"steps": {
 			"type": "operation/insert-next-to-context-node",
@@ -31,14 +31,14 @@
 		}
 	},
 	":contextual-insert-plentry--below": {
-		"label": "t__Add row above",
+		"label": "t__Add row below",
 		"description": "t__Contains a parameter and a corresponding definition.",
 		"steps": {
 			"type": "operation/insert-next-to-context-node",
 			"data": {
 				"side": "after",
 				"childNodeStructure": [
-					"dplentry",
+					"plentry",
 					["pt",
 						[{ "bindTo": "selection", "empty": true }]
 					],
