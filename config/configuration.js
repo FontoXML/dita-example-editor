@@ -2,6 +2,8 @@ import configurationManager from 'fontoxml-configuration/src/configurationManage
 
 import attributesEditorConfigurationJson from './attributesEditorConfiguration.json';
 
+configurationManager.set('use-embedded-mode', true);
+
 configurationManager.set('attributes-editor-configuration', attributesEditorConfigurationJson);
 
 configurationManager.set('content-quality-configuration', {});
