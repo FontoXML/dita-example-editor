@@ -4,8 +4,6 @@ import configureProperties from 'fontoxml-families/src/configureProperties.js';
 
 import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget.js';
 
-import t from 'fontoxml-localization/src/t.js';
-
 import addReducer from 'fontoxml-indices/src/addReducer.js';
 
 import configureAsCalsTableElements from 'fontoxml-table-flow-cals/src/configureAsCalsTableElements.js';
@@ -36,5 +34,14 @@ export default function configureSxModule(sxModule) {
 		showInsertionWidget: true,
 		// OVERRIDE: added this to disable the default (not so flexible) table context menu
 		useDefaultContextMenu: true
+	});
+
+	configureProperties(sxModule, 'self::table', {
+		blockHeaderRight: [
+			createLabelQueryWidget(
+				`import module namespace app = "http://www.fontoxml.com/app";
+				"Table " || app:calculateTableNumber(fonto:current-hierarchy-node-id(), .)`
+			)
+		]
 	});
 }
