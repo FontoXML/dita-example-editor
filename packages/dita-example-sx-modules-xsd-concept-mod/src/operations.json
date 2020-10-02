@@ -1,0 +1,59 @@
+{
+	":contextual-unwrap-conbodydiv": {
+		"label": "t__Unwrap division",
+		"description": "t__Remove the division markup but preserve its content.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":insert-conbodydiv": {
+		"label": "t__Body division",
+		"description": "t__Group your examples and sections in a division without implying meaning.",
+		"alternatives": [
+			":_wrap-in-conbodydiv",
+			":_horizontal-insert-conbodydiv"
+		]
+	},
+	":_wrap-in-conbodydiv": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::conbody"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-or-container-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"conbodydiv",
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_horizontal-insert-conbodydiv": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::conbody"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"conbodydiv",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	}
+}

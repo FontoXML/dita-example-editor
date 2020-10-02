@@ -1,0 +1,339 @@
+{
+	":contextual-delete-lcCIN": {
+		"label": "t__Remove CIN",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcCIN": {
+		"label": "t__Add CIN",
+		"description": "t__Provides a course identification number or other alternate identifier for the project title.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcCIN"
+			}
+		}
+	},
+	":insert-lcCIN": {
+		"label": "t__CIN",
+		"description": "t__Provides a course identification number or other alternate identifier for the project title.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcCIN"
+			}
+		}
+	},
+	":lcCIN-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this CIN section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcClient": {
+		"label": "t__Remove client",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcClient": {
+		"label": "t__Add client",
+		"description": "t__Provides the person or organization sponsoring or requiring the learning event development.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcClient"
+			}
+		}
+	},
+	":insert-lcClient": {
+		"label": "t__Client",
+		"description": "t__Provides the person or organization sponsoring or requiring the learning event development.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcClient"
+			}
+		}
+	},
+	":lcClient-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this client section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcDelivDate": {
+		"label": "t__Remove delivery date",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcDelivDate": {
+		"label": "t__Add delivery date",
+		"description": "t__Provides the project delivery date.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcDelivDate"
+			}
+		}
+	},
+	":insert-lcDelivDate": {
+		"label": "t__Delivery date",
+		"description": "t__Provides the project delivery date.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcDelivDate"
+			}
+		}
+	},
+	":lcDelivDate-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this delivery date.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcModDate": {
+		"label": "t__Remove modification date",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcModDate": {
+		"label": "t__Add modification date",
+		"description": "t__Provides the project modification date.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcModDate"
+			}
+		}
+	},
+	":insert-lcModDate": {
+		"label": "t__Modification date",
+		"description": "t__Provides the project modification date.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcModDate"
+			}
+		}
+	},
+	":lcModDate-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this modification date.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcPlanDescrip": {
+		"label": "t__Remove plan description",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcPlanDescrip": {
+		"label": "t__Add plan description",
+		"description": "t__Provides a plan description.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcPlanDescrip"
+			}
+		}
+	},
+	":insert-lcPlanDescrip": {
+		"label": "t__Plan description",
+		"description": "t__Provides a plan description.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcPlanDescrip"
+			}
+		}
+	},
+	":lcPlanDescrip-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this plan description.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcPlanPrereqs": {
+		"label": "t__Remove plan prerequisites",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcPlanPrereqs": {
+		"label": "t__Add plan prerequisites",
+		"description": "t__Provides the knowledge, skills, abilities, courses and other activities learners must have satisfied to take the instruction.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcPlanPrereqs"
+			}
+		}
+	},
+	":insert-lcPlanPrereqs": {
+		"label": "t__Plan prerequisites",
+		"description": "t__Provides the knowledge, skills, abilities, courses and other activities learners must have satisfied to take the instruction.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcPlanPrereqs"
+			}
+		}
+	},
+	":lcPlanPrereqs-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this plan prerequisites.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcPlanSubject": {
+		"label": "t__Remove plan subject",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcPlanSubject": {
+		"label": "t__Add plan subject",
+		"description": "t__Provides a complete description of the subject of the planned learning.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcPlanSubject"
+			}
+		}
+	},
+	":insert-lcPlanSubject": {
+		"label": "t__Plan subject",
+		"description": "t__Provides a complete description of the subject of the planned learning.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcPlanSubject"
+			}
+		}
+	},
+	":lcPlanSubject-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this plan subject section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcPlanTitle": {
+		"label": "t__Remove plan title",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcProject-insert-lcPlanTitle": {
+		"label": "t__Add plan title",
+		"description": "t__Provides a title for a specific module, lesson, or section of the course that this plan describes.",
+		"steps": {
+			"type": "operation/:_lcProject-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcPlanTitle"
+			}
+		}
+	},
+	":insert-lcPlanTitle": {
+		"label": "t__Plan title",
+		"description": "t__Provides a title for a specific module, lesson, or section of the course that this plan describes.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcProject",
+			"data": {
+				"nodeName": "lcPlanTitle"
+			}
+		}
+	},
+	":lcPlanTitle-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this plan title section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcProject": {
+		"label": "t__Remove project",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcProject": {
+		"label": "t__Project",
+		"description": "t__Provides learning content project plan description information.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcProject",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcProject-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this project.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":_insert-{nodeName}--in-lcProject": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcProject" }
+			},
+			{
+				"type": "operation/:_lcProject-insert-{nodeName}"
+			}
+		]
+	},
+	":_lcProject-insert-{nodeName}": {
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"{{nodeName}}",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	}
+}

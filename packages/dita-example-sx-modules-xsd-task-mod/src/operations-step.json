@@ -1,0 +1,335 @@
+{
+	":contextual-delete-step": {
+		"label": "t__Remove step",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-substep": {
+		"label": "t__Remove substep",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-choice--above": {
+		"label": "t__Add choice above",
+		"description": "t__Describes one way that the user could accomplish the current step.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"choice",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-choice--below": {
+		"label": "t__Add choice below",
+		"description": "t__Describes one way that the user could accomplish the current step.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"choice",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-info": {
+		"label": "t__Add information",
+		"description": "t__Provides additional information about a step.",
+		"icon": "info",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"info",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-insert-step--above": {
+		"label": "t__Add step above",
+		"description": "t__Represents an action that a user must follow to accomplish a task.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"step",
+					["cmd",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-step--below": {
+		"label": "t__Add step below",
+		"description": "t__Represents an action that a user must follow to accomplish a task.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"step",
+					["cmd",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-stepresult": {
+		"label": "t__Add result",
+		"description": "t__Describes the expected outcome of a step.",
+		"icon": "flag-checkered",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"stepresult",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-insert-stepxmp": {
+		"label": "t__Add example",
+		"description": "t__Example for illustrating a step.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"stepxmp",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-substep--above": {
+		"label": "t__Add step above",
+		"description": "t__Represents an action that a user must follow to accomplish a step.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"substep",
+					["cmd",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-substep--below": {
+		"label": "t__Add step below",
+		"description": "t__Represents an action that a user must follow to accomplish a step.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"substep",
+					["cmd",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-tutorialinfo": {
+		"label": "t__Add tutorial information",
+		"description": "t__Provides additional information that is useful when the task is part of a tutorial.",
+		"icon": "info",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"tutorialinfo",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-choices": {
+		"label": "t__Choice list",
+		"description": "t__Describes choices a user can make when performing a step.",
+		"icon": "list-ol",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step"
+				}
+			},
+			{
+				"type": "operation/:step-insert-choices"
+			}
+		]
+	},
+	":insert-info": {
+		"label": "t__Information",
+		"description": "t__Provides additional information about a step.",
+		"icon": "info",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step or self::substep"
+				}
+			},
+			{
+				"type": "operation/:contextual-insert-info",
+				"data": {
+					"childNodeStructure": [
+						"info",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-stepresult": {
+		"label": "t__Result",
+		"description": "t__Describes the expected outcome of a step.",
+		"icon": "flag-checkered",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step or self::substep"
+				}
+			},
+			{
+				"type": "operation/:contextual-insert-stepresult"
+			}
+		]
+	},
+	":insert-steptroubleshooting": {
+		"label": "t__Troubleshooting",
+		"description": "t__Explanation about what to do when the result does not match the expected result.",
+		"icon": "bug",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step"
+				}
+			},
+			{
+				"type": "operation/:step-insert-steptroubleshooting"
+			}
+		]
+	},
+	":insert-stepxmp": {
+		"label": "t__Example",
+		"description": "t__Example for illustrating a step.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step or self::substep"
+				}
+			},
+			{
+				"type": "operation/:contextual-insert-stepxmp"
+			}
+		]
+	},
+	":insert-substeps": {
+		"label": "t__Substeps",
+		"description": "t__Used to break a step down into a series of separate actions.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step"
+				}
+			},
+			{
+				"type": "operation/:step-insert-substeps"
+			}
+		]
+	},
+	":insert-tutorialinfo": {
+		"label": "t__Tutorial information",
+		"description": "t__Provides additional information that is useful when the task is part of a tutorial.",
+		"icon": "info",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step or self::substep"
+				}
+			},
+			{
+				"type": "operation/:contextual-insert-tutorialinfo"
+			}
+		]
+	},
+	":step-insert-choices": {
+		"label": "t__Add choice list",
+		"description": "t__Describes choices a user can make when performing a step.",
+		"icon": "list-ol",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"choices",
+						[
+							"choice",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":step-insert-steptroubleshooting": {
+		"label": "t__Add troubleshooting",
+		"description": "t__Explanation about what to do when the result does not match the expected result.",
+		"icon": "bug",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"steptroubleshooting",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":step-insert-substeps": {
+		"label": "t__Add substeps",
+		"description": "t__Used to break a step down into a series of separate actions.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"substeps",
+					["substep",
+						["cmd",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "dita-example-sx-modules-xsd-map-group-mod",
+  "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-map-group-mod",
+  "version": "2.1.0",
+  "_release": "2.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.1.0",
+    "commit": "2cb8c250e3b4ca0bc68b26f01dc6f944cab4c0e2"
+  },
+  "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-map-group-mod.git",
+  "_target": "2.1.0",
+  "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-map-group-mod.git"
+}

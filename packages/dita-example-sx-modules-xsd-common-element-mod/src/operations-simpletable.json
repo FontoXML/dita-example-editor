@@ -1,0 +1,31 @@
+{
+	":contextual-delete-simpletable": {
+		"label": "t__Remove simple table",
+		"icon": "times",
+		"steps": {
+			"type": "operation/table-contextual-delete"
+		}
+	},
+	":insert-fig.simpletable": {
+		"label": "t__Simple table in figure",
+		"description": "t__A table with a regular structure wrapped in a figure.",
+		"icon": "table",
+		"initialData": {
+			"childNodeStructure":
+			[
+				"fig",
+				[
+					"title"
+				],
+				[
+					"simpletable"
+				]
+			],
+			"rows": 1,
+			"columns": 1
+		},
+		"steps": {
+			"type": "operation/table-insert"
+		}
+	}
+}

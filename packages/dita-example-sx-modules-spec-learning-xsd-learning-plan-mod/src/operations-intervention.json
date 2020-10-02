@@ -1,0 +1,212 @@
+{
+	":lcInterventionItem-insert-lcAssessment": {
+		"label": "t__Add assessment plans",
+		"description": "t__Describes assessment plans.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcAssessment",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcAssessment": {
+		"label": "t__Assessment plans",
+		"description": "t__Describes assessment plans.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcInterventionItem" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcAssessment",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcInterventionItem-insert-lcDelivery": {
+		"label": "t__Add delivery method",
+		"description": "t__Describes the delivery method for this learning content.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcDelivery",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcDelivery": {
+		"label": "t__Delivery method",
+		"description": "t__Describes the delivery method for this learning content.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcInterventionItem" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcDelivery",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcIntervention": {
+		"label": "t__Remove intervention",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcIntervention": {
+		"label": "t__Intervention",
+		"description": "t__Describes the approach and strategies to building the learning materials, based on the needs analysis.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcIntervention",
+						["lcInterventionItem",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					]
+				}
+			}
+		]
+	},
+	":lcIntervention-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this intervention section.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcInterventionItem": {
+		"label": "t__Remove intervention item",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcInterventionItem": {
+		"label": "t__Intervention item",
+		"description": "t__Describes how learning content is built, based on a systems approach to analyzing, designing, developing, implementing, and evaluating any instructional experience.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcIntervention" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcInterventionItem",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-insert-lcInterventionItem--above": {
+		"label": "t__Add intervention item above",
+		"description": "t__Describes how learning content is built, based on a systems approach to analyzing, designing, developing, implementing, and evaluating any instructional experience.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"lcInterventionItem",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-lcInterventionItem--below": {
+		"label": "t__Add intervention item below",
+		"description": "t__Describes how learning content is built, based on a systems approach to analyzing, designing, developing, implementing, and evaluating any instructional experience.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"lcInterventionItem",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":lcInterventionItem-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this intervention item.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcInterventionItem-insert-lcLearnStrat": {
+		"label": "t__Add learning strategy",
+		"description": "t__Describes the manner in which the learning content will be instructed. This should be a high level design that applies instructional-design theories and models.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcLearnStrat",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcLearnStrat": {
+		"label": "t__Learning strategy",
+		"description": "t__Describes the manner in which the learning content will be instructed. This should be a high level design that applies instructional-design theories and models.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcInterventionItem" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcLearnStrat",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

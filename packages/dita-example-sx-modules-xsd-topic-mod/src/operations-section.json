@@ -1,0 +1,99 @@
+{
+	":contextual-delete-section": {
+		"label": "t__Remove section",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-unwrap-section": {
+		"label": "t__Unwrap section",
+		"description": "t__Remove the section markup but preserve its content. If this section has a title, you must remove it first, as it is not allowed outside the section.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":insert-section": {
+		"label": "t__Section",
+		"description": "t__Divides a topic into parts.",
+		"alternatives": [
+			":_wrap-in-section",
+			":_horizontal-insert-section"
+		]
+	},
+	":_wrap-in-section": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"section",
+						["title"],
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_horizontal-insert-section": {
+		"steps": [
+			{
+				"type": "action/requireSelectionCollapsed"
+			},
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv')]"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"section",
+						["title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["p"]
+					]
+				}
+			}
+		]
+	},
+	":section-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this section.",
+		"steps": [
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
+						[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
+						[{ "required": false, "multiple": true, "restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"}]
+					],
+					"contextNodeId": "{{contextNodeId}}",
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": [
+								"title",
+								[{ "bindTo": "selection", "empty": true }]
+							],
+							"model": "{{attributes}}"
+						}
+					}
+				}
+			}
+		]
+	}
+}

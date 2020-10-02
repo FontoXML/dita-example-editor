@@ -1,0 +1,846 @@
+{
+	":lcPlanAudience-insert-lcAge": {
+		"label": "t__Add age",
+		"description": "t__Provides the age range of the intended learner audience, for use by curriculum developers and course planners.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcAge",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcAge": {
+		"label": "t__Age",
+		"description": "t__Provides the age range of the intended learner audience, for use by curriculum developers and course planners.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcAge",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcTask-insert-lcAttitude": {
+		"label": "t__Add attitude",
+		"description": "t__Describes mental state that influences the choices of personal actions.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcAttitude",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcAttitude": {
+		"label": "t__Attitude",
+		"description": "t__Describes mental state that influences the choices of personal actions.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcTask" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcAttitude",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcPlanAudience-insert-lcBackground": {
+		"label": "t__Add background",
+		"description": "t__Provides the learners' professional background and the relevancy to the learning plan.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcBackground",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcBackground": {
+		"label": "t__Background",
+		"description": "t__Provides the learners' professional background and the relevancy to the learning plan.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcBackground",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcPlanAudience-insert-lcEdLevel": {
+		"label": "t__Add education level",
+		"description": "t__Provides the range of learners' education level and the relevancy to the learning plan.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcEdLevel",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcEdLevel": {
+		"label": "t__Education level",
+		"description": "t__Provides the range of learners' education level and the relevancy to the learning plan.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcEdLevel",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-insert-lcGeneralDescription": {
+		"label": "t__Add general description",
+		"description": "t__Provides a space to develop a general description about the organization's training needs.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcGeneralDescription",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcGeneralDescription": {
+		"label": "t__General description",
+		"description": "t__Provides a space to develop a general description about the organization's training needs.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational or self::lcPlanAudience" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcGeneralDescription",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcOrganizational-insert-lcGoals": {
+		"label": "t__Add goals",
+		"description": "t__Provides the outcomes desired by the organization to be addressed by the training effort. These goals can require concurrent efforts outside of training such as technology acquisition, reorganization, and so forth.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcGoals",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcGoals": {
+		"label": "t__Goals",
+		"description": "t__Provides the outcomes desired by the organization to be addressed by the training effort. These goals can require concurrent efforts outside of training such as technology acquisition, reorganization, and so forth.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcGoals",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-insert-lcKnowledge": {
+		"label": "t__Add knowledge",
+		"description": "t__Describes the learner's current knowledge and the relevancy to the broader plan audience or a specific task in the plan.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcKnowledge",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcKnowledge": {
+		"label": "t__Knowledge",
+		"description": "t__Describes the learner's current knowledge and the relevancy to the broader plan audience or a specific task in the plan.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcKnowledge",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcPlanAudience-insert-lcMotivation": {
+		"label": "t__Add motivation",
+		"description": "t__Provides the reasons why the learners want and/or need to take the instruction.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcMotivation",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcMotivation": {
+		"label": "t__Motivation",
+		"description": "t__Provides the reasons why the learners want and/or need to take the instruction.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcMotivation",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcOrganizational-insert-lcNeeds": {
+		"label": "t__Add needs",
+		"description": "t__Provides the needs behind the outcomes described by the goals.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcNeeds",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcNeeds": {
+		"label": "t__Needs",
+		"description": "t__Provides the needs behind the outcomes described by the goals.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcNeeds",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcNeedsAnalysis": {
+		"label": "t__Remove needs analysis",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcNeedsAnalysis": {
+		"label": "t__Needs analysis",
+		"description": "t__Describes the training requirement and identifies the need to develop or revise content. These include periodic training gap analyses, changes to operational or maintenance requirements, and changes to equipment or systems.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcNeedsAnalysis",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcNeedsAnalysis-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this needs analysis section.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcOrganizational": {
+		"label": "t__Remove organizational",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcNeedsAnalysis-insert-lcOrganizational": {
+		"label": "t__Add organizational",
+		"description": "t__Describes an organization's learning requirements.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcOrganizational",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcOrganizational": {
+		"label": "t__Organizational",
+		"description": "t__Describes an organization's learning requirements.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcNeedsAnalysis" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcOrganizational",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcOrganizational-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this organizational section.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcOrganizational-insert-lcOrgConstraints": {
+		"label": "t__Add organizational constraints",
+		"description": "t__Provides organizational aspects that can limit the organization's ability to effectively use the instruction to meet its goals.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcOrgConstraints",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcOrgConstraints": {
+		"label": "t__Organizational constraints",
+		"description": "t__Provides organizational aspects that can limit the organization's ability to effectively use the instruction to meet its goals.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcOrgConstraints",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcPlanAudience": {
+		"label": "t__Remove plan audience",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcNeedsAnalysis-insert-lcPlanAudience": {
+		"label": "t__Add plan audience",
+		"description": "t__Describes characteristics of the learners who take the instruction.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcPlanAudience",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcPlanAudience": {
+		"label": "t__Plan audience",
+		"description": "t__Describes characteristics of the learners who take the instruction.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcNeedsAnalysis" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcPlanAudience",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcPlanAudience-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this audience section.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcWorkEnv-insert-lcPlanResources": {
+		"label": "t__Add plan resources",
+		"description": "t__Describes resource needs.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcPlanResources",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcPlanResources": {
+		"label": "t__Plan resources",
+		"description": "t__Describes resource needs.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcWorkEnv" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcPlanResources",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcWorkEnv-insert-lcProcesses": {
+		"label": "t__Add processes",
+		"description": "t__Describes processes learners routinely follow.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcProcesses",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcProcesses": {
+		"label": "t__Processes",
+		"description": "t__Describes processes learners routinely follow.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcWorkEnv" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcProcesses",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-insert-lcSkills": {
+		"label": "t__Add skills",
+		"description": "t__Describes the learners' current skill set and the relevancy to the broader plan audience or a specific task in the plan.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcSkills",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-lcSkills": {
+		"label": "t__Skills",
+		"description": "t__Describes the learners' current skill set and the relevancy to the broader plan audience or a specific task in the plan.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcSkills",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcPlanAudience-insert-lcSpecChars": {
+		"label": "t__Add specific characteristics",
+		"description": "t__Provides learner characteristics specific to the population that will influence the design, including learning disabilities, physical handicaps, and so forth.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcSpecChars",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcSpecChars": {
+		"label": "t__Specific characteristics",
+		"description": "t__Provides learner characteristics specific to the population that will influence the design, including learning disabilities, physical handicaps, and so forth.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcSpecChars",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcTask": {
+		"label": "t__Remove task",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcNeedsAnalysis-append-lcTask": {
+		"label": "t__Add task",
+		"description": "t__Captures a work item to be performed, as part of the learning plan.",
+		"steps": {
+			"type": "operation/append-structure",
+			"data": {
+				"childNodeStructure": [
+					"lcTask",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":lcNeedsAnalysis-insert-lcTask": {
+		"label": "t__Add task",
+		"description": "t__Captures a work item to be performed, as part of the learning plan.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcTask",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcTask": {
+		"label": "t__Task",
+		"description": "t__Captures a work item to be performed, as part of the learning plan.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcNeedsAnalysis" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcTask",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcTask-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this task.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcTask-append-lcTaskItem": {
+		"label": "t__Add task item",
+		"description": "t__Describes a discreet task to be taught.",
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "multiple": true, "bindTo": "childNodes" }],
+					[{ "required": false, "multiple": true, "restrictTo": "self::lcKnowledge or self::lcSkills or self::lcAttitude"}]
+				],
+				"insertionStencils": {
+					"childNodes.end": {
+						"stencil": [
+							"lcTaskItem",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					}
+				}
+			}
+		}
+	},
+	":lcTask-insert-lcTaskItem": {
+		"label": "t__Add task item",
+		"description": "t__Describes a discreet task to be taught.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcTaskItem",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcTaskItem": {
+		"label": "t__Task item",
+		"description": "t__Describes a discreet task to be taught.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcTask" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcTaskItem",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcOrganizational-insert-lcValues": {
+		"label": "t__Add values",
+		"description": "t__Describes affective components of desired instructional outcomes.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcValues",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcValues": {
+		"label": "t__Values",
+		"description": "t__Describes affective components of desired instructional outcomes.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcValues",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcWorkEnv": {
+		"label": "t__Remove work environment",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcNeedsAnalysis-insert-lcWorkEnv": {
+		"label": "t__Add work environment",
+		"description": "t__Describes the working conditions and contexts in which the training will be applied.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcWorkEnv",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcWorkEnv": {
+		"label": "t__Work environment",
+		"description": "t__Describes the working conditions and contexts in which the training will be applied.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcNeedsAnalysis" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcWorkEnv",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcWorkEnv-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this work environment section.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcWorkEnv-insert-lcWorkEnvDescription": {
+		"label": "t__Add work environment description",
+		"description": "t__Provides the general working environment in which the training will be applied.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcWorkEnvDescription",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcWorkEnvDescription": {
+		"label": "t__Work environment description",
+		"description": "t__Provides the general working environment in which the training will be applied.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcWorkEnv" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcWorkEnvDescription",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,153 @@
+{
+	":contextual-delete-refsyn": {
+		"label": "t__Remove reference syntax",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-unwrap-refbodydiv": {
+		"label": "t__Unwrap division",
+		"description": "t__Remove the division markup but preserve its content.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":contextual-unwrap-refsyn": {
+		"label": "t__Unwrap reference syntax",
+		"description": "t__Remove the reference syntax markup but preserve its content.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":insert-refbodydiv": {
+		"label": "t__Body division",
+		"description": "t__Groups content without implying meaning.",
+		"alternatives": [
+			":_wrap-in-refbodydiv",
+			":_horizontal-insert-refbodydiv"
+		]
+	},
+	":_wrap-in-refbodydiv": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::refbody or self::refbodydiv"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-or-container-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"refbodydiv",
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_horizontal-insert-refbodydiv": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::refbody or self::refbodydiv"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"refbodydiv",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":insert-refsyn": {
+		"label": "t__Reference syntax",
+		"description": "t__Contains syntax or signature content, for example a command-line utility's calling syntax, or an API’s signature.",
+		"alternatives": [
+			":_wrap-in-refsyn",
+			":_horizontal-insert-refsyn"
+		]
+	},
+	":_wrap-in-refsyn": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"refsyn",
+						["title"],
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_horizontal-insert-refsyn": {
+		"steps": [
+			{
+				"type": "action/requireSelectionCollapsed"
+			},
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv')]"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"refsyn",
+						["title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["p"]
+					]
+				}
+			}
+		]
+	},
+	":refsyn-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this reference syntax.",
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
+					[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
+					[{ "required": false, "multiple": true, "restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"}]
+				],
+				"contextNodeId": "{{contextNodeId}}",
+				"insertionStencils": {
+					"childNodes": {
+						"stencil": [
+							"title",
+							[{ "bindTo": "selection", "empty": true }]
+						]
+					}
+				}
+			}
+		}
+	}
+}

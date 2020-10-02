@@ -1,0 +1,160 @@
+{
+	":contextual-delete-equation-figure": {
+		"label": "t__Remove figure",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":equation-figure-append-mathml": {
+		"label": "t__Add equation",
+		"description": "t__Add an equation to this figure",
+		"icon": "calculator",
+		"steps": [
+			{
+				"type": "operation/open-mathml-editor",
+				"data": {
+					"mathMlPart": ["math"],
+					"modalPrimaryButtonLabel": "t__Insert"
+				}
+			},
+			{
+				"type": "operation/append-structure",
+				"data": {
+					"childNodeStructure": [
+						"mathml",
+						"{{mathMlPart}}"
+					]
+				}
+			}
+		]
+	},
+	":equation-figure-insert-desc": {
+		"label": "t__Add description",
+		"description": "t__Contains further information, e.g. photo credits or citations.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"desc",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":equation-figure-insert-mathml": {
+		"label": "t__Add equation",
+		"description": "t__Add an equation to this figure",
+		"icon": "calculator",
+		"steps": [
+			{
+				"type": "operation/open-mathml-editor",
+				"data": {
+					"mathMlPart": ["math"],
+					"modalPrimaryButtonLabel": "t__Insert"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"mathml",
+						"{{mathMlPart}}"
+					]
+				}
+			}
+		]
+	},
+	":equation-figure-insert-title": {
+		"label": "t__Add title",
+		"description": "t__A short, descriptive title for the equation.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"title",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-equation-block": {
+		"label": "t__Equation",
+		"description": "t__An equation that is presented as a separate block within a text flow.",
+		"icon": "calculator",
+		"steps": [
+			{
+				"type": "operation/open-mathml-editor",
+				"data": {
+					"mathMlPart": ["math"],
+					"modalPrimaryButtonLabel": "t__Insert"
+				}
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"equation-block",
+						["mathml",
+							"{{mathMlPart}}"
+						]
+					]
+				}
+			}
+		]
+	},
+	":insert-equation-figure": {
+		"label": "t__Figure with equation",
+		"description": "t__Insert a figure with an equation, a title and a description.",
+		"icon": "calculator",
+		"steps": [
+			{
+				"type": "operation/open-mathml-editor",
+				"data": {
+					"mathMlPart": ["math"],
+					"modalPrimaryButtonLabel": "t__Insert"
+				}
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"equation-figure",
+						["title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["desc"],
+						["mathml",
+							"{{mathMlPart}}"
+						]
+					]
+				}
+			}
+		]
+	},
+	":insert-equation-inline": {
+		"label": "t__Inline equation",
+		"description": "t__An equation that is part of the flow of the text.",
+		"icon": "calculator",
+		"steps": [
+			{
+				"type": "operation/open-mathml-editor",
+				"data": {
+					"mathMlPart": ["math"],
+					"modalPrimaryButtonLabel": "t__Insert"
+				}
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"equation-inline",
+						["mathml",
+							"{{mathMlPart}}"
+						]
+					]
+				}
+			}
+		]
+	}
+}

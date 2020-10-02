@@ -1,0 +1,172 @@
+{
+	":contextual-delete-note": {
+		"label": "t__Remove note",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-note": {
+		"label": "t__Add note",
+		"description": "t__Contains text that is related to the main text.",
+		"icon": "sticky-note-o",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"note",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":insert-note--task": {
+		"label": "t__Note",
+		"description": "t__Contains information that expands on or calls attention to a particular point. This information is typically differentiated from the main text.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": null
+			}
+		}
+	},
+	":insert-note[@type=attention]--task": {
+		"label": "t__Attention note",
+		"description": "t__Please pay extra attention to this note.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "attention"
+			}
+		}
+	},
+	":insert-note[@type=caution]--task": {
+		"label": "t__Caution note",
+		"description": "t__Care is required when proceeding.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "caution"
+			}
+		}
+	},
+	":insert-note[@type=danger]--task": {
+		"label": "t__Danger note",
+		"description": "t__Important! Be aware of this before doing anything else.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "danger"
+			}
+		}
+	},
+	":insert-note[@type=fastpath]--task": {
+		"label": "t__Fastpath note",
+		"description": "t__This note will speed you on your way.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "fastpath"
+			}
+		}
+	},
+	":insert-note[@type=important]--task": {
+		"label": "t__Important note",
+		"description": "t__This note is important.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "important"
+			}
+		}
+	},
+	":insert-note[@type=notice]--task": {
+		"label": "t__Notice note",
+		"description": "t__Indicates a potential situation which, if not avoided, might result in an undesirable result or state.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "notice"
+			}
+		}
+	},
+	":insert-note[@type=other]--task": {
+		"label": "t__Other note",
+		"description": "t__This is something other than a normal note.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "other"
+			}
+		}
+	},
+	":insert-note[@type=remember]--task": {
+		"label": "t__Remember note",
+		"description": "t__Don't forget to do what this note says.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "remember"
+			}
+		}
+	},
+	":insert-note[@type=restriction]--task": {
+		"label": "t__Restriction note",
+		"description": "t__You can't do what this note says.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "restriction"
+			}
+		}
+	},
+	":insert-note[@type=tip]--task": {
+		"label": "t__Tip note",
+		"description": "t__This is a fine little tip.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "tip"
+			}
+		}
+	},
+	":insert-note[@type=warning]--task": {
+		"label": "t__Warning note",
+		"description": "t__Indicates a potentially hazardous situation.",
+		"steps": {
+			"type": "operation/:_insert-note--task",
+			"data": {
+				"noteType": "warning"
+			}
+		}
+	},
+	":_insert-note--task": {
+		"alternatives": [
+			":_wrap-in-note",
+			":_convert-to-note",
+			":_insert-note--in-step/substep"
+		]
+	},
+	":_insert-note--in-step/substep": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::step or self::substep"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"note",
+						{ "type": "{{noteType}}" },
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

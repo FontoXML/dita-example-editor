@@ -1,0 +1,209 @@
+{
+	":contextual-delete-dl": {
+		"label": "t__Remove definition table",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-dlentry": {
+		"label": "t__Remove row",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-delete-dlhead": {
+		"label": "t__Remove header row",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-insert-dlentry--above": {
+		"label": "t__Add row above",
+		"description": "t__Contains a term and a corresponding definition.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"dlentry",
+					["dt",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["dd"]
+				]
+			}
+		}
+	},
+	":contextual-insert-dlentry--below": {
+		"label": "t__Add row below",
+		"description": "t__Contains a term and a corresponding definition.",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"dlentry",
+					["dt",
+						[{ "bindTo": "selection", "empty": true }]
+					],
+					["dd"]
+				]
+			}
+		}
+	},
+	":delete-dlentry-dlhead": {
+		"label": "t__Remove row",
+		"description": "t__Remove this row from the definition table.",
+		"icon": "times",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::dlentry or self::dlhead"
+				}
+			},
+			{
+				"type": "operation/delete-node"
+			}
+		]
+	},
+	":delete-dlhead": {
+		"label": "t__Remove header row",
+		"description": "t__Remove the header from the definition table.",
+		"icon": "times",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::dl[child::dlhead]"
+				}
+			},
+			{
+				"type": "operation/delete-node",
+				"data": {
+					"contextNodeId": "x__$data('contextNode')/child::dlhead"
+				}
+			}
+		]
+	},
+	":dlentry-insert-dd": {
+		"label": "t__Add definition",
+		"description": "t__Add a definition which corresponds with the current term",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"dd",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	},
+	":dlentry-insert-dt": {
+		"label": "t__Add term",
+		"description": "t__Add a term which corresponds with the current definition",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"dt",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-dl": {
+		"label": "t__Definition table",
+		"description": "t__Contains terms and their corresponding definitions.",
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"dl",
+					["dlentry",
+						["dt",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["dd"]
+					]
+				]
+			}
+		}
+	},
+	":insert-dlentry--above": {
+		"label": "t__Insert row above",
+		"description": "t__Contains a term and a corresponding definition.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::dl"
+				}
+			},
+			{
+				"type": "operation/insert-before-selection",
+				"data": {
+					"childNodeStructure": [
+						"dlentry",
+						["dt",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["dd"]
+					]
+				}
+			}
+		]
+	},
+	":insert-dlentry--below": {
+		"label": "t__Insert row below",
+		"description": "t__Contains a term and a corresponding definition.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::dl"
+				}
+			},
+			{
+				"type": "operation/insert-after-selection",
+				"data": {
+					"childNodeStructure": [
+						"dlentry",
+						["dt",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["dd"]
+					]
+				}
+			}
+		]
+	},
+	":insert-dlhead": {
+		"label": "t__Insert header row",
+		"description": "t__Contains titles for the term and definition columns.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::dl"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"dlhead",
+						["dthd",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["ddhd"]
+					]
+				}
+			}
+		]
+	}
+}

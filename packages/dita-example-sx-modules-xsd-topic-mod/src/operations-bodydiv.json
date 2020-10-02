@@ -1,0 +1,58 @@
+{
+	":contextual-unwrap-bodydiv": {
+		"label": "t__Unwrap division",
+		"description": "t__Remove the division markup but preserve its content.",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":insert-bodydiv": {
+		"label": "t__Body division",
+		"description": "t__Groups content without implying meaning.",
+		"alternatives": [
+			":_wrap-in-bodydiv",
+			":_horizontal-insert-bodydiv"
+		]
+	},
+	":_wrap-in-bodydiv": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"bodydiv",
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_horizontal-insert-bodydiv": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body') or fonto:dita-class(., 'topic/bodydiv')]"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"bodydiv",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	}
+}

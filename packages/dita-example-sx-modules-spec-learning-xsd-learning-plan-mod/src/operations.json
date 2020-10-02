@@ -1,0 +1,57 @@
+{
+	":contextual-insert-lcPlanObjective": {
+		"label": "t__Add plan objective",
+		"description": "t__Describes the objective to be addressed by a gap analysis or intervention.",
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"lcPlanObjective",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-lcPlanObjective": {
+		"label": "t__Plan objective",
+		"description": "t__Describes the objective to be addressed by a gap analysis or intervention.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcGapItem or self::lcInterventionItem" }
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcPlanObjective",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":_[nodeName]-title-merge-and-insert": {
+		"steps": {
+			"type": "operation/merge-and-insert",
+			"data": {
+				"contextStencil": [
+					null,
+					[{ "required": false, "multiple": true, "restrictTo": "self::title"}],
+					[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
+					[{ "required": false, "multiple": true, "restrictTo": "not(self::title)"}]
+				],
+				"contextNodeId": "{{contextNodeId}}",
+				"insertionStencils": {
+					"childNodes": {
+						"stencil": [
+							"title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						"model": "{{attributes}}"
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+{
+	":insert-glossentry": {
+		"label": "t__Add entry",
+		"description": "t__Defines a single sense of a glossary term.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::glossgroup"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"contextNodeId": "{{contextNodeId}}",
+					"childNodeStructure": [
+						"glossentry",
+						[
+							"glossterm",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						[
+							"glossdef"
+						]
+					]
+				}
+			}
+		]
+	}
+}

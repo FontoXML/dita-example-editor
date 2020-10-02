@@ -1,0 +1,96 @@
+{
+	":contextual-delete-example": {
+		"label": "t__Remove example",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":contextual-unwrap-example": {
+		"label": "t__Unwrap example",
+		"description": "t__Remove the example markup but preserve its content. If this example has a title, you must remove it first, as it is not allowed outside the example",
+		"steps": {
+			"type": "operation/collapse-element"
+		}
+	},
+	":example-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this example.",
+		"steps": [
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
+						[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
+						[{ "required": false, "multiple": true, "restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"}]
+					],
+					"contextNodeId": "{{contextNodeId}}",
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": [
+								"title",
+								[{ "bindTo": "selection", "empty": true }]
+							],
+							"model": "{{attributes}}"
+						}
+					}
+				}
+			}
+		]
+	},
+	":insert-example": {
+		"label": "t__Example",
+		"description": "t__Give an example that illustrates or supports the current topic.",
+		"alternatives": [
+			":_wrap-in-example",
+			":_horizontal-insert-example"
+		]
+	},
+	":_wrap-in-example": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body')]"
+				}
+			},
+			{
+				"type": "operation/wrap-selection-in-structure",
+				"data": {
+					"childNodeStructure": [
+						"example",
+						["title"],
+						[{ "bindTo": "selection.start", "empty": true }],
+						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[{ "bindTo": "selection.end", "empty": true }]
+					],
+					"contextNodeId": "{{contextNodeId}}"
+				}
+			}
+		]
+	},
+	":_horizontal-insert-example": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/body')]"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"example",
+						["title",
+							[{ "bindTo": "selection", "empty": true }]
+						],
+						["p"]
+					]
+				}
+			}
+		]
+	}
+}

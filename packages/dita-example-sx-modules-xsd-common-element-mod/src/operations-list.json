@@ -1,0 +1,121 @@
+{
+	":contextual-insert-li--above": {
+		"label": "t__Add list item above",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"li",
+					["p",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-li--below": {
+		"label": "t__Add list item below",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"li",
+					["p",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				]
+			}
+		}
+	},
+	":contextual-insert-sli--above": {
+		"label": "t__Add list item above",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "before",
+				"childNodeStructure": [
+					"sli",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":contextual-insert-sli--below": {
+		"label": "t__Add list item below",
+		"steps": {
+			"type": "operation/insert-next-to-context-node",
+			"data": {
+				"side": "after",
+				"childNodeStructure": [
+					"sli",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-ol": {
+		"label": "t__Numbered list",
+		"description": "t__A list of items sorted by sequence or order of importance.",
+		"icon": "list-ol",
+		"steps": {
+			"type": "operation/convert-list",
+			"data": {
+				"listNodeName": "ol",
+				"listItemNodeName": "li",
+				"paragraphSelector": "self::p"
+			}
+		}
+	},
+	":insert-sl": {
+		"label": "t__Simple list",
+		"description": "t__A simple list of items of short, phrase-like content, such as a list of materials in a kit or package.",
+		"icon": "bars",
+		"steps": {
+			"type": "operation/convert-list",
+			"data": {
+				"listNodeName": "sl",
+				"listItemNodeName": "sli",
+				"paragraphSelector": "self::p"
+			}
+		}
+	},
+	":insert-ul": {
+		"label": "t__Bulleted list",
+		"description": "t__A list of items in which the order of list items is not significant.",
+		"icon": "list-ul",
+		"steps": {
+			"type": "operation/convert-list",
+			"data": {
+				"listNodeName": "ul",
+				"listItemNodeName": "li",
+				"paragraphSelector": "self::p"
+			}
+		}
+	},
+	":ol-convert-to-ul": {
+		"label": "t__Change to bulleted list",
+		"description": "t__Change this numbered list to a bulleted list.",
+		"icon": "list-ol",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"nodeNames": ["ul"],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	},
+	":ul-convert-to-ol": {
+		"label": "t__Change to numbered list",
+		"description": "t__Change this bulleted list to a numbered list.",
+		"icon": "list-ol",
+		"steps": {
+			"type": "operation/convert-element",
+			"data": {
+				"nodeNames": ["ol"],
+				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	}
+}

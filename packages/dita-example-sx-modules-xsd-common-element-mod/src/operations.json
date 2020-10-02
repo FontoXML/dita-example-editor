@@ -1,0 +1,103 @@
+{
+	":insert-cite": {
+		"label": "t__Citation",
+		"description": "t__A bibliographic citation that refers to a book, article or other form of content. It specifically identifies the title of the resource.",
+		"icon": "book",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "cite"
+			}
+		}
+	},
+	":insert-indexterm": {
+		"label": "t__Index term",
+		"description": "t__An entry for a generated index. The content is not output as part of the content, only as part of the index.",
+		"steps": {
+			"type": "operation/vertical-insert",
+			"data": {
+				"childNodeStructure": [
+					"indexterm",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":insert-keyword": {
+		"label": "t__Keyword",
+		"description": "t__A word or phrase with a unique or key-like value.",
+		"icon": "key",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "keyword"
+			}
+		}
+	},
+	":insert-navtitle": {
+		"label": "t__Navigation title",
+		"description": "t__An alternative title for a topic. Used when the actual title of the topic isn’t appropriate for use in a table of contents or other kinds of navigation.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "self::*[fonto:dita-class(., 'topic/topic')]"
+				}
+			},
+			{
+				"type": "operation/merge-and-insert",
+				"data": {
+					"contextStencil": [
+						null,
+						["title", [{"required": false, "multiple": true}]],
+						[
+							"titlealts",
+							[{ "required": false, "multiple": true, "bindTo": "childNodes"}]
+						],
+						[{ "required": false, "multiple": true }]
+					],
+					"insertionStencils": {
+						"childNodes": {
+							"stencil": [
+								"navtitle",
+								[{ "bindTo": "selection", "empty": true }]
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	":insert-term": {
+		"label": "t__Term",
+		"description": "t__A word or phrase that may have or require an extended definition or explanation.",
+		"icon": "tag",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "term"
+			}
+		}
+	},
+	":toggle-ph": {
+		"label": "t__Phrase",
+		"description": "t__A phrase is used to organize content for reuse or conditional processing.",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "ph"
+			}
+		}
+	},
+	":toggle-q": {
+		"label": "t__Quote",
+		"description": "t__Text quoted from another source. This element is used for short quotes that are displayed inline.",
+		"icon": "quote-left",
+		"steps": {
+			"type": "operation/toggle-inline-frame-element",
+			"data": {
+				"nodeName": "q"
+			}
+		}
+	}
+}

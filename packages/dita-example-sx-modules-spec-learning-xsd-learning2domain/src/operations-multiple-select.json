@@ -1,0 +1,46 @@
+{
+	":insert-lcMultipleSelect2": {
+		"label": "t__Multiple choice",
+		"description": "t__The learner must indicate two or more correct answers from a list of choices.",
+		"initialData": {
+			"childNodeStructure": [
+				"lcMultipleSelect2",
+				["lcQuestion2",
+					[{ "bindTo": "selection", "empty": true }]
+				],
+				["lcAnswerOptionGroup2",
+					["lcAnswerOption2",
+						["lcAnswerContent2"],
+						["lcCorrectResponse2"]
+					],
+					["lcAnswerOption2",
+						["lcAnswerContent2"]
+					]
+				]
+			],
+			"wrapChildNodeStructure": [
+				"lcMultipleSelect2",
+				["lcQuestion2",
+					[{ "bindTo": "selection.start", "empty": true }],
+					[{ "bindTo": "transclude", "multiple": true, "required": false }],
+					[{ "bindTo": "selection.end", "empty": true }]
+				],
+				["lcAnswerOptionGroup2",
+					["lcAnswerOption2",
+						["lcAnswerContent2"],
+						["lcCorrectResponse2"]
+					],
+					["lcAnswerOption2",
+						["lcAnswerContent2"]
+					]
+				]
+			]
+		},
+		"alternatives": [
+			":_wrap-in-{question}",
+			":_append-{question}--in-lcInteraction",
+			":_merge-and-insert-{question}--in-lcInteraction",
+			":_vertical-insert-{question}"
+		]
+	}
+}

@@ -1,0 +1,639 @@
+[
+  {
+    "in": "alternative text",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::alt"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "boolean",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::boolean"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "citation",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::cite"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "data",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::data"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "data-about",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::data-about"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "definition",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::dd or self::dd and count(preceding-sibling::* | following-sibling::*) > 1"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "paragraph",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::paragraph or self::p[parent::dd] and not(preceding-sibling::* or following-sibling::*) or self::p[parent::fn] and not(preceding-sibling::* or following-sibling::*) or self::p[parent::li]"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "definitions title",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::ddhd"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "description",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::desc"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "division",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::div"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "definition table",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::dl"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "row",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::dlentry"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "header",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::dlhead"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "comment",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::draft-comment"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "term",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::dt or self::dt and count(preceding-sibling::* | following-sibling::*) > 1"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "terms title",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::dthd"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "figure",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::fig"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "title",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::title or self::title[parent::fig]"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "figure group",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::figgroup"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "footnote",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::fn or self::fn and not(@conref) and fonto:in-inline-layout(.)"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "foreign",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::foreign"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "image",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::image"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "inline image",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::image and fonto:in-inline-layout(.)"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "index-base",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::index-base"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "index term",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::indexterm"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "indextermref",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::indextermref"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "itemgroup",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::itemgroup"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "keyword",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::keyword"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "item",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::li or self::sli"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "text with line breaks",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::lines"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "longdescref",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::longdescref"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "source",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::longquoteref"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "long quote",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::lq"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "navigation title",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::navtitle or self::navtitle[parent::titlealts] or self::navtitle and parent::topicmeta[parent::topichead]"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "note",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::note"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "object",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::object"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "numbered list",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::ol"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "param",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::param"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "phrase",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::ph"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "preformatted text",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::pre"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "quote",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::q"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "required-cleanup",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::required-cleanup"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "simple list",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::sl"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "state",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::state"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "text",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::text"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "trademark",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::tm"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "bulleted list",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::ul"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "unknown",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::unknown"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  },
+  {
+    "in": "link",
+    "info": {
+      "type": "markup label",
+      "xpath": "self::xref or self::xref[parent::fig]"
+    },
+    "meta": [
+      {
+        "package": "dita-example-sx-modules-xsd-common-element-mod",
+        "file": "src/configureSxModule.js"
+      }
+    ]
+  }
+]

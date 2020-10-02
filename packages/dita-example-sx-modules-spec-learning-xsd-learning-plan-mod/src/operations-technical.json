@@ -1,0 +1,543 @@
+{
+	":contextual-delete-lcClassroom": {
+		"label": "t__Remove classroom",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcClassroom": {
+		"label": "t__Add classroom",
+		"description": "t__Describes the classroom environment.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcClassroom"
+			}
+		}
+	},
+	":insert-lcClassroom": {
+		"label": "t__Classroom",
+		"description": "t__Describes the classroom environment.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcClassroom"
+			}
+		}
+	},
+	":lcClassroom-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this classroom section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcConstraints": {
+		"label": "t__Remove constraints",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcConstraints": {
+		"label": "t__Add constraints",
+		"description": "t__Describes the organizational or technical aspects that can limit the organization's ability to effectively use the instruction to meet its goals.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcConstraints"
+			}
+		}
+	},
+	":insert-lcConstraints": {
+		"label": "t__Constraints",
+		"description": "t__Describes the organizational or technical aspects that can limit the organization's ability to effectively use the instruction to meet its goals.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcConstraints"
+			}
+		}
+	},
+	":lcConstraints-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this constraints section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcDownloadTime": {
+		"label": "t__Remove download time",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcDownloadTime": {
+		"label": "t__Add download time",
+		"description": "t__Describes the maximum time allowed for download time in the client's delivery environment.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcDownloadTime"
+			}
+		}
+	},
+	":insert-lcDownloadTime": {
+		"label": "t__Download time",
+		"description": "t__Describes the maximum time allowed for download time in the client's delivery environment.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcDownloadTime"
+			}
+		}
+	},
+	":lcDownloadTime-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this download time section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcFileSizeLimitations": {
+		"label": "t__Remove file size limitations",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcFileSizeLimitations": {
+		"label": "t__Add file size limitations",
+		"description": "t__Describes any file size limitation in the download environment.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcFileSizeLimitations"
+			}
+		}
+	},
+	":insert-lcFileSizeLimitations": {
+		"label": "t__File size limitations",
+		"description": "t__Describes any file size limitation in the download environment.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcFileSizeLimitations"
+			}
+		}
+	},
+	":lcFileSizeLimitations-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this file size limitations section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcGraphics": {
+		"label": "t__Remove graphics",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcGraphics": {
+		"label": "t__Add graphics",
+		"description": "t__Describes standards and system requirements for displaying graphics and other related content types.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcGraphics"
+			}
+		}
+	},
+	":insert-lcGraphics": {
+		"label": "t__Graphics",
+		"description": "t__Describes standards and system requirements for displaying graphics and other related content types.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcGraphics"
+			}
+		}
+	},
+	":lcGraphics-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this graphics section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcHandouts": {
+		"label": "t__Remove handouts",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcHandouts": {
+		"label": "t__Add handouts",
+		"description": "t__Provides aspects of the course that are provided by the instructor in support of the course learning objectives.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcHandouts"
+			}
+		}
+	},
+	":insert-lcHandouts": {
+		"label": "t__Handouts",
+		"description": "t__Provides aspects of the course that are provided by the instructor in support of the course learning objectives.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcHandouts"
+			}
+		}
+	},
+	":lcHandouts-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this handouts section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcLMS": {
+		"label": "t__Remove LMS",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcLMS": {
+		"label": "t__Add LMS",
+		"description": "t__Provides the LMS name and version number used in the learning event.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcLMS"
+			}
+		}
+	},
+	":insert-lcLMS": {
+		"label": "t__LMS",
+		"description": "t__Provides the LMS name and version number used in the learning event.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcLMS"
+			}
+		}
+	},
+	":lcLMS-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this LMS section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcNoLMS": {
+		"label": "t__Remove no LMS",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcNoLMS": {
+		"label": "t__Add no LMS",
+		"description": "t__Use 'No LMS' when you plan to deliver the content as a standalone package, without a learning management system (LMS).",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcNoLMS"
+			}
+		}
+	},
+	":insert-lcNoLMS": {
+		"label": "t__No LMS",
+		"description": "t__Use 'No LMS' when you plan to deliver the content as a standalone package, without a learning management system (LMS).",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcNoLMS"
+			}
+		}
+	},
+	":lcNoLMS-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this no LMS section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcOJT": {
+		"label": "t__Remove on-the-job-training",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcOJT": {
+		"label": "t__Add on-the-job-training",
+		"description": "t__Describes aspects of the course taking place in the work environment.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcOJT"
+			}
+		}
+	},
+	":insert-lcOJT": {
+		"label": "t__On-the-job-training",
+		"description": "t__Describes aspects of the course taking place in the work environment.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcOJT"
+			}
+		}
+	},
+	":lcOJT-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this on-the-job-training section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcPlayers": {
+		"label": "t__Remove players",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcPlayers": {
+		"label": "t__Add players",
+		"description": "t__Describes tools and plugins used for time-sequenced display at runtime.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcPlayers"
+			}
+		}
+	},
+	":insert-lcPlayers": {
+		"label": "t__Players",
+		"description": "t__Describes tools and plugins used for time-sequenced display at runtime.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcPlayers"
+			}
+		}
+	},
+	":lcPlayers-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this players section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcResolution": {
+		"label": "t__Remove resolution",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcResolution": {
+		"label": "t__Add resolution",
+		"description": "t__Describes the required computer screen resolution for the online instruction.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcResolution"
+			}
+		}
+	},
+	":insert-lcResolution": {
+		"label": "t__Resolution",
+		"description": "t__Describes the required computer screen resolution for the online instruction.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcResolution"
+			}
+		}
+	},
+	":lcResolution-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this resolution section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcSecurity": {
+		"label": "t__Remove security",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcSecurity": {
+		"label": "t__Add security",
+		"description": "t__Describes the security requirements in the delivered instruction.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcSecurity"
+			}
+		}
+	},
+	":insert-lcSecurity": {
+		"label": "t__Security",
+		"description": "t__Describes the security requirements in the delivered instruction.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcSecurity"
+			}
+		}
+	},
+	":lcSecurity-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this security section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcTechnical": {
+		"label": "t__Remove technical",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":insert-lcTechnical": {
+		"label": "t__Technical",
+		"description": "t__Describes the technical requirements to the learning content and how those requirements are supported by the instructional design.",
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": {
+					"selectionAncestorNodeSpec": "fonto:dita-class(., 'learningBase/learningBasebody')"
+				}
+			},
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"lcTechnical",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":lcTechnical-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this technical section.",
+		"steps": [
+			{
+				"type": "operation/horizontal-insert",
+				"data": {
+					"childNodeStructure": [
+						"title",
+						[{ "bindTo": "selection", "empty": true }]
+					]
+				}
+			}
+		]
+	},
+	":contextual-delete-lcViewers": {
+		"label": "t__Remove viewers",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcViewers": {
+		"label": "t__Add viewers",
+		"description": "t__Describes affective components of desired instructional outcomes.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcViewers"
+			}
+		}
+	},
+	":insert-lcViewers": {
+		"label": "t__Viewers",
+		"description": "t__Describes affective components of desired instructional outcomes.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcViewers"
+			}
+		}
+	},
+	":lcViewers-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this viewers section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":contextual-delete-lcW3C": {
+		"label": "t__Remove W3C",
+		"icon": "times",
+		"steps": {
+			"type": "operation/delete-node"
+		}
+	},
+	":lcTechnical-insert-lcW3C": {
+		"label": "t__Add W3C",
+		"description": "t__Provides requirements for use of world wide web consortium standards.",
+		"steps": {
+			"type": "operation/:_lcTechnical-insert-{nodeName}",
+			"data": {
+				"nodeName": "lcW3C"
+			}
+		}
+	},
+	":insert-lcW3C": {
+		"label": "t__W3C",
+		"description": "t__Provides requirements for use of world wide web consortium standards.",
+		"steps": {
+			"type": "operation/:_insert-{nodeName}--in-lcTechnical",
+			"data": {
+				"nodeName": "lcW3C"
+			}
+		}
+	},
+	":lcW3C-insert-title": {
+		"label": "t__Add title",
+		"description": "t__Add a title to this W3C section.",
+		"steps": {
+			"type": "operation/:_[nodeName]-title-merge-and-insert"
+		}
+	},
+	":_lcTechnical-insert-{nodeName}": {
+		"steps": {
+			"type": "operation/horizontal-insert",
+			"data": {
+				"childNodeStructure": [
+					"{{nodeName}}",
+					[{ "bindTo": "selection", "empty": true }]
+				]
+			}
+		}
+	},
+	":_insert-{nodeName}--in-lcTechnical": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectionAncestor",
+				"data": { "selectionAncestorNodeSpec": "self::lcTechnical" }
+			},
+			{
+				"type": "operation/:_lcTechnical-insert-{nodeName}"
+			}
+		]
+	}
+}
