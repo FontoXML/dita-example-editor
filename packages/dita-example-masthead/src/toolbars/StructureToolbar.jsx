@@ -33,8 +33,11 @@ const StructureToolbar = () => (
 								<FxOperationMenuItem
 									icon="sitemap"
 									label="View the structure panel"
-									operationData={{ panesId: 'sidebar', paneId: 'structure' }}
-									operationName="open-ui-pane"
+									operationData={{
+										tabId: 'structure',
+										disableWhenAlreadyOpen: true
+									}}
+									operationName="open-sidebar-tab"
 									tooltipContent="Document structure"
 								/>
 							</MenuGroup>

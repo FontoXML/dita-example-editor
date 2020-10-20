@@ -4,8 +4,8 @@ import configureAsSheetFrame from 'fontoxml-families/src/configureAsSheetFrame.j
 import configureAsStructure from 'fontoxml-families/src/configureAsStructure.js';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame.js';
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
-import createBulletingWidget from 'fontoxml-families/src/createBulletingWidget.js';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget.js';
+import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
@@ -187,7 +187,7 @@ export default function configureSxModule(sxModule) {
 		ignoredForNavigationNextToSelector: 'false()',
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideBefore: [createBulletingWidget('\u25cf')],
+		blockOutsideBefore: [createLabelQueryWidget('"\u25cf"')],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 
@@ -280,7 +280,7 @@ export default function configureSxModule(sxModule) {
 		ignoredForNavigationNextToSelector: 'false()',
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideBefore: [createBulletingWidget('\u25cf')],
+		blockOutsideBefore: [createLabelQueryWidget('"\u25cf"')],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 

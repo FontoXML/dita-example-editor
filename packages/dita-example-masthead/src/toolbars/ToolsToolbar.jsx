@@ -60,16 +60,16 @@ const ToolsToolbar = () => (
 			<FxOperationButton
 				icon="align-right icon-flip-vertical"
 				label="Outline"
-				operationData={{ panesId: 'sidebar', paneId: 'structure' }}
-				operationName="toggle-ui-pane"
+				operationData={{ tabId: 'structure' }}
+				operationName="toggle-sidebar-tab"
 				tooltipContent="Document outline"
 			/>
 
 			<FxOperationButton
 				icon="code"
 				label="Source"
-				operationData={{ panesId: 'sidebar', paneId: 'source' }}
-				operationName="toggle-ui-pane"
+				operationData={{ tabId: 'source' }}
+				operationName="toggle-sidebar-tab"
 				tooltipContent="XML source code"
 			/>
 		</MastheadToolbarButtons>
