@@ -12,7 +12,7 @@
 		"icon": "picture-o",
 		"steps": [
 			{
-				"type": "operation/:_open-image-browser-for-insert"
+				"type": "operation/:_open-image-browser-for-append"
 			},
 			{
 				"type": "operation/append-structure",
