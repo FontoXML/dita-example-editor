@@ -147,11 +147,8 @@
 			}
 		]
 	},
-	":_open-image-browser-for-insert": {
+	":_open-image-browser-for-append": {
 		"steps": [
-			{
-				"type": "transform/setContextNodeIdToSelectedElement"
-			},
 			{
 				"type": "transform/setDocumentIdToDocumentContainingContextNodeId"
 			},
@@ -169,6 +166,16 @@
 				"data": {
 					"url": "{{selectedImageId}}"
 				}
+			}
+		]
+	},
+	":_open-image-browser-for-insert": {
+		"steps": [
+			{
+				"type": "transform/setContextNodeIdToSelectedElement"
+			},
+			{
+				"type": "operation/:_open-image-browser-for-append"
 			}
 		]
 	},
