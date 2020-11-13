@@ -5,9 +5,6 @@
 		"icon": "exchange",
 		"steps": [
 			{
-				"type": "action/isDocumentReady"
-			},
-			{
 				"type": "operation/:_open-image-browser-for-edit",
 				"data": {
 					"contextNodeId": "{{contextNodeId}}"
