@@ -5,6 +5,9 @@
 		"icon": "exchange",
 		"steps": [
 			{
+				"type": "action/isOutOfSyncDocument"
+			},
+			{
 				"type": "operation/:_open-image-browser-for-edit",
 				"data": {
 					"contextNodeId": "{{contextNodeId}}"
