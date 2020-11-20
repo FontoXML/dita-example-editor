@@ -129,6 +129,9 @@
 				"type": "transform/setDocumentIdToDocumentContainingContextNodeId"
 			},
 			{
+				"type": "transform/isDocumentIdOutOfSync"
+			},
+			{
 				"type": "transform/setRemoteDocumentIdFromDocumentId"
 			},
 			{
