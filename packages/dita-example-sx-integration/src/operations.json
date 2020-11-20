@@ -140,6 +140,12 @@
 				}
 			},
 			{
+				"type": "transform/removeImageValue",
+				"data": {
+					"selectedImageId": "{{selectedImageId}}"
+				}
+			},
+			{
 				"type": "transform/setReferenceForUrl",
 				"data": {
 					"url": "{{selectedImageId}}"
