@@ -140,7 +140,7 @@
 				}
 			},
 			{
-				"type": "transform/removeImageValue",
+				"type": "transform/unsetSelectedImageIdForGetState",
 				"data": {
 					"selectedImageId": "{{selectedImageId}}"
 				}
