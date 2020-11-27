@@ -150,7 +150,10 @@
 	":_open-image-browser-for-insert": {
 		"steps": [
 			{
-				"type": "transform/setContextNodeId"
+				"type": "transform/setContextNodeIdToSelectedElement",
+				"data": {
+					"backUpContextNodeId": "{{contextNodeId}}"
+				}
 			},
 			{
 				"type": "transform/setDocumentIdToDocumentContainingContextNodeId"
@@ -167,7 +170,8 @@
 			{
 				"type": "transform/setReferenceForUrl",
 				"data": {
-					"url": "{{selectedImageId}}"
+					"url": "{{selectedImageId}}",
+					"contextNodeId": "{{backUpContextNodeId}}"
 				}
 			}
 		]
