@@ -116,6 +116,15 @@ export default function configureSxModule(sxModule) {
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
 
+	// p in desc
+	configureProperties(
+		sxModule,
+		'self::p[parent::desc] and not(preceding-sibling::* or following-sibling::*)',
+		{
+			emptyElementPlaceholderText: t('type the definition')
+		}
+	);
+
 	// div
 	//     Category: Body elements
 	configureAsFrame(sxModule, 'self::div', t('division'), {
@@ -396,7 +405,7 @@ export default function configureSxModule(sxModule) {
 	// note
 	//     A <note> element contains information, differentiated from the main text, which expands on or calls
 	//     attention to a particular point. Category: Body elements
-	var NOTE_CONVERT_OPERATIONS = [
+	const NOTE_CONVERT_OPERATIONS = [
 			{ name: ':note-convert-to-@type=null' },
 			{ name: ':note-convert-to-@type=attention' },
 			{ name: ':note-convert-to-@type=caution' },
@@ -471,7 +480,7 @@ export default function configureSxModule(sxModule) {
 	});
 
 	Object.keys(NOTE_VISUALIZATION_BY_TYPE).forEach(function(noteType) {
-		var noteVisualization = NOTE_VISUALIZATION_BY_TYPE[noteType];
+		const noteVisualization = NOTE_VISUALIZATION_BY_TYPE[noteType];
 		configureProperties(sxModule, 'self::note[@type="' + noteType + '"]', {
 			markupLabel: noteVisualization.label,
 			contextualOperations: getContextualOperationsForNoteType(noteType),
