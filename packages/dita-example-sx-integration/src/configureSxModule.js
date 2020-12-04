@@ -49,7 +49,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':cals-table-insert-title' },
 			{ name: ':cals-table-insert-desc' },
 			{ name: 'cals-open-table-column-sizing-popover' },
-			{ name: 'cals-table-delete' }
+			{ name: 'contextual-cals-table-delete' }
 		]
 	});
 
