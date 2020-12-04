@@ -110,10 +110,16 @@ export default function configureSxModule(sxModule) {
 	//     xref/link, it provides a description of the target; processors that support it may choose to display
 	//     this as hover help. In object, it contains alternate content for use when in contexts that cannot
 	//     display the object. Category: Body elements
+	const descEmptyElementPlaceholderText = t('type the description');
 	configureAsFrame(sxModule, 'self::desc', t('description'), {
-		emptyElementPlaceholderText: t('type the description'),
+		emptyElementPlaceholderText: descEmptyElementPlaceholderText,
 		defaultTextContainer: 'p',
 		blockHeaderLeft: [createMarkupLabelWidget()]
+	});
+
+	// p in desc
+	configureProperties(sxModule, 'self::p[parent::desc]', {
+		emptyElementPlaceholderText: descEmptyElementPlaceholderText
 	});
 
 	// div
@@ -396,7 +402,7 @@ export default function configureSxModule(sxModule) {
 	// note
 	//     A <note> element contains information, differentiated from the main text, which expands on or calls
 	//     attention to a particular point. Category: Body elements
-	var NOTE_CONVERT_OPERATIONS = [
+	const NOTE_CONVERT_OPERATIONS = [
 			{ name: ':note-convert-to-@type=null' },
 			{ name: ':note-convert-to-@type=attention' },
 			{ name: ':note-convert-to-@type=caution' },
@@ -471,7 +477,7 @@ export default function configureSxModule(sxModule) {
 	});
 
 	Object.keys(NOTE_VISUALIZATION_BY_TYPE).forEach(function(noteType) {
-		var noteVisualization = NOTE_VISUALIZATION_BY_TYPE[noteType];
+		const noteVisualization = NOTE_VISUALIZATION_BY_TYPE[noteType];
 		configureProperties(sxModule, 'self::note[@type="' + noteType + '"]', {
 			markupLabel: noteVisualization.label,
 			contextualOperations: getContextualOperationsForNoteType(noteType),
