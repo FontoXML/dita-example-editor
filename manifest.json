@@ -21,6 +21,7 @@
 		"fontoxml-special-characters",
 		"fontoxml-spell-checker",
 		"fontoxml-structure-view",
+		"fontoxml-table-flow-basic",
 		"fontoxml-table-flow-cals",
 		"fontoxml-track-changes",
 		"fontoxml-web-references",
@@ -33,6 +34,6 @@
 	],
 	"edition": "fontoxml-platform-base",
 	"name": "Fonto Editor DITA Example",
-	"sdkBuildDate": "2020-03-26T14:21:04.479Z",
-	"sdkVersion": "7.10.0"
+	"sdkBuildDate": "2020-12-07T08:18:50.731Z",
+	"sdkVersion": "Nightlies for 2020-12-07T08:16:27.336Z"
 }

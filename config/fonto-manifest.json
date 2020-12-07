@@ -44,6 +44,7 @@
 		"fontoxml-special-characters": "platform/fontoxml-special-characters",
 		"fontoxml-spell-checker": "platform/fontoxml-spell-checker",
 		"fontoxml-structure-view": "platform/fontoxml-structure-view",
+		"fontoxml-table-flow-basic": "platform/fontoxml-table-flow-basic",
 		"fontoxml-table-flow-cals": "platform/fontoxml-table-flow-cals",
 		"fontoxml-track-changes": "platform/fontoxml-track-changes",
 		"fontoxml-web-references": "platform/fontoxml-web-references",
