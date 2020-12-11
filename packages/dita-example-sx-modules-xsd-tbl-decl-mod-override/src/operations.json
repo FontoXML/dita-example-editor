@@ -2,7 +2,7 @@
 	"contextual-cals-table-delete": {
 		"label": "t__Remove table",
 		"description": "t__Remove the current table from the document.",
-		"icon": "times",
+		"icon": "delete-table",
 		"steps": [
 			{
 				"type": "operation/table-contextual-delete",
