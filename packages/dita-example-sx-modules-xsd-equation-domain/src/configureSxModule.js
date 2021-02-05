@@ -36,11 +36,7 @@ export default function configureSxModule(sxModule) {
 		contextualOperations: [
 			{ name: ':equation-figure-insert-title' },
 			{ name: ':equation-figure-insert-desc' },
-			{ name: ':equation-figure-append-mathml', hideIn: ['context-menu'] },
-			{
-				name: ':equation-figure-insert-mathml',
-				hideIn: ['element-menu', 'breadcrumbs-menu']
-			},
+			{ name: ':equation-figure-append-mathml', hideIn: ['breadcrumbs-menu'] },
 			{ name: ':contextual-delete-equation-figure' }
 		],
 		titleQuery: './title',
