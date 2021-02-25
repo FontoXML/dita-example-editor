@@ -21,6 +21,7 @@
 		"dita-example-sx-shells-reference": "packages/dita-example-sx-shells-reference",
 		"dita-example-sx-shells-task": "packages/dita-example-sx-shells-task",
 		"dita-example-sx-shells-topic": "packages/dita-example-sx-shells-topic",
+		"content-quality": "packages/content-quality",
 		"fontoxml-annotations": "platform/fontoxml-annotations",
 		"fontoxml-attributes-editor": "platform/fontoxml-attributes-editor",
 		"fontoxml-clipboard-instruction-modal": "platform/fontoxml-clipboard-instruction-modal",

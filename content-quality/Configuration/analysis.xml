@@ -1,9 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<analysis xmlns="http://schemas.fontoxml.com/fcq/1.0/analysis-configuration.xsd">
+<analysis
+	xmlns="http://schemas.fontoxml.com/fcq/1.0/analysis-configuration.xsd"
+	xmlns:functions="http://schemas.fontoxml.com/content-quality/1.0/functions.xsd">
+
 	<sequential>
-		<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
-			<spellingErrorMapping categories="TYPOS"/>
-			<grammarErrorMapping categories="CASING COMPOUNDING CONFUSED_WORDS GRAMMAR MISC REDUNDANCY SEMANTICS COLLOQUIALISMS"/>
-		</languageToolAnnotator>
+		<if condition="functions:enabled-categories-includes('spelling')">
+			<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
+				<spellingErrorMapping categories="TYPOS"/>
+			</languageToolAnnotator>
+		</if>
+
+		<if condition="functions:enabled-categories-includes('grammar')">
+			<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
+				<grammarErrorMapping categories="CASING COMPOUNDING CONFUSED_WORDS GRAMMAR MISC REDUNDANCY SEMANTICS COLLOQUIALISMS"/>
+			</languageToolAnnotator>
+		</if>
 	</sequential>
 </analysis>
