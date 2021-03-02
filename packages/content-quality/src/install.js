@@ -2,7 +2,23 @@ import t from 'fontoxml-localization/src/t.js';
 
 import contentQualityManager from 'fontoxml-content-quality/src/contentQualityManager.js';
 
+import renderCustomDictionaryAnnotationDetails from './ui/renderCustomDictionaryAnnotationDetails.jsx';
+
 export default function install() {
+	contentQualityManager.registerAnnotationType('', 'matchid', {
+		renderSidebarDetails: renderCustomDictionaryAnnotationDetails,
+		color: 'orange',
+		squiggleVariation: 'wavy-underline'
+	});
+	contentQualityManager.registerAnnotationTypesCategory(
+		{
+			id: 'custom-dictionary',
+			label: 'Custom dictionary',
+			description: 'Custom dictionary'
+		},
+		[{ namespace: '', name: 'matchid' }]
+	);
+
 	// TODO: cover this category with a Cypress test
 	contentQualityManager.registerAnnotationTypesCategory(
 		{

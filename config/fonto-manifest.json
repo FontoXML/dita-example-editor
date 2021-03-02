@@ -28,6 +28,7 @@
 		"fontoxml-cms-browser": "platform/fontoxml-cms-browser",
 		"fontoxml-content-quality": "platform/fontoxml-content-quality",
 		"fontoxml-content-quality-languagetool": "platform/fontoxml-content-quality-languagetool",
+		"fontoxml-content-quality-spellcheck": "platform/fontoxml-content-quality-spellcheck",
 		"fontoxml-crosslink-references": "platform/fontoxml-crosslink-references",
 		"fontoxml-dita": "platform/fontoxml-dita",
 		"fontoxml-document-history": "platform/fontoxml-document-history",

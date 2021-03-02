@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"fontoxml-content-quality": "platform/fontoxml-content-quality",
+		"fontoxml-content-quality-languagetool": "platform/fontoxml-content-quality-languagetool",
+		"fontoxml-content-quality-spellcheck": "platform/fontoxml-content-quality-spellcheck",
+		"fontoxml-platform-base": "platform/fontoxml-platform-base"
+	}
+}

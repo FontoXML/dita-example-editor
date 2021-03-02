@@ -6,6 +6,7 @@
 		"fontoxml-cms-browser",
 		"fontoxml-content-quality",
 		"fontoxml-content-quality-languagetool",
+		"fontoxml-content-quality-spellcheck",
 		"fontoxml-crosslink-references",
 		"fontoxml-dita",
 		"fontoxml-document-history",
