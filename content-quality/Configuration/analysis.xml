@@ -1,15 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<analysis
-	xmlns="http://schemas.fontoxml.com/fcq/1.0/analysis-configuration.xsd"
+<analysis 
+	xmlns="http://schemas.fontoxml.com/fcq/1.0/analysis-configuration.xsd" 
 	xmlns:functions="http://schemas.fontoxml.com/content-quality/1.0/functions.xsd">
-
 	<sequential>
+		<if condition="functions:enabled-categories-includes('custom-dictionary')">
+			<dictionaryAnnotator>
+				<fileSource relativePath="wordlist.txt" />
+				<wordListFormat annotationTypeId="matchid" />
+			</dictionaryAnnotator>
+		</if>
+		<if condition="functions:enabled-categories-includes('hunspell-spelling')">
+			<spellCheckAnnotator
+				languages="en en-US"
+				hunspellAffix="en-US/en-US.aff"
+				hunspellDictionary="en-US/en-US.dic"
+				ignore="en-US/ignore.txt"
+				prohibit="en-US/prohibit.txt"
+				replacements="en-US/replacements.txt"
+				spelling="en-US/spelling.txt" />
+
+		</if>
 		<if condition="functions:enabled-categories-includes('spelling')">
 			<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
 				<spellingErrorMapping categories="TYPOS"/>
 			</languageToolAnnotator>
 		</if>
-
 		<if condition="functions:enabled-categories-includes('grammar')">
 			<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
 				<grammarErrorMapping categories="CASING COMPOUNDING CONFUSED_WORDS GRAMMAR MISC REDUNDANCY SEMANTICS COLLOQUIALISMS"/>
