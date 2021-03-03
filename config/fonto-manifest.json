@@ -27,7 +27,6 @@
 		"fontoxml-clipboard-instruction-modal": "platform/fontoxml-clipboard-instruction-modal",
 		"fontoxml-cms-browser": "platform/fontoxml-cms-browser",
 		"fontoxml-content-quality": "platform/fontoxml-content-quality",
-		"fontoxml-content-quality-languagetool": "platform/fontoxml-content-quality-languagetool",
 		"fontoxml-crosslink-references": "platform/fontoxml-crosslink-references",
 		"fontoxml-dita": "platform/fontoxml-dita",
 		"fontoxml-document-history": "platform/fontoxml-document-history",
