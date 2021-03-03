@@ -13,7 +13,11 @@ import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidg
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
 
+import configureReadOnlyElements from './configureReadOnlyElements.js';
+
 export default function configureSxModule(sxModule) {
+	configureReadOnlyElements(sxModule);
+
 	// abstract
 	//     The abstract element occurs between the topic title and the topic body, as the initial content of a
 	//     topic. It can contain paragraph-level content as well as one or more shortdesc elements which can be
