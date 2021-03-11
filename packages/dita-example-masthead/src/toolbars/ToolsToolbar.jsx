@@ -9,6 +9,7 @@ import {
 	MenuGroup
 } from 'fds/components';
 
+import ContentQualityControls from 'fontoxml-content-quality/src/ContentQualityControls.jsx';
 import DocumentHistoryShowChangesButton from 'fontoxml-document-history/src/DocumentHistoryShowChangesButton.jsx';
 
 import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem.jsx';
@@ -102,6 +103,9 @@ const ToolsToolbar = () => (
 				operationName="toggle-sidebar-tab"
 				tooltipContent="XML source code"
 			/>
+		</MastheadToolbarButtons>
+		<MastheadToolbarButtons>
+			<ContentQualityControls />
 		</MastheadToolbarButtons>
 	</MastheadToolbar>
 );
