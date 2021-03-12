@@ -1,7 +1,7 @@
 {
 	"contextual-edit-note[@conref]": {
-		"label": "Edit",
-		"description": "Edit a conref to another existing node.",
+		"label": "Replace",
+		"description": "Replace the referenced element with another element.",
 		"steps": [
 			{
 				"type": "transform/resolveDitaUrl",
