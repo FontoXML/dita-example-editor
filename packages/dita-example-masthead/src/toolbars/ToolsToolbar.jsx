@@ -9,6 +9,7 @@ import {
 	MenuGroup
 } from 'fds/components';
 
+import ContentQualityControls from 'fontoxml-content-quality/src/ContentQualityControls.jsx';
 import DocumentHistoryShowChangesButton from 'fontoxml-document-history/src/DocumentHistoryShowChangesButton.jsx';
 
 import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem.jsx';
@@ -90,18 +91,21 @@ const ToolsToolbar = () => (
 			<FxOperationButton
 				icon="align-left fa-flip-vertical"
 				label="Outline"
-				operationData={{ panesId: 'sidebar', paneId: 'structure' }}
-				operationName="toggle-ui-pane"
+				operationData={{ tabId: 'structure' }}
+				operationName="toggle-sidebar-tab"
 				tooltipContent="Document outline"
 			/>
 
 			<FxOperationButton
 				icon="code"
 				label="Source"
-				operationData={{ panesId: 'sidebar', paneId: 'source' }}
-				operationName="toggle-ui-pane"
+				operationData={{ tabId: 'source' }}
+				operationName="toggle-sidebar-tab"
 				tooltipContent="XML source code"
 			/>
+		</MastheadToolbarButtons>
+		<MastheadToolbarButtons>
+			<ContentQualityControls />
 		</MastheadToolbarButtons>
 	</MastheadToolbar>
 );

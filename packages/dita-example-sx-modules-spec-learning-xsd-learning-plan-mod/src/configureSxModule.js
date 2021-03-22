@@ -5,6 +5,7 @@ import configureAsStructure from 'fontoxml-families/src/configureAsStructure.js'
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame.js';
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget.js';
+import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';

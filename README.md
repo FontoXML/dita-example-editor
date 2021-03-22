@@ -78,12 +78,73 @@ See also:
 
 Content quality is integrated in this editor with this configuration:
 ```
-<analysis xmlns="http://schemas.fontoxml.com/fcq/1.0/analysis-configuration.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<analysis
+	xmlns="http://schemas.fontoxml.com/content-quality/1.0/analysis-configuration.xsd"
+	xmlns:experimental="http://schemas.fontoxml.com/content-quality/1.0/experimental-analysis-configuration.xsd"
+	xmlns:functions="http://schemas.fontoxml.com/content-quality/1.0/functions.xsd"
+	xmlns:languagetool="urn:fontoxml:content-quality:language-tool:1.0.0"
+	xmlns:spelling="urn:fontoxml:content-quality:spelling:1.0.0"
+	xmlns:el="urn:elements">
+
 	<sequential>
-		<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
-			<spellingErrorMapping categories="TYPOS"/>
-			<grammarErrorMapping categories="CASING COMPOUNDING CONFUSED_WORDS GRAMMAR MISC REDUNDANCY SEMANTICS COLLOQUIALISMS"/>
-		</languageToolAnnotator>
+		<!-- Custom dictionary -->
+		<if condition="functions:enabled-categories-includes('custom-dictionary')">
+			<dictionaryAnnotator>
+				<fileSource relativePath="wordlist.txt" />
+				<wordListFormat annotationTypeId="matchid" />
+			</dictionaryAnnotator>
+		</if>
+
+		<!-- SpellCheck -->
+		<if condition="functions:enabled-categories-includes('hunspell-spelling')">
+			<spellCheckAnnotator
+				languages="en en-US"
+				hunspellAffix="en-US/en-US.aff"
+				hunspellDictionary="en-US/en-US.dic"
+				ignore="en-US/ignore.txt"
+				prohibit="en-US/prohibit.txt"
+				replacements="en-US/replacements.txt"
+				spelling="en-US/spelling.txt" />
+
+		</if>
+
+		<!-- LanguageTool: Spelling only -->
+		<if condition="functions:enabled-categories-includes('spelling') and not(functions:enabled-categories-includes('grammar'))">
+			<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
+				<spellingErrorMapping categories="TYPOS"/>
+			</languageToolAnnotator>
+		</if>
+
+		<!-- LanguageTool: Grammar only -->
+		<if condition="functions:enabled-categories-includes('grammar') and not(functions:enabled-categories-includes('spelling'))">
+			<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
+				<grammarErrorMapping categories="CASING COMPOUNDING CONFUSED_WORDS GRAMMAR MISC REDUNDANCY SEMANTICS COLLOQUIALISMS"/>
+			</languageToolAnnotator>
+		</if>
+
+		<!-- LanguageTool: Spelling and grammar-->
+		<if condition="functions:enabled-categories-includes('spelling') and functions:enabled-categories-includes('grammar')">
+			<languageToolAnnotator baseUrl="{$LanguageTool:BaseUrl}">
+				<spellingErrorMapping categories="TYPOS"/>
+				<grammarErrorMapping categories="CASING COMPOUNDING CONFUSED_WORDS GRAMMAR MISC REDUNDANCY SEMANTICS COLLOQUIALISMS"/>
+			</languageToolAnnotator>
+		</if>
+
+		<!-- Remove overlap of between spelling and grammar suggestions and hyperlinks and emails -->
+		<!-- Note: only when the actual text of an xref is also an url or email. -->
+		<xpathAnnotator test="self::xref" annotationTypeId="el:xref" />
+		<partitioner annotationTypeIds="el:xref">
+			<sequential>
+				<regexAnnotator pattern="^(https:|http:|www\.)\S*" annotationTypeId="url" />
+				<regexAnnotator pattern="^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|&quot;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*&quot;)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" annotationTypeId="email" />
+			</sequential>
+		</partitioner>
+		<experimental:removeIntersectingAnnotations experimental:checkAnnotationTypeIds="url email" experimental:removableAnnotationTypeIds="languagetool:spelling-error languagetool:grammar-error spelling:spelling-error" />
+		<removeAnnotations annotationTypeIds="url email el:xref"/>
+
+		<!-- Remove overlap -->
+		<removeIntersectingTextAnnotations annotationTypeIds="languagetool:spelling-error languagetool:grammar-error spelling:spelling-error matchid"/>
 	</sequential>
 </analysis>
 ```

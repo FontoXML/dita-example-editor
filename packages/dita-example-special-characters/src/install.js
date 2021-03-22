@@ -3,7 +3,8 @@ import specialCharactersManager from 'fontoxml-special-characters/src/specialCha
 function convertMappingToCharacterSetFormat(mappingObject) {
 	return Object.keys(mappingObject).map(function(codePoint) {
 		return {
-			codePoints: codePoint.split(';'),
+			codePoints: [codePoint],
+			id: codePoint,
 			name: mappingObject[codePoint]
 		};
 	});
