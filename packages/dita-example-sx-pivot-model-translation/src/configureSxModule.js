@@ -14,8 +14,25 @@ export default function configureSxModule(sxModule) {
 		},
 
 		{
+			type: 'inline',
+			qualifiedName: 'xref',
+			attributes: { format: 'html', scope: 'external' },
+			copyAttributes: { href: 'reference' }
+		},
+
+		{
 			qualifiedName: 'b',
 			flags: ['bold'],
+			type: 'inline'
+		},
+		{
+			qualifiedName: 'sup',
+			flags: ['superscript'],
+			type: 'inline'
+		},
+		{
+			qualifiedName: 'sub',
+			flags: ['subscript'],
 			type: 'inline'
 		},
 		{
