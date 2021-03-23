@@ -1,13 +1,13 @@
 {
-  "name": "dita-example-editor",
-  "version": "1.0.0",
-  "description": "Example DITA 1.3 editor serving as starting point for further development.",
-  "private": true,
-  "scripts": {
-    "start": "fdt editor run",
-    "postinstall": "npm run install-fonto-platform && npm run install-sx-modules",
-    "install-sx-modules": "npx bower install",
-    "install-fonto-platform": "fdt editor upgrade --non-interactive --remove-backup --version 7.14.0"
-  },
-  "dependencies": {}
+	"name": "dita-example-editor",
+	"version": "1.0.0",
+	"description": "Example DITA 1.3 editor serving as starting point for further development.",
+	"private": true,
+	"scripts": {
+		"start": "fdt editor run",
+		"postinstall": "npm run install-fonto-platform && npm run install-sx-modules",
+		"install-sx-modules": "npx bower install",
+		"install-fonto-platform": "fdt editor upgrade --non-interactive --version 7.14.0"
+	},
+	"dependencies": {}
 }
