@@ -726,14 +726,15 @@ export default function configureSxModule(sxModule) {
 	//     or a different topic within the same help system, or to external sources, such as Web pages, or to a
 	//     location in another topic. The href attribute on the <xref> element provides the location of the
 	//     target. Category: Body elements
-	configureAsInlineLink(sxModule, 'self::xref', t('link'), undefined, {
+	configureAsInlineLink(sxModule, 'self::xref', t('link'), {
 		emptyElementPlaceholderText: t('type the link text'),
 		popoverComponentName: 'DitaCrossReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-xref[@format=dita]',
 			targetIsPermanentId: false,
 			targetQuery: '@href'
-		}
+		},
+		referenceQuery: '@href'
 	});
 
 	configureProperties(sxModule, 'self::xref[@format="html"]', {
