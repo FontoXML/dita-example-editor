@@ -121,7 +121,11 @@
 			{
 				"type": "transform/setReferenceForUrl"
 			}
-		]
+		],
+		"getStateSteps": {
+			"type": "operation/do-nothing",
+			"data": { "reference": "dummy-reference-for-get-state" }
+		}
 	},
 	":_open-image-browser-for-edit": {
 		"steps": [
@@ -203,6 +207,10 @@
 			{
 				"type": "transform/setReferenceForUrl"
 			}
-		]
+		],
+		"getStateSteps": {
+			"type": "operation/do-nothing",
+			"data": { "reference": "dummy-reference-for-get-state" }
+		}
 	}
 }
