@@ -467,9 +467,18 @@ export default function configureSxModule(sxModule) {
 		};
 
 	function getContextualOperationsForNoteType(noteType) {
-		return NOTE_CONVERT_OPERATIONS.filter(function(element) {
-			return element.name.indexOf(noteType) === -1;
-		}).concat([{ name: ':contextual-unwrap-note' }]);
+		return [
+			// Because we offer a lot of conversion operations to change the type attribute we
+			// have bundled these in a submenu.
+			// We recommend using submenus for the grouping of operations that are similar.
+			{
+				subMenuLabel: 'Change type',
+				contents: NOTE_CONVERT_OPERATIONS.filter(
+					element => !element.name.endsWith(noteType)
+				)
+			},
+			{ name: ':contextual-unwrap-note' }
+		];
 	}
 
 	configureAsFrame(sxModule, 'self::note', t('note'), {
