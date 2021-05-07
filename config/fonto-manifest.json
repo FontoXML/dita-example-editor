@@ -1,6 +1,7 @@
 {
 	"dependencies": {
 		"dita-example-masthead": "packages/dita-example-masthead",
+		"dita-example-node-statuses": "packages/dita-example-node-statuses",
 		"dita-example-question-type-browser": "packages/dita-example-question-type-browser",
 		"dita-example-structure-view": "packages/dita-example-structure-view",
 		"dita-example-sx-integration": "packages/dita-example-sx-integration",
