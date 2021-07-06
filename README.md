@@ -45,14 +45,14 @@ Please see [documentation.fontoxml.com](https://documentation.fontoxml.com/) for
 reference documentation.
 
 See also:
-- [Getting started](https://documentation.fontoxml.com/editor/latest/getting-started-30015568.html) with a completely
+- [Getting started](https://documentation.fontoxml.com/latest/getting-started-150f2719f456) with a completely
   new editor configuration.
-- [Configure elements](https://documentation.fontoxml.com/editor/latest/configure-elements-30024973.html)
-- [Create operations](https://documentation.fontoxml.com/editor/latest/create-operations-30015649.html)
-- [Create a masthead](https://documentation.fontoxml.com/editor/latest/create-a-masthead-30015704.html)
-- [Create a modal](https://documentation.fontoxml.com/editor/latest/create-a-modal-25591873.html)
-- [Create a sidebar](https://documentation.fontoxml.com/editor/latest/create-a-sidebar-25591877.html)
-- [Create a popover](https://documentation.fontoxml.com/editor/latest/create-a-popover-30032241.html)
+- [Configure elements](https://documentation.fontoxml.com/latest/configure-elements-3ac02ec0c6c2)
+- [Create operations](https://documentation.fontoxml.com/latest/create-operations-e21e00935929)
+- [Create a masthead](https://documentation.fontoxml.com/latest/changing-the-masthead-76dec04281f6)
+- [Create a modal](https://documentation.fontoxml.com/latest/create-a-modal-0ada3f0660ff)
+- [Create a sidebar](https://documentation.fontoxml.com/latest/create-a-sidebar-f95a8dcab193)
+- [Create a popover](https://documentation.fontoxml.com/latest/create-a-popover-fcd4f52edfbc)
 
 
 ## Deploying the editor
@@ -68,7 +68,7 @@ environment by serving those files from your own host.
 
 See also:
 
-- [Integrate with a CMS](https://documentation.fontoxml.com/editor/latest/integrate-with-a-cms-3099086.html)
-- [Build the editor](https://documentation.fontoxml.com/editor/latest/build-the-editor-25591923.html)
+- [Integrate with a CMS](https://documentation.fontoxml.com/latest/integrate-with-a-cms-c214d09ddcaa)
+- [Build the editor](https://documentation.fontoxml.com/latest/build-the-editor-8a34176f9ce3)
 
 For additional help for this command, run: `$ fdt editor --help`
