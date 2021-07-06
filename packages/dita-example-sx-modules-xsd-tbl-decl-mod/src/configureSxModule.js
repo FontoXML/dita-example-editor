@@ -31,7 +31,7 @@ export default function configureSxModule(sxModule) {
 	});
 	configureProperties(
 		sxModule,
-		'self::entry[ancestor::table[1][@rowheader="firstcol"] and fonto:get-column-index(.) = 0]',
+		'self::entry[fonto:get-column-index(.) = 0 and ancestor::table[1][@rowheader="firstcol"]]',
 		{
 			backgroundColor: 'black'
 		}

@@ -5,14 +5,15 @@ export default function configureXrefToUsePermanentId(sxModule) {
 	// To enable permanentId's in cross references (also known as the reference pipeline), reconfigure the attribute
 	// name that is expected to contain the permanentId, and set popoverData.targetIsPermanent to TRUE.
 
-	configureAsInlineLink(sxModule, 'self::xref', {
+	configureAsInlineLink(sxModule, 'self::xref', undefined, {
+		referenceQuery: '@href',
+		isPermanentId: true,
 		priority: 2,
 		popoverData: {
 			editOperationName: ':contextual-edit-xref[@format=dita]',
 			targetIsPermanentId: true,
 			targetQuery: '@href'
-		},
-		referenceQuery: '@href'
+		}
 	});
 
 	configureProperties(sxModule, 'self::xref[@format="html"]', {

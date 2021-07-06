@@ -54,14 +54,8 @@
 				"data": {
 					"nodeName": "xref",
 					"attributes": {
-						"href": { "bindTo": "href" },
-						"format": { "bindTo": "format" },
-						"scope": { "bindTo": "scope" }
-					},
-					"model": {
 						"href": "{{reference}}",
-						"format": "dita",
-						"scope": null
+						"format": "dita"
 					}
 				}
 			}
@@ -81,11 +75,6 @@
 				"data": {
 					"nodeName": "xref",
 					"attributes": {
-						"href": { "bindTo": "href" },
-						"format": { "bindTo": "format" },
-						"scope": { "bindTo": "scope" }
-					},
-					"model": {
 						"href": "{{reference}}",
 						"format": "html",
 						"scope": "external"

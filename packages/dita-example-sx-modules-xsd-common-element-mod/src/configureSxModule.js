@@ -467,18 +467,9 @@ export default function configureSxModule(sxModule) {
 		};
 
 	function getContextualOperationsForNoteType(noteType) {
-		return [
-			// Because we offer a lot of conversion operations to change the type attribute we
-			// have bundled these in a submenu.
-			// We recommend using submenus for the grouping of operations that are similar.
-			{
-				subMenuLabel: 'Change type',
-				contents: NOTE_CONVERT_OPERATIONS.filter(
-					element => !element.name.endsWith(noteType)
-				)
-			},
-			{ name: ':contextual-unwrap-note' }
-		];
+		return NOTE_CONVERT_OPERATIONS.filter(function(element) {
+			return element.name.indexOf(noteType) === -1;
+		}).concat([{ name: ':contextual-unwrap-note' }]);
 	}
 
 	configureAsFrame(sxModule, 'self::note', t('note'), {
@@ -737,13 +728,13 @@ export default function configureSxModule(sxModule) {
 	//     target. Category: Body elements
 	configureAsInlineLink(sxModule, 'self::xref', t('link'), {
 		emptyElementPlaceholderText: t('type the link text'),
+		referenceQuery: '@href',
 		popoverComponentName: 'DitaCrossReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-xref[@format=dita]',
 			targetIsPermanentId: false,
 			targetQuery: '@href'
-		},
-		referenceQuery: '@href'
+		}
 	});
 
 	configureProperties(sxModule, 'self::xref[@format="html"]', {
