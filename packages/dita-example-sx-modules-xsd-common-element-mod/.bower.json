@@ -1,14 +1,14 @@
 {
   "name": "dita-example-sx-modules-xsd-common-element-mod",
   "homepage": "https://github.com/fontoxml/dita-example-sx-modules-xsd-common-element-mod",
-  "version": "2.1.2",
-  "_release": "2.1.2",
+  "version": "2.1.3",
+  "_release": "2.1.3",
   "_resolution": {
     "type": "version",
-    "tag": "2.1.2",
-    "commit": "ffd49a9d758ff3aaac32fa97e4fa89e1fd14a783"
+    "tag": "2.1.3",
+    "commit": "c7492bd73629916cd7e9bcd6214154e0f35f0f1b"
   },
   "_source": "https://github.com/fontoxml/dita-example-sx-modules-xsd-common-element-mod.git",
-  "_target": "2.1.2",
+  "_target": "2.1.3",
   "_originalSource": "https://github.com/fontoxml/dita-example-sx-modules-xsd-common-element-mod.git"
 }
