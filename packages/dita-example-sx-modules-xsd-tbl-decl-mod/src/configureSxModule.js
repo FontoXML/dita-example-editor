@@ -46,6 +46,7 @@ export default function configureSxModule(sxModule) {
 	// table
 	configureProperties(sxModule, 'self::table', {
 		contextualOperations: [
+			{ name: 'cals-open-table-column-sizing-popover' },
 			{ name: ':cals-table-insert-title' },
 			{ name: ':cals-table-insert-desc' }
 		],
