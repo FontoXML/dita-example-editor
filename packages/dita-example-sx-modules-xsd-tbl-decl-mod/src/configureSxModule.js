@@ -14,7 +14,7 @@ export default function configureSxModule(sxModule) {
 			defaultTextContainer: 'p'
 		},
 		showInsertionWidget: true,
-		showHighlightingWidget: true
+		showSelectionWidget: true
 	});
 
 	// colspec

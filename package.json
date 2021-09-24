@@ -7,7 +7,7 @@
 		"start": "fdt editor run",
 		"postinstall": "npm run install-fonto-platform && npm run install-sx-modules",
 		"install-sx-modules": "npx bower install",
-		"install-fonto-platform": "fdt editor upgrade --non-interactive --version 7.15.2"
+		"install-fonto-platform": "fdt editor upgrade --non-interactive --version 7.16.0"
 	},
 	"dependencies": {}
 }
