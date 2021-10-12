@@ -8,8 +8,8 @@ Fonto's proprietary code in `platform/` is not included with this repository. Pl
 development tools](https://www.npmjs.com/package/@fontoxml/fontoxml-development-tools) to download this code. See also
 the install instructions in this README file.
 
-This Fonto configuration uses [bower](https://bower.io) to install element configuration for the different XSD modules
-in [the schema](https://github.com/fontoxml/dita-example-schema-bundle) that is used for this editor.
+This Fonto configuration is built for [a subset of DITA 1.3](https://github.com/fontoxml/dita-example-schema-bundle)
+that avoids ambiguity around mixed content and block-level elements in some places.
 
 
 ## Installation
