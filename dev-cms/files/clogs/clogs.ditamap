@@ -1,22 +1,22 @@
 <map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="macies-map" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:xsd:map.xsd:1.3">
 	<title id="title_03fcdc0d-a7bd-4239-89a7-4c36c4155003">Welcome to the Fonto Sandbox </title>
 	<topicref href="clogs/why.xml" id="topicref_989040c5-3071-46dd-fd70-9922b6fa7458">
-		<topicref href="clogs/sample.xml" id="topicref_512b2e3f-5cab-4fa9-a4db-1ab61463bc2e"/>
-		<topicref href="clogs/feedback.xml" id="topicref_987f05f4-6827-4b43-e061-550cd0039612"/>
+		<topicref href="clogs/sample.xml" id="topicref_512b2e3f-5cab-4fa9-a4db-1ab61463bc2e" />
+		<topicref href="clogs/feedback.xml" id="topicref_987f05f4-6827-4b43-e061-550cd0039612" />
 	</topicref>
-	<topicref href="clogs/clog.xml" id="topicref_e1cbe1b2-ae50-4432-9cc2-961e5167b6dc">
-		<topicref href="clogs/contents.xml" id="topicref_4bd5d9b5-172c-4a2d-c254-56b0d62fabf7"/>
-		<topicref href="clogs/types.xml" id="topicref_5921f596-c7a1-4581-fc99-78909269b67e"/>
-		<topicref href="clogs/traditional.xml" id="topicref_a535a065-ca8b-4cd3-ce55-d9e79688f4d7"/>
-		<topicref href="clogs/fashion.xml" id="topicref_e958c9d4-9e7a-47f6-e89f-ca6ed631d2db"/>
-		<topicref href="clogs/museum.xml" id="topicref_56cb1743-fed7-49be-a40d-d9af1c6ff530"/>
+	<topicref href="clogs/clog.xml" id="topicref_e1cbe1b2-ae50-4432-9cc2-961e5167b6dc" outputclass="clogs">
+		<topicref href="clogs/contents.xml" id="topicref_4bd5d9b5-172c-4a2d-c254-56b0d62fabf7" outputclass="clogs" />
+		<topicref href="clogs/types.xml" id="topicref_5921f596-c7a1-4581-fc99-78909269b67e" outputclass="clogs" />
+		<topicref href="clogs/traditional.xml" id="topicref_a535a065-ca8b-4cd3-ce55-d9e79688f4d7" outputclass="clogs" />
+		<topicref href="clogs/fashion.xml" id="topicref_e958c9d4-9e7a-47f6-e89f-ca6ed631d2db" outputclass="clogs" />
+		<topicref href="clogs/museum.xml" id="topicref_56cb1743-fed7-49be-a40d-d9af1c6ff530" outputclass="clogs" />
 	</topicref>
-	<topicref href="clogs/glossary.xml" id="id-53fc0229-2792-435a-86f0-0c1cb0080268"/>
+	<topicref href="clogs/glossary.xml" id="id-53fc0229-2792-435a-86f0-0c1cb0080268" outputclass="clogs" />
 	<topichead id="id-2b2dee5e-5971-4649-dc19-7a5d5db5102d">
 		<topicmeta id="id-6202c709-cd47-4b94-e9f0-d07599550230">
 			<navtitle id="id-fbf5c8c2-5001-42ff-8ad9-26cbc0a316b2">Example topic types</navtitle>
 		</topicmeta>
-		<topicref href="clogs/tasks.xml" id="id-9b1f9bd0-a62f-4451-e76d-2a01364959cf"/>
-		<topicref href="clogs/moreinformation.xml" id="topicref_166aabea-30a4-4693-cac6-44393ef7e983"/>
+		<topicref href="clogs/tasks.xml" id="id-9b1f9bd0-a62f-4451-e76d-2a01364959cf" />
+		<topicref href="clogs/moreinformation.xml" id="topicref_166aabea-30a4-4693-cac6-44393ef7e983" />
 	</topichead>
 </map>

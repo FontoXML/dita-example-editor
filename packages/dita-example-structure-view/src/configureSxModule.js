@@ -1,5 +1,8 @@
-import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
 import configureAsStructureViewItem from 'fontoxml-families/src/configureAsStructureViewItem.js';
+import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations.js';
+import configureProperties from 'fontoxml-families/src/configureProperties.js';
+import registerNodeStatus from 'fontoxml-families/src/registerNodeStatus.js';
+import t from 'fontoxml-localization/src/t.js';
 
 // Operation names to create a child topic, either from template or reusing an existing topic;
 const INSERT_TOPICREF_OPERATION_NAMES = [
@@ -95,4 +98,45 @@ export default function configureSxModule(sxModule) {
 		formatContextualOperationListWithGroups(MOVE_TOPICREF_OPERATION_NAMES),
 		-2
 	);
+
+	// Register node status queries, which help users identify Outline items with one status or another.
+	// The node statuses are then associated with any node via the `statusQuery` option, which references
+	// the identifier given to a node status.
+	//
+	// See also:
+	//   https://documentation.fontoxml.com/latest/registernodestatus-dc8b1cd71d0e
+	//
+	// The simplest option is to only specify a label to use with a certain id;
+	//   registerNodeStatus('needs-review', t('Review'));
+	//
+	// Or you can customize the default status badge component with some props:
+	registerNodeStatus('revised', t('Revised'), {
+		componentProps: {
+			label: t('Revised'),
+			backgroundColor: 'state-message-info-color',
+			clickOperation: 'scroll-node-into-view',
+			tooltipContent: t('This document has been revised.')
+		}
+	});
+	registerNodeStatus('clog', t('Clogs'), {
+		componentProps: {
+			label: t('Clogs'),
+			backgroundColor: 'state-message-success-color'
+		}
+	});
+	configureProperties(sxModule, 'self::*', {
+		statusQuery: `
+			(
+				if (./prolog/metadata/data/@status="changed")
+					then "revised"
+					else (),
+				if (
+					@outputclass="clogs" or
+					fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/@outputclass = "clogs"
+				)
+					then "clog"
+					else ()
+			)
+		`
+	});
 }
