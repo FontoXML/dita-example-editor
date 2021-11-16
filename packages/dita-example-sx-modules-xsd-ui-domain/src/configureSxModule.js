@@ -15,8 +15,13 @@ export default function configureSxModule(sxModule) {
 	//     user interface domain, a special set of DITA elements designed to document user interface tasks,
 	//     concepts and reference information. Category: User interface elements
 	configureAsInlineFrame(sxModule, 'self::menucascade', t('menu cascade'), {
-		defaultTextContainer: 'uicontrol',
-		isIgnoredForNavigation: false
+		defaultTextContainer: {
+			localName: 'uicontrol',
+			namespaceURI: null,
+			insert: 'always',
+			implicit: 'inline',
+		},
+		isIgnoredForNavigation: false,
 	});
 
 	// screen

@@ -311,7 +311,7 @@ export default function configureSxModule(sxModule) {
 				implicit: 'inline',
 			},
 			referenceQuery: '@href',
-			isPermanentId: true
+			isPermanentId: true,
 		}
 	);
 
