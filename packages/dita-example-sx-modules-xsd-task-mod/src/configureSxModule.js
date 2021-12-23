@@ -326,7 +326,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-replace-with-steps-informal' }
 		],
 		defaultTextContainer: 'step',
-		ignoredForNavigationNextToSelector: 'false()'
+		isIgnoredForNavigation: false
 	});
 
 	// steps-informal
@@ -350,7 +350,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-replace-with-steps-informal' }
 		],
 		defaultTextContainer: 'step',
-		ignoredForNavigationNextToSelector: 'false()'
+		isIgnoredForNavigation: false
 	});
 
 	// stepsection
@@ -429,7 +429,7 @@ export default function configureSxModule(sxModule) {
 	//     it. Category: Task elements
 	configureAsGroup(sxModule, 'self::substeps', t('substeps'), {
 		defaultTextContainer: 'substep',
-		ignoredForNavigationNextToSelector: 'false()'
+		isIgnoredForNavigation: false
 	});
 
 	// task

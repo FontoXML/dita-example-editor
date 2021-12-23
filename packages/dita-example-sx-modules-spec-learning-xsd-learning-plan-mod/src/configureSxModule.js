@@ -164,7 +164,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcGapAnalysis' }
 		],
 		defaultTextContainer: 'lcGapItem',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -184,7 +184,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcGapItem' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideBefore: [createLabelQueryWidget('"\u25cf"')],
@@ -256,7 +256,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcIntervention' }
 		],
 		defaultTextContainer: 'lcInterventionItem',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -277,7 +277,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcInterventionItem' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideBefore: [createLabelQueryWidget('"\u25cf"')],
@@ -367,7 +367,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcNeedsAnalysis' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -415,7 +415,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcOrganizational' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -445,7 +445,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcPlanAudience' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -559,7 +559,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcProject' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -621,7 +621,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcTask' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -657,7 +657,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcTechnical' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -709,7 +709,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcWorkEnv' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -765,7 +765,7 @@ export default function configureSxModule(sxModule) {
 	//     The <learningPlanbody> element is the main body-level element in a learningPlan topic.
 	configureAsStructure(sxModule, 'self::learningPlanbody', t('body'), {
 		defaultTextContainer: 'section',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 

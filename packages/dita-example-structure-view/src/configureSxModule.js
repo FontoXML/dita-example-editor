@@ -112,7 +112,8 @@ export default function configureSxModule(sxModule) {
 	// Or you can customize the default status badge component with some props:
 	registerNodeStatus('revised', t('Revised'), {
 		componentProps: {
-			label: t('Revised'),
+			icon: 'history',
+			condensedLabel: t('R'),
 			backgroundColor: 'state-message-info-color',
 			clickOperation: 'scroll-node-into-view',
 			tooltipContent: t('This document has been revised.')
@@ -120,7 +121,7 @@ export default function configureSxModule(sxModule) {
 	});
 	registerNodeStatus('clog', t('Clogs'), {
 		componentProps: {
-			label: t('Clogs'),
+			condensedLabel: t('C'),
 			backgroundColor: 'state-message-success-color'
 		}
 	});

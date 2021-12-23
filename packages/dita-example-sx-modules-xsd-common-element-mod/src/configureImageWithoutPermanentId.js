@@ -20,7 +20,13 @@ export default function configureImageWithoutPermanentId(sxModule) {
 		{
 			priority: 2,
 			referenceQuery: '@href',
-			isPermanentId: false
+			isPermanentId: false,
+			defaultTextContainer: {
+				localName: 'alt',
+				namespaceURI: null,
+				insert: 'always',
+				implicit: 'inline',
+			}
 		}
 	);
 }

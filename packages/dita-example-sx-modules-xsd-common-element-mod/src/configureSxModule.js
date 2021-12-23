@@ -304,7 +304,12 @@ export default function configureSxModule(sxModule) {
 		'self::image and fonto:in-inline-layout(.)',
 		t('inline image'),
 		{
-			defaultTextContainer: 'alt',
+			defaultTextContainer: {
+				localName: 'alt',
+				namespaceURI: null,
+				insert: 'always',
+				implicit: 'inline',
+			},
 			referenceQuery: '@href',
 			isPermanentId: true
 		}

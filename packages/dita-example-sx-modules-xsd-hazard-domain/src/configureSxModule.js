@@ -106,7 +106,7 @@ export default function configureSxModule(sxModule) {
 	configureAsFrame(sxModule, 'self::hazardstatement', t('hazard statement'), {
 		contextualOperations: getContextualOperationsForHazardType('standard-hazard'),
 		defaultTextContainer: 'messagepanel',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
@@ -160,7 +160,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-messagepanel' }
 		],
 		defaultTextContainer: 'howtoavoid',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});

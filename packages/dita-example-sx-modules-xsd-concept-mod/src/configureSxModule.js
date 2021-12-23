@@ -42,7 +42,7 @@ export default function configureSxModule(sxModule) {
 		contextualOperations: [{ name: ':contextual-unwrap-conbodydiv' }],
 		defaultTextContainer: 'section',
 		emptyElementPlaceholderText: t('type the content'),
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});

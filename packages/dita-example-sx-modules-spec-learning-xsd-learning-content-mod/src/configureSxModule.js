@@ -48,7 +48,7 @@ export default function configureSxModule(sxModule) {
 	//     The <learningContentbody> element is the main body-level element in a learningContent topic.
 	configureAsStructure(sxModule, 'self::learningContentbody', t('body'), {
 		defaultTextContainer: 'section',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 

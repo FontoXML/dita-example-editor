@@ -46,7 +46,7 @@ export default function configureSxModule(sxModule) {
 	//     The <learningSummarybody> element is the main body-level element in a learningSummary topic.
 	configureAsStructure(sxModule, 'self::learningSummarybody', t('body'), {
 		defaultTextContainer: 'section',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 

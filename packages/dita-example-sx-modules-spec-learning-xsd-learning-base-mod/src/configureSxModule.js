@@ -50,7 +50,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcDuration' }
 		],
 		defaultTextContainer: 'title',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
@@ -133,7 +133,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':contextual-delete-lcObjectives' }
 		],
 		defaultTextContainer: 'lcObjectivesStem',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		titleQuery: './title',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]

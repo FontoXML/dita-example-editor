@@ -51,7 +51,7 @@ export default function configureSxModule(sxModule) {
 	//     or more <section> elements. Each of the learningOverviewbody sections are optional.
 	configureAsStructure(sxModule, 'self::learningOverviewbody', t('body'), {
 		defaultTextContainer: 'section',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 

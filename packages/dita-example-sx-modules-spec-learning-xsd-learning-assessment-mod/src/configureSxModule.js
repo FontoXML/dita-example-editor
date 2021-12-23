@@ -47,7 +47,7 @@ export default function configureSxModule(sxModule) {
 	//     The <learningAssessmentbody> element is the main body-level element in a learningAssessment topic.
 	configureAsStructure(sxModule, 'self::learningAssessmentbody', t('body'), {
 		defaultTextContainer: 'section',
-		ignoredForNavigationNextToSelector: 'false()',
+		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 

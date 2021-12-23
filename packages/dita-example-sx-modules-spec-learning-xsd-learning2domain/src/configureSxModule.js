@@ -111,7 +111,7 @@ export default function configureSxModule(sxModule) {
 	// lcAnswerOptionGroup2
 	configureAsStructure(sxModule, 'self::lcAnswerOptionGroup2', t('answer option group'), {
 		defaultTextContainer: 'lcAnswerOption2',
-		ignoredForNavigationNextToSelector: 'false()'
+		isIgnoredForNavigation: false
 	});
 
 	// lcArea2
