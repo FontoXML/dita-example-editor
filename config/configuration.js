@@ -1,4 +1,5 @@
 import configurationManager from 'fontoxml-configuration/src/configurationManager.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 configurationManager.set('paragraph-node-name-for-pasting', 'p');
 
@@ -15,7 +16,7 @@ configurationManager.set('spell-checker-configuration', {
 
 configurationManager.set('unique-id-configurations', [
 	{
-		selector: 'self::*',
+		selector: xq`self::*`,
 		namespaceURI: null,
 		localName: 'id'
 	}

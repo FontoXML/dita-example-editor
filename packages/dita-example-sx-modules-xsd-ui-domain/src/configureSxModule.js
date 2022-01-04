@@ -5,6 +5,7 @@ import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMe
 import createIconWidget from 'fontoxml-families/src/createIconWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// menucascade
@@ -14,7 +15,7 @@ export default function configureSxModule(sxModule) {
 	//     characters between the menu items to represent the menu cascade. This element is part of the DITA
 	//     user interface domain, a special set of DITA elements designed to document user interface tasks,
 	//     concepts and reference information. Category: User interface elements
-	configureAsInlineFrame(sxModule, 'self::menucascade', t('menu cascade'), {
+	configureAsInlineFrame(sxModule, xq`self::menucascade`, t('menu cascade'), {
 		defaultTextContainer: {
 			localName: 'uicontrol',
 			namespaceURI: null,
@@ -27,7 +28,7 @@ export default function configureSxModule(sxModule) {
 	// screen
 	//     The <screen> element contains or refers to a textual representation of a computer screen or user
 	//     interface panel (window). Category: User interface elements
-	configureAsFrameWithBreakableBlock(sxModule, 'self::screen', t('screen'), {
+	configureAsFrameWithBreakableBlock(sxModule, xq`self::screen`, t('screen'), {
 		backgroundColor: 'brown',
 		contextualOperations: [{ name: ':contextual-unwrap-screen' }],
 		emptyElementPlaceholderText: t('type the screen text'),
@@ -42,7 +43,7 @@ export default function configureSxModule(sxModule) {
 	//     The <shortcut> element identifies a keyboard shortcut for a menu or window action. This element is
 	//     part of the DITA user interface domain, a special set of DITA elements designed to document user
 	//     interface tasks, concepts and reference information. Category: User interface elements
-	configureAsInlineFrame(sxModule, 'self::shortcut', t('shortcut'), {
+	configureAsInlineFrame(sxModule, xq`self::shortcut`, t('shortcut'), {
 		emptyElementPlaceholderText: t('type the shortcut')
 	});
 
@@ -53,13 +54,13 @@ export default function configureSxModule(sxModule) {
 	//     as File New. This element is part of the DITA user interface domain, a special set of DITA elements
 	//     designed to document user interface tasks, concepts and reference information. Category: User
 	//     interface elements
-	configureAsInlineFrame(sxModule, 'self::uicontrol', t('UI control'), {
+	configureAsInlineFrame(sxModule, xq`self::uicontrol`, t('UI control'), {
 		emptyElementPlaceholderText: t('type the label of the UI control')
 	});
 
 	configureProperties(
 		sxModule,
-		'self::uicontrol[parent::menucascade and preceding-sibling::uicontrol]',
+		xq`self::uicontrol[parent::menucascade and preceding-sibling::uicontrol]`,
 		{
 			emptyElementPlaceholderText: t('type the label of the UI control'),
 			inlineBefore: [createIconWidget('angle-right')]
@@ -72,7 +73,7 @@ export default function configureSxModule(sxModule) {
 	//     and window pane titles. This element is part of the DITA user interface domain, a special set of
 	//     DITA elements designed to document user interface tasks, concepts and reference information.
 	//     Category: User interface elements
-	configureAsInlineFrame(sxModule, 'self::wintitle', t('window title'), {
+	configureAsInlineFrame(sxModule, xq`self::wintitle`, t('window title'), {
 		emptyElementPlaceholderText: t('type the window title')
 	});
 }

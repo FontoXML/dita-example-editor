@@ -4,17 +4,18 @@ import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame.j
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// glossgroup
 	//     The <glossgroup> element may be used to contain multiple <glossentry> topics within a single
 	//     collection.
-	configureAsSheetFrame(sxModule, 'self::glossgroup', t('glossary'), {
+	configureAsSheetFrame(sxModule, xq`self::glossgroup`, t('glossary'), {
 		titleQuery:
-			'./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()',
+			xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(
-				'descendant::fn[not(@conref) and fonto:in-inline-layout(.)]'
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -23,7 +24,7 @@ export default function configureSxModule(sxModule) {
 	// glossgroup nested in topic
 	configureAsFrame(
 		sxModule,
-		'self::glossgroup[parent::*[fonto:dita-class(., "topic/topic")]]',
+		xq`self::glossgroup[parent::*[fonto:dita-class(., "topic/topic")]]`,
 		undefined,
 		{
 			blockFooter: []
@@ -31,7 +32,7 @@ export default function configureSxModule(sxModule) {
 	);
 
 	// title in glossary
-	configureAsTitleFrame(sxModule, 'self::title[parent::glossgroup]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::glossgroup]`, undefined, {
 		fontVariation: 'document-title'
 	});
 }

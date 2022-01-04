@@ -5,6 +5,7 @@ import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame.j
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// equation-block
@@ -13,7 +14,7 @@ export default function configureSxModule(sxModule) {
 	//     including embedded MathML using the <mathml> specialization of <foreign>, a reference to an image,
 	//     inline TeX markup, or any other way that an equation might be defined. The equation may include
 	//     alternative forms, such as both a MathML version and an image.
-	configureAsFrameWithBlock(sxModule, 'self::equation-block', t('equation'), {
+	configureAsFrameWithBlock(sxModule, xq`self::equation-block`, t('equation'), {
 		contextualOperations: [{ name: 'mathml-edit' }],
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
@@ -32,7 +33,7 @@ export default function configureSxModule(sxModule) {
 	//     specialization of <foreign>, a reference to an image, inline TeX markup, or any other way that an
 	//     equation might be defined. The equation may include alternative forms, such as both a MathML version
 	//     and an image.
-	configureAsFrame(sxModule, 'self::equation-figure', t('equation figure'), {
+	configureAsFrame(sxModule, xq`self::equation-figure`, t('equation figure'), {
 		contextualOperations: [
 			{ name: ':equation-figure-insert-title' },
 			{ name: ':equation-figure-insert-desc' },
@@ -43,13 +44,13 @@ export default function configureSxModule(sxModule) {
 			},
 			{ name: ':contextual-delete-equation-figure' }
 		],
-		titleQuery: './title',
+		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 
 	// title in equation-figure
-	configureAsTitleFrame(sxModule, 'self::title[parent::equation-figure]', t('title'), {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::equation-figure]`, t('title'), {
 		fontVariation: 'figure-title'
 	});
 
@@ -59,7 +60,7 @@ export default function configureSxModule(sxModule) {
 	//     of ways, including embedded MathML using the <mathml> specialization of <foreign>, a reference to an
 	//     image, inline TeX markup, or any other way that an equation might be defined. The equation may
 	//     include alternative forms, such as both a MathML version and an image.
-	configureAsInlineFrame(sxModule, 'self::equation-inline', t('inline equation'), {
+	configureAsInlineFrame(sxModule, xq`self::equation-inline`, t('inline equation'), {
 		contextualOperations: [{ name: 'mathml-edit' }]
 	});
 
@@ -68,5 +69,5 @@ export default function configureSxModule(sxModule) {
 	//     the <equation-number> element has empty or whitespace-only content, then the number should be
 	//     generated. If the <equation-number> element has content other than whitespace, the content should be
 	//     used as the number.
-	configureAsInlineFrame(sxModule, 'self::equation-number', t('equation number'));
+	configureAsInlineFrame(sxModule, xq`self::equation-number`, t('equation number'));
 }

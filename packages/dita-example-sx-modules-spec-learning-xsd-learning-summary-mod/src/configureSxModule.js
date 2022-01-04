@@ -6,20 +6,21 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// learningSummary
 	//     A Learning Summary recaps and provides context for the achievement or accomplishment of learning
 	//     objectives, provides guidance to reinforce learning and long-term memory, and may pose questions to
 	//     enhance encoding and verification of the learning content.
-	configureAsSheetFrame(sxModule, 'self::learningSummary', t('learning summary'), {
+	configureAsSheetFrame(sxModule, xq`self::learningSummary`, t('learning summary'), {
 		defaultTextContainer: 'learningSummarybody',
 		titleQuery:
-			'./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()',
+			xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		blockFooter: [
-			createRelatedNodesQueryWidget('./related-links'),
+			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(
-				'descendant::fn[not(@conref) and fonto:in-inline-layout(.)]'
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -28,30 +29,30 @@ export default function configureSxModule(sxModule) {
 	// learningSummary nested in topic
 	configureAsFrame(
 		sxModule,
-		'self::learningSummary and ancestor::*[fonto:dita-class(., "topic/topic")]',
+		xq`self::learningSummary and ancestor::*[fonto:dita-class(., "topic/topic")]`,
 		undefined,
 		{
 			defaultTextContainer: 'learningSummarybody',
-			blockFooter: [createRelatedNodesQueryWidget('./related-links')],
+			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// title in learningSummary
-	configureAsTitleFrame(sxModule, 'self::title[parent::learningSummary]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::learningSummary]`, undefined, {
 		fontVariation: 'document-title'
 	});
 
 	// learningSummarybody
 	//     The <learningSummarybody> element is the main body-level element in a learningSummary topic.
-	configureAsStructure(sxModule, 'self::learningSummarybody', t('body'), {
+	configureAsStructure(sxModule, xq`self::learningSummarybody`, t('body'), {
 		defaultTextContainer: 'section',
 		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 
 	// section in learningSummarybody
-	configureContextualOperations(sxModule, 'self::section[parent::learningSummarybody]', [
+	configureContextualOperations(sxModule, xq`self::section[parent::learningSummarybody]`, [
 		{ name: ':section-insert-title' },
 		{ name: ':contextual-delete-section' }
 	]);

@@ -1,13 +1,14 @@
 import configureAsRelatedLink from 'fontoxml-dita/src/configureAsRelatedLink.js';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureXrefToUsePermanentId(sxModule) {
 	// To enable permanentId's in references (also known as the reference pipeline), change
 	// hasPermanentId to TRUE, and set popoverData.targetIsPermanent to TRUE.
 
 	// A cross link. (cross link is used by default)
-	configureAsRelatedLink(sxModule, 'self::link', undefined, {
+	configureAsRelatedLink(sxModule, xq`self::link`, undefined, {
 		contextualOperations: [{ name: ':link-insert-linktext' }, { name: ':link-insert-desc' }],
 		backgroundColor: 'grey',
 		defaultTextContainer: 'linktext',
@@ -16,7 +17,7 @@ export default function configureXrefToUsePermanentId(sxModule) {
 		popoverData: {
 			editOperationName: ':contextual-edit-link[@format=dita]',
 			targetIsPermanentId: true,
-			targetQuery: '@href'
+			targetQuery: xq`@href`
 		},
 		showWhen: 'always',
 		blockHeaderLeft: [createMarkupLabelWidget()],
@@ -24,7 +25,7 @@ export default function configureXrefToUsePermanentId(sxModule) {
 	});
 
 	// A web link.
-	configureAsRelatedLink(sxModule, 'self::link[@format="html"]', undefined, {
+	configureAsRelatedLink(sxModule, xq`self::link[@format="html"]`, undefined, {
 		contextualOperations: [{ name: ':link-insert-linktext' }, { name: ':link-insert-desc' }],
 		backgroundColor: 'grey',
 		defaultTextContainer: 'linktext',
@@ -33,7 +34,7 @@ export default function configureXrefToUsePermanentId(sxModule) {
 		popoverData: {
 			editOperationName: ':contextual-edit-link[@format=html]',
 			targetIsPermanentId: true,
-			targetQuery: '@href'
+			targetQuery: xq`@href`
 		},
 		showWhen: 'always',
 		blockHeaderLeft: [createMarkupLabelWidget()],

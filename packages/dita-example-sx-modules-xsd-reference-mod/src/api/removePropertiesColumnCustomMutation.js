@@ -1,6 +1,7 @@
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult.js';
 import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery.js';
 import evaluateXPathToNodes from 'fontoxml-selectors/src/evaluateXPathToNodes.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 /**
  * Removes all cells in a column of <properties>.
@@ -26,11 +27,7 @@ export default function removePropertiesColumn(stepData, blueprint) {
 
 	// Query the relevant node names in all rows of the same properties table
 	var columnNodes = evaluateXPathToNodes(
-		'parent::*/parent::properties/*/*[self::' +
-			contextNodeName +
-			' or self::' +
-			otherNodeName +
-			']',
+		xq`parent::*/parent::properties/*/*[self::${contextNodeName} or self::${otherNodeName}]`,
 		contextNode,
 		blueprint
 	);

@@ -3,6 +3,7 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import configureProperties from 'fontoxml-families/src/configureProperties.js';
 import registerNodeStatus from 'fontoxml-families/src/registerNodeStatus.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 // Operation names to create a child topic, either from template or reusing an existing topic;
 const INSERT_TOPICREF_OPERATION_NAMES = [
@@ -44,27 +45,27 @@ export default function configureSxModule(sxModule) {
 	//
 	// See also:
 	//   https://documentation.fontoxml.com/latest/add-and-configure-document-outline-e4f7c8b3a049
-	configureAsStructureViewItem(sxModule, 'fonto:dita-class(., "map/map")', {
+	configureAsStructureViewItem(sxModule, xq`fonto:dita-class(., "map/map")`, {
 		icon: 'folder-open-o',
-		recursionQuery: '()'
+		recursionQuery: xq`()`
 	});
-	configureAsStructureViewItem(sxModule, 'fonto:dita-class(., "map/topicref") and not(@href)', {
+	configureAsStructureViewItem(sxModule, xq`fonto:dita-class(., "map/topicref") and not(@href)`, {
 		icon: 'folder-open-o',
-		recursionQuery: '()'
+		recursionQuery: xq`()`
 	});
-	configureAsStructureViewItem(sxModule, 'self::topicgroup', {
+	configureAsStructureViewItem(sxModule, xq`self::topicgroup`, {
 		icon: 'folder-open-o',
-		recursionQuery: '()'
+		recursionQuery: xq`()`
 	});
-	configureAsStructureViewItem(sxModule, 'self::topichead', {
+	configureAsStructureViewItem(sxModule, xq`self::topichead`, {
 		icon: 'folder-open-o',
-		recursionQuery: '()'
+		recursionQuery: xq`()`
 	});
-	configureAsStructureViewItem(sxModule, 'self::glossgroup', {
+	configureAsStructureViewItem(sxModule, xq`self::glossgroup`, {
 		icon: 'file-text-o',
-		recursionQuery: 'glossentry'
+		recursionQuery: xq`glossentry`
 	});
-	configureAsStructureViewItem(sxModule, 'fonto:dita-class(., "topic/topic")', {
+	configureAsStructureViewItem(sxModule, xq`fonto:dita-class(., "topic/topic")`, {
 		icon: 'file-text-o'
 	});
 
@@ -79,13 +80,13 @@ export default function configureSxModule(sxModule) {
 	//   https://documentation.fontoxml.com/latest/contextualoperation-9316242986ab#properties
 	configureContextualOperations(
 		sxModule,
-		'fonto:dita-class(., "map/map")',
+		xq`fonto:dita-class(., "map/map")`,
 		formatContextualOperationListWithGroups([INSERT_TOPICREF_OPERATION_NAMES]),
 		-3
 	);
 	configureContextualOperations(
 		sxModule,
-		'fonto:dita-class(., "map/topicref")',
+		xq`fonto:dita-class(., "map/topicref")`,
 		formatContextualOperationListWithGroups([
 			INSERT_TOPICREF_OPERATION_NAMES,
 			...MOVE_TOPICREF_OPERATION_NAMES
@@ -94,7 +95,7 @@ export default function configureSxModule(sxModule) {
 	);
 	configureContextualOperations(
 		sxModule,
-		'self::mapref',
+		xq`self::mapref`,
 		formatContextualOperationListWithGroups(MOVE_TOPICREF_OPERATION_NAMES),
 		-2
 	);
@@ -125,8 +126,8 @@ export default function configureSxModule(sxModule) {
 			backgroundColor: 'state-message-success-color'
 		}
 	});
-	configureProperties(sxModule, 'self::*', {
-		statusQuery: `
+	configureProperties(sxModule, xq`self::*`, {
+		statusQuery: xq`
 			(
 				if (./prolog/metadata/data/@status="changed")
 					then "revised"

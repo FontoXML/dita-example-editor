@@ -151,7 +151,7 @@ function createTopicSubMenu(refNodeId) {
 }
 
 const InsertTopicMenu = () => {
-	const selectionNode = useXPath('fonto:selection-common-ancestor()');
+	const selectionNode = useXPath(xq`fonto:selection-common-ancestor()`);
 	const [refNodeId, setRefNodeId] = useState(null);
 	const [refElementName, setRefElementName] = useState('');
 	const [isContainerOrPlaceholder, setIsContainerOrPlaceholder] = useState(false);
@@ -178,7 +178,7 @@ const InsertTopicMenu = () => {
 			if (
 				!documentElement ||
 				!evaluateXPathToBoolean(
-					'fonto:dita-class(., "map/map")',
+					xq`fonto:dita-class(., "map/map")`,
 					documentElement,
 					readOnlyBlueprint
 				)
@@ -195,7 +195,7 @@ const InsertTopicMenu = () => {
 				// Check if ancestor is itself a topicref or map (then use that)
 				if (
 					evaluateXPathToBoolean(
-						'fonto:dita-class(., "map/topicref") or fonto:dita-class(., "map/map")',
+						xq`fonto:dita-class(., "map/topicref") or fonto:dita-class(., "map/map")`,
 						ancestor,
 						readOnlyBlueprint
 					)
@@ -239,10 +239,10 @@ const InsertTopicMenu = () => {
 		setRefNodeId(newRefNodeId);
 		const newRefNode = documentsManager.getNodeById(newRefNodeId);
 		setRefElementName(
-			newRefNode ? evaluateXPathToString('./name()', newRefNode, readOnlyBlueprint) : ''
+			newRefNode ? evaluateXPathToString(xq`./name()`, newRefNode, readOnlyBlueprint) : ''
 		);
 		setIsContainerOrPlaceholder(
-			newRefNode ? evaluateXPathToBoolean('not(@href)', newRefNode, readOnlyBlueprint) : ''
+			newRefNode ? evaluateXPathToBoolean(xq`not(@href)`, newRefNode, readOnlyBlueprint) : ''
 		);
 	}, [selectionNode]);
 

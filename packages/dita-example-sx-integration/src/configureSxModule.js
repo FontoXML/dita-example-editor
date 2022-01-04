@@ -4,6 +4,7 @@ import configureProperties from 'fontoxml-families/src/configureProperties.js';
 import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 import configureHazardsymbolWithoutPermanentId from 'dita-example-sx-modules-xsd-hazard-domain/src/configureHazardsymbolWithoutPermanentId.js';
 import configureImageWithoutPermanentId from 'dita-example-sx-modules-xsd-common-element-mod/src/configureImageWithoutPermanentId.js';
@@ -22,7 +23,7 @@ export default function configureSxModule(sxModule) {
 	//
 	// Make sure you've tested your application without this configuration, in order to more easily detect elements
 	// that are lacking configuration.
-	configureAsRemoved(sxModule, 'self::*', undefined, {
+	configureAsRemoved(sxModule, xq`self::*`, undefined, {
 		priority: -2
 	});
 
@@ -30,7 +31,7 @@ export default function configureSxModule(sxModule) {
 	// configureAsConref family will itself determine wether an XML tag indeed has all the required conref
 	// information. Fonto will then render the note in the location of the conref, regardless of which document
 	// actually contains the conreffed content.
-	configureAsConref(sxModule, 'self::note', 'reused note', {
+	configureAsConref(sxModule, xq`self::note`, 'reused note', {
 		contextualOperations: [],
 		popoverData: {
 			editOperationName: 'contextual-edit-note[@conref]'
@@ -42,9 +43,9 @@ export default function configureSxModule(sxModule) {
 	// Needed for bookmap implementation
 	configureProperties(
 		sxModule,
-		'self::*[fonto:dita-class(., "topic/topic")][not(parent::*[fonto:dita-class(., "topic/topic")])]',
+		xq`self::*[fonto:dita-class(., "topic/topic")][not(parent::*[fonto:dita-class(., "topic/topic")])]`,
 		{
-			titleQuery: `
+			titleQuery: xq`
 			let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name(),
 			$title := ./*[fonto:dita-class(., "topic/title")]//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()
 
@@ -52,9 +53,11 @@ export default function configureSxModule(sxModule) {
 				if(not($refNodeName) or not(bookmap:retrieve-element-label($refNodeName)))
 				then $title
 				else string-join(upper-case(bookmap:retrieve-element-label($refNodeName)) || ": " || $title)`,
-			blockHeaderLeft: [
-				createLabelQueryWidget('""', {
-					prefixQuery: `
+			blockHeaderLeft: 
+			// TODO: fix createLabelQueryWidget
+			[
+				createLabelQueryWidget(`""`, {
+					prefixQuery: xq`
 					let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name()
 
 					return

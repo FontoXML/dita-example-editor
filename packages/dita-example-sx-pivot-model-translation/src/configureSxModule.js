@@ -1,4 +1,5 @@
 import pivotModelTransformerManager from 'fontoxml-pivot-model/src/pivotModelTransformerManager.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// This is the configuration for transforming clipboard data, for example from MS Word or your browser, into
@@ -100,7 +101,7 @@ export default function configureSxModule(sxModule) {
 	]);
 
 	// Ignore blocks under <pre>
-	pivotModelTransformerManager.registerContextualTransformer(sxModule, 'ancestor-or-self::pre', {
+	pivotModelTransformerManager.registerContextualTransformer(sxModule, xq`ancestor-or-self::pre`, {
 		qualifiedName: null,
 		type: 'block'
 	});

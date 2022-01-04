@@ -6,6 +6,7 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// learningAssessment
@@ -13,14 +14,14 @@ export default function configureSxModule(sxModule) {
 	//     recollection, and stimulate reinforcement of the learning content, and can be presented before the
 	//     content as a pre-assessment or as a post-assessment test. The interactions use a sub-set of the
 	//     Question-Test Interoperability (QTI) specification, implemented as a DITA domain specialization.
-	configureAsSheetFrame(sxModule, 'self::learningAssessment', t('learning assessment'), {
+	configureAsSheetFrame(sxModule, xq`self::learningAssessment`, t('learning assessment'), {
 		defaultTextContainer: 'learningAssessmentbody',
 		titleQuery:
-			'./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()',
+			xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		blockFooter: [
-			createRelatedNodesQueryWidget('./related-links'),
+			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(
-				'descendant::fn[not(@conref) and fonto:in-inline-layout(.)]'
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -29,30 +30,30 @@ export default function configureSxModule(sxModule) {
 	// learningAssessment nested in topic
 	configureAsFrame(
 		sxModule,
-		'self::learningAssessment and ancestor::*[fonto:dita-class(., "topic/topic")]',
+		xq`self::learningAssessment and ancestor::*[fonto:dita-class(., "topic/topic")]`,
 		undefined,
 		{
 			defaultTextContainer: 'learningAssessmentbody',
-			blockFooter: [createRelatedNodesQueryWidget('./related-links')],
+			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// title in learningAssessment
-	configureAsTitleFrame(sxModule, 'self::title[parent::learningAssessment]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::learningAssessment]`, undefined, {
 		fontVariation: 'document-title'
 	});
 
 	// learningAssessmentbody
 	//     The <learningAssessmentbody> element is the main body-level element in a learningAssessment topic.
-	configureAsStructure(sxModule, 'self::learningAssessmentbody', t('body'), {
+	configureAsStructure(sxModule, xq`self::learningAssessmentbody`, t('body'), {
 		defaultTextContainer: 'section',
 		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 
 	// section in learningAssessmentbody
-	configureContextualOperations(sxModule, 'self::section[parent::learningAssessmentbody]', [
+	configureContextualOperations(sxModule, xq`self::section[parent::learningAssessmentbody]`, [
 		{ name: ':section-insert-title' },
 		{ name: ':contextual-delete-section' }
 	]);

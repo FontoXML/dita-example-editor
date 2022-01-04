@@ -11,16 +11,17 @@ import {
 import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection.jsx';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
+import xq from 'fontoxml-selectors/src/xq';
 
 const QuestionToolbar = () => (
 	<FxBooleanXPathQueryByNameFromSelection
 		xpathQueryByName={{
-			matching: 'ancestor-or-self::lcMatching2',
+			matching: xq`ancestor-or-self::lcMatching2`,
 			multipleOrSingleSelect:
-				'ancestor-or-self::*[self::lcMultipleSelect2 or self::lcSingleSelect2]',
-			openQuestion: 'ancestor-or-self::lcOpenQuestion2',
-			sequencing: 'ancestor-or-self::lcSequencing2',
-			trueFalse: 'ancestor-or-self::lcTrueFalse2'
+				xq`ancestor-or-self::*[self::lcMultipleSelect2 or self::lcSingleSelect2]`,
+			openQuestion: xq`ancestor-or-self::lcOpenQuestion2`,
+			sequencing: xq`ancestor-or-self::lcSequencing2`,
+			trueFalse: xq`ancestor-or-self::lcTrueFalse2`
 		}}
 	>
 		{({ xpathQueryResultByName }) => (

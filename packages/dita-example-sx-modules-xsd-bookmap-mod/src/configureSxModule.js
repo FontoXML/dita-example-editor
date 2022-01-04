@@ -9,6 +9,7 @@ import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNo
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager.js';
 import registerCustomXPathFunction from 'fontoxml-selectors/src/registerCustomXPathFunction.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 import bookmapElementLabels from './api/bookmapElementLabels.js';
 
@@ -145,14 +146,14 @@ export default function configureSxModule(sxModule) {
 	//     The <abbrevlist> element references a list of abbreviations. It indicates to the processing software
 	//     that the author wants an abbreviation list generated at the particular location. Category: Bookmap
 	//     elements
-	configureAsRemoved(sxModule, 'self::abbrevlist', bookmapElementLabels.abbrevlist.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::abbrevlist`, bookmapElementLabels.abbrevlist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::abbrevlist[not(@href)]',
+		xq`self::abbrevlist[not(@href)]`,
 		bookmapElementLabels.abbrevlist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
@@ -167,27 +168,27 @@ export default function configureSxModule(sxModule) {
 	//     The <amendments> element references a list of amendments or updates to the book. It indicates to the
 	//     processing software that the author wants an amendments list generated at the particular location.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::amendments', bookmapElementLabels.amendments.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::amendments`, bookmapElementLabels.amendments.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::amendments[not(@href)]',
+		xq`self::amendments[not(@href)]`,
 		bookmapElementLabels.amendments.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// appendices
 	//     The <appendices> element is an optional wrapper for <appendix> elements within a bookmap.
-	configureAsRemoved(sxModule, 'self::appendices', bookmapElementLabels.appendices.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::appendices`, bookmapElementLabels.appendices.markupLabel, {
 		contextualOperations: [
 			{
 				hideIn: ['context-menu', 'breadcrumbs-menu'],
@@ -202,7 +203,7 @@ export default function configureSxModule(sxModule) {
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::appendices[not(@href)]',
+		xq`self::appendices[not(@href)]`,
 		bookmapElementLabels.appendices.markupLabel,
 		{
 			contextualOperations: [
@@ -219,14 +220,14 @@ export default function configureSxModule(sxModule) {
 					[':contextual-unwrap-appendices--container']
 				])
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// appendix
 	//     The <appendix> element references a topic as an appendix within a book. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::appendix', bookmapElementLabels.appendix.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::appendix`, bookmapElementLabels.appendix.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
 			...convertToPlaceholderOrContainerOperations('container')
@@ -234,14 +235,14 @@ export default function configureSxModule(sxModule) {
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::appendix[not(@href)]',
+		xq`self::appendix[not(@href)]`,
 		bookmapElementLabels.appendix.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
 				...getPlaceholderOrContainerOperations('container')
 			]),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -249,7 +250,7 @@ export default function configureSxModule(sxModule) {
 	// approved
 	//     The <approved> element contains information about when and by whom the book was approved during its
 	//     publication history. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::approved', t('approved'));
+	configureAsRemoved(sxModule, xq`self::approved`, t('approved'));
 
 	// backmatter
 	//     The <backmatter> element contains the material that follows the main body of a document and any
@@ -257,7 +258,7 @@ export default function configureSxModule(sxModule) {
 	//     such as a glossary or an index. Category: Bookmap elements
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::backmatter',
+		xq`self::backmatter`,
 		bookmapElementLabels.backmatter.markupLabel,
 		{
 			contextualOperations: [
@@ -282,7 +283,7 @@ export default function configureSxModule(sxModule) {
 					hideIn: ['context-menu', 'breadcrumbs-menu']
 				}
 			],
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -292,20 +293,20 @@ export default function configureSxModule(sxModule) {
 	//     the processing software that the author wants a bibliography, containing links to related books,
 	//     articles, published papers, or other types of material, generated at the particular location.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bibliolist', bookmapElementLabels.bibliolist.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::bibliolist`, bookmapElementLabels.bibliolist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::bibliolist[not(@href)]',
+		xq`self::bibliolist[not(@href)]`,
 		bookmapElementLabels.bibliolist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -316,7 +317,7 @@ export default function configureSxModule(sxModule) {
 	//     evaluate the book's purpose. Category: Bookmap elements
 	configureAsRemoved(
 		sxModule,
-		'self::bookabstract',
+		xq`self::bookabstract`,
 		bookmapElementLabels.bookabstract.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
@@ -326,13 +327,13 @@ export default function configureSxModule(sxModule) {
 	);
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::bookabstract[not(@href)]',
+		xq`self::bookabstract[not(@href)]`,
 		bookmapElementLabels.bookabstract.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -341,30 +342,30 @@ export default function configureSxModule(sxModule) {
 	//     The <bookchangehistory> element contains information about the history of the book's creation and
 	//     publishing lifecycle, who wrote, reviewed, edited, and tested the book, and when these events took
 	//     place. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bookchangehistory', t('book change history'));
+	configureAsRemoved(sxModule, xq`self::bookchangehistory`, t('book change history'));
 
 	// bookevent
 	//     The <bookevent> element indicates a general event in the publication history of a book. This is an
 	//     appropriate element for specialization if the current set of specific book event types, that is,
 	//     review, edit, test or approval, does not meed your needs. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bookevent', t('book event'));
+	configureAsRemoved(sxModule, xq`self::bookevent`, t('book event'));
 
 	// bookeventtype
 	//     The <bookeventtype> element indicates the specific nature of a <bookevent>, such as updated,
 	//     indexed, or deprecated. The required name attribute indicates the event's type. Category: Bookmap
 	//     elements
-	configureAsRemoved(sxModule, 'self::bookeventtype', t('book event type'));
+	configureAsRemoved(sxModule, xq`self::bookeventtype`, t('book event type'));
 
 	// bookid
 	//     The <bookid> element contains the publisher's identification information for the book, such as part
 	//     number, edition number and ISBN number. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bookid', t('book id'));
+	configureAsRemoved(sxModule, xq`self::bookid`, t('book id'));
 
 	// booklibrary
 	//     The <booklibrary> element contains the library information for a book. Library entries contain
 	//     information about the series, library, or collection of documents to which the book belongs.
 	//     Category: Bookmap elements
-	configureAsFrameWithBlock(sxModule, 'self::booklibrary', t('book library'), {
+	configureAsFrameWithBlock(sxModule, xq`self::booklibrary`, t('book library'), {
 		contextualOperations: [
 			{ name: ':contextual-delete-booklibrary', hideIn: ['structure-view'] }
 		],
@@ -379,20 +380,20 @@ export default function configureSxModule(sxModule) {
 	//     software that the author wants that list of topics generated at the particular location. For
 	//     example, it could be used in a specialization to reference the location of a list of program
 	//     listings or of authors of topics. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::booklist', bookmapElementLabels.booklist.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::booklist`, bookmapElementLabels.booklist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::booklist[not(@href)]',
+		xq`self::booklist[not(@href)]`,
 		bookmapElementLabels.booklist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -406,7 +407,7 @@ export default function configureSxModule(sxModule) {
 
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::booklists',
+		xq`self::booklists`,
 		bookmapElementLabels.booklists.markupLabel,
 		{
 			contextualOperations: [
@@ -444,7 +445,7 @@ export default function configureSxModule(sxModule) {
 					]
 				}
 			],
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -452,7 +453,7 @@ export default function configureSxModule(sxModule) {
 	// bookmap
 	//     The <bookmap> element is a map file used to organize DITA content into a traditional book format.
 	//     Category: Bookmap elements
-	configureAsMapSheetFrame(sxModule, 'self::bookmap', bookmapElementLabels.bookmap.markupLabel, {
+	configureAsMapSheetFrame(sxModule, xq`self::bookmap`, bookmapElementLabels.bookmap.markupLabel, {
 		contextualOperations: [
 			{
 				contents: [
@@ -503,13 +504,13 @@ export default function configureSxModule(sxModule) {
 			}
 		],
 		defaultTextContainer: 'title',
-		titleQuery: `
+		titleQuery: xq`
 			let $title := if(./title) then ./title else ./booktitle/mainbooktitle
 			return $title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
-		visibleChildSelectorOrNodeSpec: 'self::title or self::booktitle',
+		visibleChildSelectorOrNodeSpec: xq`self::title or self::booktitle`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(
-				'descendant::fn[not(@conref) and fonto:in-inline-layout(name())]'
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(name())]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()],
@@ -517,52 +518,52 @@ export default function configureSxModule(sxModule) {
 	});
 
 	// title in map
-	configureAsTitleFrame(sxModule, 'self::title[parent::bookmap]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::bookmap]`, undefined, {
 		fontVariation: 'collection-title'
 	});
 
 	// bookmeta
 	//     The <bookmeta> element contains information about the book that is not considered book content, such
 	//     as copyright information, author information, and any classifications. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bookmeta', t('book meta'));
+	configureAsRemoved(sxModule, xq`self::bookmeta`, t('book meta'));
 
 	// booknumber
 	//     The <booknumber> element contains the book's form number, such as SC21-1920. Category: Bookmap
 	//     elements
-	configureAsRemoved(sxModule, 'self::booknumber', t('book number'));
+	configureAsRemoved(sxModule, xq`self::booknumber`, t('book number'));
 
 	// bookowner
 	//     The <bookowner> element contains the owner of the copyright. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bookowner', t('book owner'));
+	configureAsRemoved(sxModule, xq`self::bookowner`, t('book owner'));
 
 	// bookpartno
 	//     The <bookpartno> element contains the book's part number; such as 99F1234. This is generally the
 	//     number that the publisher uses to identify the book for tracking purposes. Category: Bookmap
 	//     elements
-	configureAsRemoved(sxModule, 'self::bookpartno', t('book part number'));
+	configureAsRemoved(sxModule, xq`self::bookpartno`, t('book part number'));
 
 	// bookrestriction
 	//     The <bookrestriction> element indicates whether the book is classified, or restricted in some way.
 	//     The value attribute indicates the restrictions; this may be a string like "All Rights Reserved,"
 	//     representing the publisher's copyright restrictions. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bookrestriction', t('book restriction'));
+	configureAsRemoved(sxModule, xq`self::bookrestriction`, t('book restriction'));
 
 	// bookrights
 	//     The <bookrights> element contains the information about the legal rights associated with the book,
 	//     including copyright dates and owners. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::bookrights', t('book rights'));
+	configureAsRemoved(sxModule, xq`self::bookrights`, t('book rights'));
 
 	// booktitle
 	//     The <booktitle> element contains the title information for a book. , including <booklibrary> data, a
 	//     <maintitle> and subtitle (<titlealt>) as required. Category: Bookmap elements
-	configureAsFrame(sxModule, 'self::booktitle', t('book title'), {
+	configureAsFrame(sxModule, xq`self::booktitle`, t('book title'), {
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
 
 	// booktitlealt
 	//     The <booktitlealt> element contains the alternative title, subtitle, or short title for a book.
 	//     Category: Bookmap elements
-	configureAsFrameWithBlock(sxModule, 'self::booktitlealt', t('alternative title'), {
+	configureAsFrameWithBlock(sxModule, xq`self::booktitlealt`, t('alternative title'), {
 		contextualOperations: [
 			{ name: ':contextual-delete-booktitlealt', hideIn: ['structure-view'] }
 		],
@@ -573,7 +574,7 @@ export default function configureSxModule(sxModule) {
 
 	// chapter
 	//     The <chapter> element references a topic as a chapter within a book. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::chapter', bookmapElementLabels.chapter.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::chapter`, bookmapElementLabels.chapter.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
 			...convertToPlaceholderOrContainerOperations('container')
@@ -581,14 +582,14 @@ export default function configureSxModule(sxModule) {
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::chapter[not(@href)]',
+		xq`self::chapter[not(@href)]`,
 		bookmapElementLabels.chapter.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
 				...getPlaceholderOrContainerOperations('container')
 			]),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -600,20 +601,20 @@ export default function configureSxModule(sxModule) {
 	//     materials and methods may also receive mention. In the case of technical books, a colophon may
 	//     specify the software used to prepare the text and diagrams for publication. Category: Bookmap
 	//     elements
-	configureAsRemoved(sxModule, 'self::colophon', bookmapElementLabels.colophon.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::colophon`, bookmapElementLabels.colophon.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::colophon[not(@href)]',
+		xq`self::colophon[not(@href)]`,
 		bookmapElementLabels.colophon.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -621,39 +622,39 @@ export default function configureSxModule(sxModule) {
 	// completed
 	//     The <completed> element indicates a completion date for some type of book event, such as a review,
 	//     editing, or testing. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::completed', t('completed'));
+	configureAsRemoved(sxModule, xq`self::completed`, t('completed'));
 
 	// copyrfirst
 	//     The <copyfirst> element contains the first copyright year within a multiyear copyright statement.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::copyrfirst', t('copyright year first'));
+	configureAsRemoved(sxModule, xq`self::copyrfirst`, t('copyright year first'));
 
 	// copyrlast
 	//     The <copylast> element contains the last copyright year within a multiyear copyright statement.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::copyrlast', t('copyright year last'));
+	configureAsRemoved(sxModule, xq`self::copyrlast`, t('copyright year last'));
 
 	// day
 	//     The <day> element denotes a day of the month. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::day', t('day'));
+	configureAsRemoved(sxModule, xq`self::day`, t('day'));
 
 	// dedication
 	//     The <dedication> element references a topic containing a dedication for the book, such as to a
 	//     person or group. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::dedication', bookmapElementLabels.dedication.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::dedication`, bookmapElementLabels.dedication.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::dedication[not(@href)]',
+		xq`self::dedication[not(@href)]`,
 		bookmapElementLabels.dedication.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -661,7 +662,7 @@ export default function configureSxModule(sxModule) {
 	// draftintro
 	//     The <draftintro> element references a topic used as an introduction to the draft of this book.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::draftintro', bookmapElementLabels.draftintro.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::draftintro`, bookmapElementLabels.draftintro.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
 			...convertToPlaceholderOrContainerOperations('container')
@@ -669,14 +670,14 @@ export default function configureSxModule(sxModule) {
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::draftintro[not(@href)]',
+		xq`self::draftintro[not(@href)]`,
 		bookmapElementLabels.draftintro.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
 				...getPlaceholderOrContainerOperations('container')
 			]),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -684,31 +685,31 @@ export default function configureSxModule(sxModule) {
 	// edited
 	//     The <edited> element contains information about when and by whom the book was edited during its
 	//     publication history. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::edited', t('edited'));
+	configureAsRemoved(sxModule, xq`self::edited`, t('edited'));
 
 	// edition
 	//     The <edition> element contains the edition number information, such as First Edition, or Third
 	//     Edition, used by a publisher to identify a book. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::edition', t('edition'));
+	configureAsRemoved(sxModule, xq`self::edition`, t('edition'));
 
 	// figurelist
 	//     The <figurelist> element references a list of figures in the book. It indicates to the processing
 	//     software that the author wants a list of figures generated at the particular location. Category:
 	//     Bookmap elements
-	configureAsRemoved(sxModule, 'self::figurelist', bookmapElementLabels.figurelist.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::figurelist`, bookmapElementLabels.figurelist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::figurelist[not(@href)]',
+		xq`self::figurelist[not(@href)]`,
 		bookmapElementLabels.figurelist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -719,7 +720,7 @@ export default function configureSxModule(sxModule) {
 	//     <tablelist>, or <figurelist>. Category: Bookmap elements
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::frontmatter',
+		xq`self::frontmatter`,
 		bookmapElementLabels.frontmatter.markupLabel,
 		{
 			contextualOperations: [
@@ -750,7 +751,7 @@ export default function configureSxModule(sxModule) {
 					]
 				}
 			],
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -761,7 +762,7 @@ export default function configureSxModule(sxModule) {
 	//     Category: Bookmap elements
 	configureAsRemoved(
 		sxModule,
-		'self::glossarylist',
+		xq`self::glossarylist`,
 		bookmapElementLabels.glossarylist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
@@ -772,14 +773,14 @@ export default function configureSxModule(sxModule) {
 	);
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::glossarylist[not(@href)]',
+		xq`self::glossarylist[not(@href)]`,
 		bookmapElementLabels.glossarylist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
 				...getPlaceholderOrContainerOperations('container')
 			]),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -787,20 +788,20 @@ export default function configureSxModule(sxModule) {
 	// indexlist
 	//     The <indexlist> element lists the index entries in the book. It indicates to the processing software
 	//     that the author wants an index generated at the particular location. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::indexlist', bookmapElementLabels.indexlist.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::indexlist`, bookmapElementLabels.indexlist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::indexlist[not(@href)]',
+		xq`self::indexlist[not(@href)]`,
 		bookmapElementLabels.indexlist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -808,12 +809,12 @@ export default function configureSxModule(sxModule) {
 	// isbn
 	//     The <isbn> element contains the book's International Standard Book Number (ISBN). Category: Bookmap
 	//     elements
-	configureAsRemoved(sxModule, 'self::isbn', t('isbn'));
+	configureAsRemoved(sxModule, xq`self::isbn`, t('isbn'));
 
 	// mainbooktitle
 	//     The <mainbooktitle> element contains the primary title information for a book. Category: Bookmap
 	//     elements
-	configureAsTitleFrame(sxModule, 'self::mainbooktitle', t('main book title'), {
+	configureAsTitleFrame(sxModule, xq`self::mainbooktitle`, t('main book title'), {
 		fontVariation: 'collection-title',
 		emptyElementPlaceholderText: t('type the book title')
 	});
@@ -821,16 +822,16 @@ export default function configureSxModule(sxModule) {
 	// maintainer
 	//     The <maintainer> element contains information about who maiintains the document; this can be an
 	//     organization or a person. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::maintainer', t('maintainer'));
+	configureAsRemoved(sxModule, xq`self::maintainer`, t('maintainer'));
 
 	// month
 	//     The <month> element denotes a month of the year. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::month', t('month'));
+	configureAsRemoved(sxModule, xq`self::month`, t('month'));
 
 	// notices
 	//     The <notices> element references special notice information, for example, legal notices about
 	//     supplementary copyrights and trademarks associated with the book. . Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::notices', bookmapElementLabels.notices.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::notices`, bookmapElementLabels.notices.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
 			...convertToPlaceholderOrContainerOperations('container')
@@ -838,14 +839,14 @@ export default function configureSxModule(sxModule) {
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::notices[not(@href)]',
+		xq`self::notices[not(@href)]`,
 		bookmapElementLabels.notices.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
 				...getPlaceholderOrContainerOperations('container')
 			]),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -855,14 +856,14 @@ export default function configureSxModule(sxModule) {
 	//     <organizationname>, the <organization> element is not restricted to usage within
 	//     <authorinformation>; it does not have to contain the name of an authoring organization. Category:
 	//     Bookmap elements
-	configureAsRemoved(sxModule, 'self::organization', t('organization'));
+	configureAsRemoved(sxModule, xq`self::organization`, t('organization'));
 
 	// part
 	//     The <part> element references a part topic for the book. A new part is started. Use <part> to divide
 	//     a document's chapters into logical groupings. For example, in a document that contains both guide
 	//     and reference information, you can define two parts, one containing the guide information and the
 	//     other containing the reference information. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::part', bookmapElementLabels.part.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::part`, bookmapElementLabels.part.markupLabel, {
 		contextualOperations: [
 			{
 				hideIn: ['context-menu', 'breadcrumbs-menu'],
@@ -884,7 +885,7 @@ export default function configureSxModule(sxModule) {
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::part[not(@href)]',
+		xq`self::part[not(@href)]`,
 		bookmapElementLabels.part.markupLabel,
 		{
 			contextualOperations: [
@@ -905,7 +906,7 @@ export default function configureSxModule(sxModule) {
 					getPlaceholderOrContainerOperations('container')
 				)
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -914,12 +915,12 @@ export default function configureSxModule(sxModule) {
 	//     The <person> element contains information about the name of a person. Note that unlike the
 	//     <personname> element, the <person> element is not restricted to describing the names of authors.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::person', t('person'));
+	configureAsRemoved(sxModule, xq`self::person`, t('person'));
 
 	// preface
 	//     The <preface> element references introductory information about a book, such as the purpose and
 	//     structure of the document. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::preface', bookmapElementLabels.preface.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::preface`, bookmapElementLabels.preface.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
 			...convertToPlaceholderOrContainerOperations('container')
@@ -927,14 +928,14 @@ export default function configureSxModule(sxModule) {
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::preface[not(@href)]',
+		xq`self::preface[not(@href)]`,
 		bookmapElementLabels.preface.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
 				...getPlaceholderOrContainerOperations('container')
 			]),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -942,64 +943,64 @@ export default function configureSxModule(sxModule) {
 	// printlocation
 	//     The <printlocation> element indicates the location where the book was printed. Customarily, the
 	//     content is restricted to the name of the country. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::printlocation', t('print location'));
+	configureAsRemoved(sxModule, xq`self::printlocation`, t('print location'));
 
 	// published
 	//     The <published> element contains information about the person or organization publishing the book,
 	//     the dates when it was started and completed, and any special restrictions associated with it.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::published', t('published'));
+	configureAsRemoved(sxModule, xq`self::published`, t('published'));
 
 	// publisherinformation
 	//     The <publisherinformation> contains information about what group or person published the book, where
 	//     it was published, and certain details about its publication history. Other publication history
 	//     information is found in the <bookchangehistory> element. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::publisherinformation', t('publisher information'));
+	configureAsRemoved(sxModule, xq`self::publisherinformation`, t('publisher information'));
 
 	// publishtype
 	//     The <publishtype> element indicates whether the book is generally available or is restricted in some
 	//     way. The value attribute indicates the restrictions. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::publishtype', t('publish type'));
+	configureAsRemoved(sxModule, xq`self::publishtype`, t('publish type'));
 
 	// reviewed
 	//     The <reviewed> element contains information about when and by whom the book was reviewed during its
 	//     publication history. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::reviewed', t('reviewed'));
+	configureAsRemoved(sxModule, xq`self::reviewed`, t('reviewed'));
 
 	// revisionid
 	//     The <revisionid> element indicates the revision number or revision ID of the book. The processing
 	//     implementation determines how the level is displayed. Common methods include using a dash, for
 	//     example "-01". or a period, such as ".01". Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::revisionid', t('revision id'));
+	configureAsRemoved(sxModule, xq`self::revisionid`, t('revision id'));
 
 	// started
 	//     The <started> element indicates a start date for some type of book event, such as a review, editing,
 	//     or testing. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::started', t('started'));
+	configureAsRemoved(sxModule, xq`self::started`, t('started'));
 
 	// summary
 	//     The <summary> element contains a text summary associated with a book event (such as <approved> or
 	//     <reviewed>) or with the list of copyrights for the book. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::summary', t('summary'));
+	configureAsRemoved(sxModule, xq`self::summary`, t('summary'));
 
 	// tablelist
 	//     The <tablelist> element references a list of tables within the book. It indicates to the processing
 	//     software that the author wants a list of tables generated at the particular location. Category:
 	//     Bookmap elements
-	configureAsRemoved(sxModule, 'self::tablelist', bookmapElementLabels.tablelist.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::tablelist`, bookmapElementLabels.tablelist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::tablelist[not(@href)]',
+		xq`self::tablelist[not(@href)]`,
 		bookmapElementLabels.tablelist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -1007,26 +1008,26 @@ export default function configureSxModule(sxModule) {
 	// tested
 	//     The <tested> element contains information about when and by whom the book was tested during its
 	//     publication history. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::tested', t('tested'));
+	configureAsRemoved(sxModule, xq`self::tested`, t('tested'));
 
 	// toc
 	//     The <toc> element references the table of contents within the book. It indicates to the processing
 	//     software that the author wants a table of contents generated at the particular location. Category:
 	//     Bookmap elements
-	configureAsRemoved(sxModule, 'self::toc', bookmapElementLabels.toc.markupLabel, {
+	configureAsRemoved(sxModule, xq`self::toc`, bookmapElementLabels.toc.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
 		)
 	});
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::toc[not(@href)]',
+		xq`self::toc[not(@href)]`,
 		bookmapElementLabels.toc.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
@@ -1037,7 +1038,7 @@ export default function configureSxModule(sxModule) {
 	//     Category: Bookmap elements
 	configureAsRemoved(
 		sxModule,
-		'self::trademarklist',
+		xq`self::trademarklist`,
 		bookmapElementLabels.trademarklist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
@@ -1047,22 +1048,22 @@ export default function configureSxModule(sxModule) {
 	);
 	configureAsMapSheetFrame(
 		sxModule,
-		'self::trademarklist[not(@href)]',
+		xq`self::trademarklist[not(@href)]`,
 		bookmapElementLabels.trademarklist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// volume
 	//     The <volume> element contains the book's volume number, such as Volume 2. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::volume', t('volume'));
+	configureAsRemoved(sxModule, xq`self::volume`, t('volume'));
 
 	// year
 	//     The <year> element denotes a year. Category: Bookmap elements
-	configureAsRemoved(sxModule, 'self::year', t('year'));
+	configureAsRemoved(sxModule, xq`self::year`, t('year'));
 }

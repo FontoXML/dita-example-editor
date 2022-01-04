@@ -3,6 +3,7 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import configureAsInlineMathMlContainer from 'fontoxml-mathml/src/configureAsInlineMathMlContainer.js';
 import configureAsMathMlContainer from 'fontoxml-mathml/src/configureAsMathMlContainer.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// mathml
@@ -14,17 +15,17 @@ export default function configureSxModule(sxModule) {
 	//     semantically, independent of the format of the equation content. The MathML markup must have a root
 	//     element of "math" within the MathML namespace "http://www.w3.org/1998/Math/MathML". This element is
 	//     part of the DITA MathML domain. Category: Foreign elements
-	configureAsMathMlContainer(sxModule, 'self::mathml', t('mathematical expression'));
-	configureContextualOperations(sxModule, 'self::mathml', [{ name: 'mathml-edit' }]);
+	configureAsMathMlContainer(sxModule, xq`self::mathml`, t('mathematical expression'));
+	configureContextualOperations(sxModule, xq`self::mathml`, [{ name: 'mathml-edit' }]);
 
 	// mathml in inline layout
 	configureAsInlineMathMlContainer(
 		sxModule,
-		'self::mathml[fonto:in-inline-layout(.)]',
+		xq`self::mathml[fonto:in-inline-layout(.)]`,
 		t('mathematical expression')
 	);
 	// The edit operation should be on the container of the mathml element in inline layout
-	configureContextualOperations(sxModule, 'self::mathml[fonto:in-inline-layout(.)]', []);
+	configureContextualOperations(sxModule, xq`self::mathml[fonto:in-inline-layout(.)]`, []);
 
 	// mathmlref
 	//     The MathML reference (<mathmlref>) element is used to refer to a non-DITA XML document containing
@@ -42,5 +43,5 @@ export default function configureSxModule(sxModule) {
 	//     just the key name: <mathml> <mathmlref keyref="mathml-equation-02"/> </mathml> The MathML should be
 	//     processed and rendered as though the <m:math> element had occurred directly in the content of the
 	//     containing <mathml> element. This element is part of the DITA MathML domain. Category: XRef elements
-	configureAsRemoved(sxModule, 'self::mathmlref', t('mathmlref'));
+	configureAsRemoved(sxModule, xq`self::mathmlref`, t('mathmlref'));
 }
