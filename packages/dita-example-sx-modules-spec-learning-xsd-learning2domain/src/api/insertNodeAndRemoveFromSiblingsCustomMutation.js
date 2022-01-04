@@ -33,7 +33,7 @@ export default function insertNodeAndRemoveFromSiblings(argument, blueprint) {
 		.concat(evaluateXPathToNodes(xq`following-sibling::*`, contextNode, blueprint))
 		.forEach(function(siblingNode) {
 			var removeNode = evaluateXPathToFirstNode(
-				xq`child::${argument.nodeName}`,
+				xq(`child::${argument.nodeName}`),
 				siblingNode,
 				blueprint
 			);
