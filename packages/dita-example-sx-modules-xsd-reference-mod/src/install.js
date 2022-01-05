@@ -29,7 +29,6 @@ export default function install() {
 
 			var isFirstCell = true;
 			stepData.childNodeStructure = [stepData.rowNodeName];
-			// TODO concats 
 			stepData.columns.forEach(function(column) {
 				var selector = 'child::*/' + column.currentNodeName;
 				selector += column.otherNodeNames

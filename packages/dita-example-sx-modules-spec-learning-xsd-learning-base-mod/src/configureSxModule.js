@@ -111,13 +111,14 @@ export default function configureSxModule(sxModule) {
 
 	// lcObjective
 	//     The <lcObjective> describes a single learning objective.
+	// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 	configureAsBlock(sxModule, xq`self::lcObjective`, t('objective'), {
 		contextualOperations: [
 			{ name: ':contextual-insert-lcObjective--above' },
 			{ name: ':contextual-insert-lcObjective--below' }
 		],
 		emptyElementPlaceholderText: t('type the objective'),
-		blockBefore: [createLabelQueryWidget(xq`"\u25cf"`)]
+		blockBefore: [createLabelQueryWidget(`"\u25cf"`)]
 	});
 
 	// lcObjectives

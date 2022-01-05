@@ -114,7 +114,7 @@ export default function configureSxModule(sxModule) {
 
 	Object.keys(HAZARD_VISUALIZATION_BY_TYPE).forEach(function(hazardType) {
 		var hazardVisualization = HAZARD_VISUALIZATION_BY_TYPE[hazardType];
-		configureProperties(sxModule, xq`self::hazardstatement[@type="${hazardType}"]`, {
+		configureProperties(sxModule, xq`self::hazardstatement[@type=${hazardType}]`, {
 			markupLabel: hazardVisualization.label,
 			contextualOperations: getContextualOperationsForHazardType(hazardType),
 			backgroundColor: hazardVisualization.backgroundColor

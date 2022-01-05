@@ -70,6 +70,7 @@ export default function configureSxModule(sxModule) {
 	// choice
 	//     Each <choice> element describes one way that the user could accomplish the current step. Category:
 	//     Task elements
+	// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 	configureAsGroup(sxModule, xq`self::choice`, t('choice'), {
 		contextualOperations: [
 			{ name: ':contextual-insert-choice--above' },
@@ -77,7 +78,7 @@ export default function configureSxModule(sxModule) {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('describe a choice for this step'),
-		blockBefore: [createLabelQueryWidget(xq`"\u25cf"`)]
+		blockBefore: [createLabelQueryWidget(`"\u25cf"`)]
 	});
 
 	// p in choice

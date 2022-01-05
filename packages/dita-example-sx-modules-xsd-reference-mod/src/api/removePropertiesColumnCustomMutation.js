@@ -27,7 +27,7 @@ export default function removePropertiesColumn(stepData, blueprint) {
 
 	// Query the relevant node names in all rows of the same properties table
 	var columnNodes = evaluateXPathToNodes(
-		xq`parent::*/parent::properties/*/*[self::${contextNodeName} or self::${otherNodeName}]`,
+		xq`parent::*/parent::properties/*/*[name() = ${contextNodeName} or name() = ${otherNodeName}]`,
 		contextNode,
 		blueprint
 	);

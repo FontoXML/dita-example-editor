@@ -174,6 +174,7 @@ export default function configureSxModule(sxModule) {
 	// lcGapItem
 	//     The <lcGapItem> describes gaps between existing training objectives and related job-task-analysis
 	//     content.
+	// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 	configureAsFrame(sxModule, xq`self::lcGapItem`, t('gap item'), {
 		contextualOperations: [
 			{ name: ':lcGapItem-insert-title' },
@@ -188,7 +189,7 @@ export default function configureSxModule(sxModule) {
 		isIgnoredForNavigation: false,
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideBefore: [createLabelQueryWidget(xq`"\u25cf"`)],
+		blockOutsideBefore: [createLabelQueryWidget(`"\u25cf"`)],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 
@@ -266,6 +267,7 @@ export default function configureSxModule(sxModule) {
 	// lcInterventionItem
 	//     The <lcInterventionItem> describes how learning content is built, based on a systems approach to
 	//     analyzing, designing, developing, implementing, and evaluating any instructional experience.
+	// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 	configureAsFrame(sxModule, xq`self::lcInterventionItem`, t('intervention item'), {
 		contextualOperations: [
 			{ name: ':lcInterventionItem-insert-title' },
@@ -490,7 +492,7 @@ export default function configureSxModule(sxModule) {
 
 	// lcPlanResources
 	//     The <lcPlanResources> describes resource needs.
-	configureAsFrameWithBlock(sxModule, 'self::lcPlanResources', t('plan resources'), {
+	configureAsFrameWithBlock(sxModule, xq`self::lcPlanResources`, t('plan resources'), {
 		emptyElementPlaceholderText: t('type the plan resources'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
@@ -739,7 +741,7 @@ export default function configureSxModule(sxModule) {
 		blockFooter: [
 			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(
-				`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -748,30 +750,30 @@ export default function configureSxModule(sxModule) {
 	// learningPlan nested in topic
 	configureAsFrame(
 		sxModule,
-		`self::learningPlan and ancestor::*[fonto:dita-class(., "topic/topic")]`,
+		xq`self::learningPlan and ancestor::*[fonto:dita-class(., "topic/topic")]`,
 		undefined,
 		{
 			defaultTextContainer: 'learningPlanbody',
-			blockFooter: [createRelatedNodesQueryWidget(`./related-links`)],
+			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// title in learningPlan
-	configureAsTitleFrame(sxModule, `self::title[parent::learningPlan]`, undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::learningPlan]`, undefined, {
 		fontVariation: 'document-title'
 	});
 
 	// learningPlanbody
 	//     The <learningPlanbody> element is the main body-level element in a learningPlan topic.
-	configureAsStructure(sxModule, `self::learningPlanbody`, t('body'), {
+	configureAsStructure(sxModule, xq`self::learningPlanbody`, t('body'), {
 		defaultTextContainer: 'section',
 		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 
 	// section in learningPlanbody
-	configureContextualOperations(sxModule, `self::section[parent::learningPlanbody]`, [
+	configureContextualOperations(sxModule, xq`self::section[parent::learningPlanbody]`, [
 		{ name: ':section-insert-title' },
 		{ name: ':contextual-delete-section' }
 	]);

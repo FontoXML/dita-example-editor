@@ -487,7 +487,7 @@ export default function configureSxModule(sxModule) {
 
 	Object.keys(NOTE_VISUALIZATION_BY_TYPE).forEach(function(noteType) {
 		const noteVisualization = NOTE_VISUALIZATION_BY_TYPE[noteType];
-		configureProperties(sxModule, xq`self::note[@type="${noteType}"]`, {
+		configureProperties(sxModule, xq`self::note[@type=${noteType}]`, {
 			markupLabel: noteVisualization.label,
 			contextualOperations: getContextualOperationsForNoteType(noteType),
 			backgroundColor: noteVisualization.backgroundColor

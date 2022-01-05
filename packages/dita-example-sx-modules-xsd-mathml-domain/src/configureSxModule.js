@@ -19,9 +19,10 @@ export default function configureSxModule(sxModule) {
 	configureContextualOperations(sxModule, xq`self::mathml`, [{ name: 'mathml-edit' }]);
 
 	// mathml in inline layout
+	// TODO: Use XQExpressions when configureAsInlineMathMlContainer supports them at 7.18
 	configureAsInlineMathMlContainer(
 		sxModule,
-		xq`self::mathml[fonto:in-inline-layout(.)]`,
+		`self::mathml[fonto:in-inline-layout(.)]`,
 		t('mathematical expression')
 	);
 	// The edit operation should be on the container of the mathml element in inline layout
