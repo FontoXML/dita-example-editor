@@ -30,11 +30,11 @@ export default function install() {
 			var isFirstCell = true;
 			stepData.childNodeStructure = [stepData.rowNodeName];
 			stepData.columns.forEach(function(column) {
-				var selector = 'child::*/' + column.currentNodeName;
-				selector += column.otherNodeNames
-					? ' or child::*/' + column.otherNodeNames.join(' or child::*/')
-					: '';
-				if (!evaluateXPathToBoolean(xq(selector), tableNode, readOnlyBlueprint)) {
+				if (!evaluateXPathToBoolean(xq`child::*/child::*[name() = ${column.currentNodeName}]`, tableNode, readOnlyBlueprint)) {
+					return;
+				}
+			
+				if (column.otherNodeNames && column.otherNodeNames.some(nodeName => evaluateXPathToBoolean(xq`child::*/child::*[name() = ${nodeName}]`, tableNode, readOnlyBlueprint))) {
 					return;
 				}
 
