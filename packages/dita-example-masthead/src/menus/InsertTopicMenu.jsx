@@ -10,6 +10,7 @@ import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint.js';
 import selectionManager from 'fontoxml-selection/src/selectionManager.js';
 import useXPath from 'fontoxml-fx/src/useXPath.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 import { Drop, Menu, MenuGroup, MenuItemWithDrop } from 'fds/components';
 
@@ -151,7 +152,7 @@ function createTopicSubMenu(refNodeId) {
 }
 
 const InsertTopicMenu = () => {
-	const selectionNode = useXPath('fonto:selection-common-ancestor()');
+	const selectionNode = useXPath(xq`fonto:selection-common-ancestor()`);
 	const [refNodeId, setRefNodeId] = useState(null);
 	const [refElementName, setRefElementName] = useState('');
 	const [isContainerOrPlaceholder, setIsContainerOrPlaceholder] = useState(false);
@@ -178,7 +179,7 @@ const InsertTopicMenu = () => {
 			if (
 				!documentElement ||
 				!evaluateXPathToBoolean(
-					'fonto:dita-class(., "map/map")',
+					xq`fonto:dita-class(., "map/map")`,
 					documentElement,
 					readOnlyBlueprint
 				)
@@ -195,7 +196,7 @@ const InsertTopicMenu = () => {
 				// Check if ancestor is itself a topicref or map (then use that)
 				if (
 					evaluateXPathToBoolean(
-						'fonto:dita-class(., "map/topicref") or fonto:dita-class(., "map/map")',
+						xq`fonto:dita-class(., "map/topicref") or fonto:dita-class(., "map/map")`,
 						ancestor,
 						readOnlyBlueprint
 					)
@@ -239,10 +240,10 @@ const InsertTopicMenu = () => {
 		setRefNodeId(newRefNodeId);
 		const newRefNode = documentsManager.getNodeById(newRefNodeId);
 		setRefElementName(
-			newRefNode ? evaluateXPathToString('./name()', newRefNode, readOnlyBlueprint) : ''
+			newRefNode ? evaluateXPathToString(xq`./name()`, newRefNode, readOnlyBlueprint) : ''
 		);
 		setIsContainerOrPlaceholder(
-			newRefNode ? evaluateXPathToBoolean('not(@href)', newRefNode, readOnlyBlueprint) : ''
+			newRefNode ? evaluateXPathToBoolean(xq`not(@href)`, newRefNode, readOnlyBlueprint) : ''
 		);
 	}, [selectionNode]);
 

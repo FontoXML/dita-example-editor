@@ -21,6 +21,7 @@ import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMe
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import configureAsListElements from 'fontoxml-list-flow/src/configureAsListElements.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// alt
@@ -28,14 +29,14 @@ export default function configureSxModule(sxModule) {
 	//     image element; the attribute is deprecated, so the alt element should be used instead. As an
 	//     element, alt provides direct text entry within an XML editor and is more easily accessed than an
 	//     attribute for translation. Category: Body elements
-	configureAsFrameWithBlock(sxModule, 'self::alt', t('alternative text'), {
+	configureAsFrameWithBlock(sxModule, xq`self::alt`, t('alternative text'), {
 		emptyElementPlaceholderText: t('type the alternative text'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
 
 	configureAsInlineStructure(
 		sxModule,
-		'self::alt and parent::image[fonto:in-inline-layout(.)]',
+		xq`self::alt and parent::image[fonto:in-inline-layout(.)]`,
 		t('alternative text')
 	);
 
@@ -44,12 +45,12 @@ export default function configureSxModule(sxModule) {
 	//     true or false, high or low, and so forth. The element itself is empty; the value of the element is
 	//     stored in its state attribute, and the semantic associated with the value is typically in a
 	//     specialized name derived from this element. Category: Specialization elements
-	configureAsRemoved(sxModule, 'self::boolean', t('boolean'));
+	configureAsRemoved(sxModule, xq`self::boolean`, t('boolean'));
 
 	// cite
 	//     The <cite> element is used when you need a bibliographic citation that refers to a book or article.
 	//     It specifically identifies the title of the resource. Category: Body elements
-	configureAsInlineFrame(sxModule, 'self::cite', t('citation'));
+	configureAsInlineFrame(sxModule, xq`self::cite`, t('citation'));
 
 	// data
 	//     The <data> element represents a property within a DITA topic or map. While the <data> element can be
@@ -57,7 +58,7 @@ export default function configureSxModule(sxModule) {
 	//     Default processing treats the property values as an unknown kind of metadata, but custom processing
 	//     can match the name attribute or specialized element to format properties as sidebars or other
 	//     adornments or to harvest properties for automated processing. Category: Miscellaneous elements
-	configureAsRemoved(sxModule, 'self::data', t('data'));
+	configureAsRemoved(sxModule, xq`self::data`, t('data'));
 
 	// data-about
 	//     The <data-about> element identifies the subject of a property when the subject isn't associated with
@@ -66,19 +67,19 @@ export default function configureSxModule(sxModule) {
 	//     somewhere other than inside the actual subject of the property. The <data-about> element is
 	//     particularly useful as a basis for specialization in combination with the <data> element. Category:
 	//     Miscellaneous elements
-	configureAsRemoved(sxModule, 'self::data-about', t('data-about'));
+	configureAsRemoved(sxModule, xq`self::data-about`, t('data-about'));
 
 	// dd
 	//     The definition description (<dd>) element contains the description of a term in a definition list
 	//     entry. Category: Body elements
-	configureAsStructure(sxModule, 'self::dd', t('definition'), {
+	configureAsStructure(sxModule, xq`self::dd`, t('definition'), {
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the definition')
 	});
 
 	configureAsFrame(
 		sxModule,
-		'self::dd and count(preceding-sibling::* | following-sibling::*) > 1',
+		xq`self::dd and count(preceding-sibling::* | following-sibling::*) > 1`,
 		t('definition'),
 		{
 			defaultTextContainer: 'p',
@@ -90,7 +91,7 @@ export default function configureSxModule(sxModule) {
 	// p in dd
 	configureAsBlock(
 		sxModule,
-		'self::p[parent::dd] and not(preceding-sibling::* or following-sibling::*)',
+		xq`self::p[parent::dd] and not(preceding-sibling::* or following-sibling::*)`,
 		t('paragraph'),
 		{
 			emptyElementPlaceholderText: t('type the definition')
@@ -100,7 +101,7 @@ export default function configureSxModule(sxModule) {
 	// ddhd
 	//     The definition descriptions heading (<ddhd>) element contains an optional heading or title for a
 	//     column of descriptions or definitions in a definition list. Category: Body elements
-	configureAsBlock(sxModule, 'self::ddhd', t('definitions title'), {
+	configureAsBlock(sxModule, xq`self::ddhd`, t('definitions title'), {
 		emptyElementPlaceholderText: t('type the title for the definitions')
 	});
 
@@ -110,7 +111,7 @@ export default function configureSxModule(sxModule) {
 	//     xref/link, it provides a description of the target; processors that support it may choose to display
 	//     this as hover help. In object, it contains alternate content for use when in contexts that cannot
 	//     display the object. Category: Body elements
-	configureAsFrame(sxModule, 'self::desc', t('description'), {
+	configureAsFrame(sxModule, xq`self::desc`, t('description'), {
 		emptyElementPlaceholderText: t('type the description'),
 		defaultTextContainer: 'p',
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -119,7 +120,7 @@ export default function configureSxModule(sxModule) {
 	// p in desc
 	configureProperties(
 		sxModule,
-		'self::p[parent::desc] and not(preceding-sibling::* or following-sibling::*)',
+		xq`self::p[parent::desc] and not(preceding-sibling::* or following-sibling::*)`,
 		{
 			emptyElementPlaceholderText: t('type the definition')
 		}
@@ -127,7 +128,7 @@ export default function configureSxModule(sxModule) {
 
 	// div
 	//     Category: Body elements
-	configureAsFrame(sxModule, 'self::div', t('division'), {
+	configureAsFrame(sxModule, xq`self::div`, t('division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-div' }],
 		emptyElementPlaceholderText: t('type the content'),
 		defaultTextContainer: 'p',
@@ -139,9 +140,10 @@ export default function configureSxModule(sxModule) {
 	//     A definition list (<dl>) is a list of terms and corresponding definitions. The term (<dt>) is
 	//     usually flush left. The description or definition (<dd>) is usually either indented and on the next
 	//     line, or on the same line to the right of the term. Category: Body elements
-	configureAsFrame(sxModule, 'self::dl', t('definition table'), {
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
+	configureAsFrame(sxModule, xq`self::dl`, t('definition table'), {
 		contextualOperations: [{ name: ':contextual-delete-dl' }],
-		tabNavigationItemSelector: 'self::dthd or self::ddhd or self::dt or self::dd',
+		tabNavigationItemSelector: `self::dthd or self::ddhd or self::dt or self::dd`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
@@ -150,8 +152,8 @@ export default function configureSxModule(sxModule) {
 	//     In a definition list, each list item is defined by the definition list entry (<dlentry>) element.
 	//     The definition list entry element includes a term <dt> and one or more definitions or descriptions
 	//     <dd> of that term. Category: Body elements
-	configureAsDefinitionsTableRow(sxModule, 'self::dlentry', t('row'), {
-		columns: [{ query: './dt', width: 1 }, { query: './dd', width: 2 }],
+	configureAsDefinitionsTableRow(sxModule, xq`self::dlentry`, t('row'), {
+		columns: [{ query: xq`./dt`, width: 1 }, { query: xq`./dd`, width: 2 }],
 		contextualOperations: [
 			{ name: ':dlentry-insert-dt', hideIn: ['breadcrumbs-menu'] },
 			{ name: ':dlentry-insert-dd', hideIn: ['breadcrumbs-menu'] },
@@ -166,8 +168,8 @@ export default function configureSxModule(sxModule) {
 	//     The <dlhead> element contains optional headings for the term and description columns in a definition
 	//     list. The definition list heading contains a heading <dthd> for the column of terms and an optional
 	//     heading <ddhd>for the column of descriptions. Category: Body elements
-	configureAsDefinitionsTableRow(sxModule, 'self::dlhead', t('header'), {
-		columns: [{ query: './dthd', width: 1 }, { query: './ddhd', width: 2 }],
+	configureAsDefinitionsTableRow(sxModule, xq`self::dlhead`, t('header'), {
+		columns: [{ query: xq`./dthd`, width: 1 }, { query: xq`./ddhd`, width: 2 }],
 		contextualOperations: [{ name: ':contextual-delete-dlhead' }],
 		borders: true,
 		backgroundColor: 'black',
@@ -179,17 +181,17 @@ export default function configureSxModule(sxModule) {
 	//     marked-up content. Use the <draft-comment> element to ask a question or make a comment that you
 	//     would like others to review. To indicate the source of the draft comment or the status of the
 	//     comment, use the author, time or disposition attributes. Category: Miscellaneous elements
-	configureAsRemoved(sxModule, 'self::draft-comment', t('comment'));
+	configureAsRemoved(sxModule, xq`self::draft-comment`, t('comment'));
 
 	// dt
 	//     The definition term <dt> element contains a term in a definition list entry. Category: Body elements
-	configureAsBlock(sxModule, 'self::dt', t('term'), {
+	configureAsBlock(sxModule, xq`self::dt`, t('term'), {
 		emptyElementPlaceholderText: t('type the term')
 	});
 	// dt which is not the only dt in dlentry
 	configureAsFrameWithBlock(
 		sxModule,
-		'self::dt and count(preceding-sibling::* | following-sibling::*) > 1',
+		xq`self::dt and count(preceding-sibling::* | following-sibling::*) > 1`,
 		t('term'),
 		{
 			showWhen: 'has-focus'
@@ -199,7 +201,7 @@ export default function configureSxModule(sxModule) {
 	// dthd
 	//     The definition term heading (<dthd>) element is contained in a definition list head (<dlhead>) and
 	//     provides an optional heading for the column of terms in a description list. Category: Body elements
-	configureAsBlock(sxModule, 'self::dthd', t('terms title'), {
+	configureAsBlock(sxModule, xq`self::dthd`, t('terms title'), {
 		emptyElementPlaceholderText: t('type the title for the terms')
 	});
 
@@ -208,7 +210,7 @@ export default function configureSxModule(sxModule) {
 	//     for a wide variety of content. Most commonly, the figure element contains an image element (a
 	//     graphic or artwork), but it can contain several kinds of text objects as well. A title is placed
 	//     inside the figure element to provide a caption to describe the content. Category: Body elements
-	configureAsFrame(sxModule, 'self::fig', t('figure'), {
+	configureAsFrame(sxModule, xq`self::fig`, t('figure'), {
 		contextualOperations: [
 			{ name: ':fig-insert-title' },
 			{ name: ':fig-insert-desc' },
@@ -216,7 +218,7 @@ export default function configureSxModule(sxModule) {
 			{ name: ':fig-insert-image', hideIn: ['element-menu', 'breadcrumbs-menu'] },
 			{ name: ':contextual-delete-fig' }
 		],
-		titleQuery: './title',
+		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
@@ -232,7 +234,7 @@ export default function configureSxModule(sxModule) {
 	);
 
 	// title in fig
-	configureAsTitleFrame(sxModule, 'self::title[parent::fig]', t('title'), {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::fig]`, t('title'), {
 		fontVariation: 'figure-title'
 	});
 
@@ -241,12 +243,12 @@ export default function configureSxModule(sxModule) {
 	//     contain multiple cross-references, footnotes or keywords, but not multipart images. Multipart images
 	//     in DITA should be represented by a suitable media type displayed by the <object> element. Category:
 	//     Body elements
-	configureAsRemoved(sxModule, 'self::figgroup', t('figure group'));
+	configureAsRemoved(sxModule, xq`self::figgroup`, t('figure group'));
 
 	// fn
 	//     Use footnote (<fn>) to annotate text with notes that are not appropriate for inclusion in line or to
 	//     indicate the source for facts or other material used in the text. Category: Miscellaneous elements
-	configureAsFrame(sxModule, 'self::fn', t('footnote'), {
+	configureAsFrame(sxModule, xq`self::fn`, t('footnote'), {
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the footnote'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -254,7 +256,7 @@ export default function configureSxModule(sxModule) {
 
 	configureAsInlineAnchorToStructure(
 		sxModule,
-		'self::fn and not(@conref) and fonto:in-inline-layout(.)',
+		xq`self::fn and not(@conref) and fonto:in-inline-layout(.)`,
 		t('footnote'),
 		{
 			defaultTextContainer: 'p',
@@ -268,7 +270,7 @@ export default function configureSxModule(sxModule) {
 	// p in fn
 	configureAsBlock(
 		sxModule,
-		'self::p[parent::fn] and not(preceding-sibling::* or following-sibling::*)',
+		xq`self::p[parent::fn] and not(preceding-sibling::* or following-sibling::*)`,
 		t('paragraph'),
 		{
 			emptyElementPlaceholderText: t('type the footnote')
@@ -282,7 +284,7 @@ export default function configureSxModule(sxModule) {
 	//     Specialization of <foreign> should be implemented as a domain, but for those looking for more
 	//     control over the content can implement foreign vocabulary as an element specialization. Category:
 	//     Specialization elements
-	configureAsRemoved(sxModule, 'self::foreign', t('foreign'));
+	configureAsRemoved(sxModule, xq`self::foreign`, t('foreign'));
 
 	// image
 	//     Include artwork or images in a DITA topic by using the <image> element. The <image> element has
@@ -293,15 +295,15 @@ export default function configureSxModule(sxModule) {
 	//     allows the output formatting processor to bring the image into the text flow. To make the intent of
 	//     the image more accessible for users using screen readers or text-only readers, always include a
 	//     description of the image's content in the alt element. Category: Body elements
-	configureAsImageInFrame(sxModule, 'self::image', t('image'), {
+	configureAsImageInFrame(sxModule, xq`self::image`, t('image'), {
 		contextualOperations: [{ name: ':contextual-edit-image' }, { name: ':image-insert-alt' }],
-		referenceQuery: '@href',
+		referenceQuery: xq`@href`,
 		isPermanentId: true
 	});
 
 	configureAsInlineImageInFrame(
 		sxModule,
-		'self::image and fonto:in-inline-layout(.)',
+		xq`self::image and fonto:in-inline-layout(.)`,
 		t('inline image'),
 		{
 			defaultTextContainer: {
@@ -310,7 +312,7 @@ export default function configureSxModule(sxModule) {
 				insert: 'always',
 				implicit: 'inline',
 			},
-			referenceQuery: '@href',
+			referenceQuery: xq`@href`,
 			isPermanentId: true,
 		}
 	);
@@ -319,12 +321,12 @@ export default function configureSxModule(sxModule) {
 	//     The <index-base> element allows indexing extensions to be added by specializing off this element. It
 	//     does not in itself have any meaning and should be ignored in processing. Category: Miscellaneous
 	//     elements
-	configureAsRemoved(sxModule, 'self::index-base', t('index-base'));
+	configureAsRemoved(sxModule, xq`self::index-base`, t('index-base'));
 
 	// indexterm
 	//     An <indexterm> element allows the author to indicate that a certain word or phrase should produce an
 	//     index entry in the generated index. Category: Miscellaneous elements
-	configureAsInlineFrame(sxModule, 'self::indexterm', t('index term'), {
+	configureAsInlineFrame(sxModule, xq`self::indexterm`, t('index term'), {
 		emptyElementPlaceholderText: t('type the index term'),
 		backgroundColor: 'blue'
 	});
@@ -332,19 +334,19 @@ export default function configureSxModule(sxModule) {
 	// indextermref
 	//     This element is not completely defined, and is reserved for future use. Category: Miscellaneous
 	//     elements
-	configureAsRemoved(sxModule, 'self::indextermref', t('indextermref'));
+	configureAsRemoved(sxModule, xq`self::indextermref`, t('indextermref'));
 
 	// itemgroup
 	//     The <itemgroup> element is reserved for use in specializations of DITA. As a container element, it
 	//     can be used to sub-divide or organize elements that occur inside a list item, definition, or
 	//     parameter definition. Category: Specialization elements
-	configureAsRemoved(sxModule, 'self::itemgroup', t('itemgroup'));
+	configureAsRemoved(sxModule, xq`self::itemgroup`, t('itemgroup'));
 
 	// keyword
 	//     The <keyword> element identifies a keyword or token, such as a single value from an enumerated list,
 	//     the name of a command or parameter, product name, or a lookup key for a message. Category: Body
 	//     elements
-	configureAsInlineFrame(sxModule, 'self::keyword', t('keyword'), {
+	configureAsInlineFrame(sxModule, xq`self::keyword`, t('keyword'), {
 		backgroundColor: 'blue'
 	});
 
@@ -353,7 +355,7 @@ export default function configureSxModule(sxModule) {
 	//     formatted for output, numbers and alpha characters are usually output with list items in ordered
 	//     lists, while bullets and dashes are usually output with list items in unordered lists. Category:
 	//     Body elements
-	configureProperties(sxModule, 'self::li', {
+	configureProperties(sxModule, xq`self::li`, {
 		contextualOperations: [
 			{ name: ':contextual-insert-li--above' },
 			{ name: ':contextual-insert-li--below' }
@@ -365,7 +367,7 @@ export default function configureSxModule(sxModule) {
 	//     The <lines> element may be used to represent dialogs, lists, text fragments, and so forth. The
 	//     <lines> element is similar to <pre> in that hard line breaks are preserved, but the font style is
 	//     not set to monospace, and extra spaces inside the lines are not preserved. Category: Body elements
-	configureAsGroupWithBlock(sxModule, 'self::lines', t('text with line breaks'), {
+	configureAsGroupWithBlock(sxModule, xq`self::lines`, t('text with line breaks'), {
 		expression: 'compact',
 		withNewlineBreakToken: true
 	});
@@ -373,21 +375,21 @@ export default function configureSxModule(sxModule) {
 	// longdescref
 	//     A reference to a textual description of the graphic or object. This element is a replacement for the
 	//     longdescref attribute on image and object elements.
-	configureAsRemoved(sxModule, 'self::longdescref', t('longdescref'));
+	configureAsRemoved(sxModule, xq`self::longdescref`, t('longdescref'));
 
 	// longquoteref
 	//     The <longquoteref> element provides a reference to the source of a long quote. The long quote (<lq>)
 	//     element itself allows an href attribute to specify the source of a quote, but it does not allow
 	//     other standard linking attributes such as keyref, scope, and format. The <longquoteref> element
 	//     should be used for references that make use of these attributes.
-	configureAsInlineObject(sxModule, 'self::longquoteref', t('source'));
+	configureAsInlineObject(sxModule, xq`self::longquoteref`, t('source'));
 
 	// lq
 	//     The long quote (<lq>) element indicates content quoted from another source. Use the quote element
 	//     <q> for short, inline quotations, and long quote <lq> for quotations that are too long for inline
 	//     use, following normal guidelines for quoting other sources. You can store a URL to the source of the
 	//     quotation in the href attribute; the href value may point to a DITA topic. Category: Body elements
-	configureAsFrame(sxModule, 'self::lq', t('long quote'), {
+	configureAsFrame(sxModule, xq`self::lq`, t('long quote'), {
 		contextualOperations: [{ name: ':contextual-unwrap-lq' }],
 		defaultTextContainer: 'p',
 		blockHeaderLeft: [createMarkupLabelWidget()],
@@ -400,9 +402,9 @@ export default function configureSxModule(sxModule) {
 	//     shows in the main browser window. Use <navtitle> when the actual title of the topic isn't
 	//     appropriate for use in navigation panes or online contents (for example, because the actual title is
 	//     too long). Category: Topic elements
-	configureAsRemoved(sxModule, 'self::navtitle', t('navigation title'));
+	configureAsRemoved(sxModule, xq`self::navtitle`, t('navigation title'));
 
-	configureAsFrameWithBlock(sxModule, 'self::navtitle[parent::titlealts]', undefined, {
+	configureAsFrameWithBlock(sxModule, xq`self::navtitle[parent::titlealts]`, undefined, {
 		emptyElementPlaceholderText: t('type the navigation title'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
@@ -477,7 +479,7 @@ export default function configureSxModule(sxModule) {
 		}).concat([{ name: ':contextual-unwrap-note' }]);
 	}
 
-	configureAsFrame(sxModule, 'self::note', t('note'), {
+	configureAsFrame(sxModule, xq`self::note`, t('note'), {
 		contextualOperations: getContextualOperationsForNoteType('@type=null'),
 		defaultTextContainer: 'p',
 		blockHeaderLeft: [createMarkupLabelWidget()],
@@ -486,7 +488,7 @@ export default function configureSxModule(sxModule) {
 
 	Object.keys(NOTE_VISUALIZATION_BY_TYPE).forEach(function(noteType) {
 		const noteVisualization = NOTE_VISUALIZATION_BY_TYPE[noteType];
-		configureProperties(sxModule, 'self::note[@type="' + noteType + '"]', {
+		configureProperties(sxModule, xq`self::note[@type=${noteType}]`, {
 			markupLabel: noteVisualization.label,
 			contextualOperations: getContextualOperationsForNoteType(noteType),
 			backgroundColor: noteVisualization.backgroundColor
@@ -495,22 +497,22 @@ export default function configureSxModule(sxModule) {
 
 	// object
 	//     DITA's <object> element corresponds to the HTML <object> element. Category: Body elements
-	configureAsRemoved(sxModule, 'self::object', t('object'));
+	configureAsRemoved(sxModule, xq`self::object`, t('object'));
 
 	// ol
 	// li in ol
 	// p in li in ol
-	configureMarkupLabel(sxModule, 'self::ol', t('numbered list'));
-	configureContextualOperations(sxModule, 'self::ol', [{ name: ':ol-convert-to-ul' }]);
+	configureMarkupLabel(sxModule, xq`self::ol`, t('numbered list'));
+	configureContextualOperations(sxModule, xq`self::ol`, [{ name: ':ol-convert-to-ul' }]);
 
 	configureAsListElements(sxModule, {
 		list: {
-			selector: 'self::ol',
+			selector: xq`self::ol`,
 			style: configureAsListElements.NUMBERED_LIST_STYLE,
 			nodeName: 'ol'
 		},
 		item: {
-			selector: 'self::li',
+			selector: xq`self::li`,
 			nodeName: 'li'
 		},
 		paragraph: {
@@ -520,21 +522,21 @@ export default function configureSxModule(sxModule) {
 
 	// p
 	//     A paragraph element (<p>) is a block of text containing a single main idea. Category: Body elements
-	configureAsBlock(sxModule, 'self::p', t('paragraph'));
+	configureAsBlock(sxModule, xq`self::p`, t('paragraph'));
 
 	// param
 	//     The parameter (<param>) element specifies a set of values that may be required by an <object> at
 	//     runtime. Any number of <param> elements may appear in the content of an object in any order, but
 	//     must be placed at the start of the content of the enclosing object. This element is comparable to
 	//     the XHMTL <param> element. Category: Body elements
-	configureAsRemoved(sxModule, 'self::param', t('param'));
+	configureAsRemoved(sxModule, xq`self::param`, t('param'));
 
 	// ph
 	//     The phrase (<ph>) element is used to organize content for reuse or conditional processing (for
 	//     example, when part of a paragraph applies to a particular audience). It can be used by
 	//     specializations of DITA to create semantic markup for content at the phrase level, which then allows
 	//     (but does not require) specific processing or formatting. Category: Body elements
-	configureAsInlineFrame(sxModule, 'self::ph', t('phrase'), {
+	configureAsInlineFrame(sxModule, xq`self::ph`, t('phrase'), {
 		backgroundColor: 'blue'
 	});
 
@@ -543,7 +545,7 @@ export default function configureSxModule(sxModule) {
 	//     the content of the element, and also presents the content in a monospaced type font (depending on
 	//     your output formatting processor). Do not use <pre> when a more semantically specific element is
 	//     appropriate, such as <codeblock>. Category: Body elements
-	configureAsGroupWithBlock(sxModule, 'self::pre', t('preformatted text'), {
+	configureAsGroupWithBlock(sxModule, xq`self::pre`, t('preformatted text'), {
 		expression: 'compact',
 		withNewlineBreakToken: true,
 		allowAutocapitalization: false
@@ -553,7 +555,7 @@ export default function configureSxModule(sxModule) {
 	//     A quotation element (<q>) indicates content quoted from another source. This element is used for
 	//     short quotes which are displayed inline. Use the long quote element (<lq>) for quotations that
 	//     should be set off from the surrounding text. Category: Body elements
-	configureAsInlineFrame(sxModule, 'self::q', t('quote'), {
+	configureAsInlineFrame(sxModule, xq`self::q`, t('quote'), {
 		endDelimiter: '’',
 		slant: 'italic',
 		startDelimiter: '‘'
@@ -564,7 +566,7 @@ export default function configureSxModule(sxModule) {
 	//     appropriately tagged without manual intervention. As the element name implies, the intent for
 	//     authors is to clean up the contained material and eventually get rid of the <required-cleanup>
 	//     element. Authors should not insert this element into documents. Category: Specialization elements
-	configureAsRemoved(sxModule, 'self::required-cleanup', t('required-cleanup'));
+	configureAsRemoved(sxModule, xq`self::required-cleanup`, t('required-cleanup'));
 
 	// simpletable
 	//     The <simpletable> element is used for tables that are regular in structure and do not need a
@@ -582,9 +584,10 @@ export default function configureSxModule(sxModule) {
 		showSelectionWidget: true
 	});
 
-	configureProperties(sxModule, 'self::simpletable', {
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
+	configureProperties(sxModule, xq`self::simpletable`, {
 		markupLabel: t('simple table'),
-		tabNavigationItemSelector: 'self::stentry',
+		tabNavigationItemSelector: `self::stentry`,
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
 
@@ -596,8 +599,8 @@ export default function configureSxModule(sxModule) {
 	//     text content, adequate for describing package contents, for example. When a DITA topic is formatted
 	//     for output, the items of a simple list are placed each on its own line, with no other prefix such as
 	//     a number (as in an ordered list) or bullet (as in an unordered list). Category: Body elements
-	configureMarkupLabel(sxModule, 'self::sl', t('simple list'));
-	configureProperties(sxModule, 'self::sli', {
+	configureMarkupLabel(sxModule, xq`self::sl`, t('simple list'));
+	configureProperties(sxModule, xq`self::sli`, {
 		contextualOperations: [
 			{ name: ':contextual-insert-sli--above' },
 			{ name: ':contextual-insert-sli--below' }
@@ -607,11 +610,11 @@ export default function configureSxModule(sxModule) {
 
 	configureAsListElements(sxModule, {
 		list: {
-			selector: 'self::sl',
+			selector: xq`self::sl`,
 			style: configureAsListElements.EMPTY_LIST_STYLE
 		},
 		item: {
-			selector: 'self::sli',
+			selector: xq`self::sli`,
 			nodeName: 'sli'
 		}
 	});
@@ -621,26 +624,26 @@ export default function configureSxModule(sxModule) {
 	//     that has a variable value. The element is primarily intended for use in specializations to represent
 	//     specific states (like logic circuit states, chemical reaction states, airplane instrumentation
 	//     states, and so forth). Category: Specialization elements
-	configureAsRemoved(sxModule, 'self::state', t('state'));
+	configureAsRemoved(sxModule, xq`self::state`, t('state'));
 
 	// stentry
 	//     The simpletable entry (<stentry>) element represents a single table cell, like <entry> in <table>.
 	//     You can place any number of stentry cells in either an <sthead> element (for headings) or <strow>
 	//     element (for rows of data). Category: Table elements
-	configureProperties(sxModule, 'self::stentry', {
+	configureProperties(sxModule, xq`self::stentry`, {
 		markupLabel: t('cell')
 	});
 
 	// sthead
 	//     The simpletable header (<sthead>) element contains the table's header row. The header row is
 	//     optional in a simple table. Category: Table elements
-	configureProperties(sxModule, 'self::sthead', {
+	configureProperties(sxModule, xq`self::sthead`, {
 		markupLabel: t('row')
 	});
 
 	// strow
 	//     The <simpletable> row (<strow>) element specifies a row in a simple table. Category: Table elements
-	configureProperties(sxModule, 'self::strow', {
+	configureProperties(sxModule, xq`self::strow`, {
 		markupLabel: t('row')
 	});
 
@@ -648,7 +651,7 @@ export default function configureSxModule(sxModule) {
 	//     The <term> element identifies words that may have or require extended definitions or explanations.
 	//     In future development of DITA, for example, terms might provide associative linking to matching
 	//     glossary entries. Category: Specialization elements
-	configureAsInlineFrame(sxModule, 'self::term', t('term'), {
+	configureAsInlineFrame(sxModule, xq`self::term`, t('term'), {
 		backgroundColor: 'blue'
 	});
 
@@ -658,14 +661,14 @@ export default function configureSxModule(sxModule) {
 	//     specializations). Unlike ph, text cannot contain images. Unlike keyword, text does not imply
 	//     keyword-like semantics. The text element contains only text data, or nested text elements. All
 	//     universal attributes are available on text.
-	configureAsRemoved(sxModule, 'self::text', t('text'));
+	configureAsRemoved(sxModule, xq`self::text`, t('text'));
 
 	// title
 	//     The <title> element contains a heading or label for the main parts of a topic, including the topic
 	//     as a whole, its sections and examples, and its labelled content, such as figures and tables.
 	//     Beginning with DITA 1.1, the element may also be used to provide a title for a map. Category: Topic
 	//     elements
-	configureAsTitleFrame(sxModule, 'self::title', t('title'), {
+	configureAsTitleFrame(sxModule, xq`self::title`, t('title'), {
 		emptyElementPlaceholderText: t('type the title')
 	});
 
@@ -673,25 +676,25 @@ export default function configureSxModule(sxModule) {
 	//     The trademark (<tm>) element in DITA is used to markup and identify a term or phrase that is
 	//     trademarked. Trademarks include registered trademarks, service marks, slogans and logos. Category:
 	//     Miscellaneous elements
-	configureAsInlineFrame(sxModule, 'self::tm', t('trademark'), {
+	configureAsInlineFrame(sxModule, xq`self::tm`, t('trademark'), {
 		endDelimiter: '™'
 	});
-	configureProperties(sxModule, 'self::tm[@tmtype="reg"]', {
+	configureProperties(sxModule, xq`self::tm[@tmtype="reg"]`, {
 		markupLabel: t('registered trademark'),
 		endDelimiter: '®'
 	});
 
-	configureProperties(sxModule, 'self::tm[@tmtype="service"]', {
+	configureProperties(sxModule, xq`self::tm[@tmtype="service"]`, {
 		markupLabel: t('servicemark'),
 		endDelimiter: '℠'
 	});
 
-	configureProperties(sxModule, 'self::tm[@tmtype="reg"]', {
+	configureProperties(sxModule, xq`self::tm[@tmtype="reg"]`, {
 		markupLabel: t('registered trademark'),
 		endDelimiter: '®'
 	});
 
-	configureProperties(sxModule, 'self::tm[@tmtype="service"]', {
+	configureProperties(sxModule, xq`self::tm[@tmtype="service"]`, {
 		markupLabel: t('service mark'),
 		endDelimiter: '℠'
 	});
@@ -702,17 +705,17 @@ export default function configureSxModule(sxModule) {
 	//     In an unordered list (<ul>), the order of the list items is not significant. List items are
 	//     typically styled on output with a "bullet" character, depending on nesting level. Category: Body
 	//     elements
-	configureMarkupLabel(sxModule, 'self::ul', t('bulleted list'));
-	configureContextualOperations(sxModule, 'self::ul', [{ name: ':ul-convert-to-ol' }]);
+	configureMarkupLabel(sxModule, xq`self::ul`, t('bulleted list'));
+	configureContextualOperations(sxModule, xq`self::ul`, [{ name: ':ul-convert-to-ol' }]);
 
 	configureAsListElements(sxModule, {
 		list: {
-			selector: 'self::ul',
+			selector: xq`self::ul`,
 			style: configureAsListElements.BULLETED_LIST_STYLE,
 			nodeName: 'ul'
 		},
 		item: {
-			selector: 'self::li',
+			selector: xq`self::li`,
 			nodeName: 'li'
 		},
 		paragraph: {
@@ -724,30 +727,30 @@ export default function configureSxModule(sxModule) {
 	//     The <unknown> element is an open extension that allows information architects to incorporate xml
 	//     fragments that do not necessarily fit into an existing DITA use case. The base processing for
 	//     <unknown> is to suppress unless otherwise instructed. Category: Specialization elements
-	configureAsRemoved(sxModule, 'self::unknown', t('unknown'));
+	configureAsRemoved(sxModule, xq`self::unknown`, t('unknown'));
 
 	// xref
 	//     Use the cross-reference (<xref>) element to link to a different location within the current topic,
 	//     or a different topic within the same help system, or to external sources, such as Web pages, or to a
 	//     location in another topic. The href attribute on the <xref> element provides the location of the
 	//     target. Category: Body elements
-	configureAsInlineLink(sxModule, 'self::xref', t('link'), {
+	configureAsInlineLink(sxModule, xq`self::xref`, t('link'), {
 		emptyElementPlaceholderText: t('type the link text'),
-		referenceQuery: '@href',
+		referenceQuery: xq`@href`,
 		popoverComponentName: 'DitaCrossReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-xref[@format=dita]',
 			targetIsPermanentId: false,
-			targetQuery: '@href'
+			targetQuery: xq`@href`
 		}
 	});
 
-	configureProperties(sxModule, 'self::xref[@format="html"]', {
+	configureProperties(sxModule, xq`self::xref[@format="html"]`, {
 		popoverComponentName: 'WebReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-xref[@format=html]',
 			targetIsPermanentId: false,
-			targetQuery: '@href'
+			targetQuery: xq`@href`
 		}
 	});
 }

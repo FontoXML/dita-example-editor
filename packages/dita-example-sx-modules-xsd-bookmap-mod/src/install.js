@@ -10,6 +10,7 @@ import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint.js';
 import replaceTitleWithBooktitle from './api/replaceTitleWithBooktitle.js';
 import replaceBooktitleWithTitle from './api/replaceBooktitleWithTitle.js';
 import wrapAppendixElementsInAppendices from './api/wrapAppendixElementsInAppendices.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 function isDocumentAMapPromise(stepData) {
 	const remoteDocumentId = stepData.selectedDocumentTemplateId || stepData.remoteDocumentId;
@@ -26,7 +27,7 @@ function isDocumentAMapPromise(stepData) {
 
 		if (
 			evaluateXPathToBoolean(
-				'fonto:dita-class(., "map/map")',
+				xq`fonto:dita-class(., "map/map")`,
 				documentNode.documentElement,
 				readOnlyBlueprint
 			)

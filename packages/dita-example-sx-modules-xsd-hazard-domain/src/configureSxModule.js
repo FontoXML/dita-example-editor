@@ -6,12 +6,13 @@ import configureProperties from 'fontoxml-families/src/configureProperties.js';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// consequence
 	//     The <consequence> element is the container for the second text entry of a safety label. It contains
 	//     the description of the consequences of not avoiding the hazard, such as "Keep guard in place".
-	configureAsFrameWithBlock(sxModule, 'self::consequence', t('consequence'), {
+	configureAsFrameWithBlock(sxModule, xq`self::consequence`, t('consequence'), {
 		emptyElementPlaceholderText: t('type the consequence'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
@@ -103,7 +104,7 @@ export default function configureSxModule(sxModule) {
 		return contextualOperations;
 	}
 
-	configureAsFrame(sxModule, 'self::hazardstatement', t('hazard statement'), {
+	configureAsFrame(sxModule, xq`self::hazardstatement`, t('hazard statement'), {
 		contextualOperations: getContextualOperationsForHazardType('standard-hazard'),
 		defaultTextContainer: 'messagepanel',
 		isIgnoredForNavigation: false,
@@ -113,7 +114,7 @@ export default function configureSxModule(sxModule) {
 
 	Object.keys(HAZARD_VISUALIZATION_BY_TYPE).forEach(function(hazardType) {
 		var hazardVisualization = HAZARD_VISUALIZATION_BY_TYPE[hazardType];
-		configureProperties(sxModule, 'self::hazardstatement[@type="' + hazardType + '"]', {
+		configureProperties(sxModule, xq`self::hazardstatement[@type=${hazardType}]`, {
 			markupLabel: hazardVisualization.label,
 			contextualOperations: getContextualOperationsForHazardType(hazardType),
 			backgroundColor: hazardVisualization.backgroundColor
@@ -124,19 +125,19 @@ export default function configureSxModule(sxModule) {
 	//     A graphic representation intended to convey a message without the use of words. It may represent a
 	//     hazard, a hazardous situation, a precaution to avoid a hazard, a result of not avoiding a hazard, or
 	//     any combination of these messages.
-	configureAsImageInFrame(sxModule, 'self::hazardsymbol', t('hazard symbol'), {
+	configureAsImageInFrame(sxModule, xq`self::hazardsymbol`, t('hazard symbol'), {
 		contextualOperations: [
 			{ name: ':contextual-edit-hazardsymbol' },
 			{ name: ':hazardsymbol-insert-alt' }
 		],
-		referenceQuery: '@href',
+		referenceQuery: xq`@href`,
 		isPermanentId: true
 	});
 
 	// howtoavoid
 	//     The <howtoavoid> element is the container for the third text entry of a safety label. It contains
 	//     the description of how to avoid the hazard, such as "Lock out power before servicing".
-	configureAsFrameWithBlock(sxModule, 'self::howtoavoid', t('how to avoid'), {
+	configureAsFrameWithBlock(sxModule, xq`self::howtoavoid`, t('how to avoid'), {
 		emptyElementPlaceholderText: t('type the description of how to avoid the hazard'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
@@ -145,7 +146,7 @@ export default function configureSxModule(sxModule) {
 	//     The <messagepanel> element describes the area of a safety sign or label that contains the word
 	//     message which identifies a hazard, indicates how to avoid the hazard, and advises of the probable
 	//     consequences of not avoiding the hazard.
-	configureAsFrame(sxModule, 'self::messagepanel', t('message panel'), {
+	configureAsFrame(sxModule, xq`self::messagepanel`, t('message panel'), {
 		contextualOperations: [
 			{ name: ':messagepanel-append-consequence', hideIn: ['context-menu'] },
 			{
@@ -168,7 +169,7 @@ export default function configureSxModule(sxModule) {
 	// typeofhazard
 	//     <typeofhazard> element is the container for the first text entry of a safety label. It contains the
 	//     description of the type of hazard, such as "Moving parts can crush and cut".
-	configureAsTitleFrame(sxModule, 'self::typeofhazard', t('type of hazard'), {
+	configureAsTitleFrame(sxModule, xq`self::typeofhazard`, t('type of hazard'), {
 		emptyElementPlaceholderText: t('type the type of hazard'),
 		fontVariation: 'figure-title'
 	});

@@ -3,6 +3,7 @@ import React from 'react';
 import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection.jsx';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton.jsx';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem.jsx';
+import xq from 'fontoxml-selectors/src/xq';
 
 import {
 	ButtonWithDrop,
@@ -111,11 +112,11 @@ const renderNeedsAnalysisDrop = () => (
 const LearningTrainingToolbar = () => (
 	<FxBooleanXPathQueryByNameFromSelection
 		xpathQueryByName={{
-			learningAssessment: 'ancestor-or-self::learningAssessment',
-			learningContent: 'ancestor-or-self::learningContent',
-			learningOverview: 'ancestor-or-self::learningOverview',
-			learningSummary: 'ancestor-or-self::learningSummary',
-			learningPlan: 'ancestor-or-self::learningPlan'
+			learningAssessment: xq`ancestor-or-self::learningAssessment`,
+			learningContent: xq`ancestor-or-self::learningContent`,
+			learningOverview: xq`ancestor-or-self::learningOverview`,
+			learningSummary: xq`ancestor-or-self::learningSummary`,
+			learningPlan: xq`ancestor-or-self::learningPlan`
 		}}
 	>
 		{({ xpathQueryResultByName }) => (

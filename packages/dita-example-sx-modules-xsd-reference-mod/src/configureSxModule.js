@@ -10,12 +10,13 @@ import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMe
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// propdesc
 	//     The <propdesc> element is used to provide a short description of the property type and its listed
 	//     values (or just the value). Category: Reference elements
-	configureAsStructure(sxModule, 'self::propdesc', t('description'), {
+	configureAsStructure(sxModule, xq`self::propdesc`, t('description'), {
 		contextualOperations: [{ name: ':contextual-delete-properties-column' }],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the description')
@@ -24,7 +25,7 @@ export default function configureSxModule(sxModule) {
 	// p in propdesc
 	configureProperties(
 		sxModule,
-		'self::p[parent::propdesc] and not(preceding-sibling::p or following-sibling::p)',
+		xq`self::p[parent::propdesc] and not(preceding-sibling::p or following-sibling::p)`,
 		{
 			emptyElementPlaceholderText: t('type the description')
 		}
@@ -33,7 +34,7 @@ export default function configureSxModule(sxModule) {
 	// propdeschd
 	//     The propdeschd element supports regular headings for the description column of a property table.
 	//     Category: Reference elements
-	configureAsStructure(sxModule, 'self::propdeschd', t('descriptions title'), {
+	configureAsStructure(sxModule, xq`self::propdeschd`, t('descriptions title'), {
 		contextualOperations: [{ name: ':contextual-delete-properties-column' }],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the title for the descriptions')
@@ -42,7 +43,7 @@ export default function configureSxModule(sxModule) {
 	// p in propdeschd
 	configureProperties(
 		sxModule,
-		'self::p[parent::propdeschd] and not(preceding-sibling::p or following-sibling::p)',
+		xq`self::p[parent::propdeschd] and not(preceding-sibling::p or following-sibling::p)`,
 		{
 			emptyElementPlaceholderText: t('type the title for the descriptions')
 		}
@@ -54,10 +55,11 @@ export default function configureSxModule(sxModule) {
 	//     description. The typical rendering is usually in a table-like format. To represent multiple values
 	//     for a type, just create additional property elements and use only the <propvalue> element (and
 	//     <propdesc> when needed) for each successive value. Category: Reference elements
-	configureAsFrame(sxModule, 'self::properties', t('properties'), {
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
+	configureAsFrame(sxModule, xq`self::properties`, t('properties'), {
 		contextualOperations: [{ name: ':contextual-delete-properties' }],
 		tabNavigationItemSelector:
-			'name() = ("proptypehd", "propvaluehd", "propdeschd", "proptype", "propvalue", "propdesc")',
+			`name() = ("proptypehd", "propvaluehd", "propdeschd", "proptype", "propvalue", "propdesc")`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
@@ -66,27 +68,27 @@ export default function configureSxModule(sxModule) {
 	//     The <property> element represents a property of the current topic's subject. For example, if the
 	//     current topic is a class, the property might show that the class is protected rather than public. It
 	//     contains three optional elements: type, value, and description. Category: Reference elements
-	configureAsDefinitionsTableRow(sxModule, 'self::property', t('property'), {
+	configureAsDefinitionsTableRow(sxModule, xq`self::property`, t('property'), {
 		columns: [
 			{
-				query: './proptype',
+				query: xq`./proptype`,
 				width: 1,
 				hideColumnIfQueryIsTrue:
-					'parent::properties[not(child::property/proptype) and not(child::prophead/proptypehd)]',
+					xq`parent::properties[not(child::property/proptype) and not(child::prophead/proptypehd)]`,
 				clickOperationWhenEmpty: ':property-insert-proptype'
 			},
 			{
-				query: './propvalue',
+				query: xq`./propvalue`,
 				width: 1,
 				hideColumnIfQueryIsTrue:
-					'parent::properties[not(child::property/propvalue) and not(child::prophead/propvaluehd)]',
+					xq`parent::properties[not(child::property/propvalue) and not(child::prophead/propvaluehd)]`,
 				clickOperationWhenEmpty: ':property-insert-propvalue'
 			},
 			{
-				query: './propdesc',
+				query: xq`./propdesc`,
 				width: 1,
 				hideColumnIfQueryIsTrue:
-					'parent::properties[not(child::property/propdesc) and not(child::prophead/propdeschd)]',
+					xq`parent::properties[not(child::property/propdesc) and not(child::prophead/propdeschd)]`,
 				clickOperationWhenEmpty: ':property-insert-propdesc'
 			}
 		],
@@ -104,27 +106,27 @@ export default function configureSxModule(sxModule) {
 	// prophead
 	//     The prophead element supports regular headings for the properties element. Category: Reference
 	//     elements
-	configureAsDefinitionsTableRow(sxModule, 'self::prophead', t('header'), {
+	configureAsDefinitionsTableRow(sxModule, xq`self::prophead`, t('header'), {
 		columns: [
 			{
-				query: './proptypehd',
+				query: xq`./proptypehd`,
 				width: 1,
 				hideColumnIfQueryIsTrue:
-					'parent::properties[not(child::property/proptype) and not(child::prophead/proptypehd)]',
+					xq`parent::properties[not(child::property/proptype) and not(child::prophead/proptypehd)]`,
 				clickOperationWhenEmpty: ':prophead-insert-proptypehd'
 			},
 			{
-				query: './propvaluehd',
+				query: xq`./propvaluehd`,
 				width: 1,
 				hideColumnIfQueryIsTrue:
-					'parent::properties[not(child::property/propvalue) and not(child::prophead/propvaluehd)]',
+					xq`parent::properties[not(child::property/propvalue) and not(child::prophead/propvaluehd)]`,
 				clickOperationWhenEmpty: ':prophead-insert-propvaluehd'
 			},
 			{
-				query: './propdeschd',
+				query: xq`./propdeschd`,
 				width: 1,
 				hideColumnIfQueryIsTrue:
-					'parent::properties[not(child::property/propdesc) and not(child::prophead/propdeschd)]',
+					xq`parent::properties[not(child::property/propdesc) and not(child::prophead/propdeschd)]`,
 				clickOperationWhenEmpty: ':prophead-insert-propdeschd'
 			}
 		],
@@ -141,7 +143,7 @@ export default function configureSxModule(sxModule) {
 
 	// proptype
 	//     The proptype element describes the type of property. Category: Reference elements
-	configureAsBlock(sxModule, 'self::proptype', t('type'), {
+	configureAsBlock(sxModule, xq`self::proptype`, t('type'), {
 		contextualOperations: [{ name: ':contextual-delete-properties-column' }],
 		emptyElementPlaceholderText: t('type the property type')
 	});
@@ -149,7 +151,7 @@ export default function configureSxModule(sxModule) {
 	// proptypehd
 	//     The proptypehd element supports regular headings for the type column of a property table.
 	//     Category: Reference elements
-	configureAsStructure(sxModule, 'self::proptypehd', t('type title'), {
+	configureAsStructure(sxModule, xq`self::proptypehd`, t('type title'), {
 		contextualOperations: [{ name: ':contextual-delete-properties-column' }],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the title for the property type')
@@ -158,7 +160,7 @@ export default function configureSxModule(sxModule) {
 	// p in proptypehd
 	configureProperties(
 		sxModule,
-		'self::p[parent::proptypehd] and not(preceding-sibling::p or following-sibling::p)',
+		xq`self::p[parent::proptypehd] and not(preceding-sibling::p or following-sibling::p)`,
 		{
 			emptyElementPlaceholderText: t('type the title for the property type')
 		}
@@ -168,7 +170,7 @@ export default function configureSxModule(sxModule) {
 	//     The <propvalue> element indicates the value or values for the current property type. You can put
 	//     values in separate rows if they need separate descriptions, and just leave the <proptype> element
 	//     blank. Category: Reference elements
-	configureAsBlock(sxModule, 'self::propvalue', t('value'), {
+	configureAsBlock(sxModule, xq`self::propvalue`, t('value'), {
 		contextualOperations: [{ name: ':contextual-delete-properties-column' }],
 		emptyElementPlaceholderText: t('type the value')
 	});
@@ -176,7 +178,7 @@ export default function configureSxModule(sxModule) {
 	// propvaluehd
 	//     The propvaluehd element supports regular headings for the value column of a property table.
 	//     Category: Reference elements
-	configureAsStructure(sxModule, 'self::propvaluehd', t('value title'), {
+	configureAsStructure(sxModule, xq`self::propvaluehd`, t('value title'), {
 		contextualOperations: [{ name: ':contextual-delete-properties-column' }],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the title for the property value')
@@ -185,7 +187,7 @@ export default function configureSxModule(sxModule) {
 	// p in propvaluehd
 	configureProperties(
 		sxModule,
-		'self::p[parent::propvaluehd] and not(preceding-sibling::p or following-sibling::p)',
+		xq`self::p[parent::propvaluehd] and not(preceding-sibling::p or following-sibling::p)`,
 		{
 			emptyElementPlaceholderText: t('type the title for the property value')
 		}
@@ -195,7 +197,7 @@ export default function configureSxModule(sxModule) {
 	//     The <refbody> element is a container for the main content of the reference topic. Reference topics
 	//     limit the body structure to tables (both simple and standard), property lists, syntax sections, and
 	//     generic sections and examples, in any sequence or number. Category: Reference elements
-	configureAsStructure(sxModule, 'self::refbody', t('body'), {
+	configureAsStructure(sxModule, xq`self::refbody`, t('body'), {
 		defaultTextContainer: 'section',
 		isRemovableIfEmpty: false
 	});
@@ -203,14 +205,14 @@ export default function configureSxModule(sxModule) {
 	// section in refbody/refbodydiv
 	configureContextualOperations(
 		sxModule,
-		'self::section[(parent::refbody or parent::refbodydiv) and child::*[not(self::table or self::simpletable)]]',
+		xq`self::section[(parent::refbody or parent::refbodydiv) and child::*[not(self::table or self::simpletable)]]`,
 		[{ name: ':section-insert-title' }, { name: ':contextual-delete-section' }]
 	);
 
 	// example in refbody/refbodydiv
 	configureContextualOperations(
 		sxModule,
-		'self::example[(parent::refbody or parent::refbodydiv) and child::*[not(self::table or self::simpletable)]]',
+		xq`self::example[(parent::refbody or parent::refbodydiv) and child::*[not(self::table or self::simpletable)]]`,
 		[{ name: ':example-insert-title' }, { name: ':contextual-delete-example' }]
 	);
 
@@ -221,7 +223,7 @@ export default function configureSxModule(sxModule) {
 	//     restrictions by only allowing elements that are already available within the body of a reference.
 	//     There are no additional semantics attached to the <refbodydiv> element; it is purely a grouping
 	//     element provided to help organize content.
-	configureAsFrame(sxModule, 'self::refbodydiv', t('body division'), {
+	configureAsFrame(sxModule, xq`self::refbodydiv`, t('body division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-refbodydiv' }],
 		defaultTextContainer: 'section',
 		emptyElementPlaceholderText: t('type the content'),
@@ -240,14 +242,14 @@ export default function configureSxModule(sxModule) {
 	//     general rules that apply to all kinds of reference information, using elements like <refsyn> for
 	//     syntax or signatures, and <properties> for lists of properties and values. Category: Reference
 	//     elements
-	configureAsSheetFrame(sxModule, 'self::reference', t('reference'), {
+	configureAsSheetFrame(sxModule, xq`self::reference`, t('reference'), {
 		defaultTextContainer: 'refbody',
 		titleQuery:
-			'./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()',
+			xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		blockFooter: [
-			createRelatedNodesQueryWidget('./related-links'),
+			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(
-				'descendant::fn[not(@conref) and fonto:in-inline-layout(.)]'
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -256,17 +258,17 @@ export default function configureSxModule(sxModule) {
 	// reference nested in topic
 	configureAsFrame(
 		sxModule,
-		'self::reference[parent::*[fonto:dita-class(., "topic/topic")]]',
+		xq`self::reference[parent::*[fonto:dita-class(., "topic/topic")]]`,
 		undefined,
 		{
 			defaultTextContainer: 'refbody',
-			blockFooter: [createRelatedNodesQueryWidget('./related-links')],
+			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// title in reference
-	configureAsTitleFrame(sxModule, 'self::title[parent::reference]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::reference]`, undefined, {
 		fontVariation: 'document-title'
 	});
 
@@ -275,26 +277,26 @@ export default function configureSxModule(sxModule) {
 	//     syntax or signature content (for example, a command-line utility's calling syntax, or an API's
 	//     signature). The <refsyn> contains a brief, possibly diagrammatic description of the subject's
 	//     interface or high-level structure. Category: Reference elements
-	configureAsFrame(sxModule, 'self::refsyn', t('reference syntax'), {
+	configureAsFrame(sxModule, xq`self::refsyn`, t('reference syntax'), {
 		contextualOperations: [
 			{ name: ':refsyn-insert-title' },
 			{ name: ':contextual-unwrap-refsyn' }
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the syntax'),
-		titleQuery: './title',
+		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 
 	configureContextualOperations(
 		sxModule,
-		'self::refsyn[(parent::refbody or parent::refbodydiv) and child::*[not(self::table or self::simpletable)]]',
+		xq`self::refsyn[(parent::refbody or parent::refbodydiv) and child::*[not(self::table or self::simpletable)]]`,
 		[{ name: ':refsyn-insert-title' }, { name: ':contextual-delete-refsyn' }]
 	);
 
 	// title in refsyn
-	configureAsTitleFrame(sxModule, 'self::title[parent::refsyn]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::refsyn]`, undefined, {
 		fontVariation: 'section-title'
 	});
 }

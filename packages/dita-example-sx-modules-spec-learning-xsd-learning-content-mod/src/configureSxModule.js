@@ -6,6 +6,7 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// learningContent
@@ -14,14 +15,14 @@ export default function configureSxModule(sxModule) {
 	//     supports specific objectives declared in the Learning Overview topic type. A Learning Content topic
 	//     comprises a set of self-contained content about a single terminal learning objective supported by
 	//     zero or more enabling learning objectives.
-	configureAsSheetFrame(sxModule, 'self::learningContent', t('learning content'), {
+	configureAsSheetFrame(sxModule, xq`self::learningContent`, t('learning content'), {
 		defaultTextContainer: 'learningContentbody',
 		titleQuery:
-			'./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()',
+			xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		blockFooter: [
-			createRelatedNodesQueryWidget('./related-links'),
+			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(
-				'descendant::fn[not(@conref) and fonto:in-inline-layout(.)]'
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -30,30 +31,30 @@ export default function configureSxModule(sxModule) {
 	// learningContent nested in topic
 	configureAsFrame(
 		sxModule,
-		'self::learningContent and ancestor::*[fonto:dita-class(., "topic/topic")]',
+		xq`self::learningContent and ancestor::*[fonto:dita-class(., "topic/topic")]`,
 		undefined,
 		{
 			defaultTextContainer: 'learningContentbody',
-			blockFooter: [createRelatedNodesQueryWidget('./related-links')],
+			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// title in learningContent
-	configureAsTitleFrame(sxModule, 'self::title[parent::learningContent]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::learningContent]`, undefined, {
 		fontVariation: 'document-title'
 	});
 
 	// learningContentbody
 	//     The <learningContentbody> element is the main body-level element in a learningContent topic.
-	configureAsStructure(sxModule, 'self::learningContentbody', t('body'), {
+	configureAsStructure(sxModule, xq`self::learningContentbody`, t('body'), {
 		defaultTextContainer: 'section',
 		isIgnoredForNavigation: false,
 		isRemovableIfEmpty: false
 	});
 
 	// section in learningContentbody
-	configureContextualOperations(sxModule, 'self::section[parent::learningContentbody]', [
+	configureContextualOperations(sxModule, xq`self::section[parent::learningContentbody]`, [
 		{ name: ':section-insert-title' },
 		{ name: ':contextual-delete-section' }
 	]);

@@ -8,6 +8,7 @@ import evaluateXPathToFirstNode from 'fontoxml-selectors/src/evaluateXPathToFirs
 import evaluateXPathToStrings from 'fontoxml-selectors/src/evaluateXPathToStrings.js';
 import insertNodeAndRemoveFromSiblings from './api/insertNodeAndRemoveFromSiblingsCustomMutation.js';
 import replaceNodesWithMappedStructure from './api/replaceNodesWithMappedStructureCustomMutation.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function install() {
 	addCustomMutation('insert-node-and-remove-from-siblings', insertNodeAndRemoveFromSiblings);
@@ -68,19 +69,19 @@ export default function install() {
 
 			var lcInteractionNode;
 			var selectionAncestor = evaluateXPathToFirstNode(
-				'ancestor-or-self::*[self::section or self::lcSummary]',
+				xq`ancestor-or-self::*[self::section or self::lcSummary]`,
 				selectedElement,
 				readOnlyBlueprint
 			);
 			if (selectionAncestor) {
 				lcInteractionNode = evaluateXPathToFirstNode(
-					'preceding-sibling::lcInteraction[1]',
+					xq`preceding-sibling::lcInteraction[1]`,
 					selectionAncestor,
 					readOnlyBlueprint
 				);
 			} else {
 				lcInteractionNode = evaluateXPathToFirstNode(
-					'self::learningAssessmentbody/child::lcInteraction[last()]',
+					xq`self::learningAssessmentbody/child::lcInteraction[last()]`,
 					selectedElement,
 					readOnlyBlueprint
 				);

@@ -12,6 +12,7 @@ import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMe
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule) {
 	// abstract
@@ -20,7 +21,7 @@ export default function configureSxModule(sxModule) {
 	//     used for providing link previews or summaries. The <abstract> element cannot be overridden by maps,
 	//     but its contained <shortdesc> elements can be, for the purpose of creating link summaries or
 	//     previews. Category: Topic elements
-	configureAsFrame(sxModule, 'self::abstract', t('abstract'), {
+	configureAsFrame(sxModule, xq`self::abstract`, t('abstract'), {
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the summary'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -28,7 +29,7 @@ export default function configureSxModule(sxModule) {
 
 	// body
 	//     The <body> element is the container for the main content of a <topic>. Category: Topic elements
-	configureAsStructure(sxModule, 'self::body', t('body'), {
+	configureAsStructure(sxModule, xq`self::body`, t('body'), {
 		defaultTextContainer: 'p',
 		isRemovableIfEmpty: false
 	});
@@ -40,7 +41,7 @@ export default function configureSxModule(sxModule) {
 	//     should not be contained as a topic. As such, it does not contain an explicit title to avoid enabling
 	//     the creation of deeply nested content that would otherwise be written as separate topics. Content
 	//     that requires a title should use a section element or a nested topic.
-	configureAsFrame(sxModule, 'self::bodydiv', t('body division'), {
+	configureAsFrame(sxModule, xq`self::bodydiv`, t('body division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-bodydiv' }],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the content'),
@@ -52,20 +53,20 @@ export default function configureSxModule(sxModule) {
 	//     The <example> element is a section with the specific role of containing examples that illustrate or
 	//     support the current topic. The <example> element has the same content model as <section>. Category:
 	//     Topic elements
-	configureAsFrame(sxModule, 'self::example', t('example'), {
+	configureAsFrame(sxModule, xq`self::example`, t('example'), {
 		contextualOperations: [
 			{ name: ':example-insert-title' },
 			{ name: ':contextual-unwrap-example' }
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the content'),
-		titleQuery: './title',
+		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 
 	// title in example
-	configureAsTitleFrame(sxModule, 'self::title[parent::example]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::example]`, undefined, {
 		fontVariation: 'section-title'
 	});
 
@@ -80,7 +81,7 @@ export default function configureSxModule(sxModule) {
 	//     Links elements
 
 	// A cross link. (cross link is used by default)
-	configureAsRelatedLink(sxModule, 'self::link', t('link'), {
+	configureAsRelatedLink(sxModule, xq`self::link`, t('link'), {
 		contextualOperations: [{ name: ':link-insert-linktext' }, { name: ':link-insert-desc' }],
 		backgroundColor: 'grey',
 		defaultTextContainer: 'linktext',
@@ -88,7 +89,7 @@ export default function configureSxModule(sxModule) {
 		popoverComponentName: 'DitaCrossReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-link[@format=dita]',
-			targetQuery: '@href'
+			targetQuery: xq`@href`
 		},
 		showWhen: 'always',
 		blockHeaderLeft: [createMarkupLabelWidget()],
@@ -96,7 +97,7 @@ export default function configureSxModule(sxModule) {
 	});
 
 	// A web link.
-	configureAsRelatedLink(sxModule, 'self::link[@format="html"]', undefined, {
+	configureAsRelatedLink(sxModule, xq`self::link[@format="html"]`, undefined, {
 		contextualOperations: [{ name: ':link-insert-linktext' }, { name: ':link-insert-desc' }],
 		backgroundColor: 'grey',
 		defaultTextContainer: 'linktext',
@@ -104,7 +105,7 @@ export default function configureSxModule(sxModule) {
 		popoverComponentName: 'WebReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-link[@format=html]',
-			targetQuery: '@href'
+			targetQuery: xq`@href`
 		},
 		showWhen: 'always',
 		blockHeaderLeft: [createMarkupLabelWidget()],
@@ -112,33 +113,33 @@ export default function configureSxModule(sxModule) {
 	});
 
 	// desc in link
-	configureAsGroup(sxModule, 'self::desc[parent::link]', undefined, {
+	configureAsGroup(sxModule, xq`self::desc[parent::link]`, undefined, {
 		defaultTextContainer: 'p',
 		blockHeaderLeft: []
 	});
 
 	// p in desc in link
-	configureAsLine(sxModule, 'self::p[parent::desc[parent::link]]', undefined, {
+	configureAsLine(sxModule, xq`self::p[parent::desc[parent::link]]`, undefined, {
 		slant: 'italic'
 	});
 
 	// linkinfo
 	//     The <linkinfo> element allows you to place a descriptive paragraph following a list of links in a
 	//     <linklist> element. Category: Related Links elements
-	configureAsRemoved(sxModule, 'self::linkinfo', t('link information'));
+	configureAsRemoved(sxModule, xq`self::linkinfo`, t('link information'));
 
 	// linklist
 	//     The <linklist> element defines an author-arranged group of links. Within <linklist>, the
 	//     organization of links on final output is in the same order as originally authored in the DITA topic.
 	//     Category: Related Links elements
-	configureAsRemoved(sxModule, 'self::linklist', t('link list'));
+	configureAsRemoved(sxModule, xq`self::linklist`, t('link list'));
 
 	// linkpool
 	//     The <linkpool> element defines a group of links that have common characteristics, such as type or
 	//     audience or source. When links are not in a <linklist> (that is, they are in <related-links> or
 	//     <linkpool> elements), the organization of links on final output is determined by the output process,
 	//     not by the order that the links actually occur in the DITA topic. Category: Related Links elements
-	configureAsRemoved(sxModule, 'self::linkpool', t('link pool'));
+	configureAsRemoved(sxModule, xq`self::linkpool`, t('link pool'));
 
 	// linktext
 	//     The <linktext> element provides the literal label or line of text for a link. In most cases, the
@@ -147,7 +148,7 @@ export default function configureSxModule(sxModule) {
 	//     link, or the target is local but not in DITA format. When used inside a topic, it will be used as
 	//     the text for the specified link; when used within a map, it will be used as the text for generated
 	//     links that point to the specified topic. Category: Related Links elements
-	configureAsLine(sxModule, 'self::linktext', t('linktext'), {
+	configureAsLine(sxModule, xq`self::linktext`, t('linktext'), {
 		emptyElementPlaceholderText: t('type the link text')
 	});
 
@@ -156,21 +157,21 @@ export default function configureSxModule(sxModule) {
 	//     the default DITA document types; it is for use only when creating a validly customized document type
 	//     where the information designer wants to eliminate the ability to nest topics. Not intended for use
 	//     by authors, and has no associated output processing. Category: Specialization elements
-	configureAsRemoved(sxModule, 'self::no-topic-nesting', t('no topic nesting'));
+	configureAsRemoved(sxModule, xq`self::no-topic-nesting`, t('no topic nesting'));
 
 	// prolog
 	//     The <prolog> element contains information about the topic as an whole (for example, author
 	//     information or subject category) that is either entered by the author or machine-maintained. Much of
 	//     the metadata inside the <prolog> will not be displayed with the topic on output, but may be used by
 	//     processes that generate search indexes or customize navigation. Category: Prolog elements
-	configureAsRemoved(sxModule, 'self::prolog', t('metadata'));
+	configureAsRemoved(sxModule, xq`self::prolog`, t('metadata'));
 
 	// related-links
 	//     The related information links of a topic (<related-links> element) are stored in a special section
 	//     following the body of the topic. After a topic is processed into it final output form, the related
 	//     links are usually displayed at the end of the topic, although some Web-based help systems might
 	//     display them in a separate navigation frame. Category: Topic elements
-	configureAsOutOfOrderStructure(sxModule, 'self::related-links', t('related links'), {
+	configureAsOutOfOrderStructure(sxModule, xq`self::related-links`, t('related links'), {
 		expression: 'compact',
 		isAutoremovableIfEmpty: true,
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -182,7 +183,7 @@ export default function configureSxModule(sxModule) {
 	//     summaries by some search engines, such as that in Eclipse (http://eclipse.org); if not set, the
 	//     XHTML's title element defaults to the source topic's title content (which may not be as well
 	//     optimized for search summaries) Category: Topic elements
-	configureAsFrameWithBlock(sxModule, 'self::searchtitle', t('search title'), {
+	configureAsFrameWithBlock(sxModule, xq`self::searchtitle`, t('search title'), {
 		emptyElementPlaceholderText: t('type the search title'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
@@ -195,20 +196,20 @@ export default function configureSxModule(sxModule) {
 	//     topic. Multiple sections within a single topic do not represent a hierarchy, but rather peer
 	//     divisions of that topic. Sections cannot be nested. A section may have an optional title. Category:
 	//     Topic elements
-	configureAsFrame(sxModule, 'self::section', t('section'), {
+	configureAsFrame(sxModule, xq`self::section`, t('section'), {
 		contextualOperations: [
 			{ name: ':section-insert-title' },
 			{ name: ':contextual-unwrap-section' }
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the content'),
-		titleQuery: './title',
+		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 
 	// title in section
-	configureAsTitleFrame(sxModule, 'self::title[parent::section]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::section]`, undefined, {
 		fontVariation: 'section-title'
 	});
 
@@ -218,7 +219,7 @@ export default function configureSxModule(sxModule) {
 	//     content. The sectiondiv element does not contain a title; the lowest level of titled content within
 	//     a topic is the section itself. If additional hierarchy is required, nested topics should be used in
 	//     place of the section.
-	configureAsFrame(sxModule, 'self::sectiondiv', t('section division'), {
+	configureAsFrame(sxModule, xq`self::sectiondiv`, t('section division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-sectiondiv' }],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('type the content'),
@@ -232,7 +233,7 @@ export default function configureSxModule(sxModule) {
 	//     short description, which represents the purpose or theme of the topic, is also intended to be used
 	//     as a link preview and for searching. When used within a DITA map, the short description of the
 	//     <topicref> can be used to override the short description in the topic. Category: Topic elements
-	configureAsFrameWithBlock(sxModule, 'self::shortdesc', t('short description'), {
+	configureAsFrameWithBlock(sxModule, xq`self::shortdesc`, t('short description'), {
 		emptyElementPlaceholderText: t('type the short description'),
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
@@ -241,7 +242,7 @@ export default function configureSxModule(sxModule) {
 	//     The alternate title element (<titlealts>) is optional, but can occur after the topic title. Two
 	//     elements can be inserted as sub-elements of <titlealts>: navigation title <navtitle> and search
 	//     title <searchtitle>. Category: Topic elements
-	configureAsStructure(sxModule, 'self::titlealts', t('alternate titles'), {
+	configureAsStructure(sxModule, xq`self::titlealts`, t('alternate titles'), {
 		isAutoremovableIfEmpty: true
 	});
 
@@ -249,14 +250,14 @@ export default function configureSxModule(sxModule) {
 	//     The <topic> element is the top-level DITA element for a single-subject topic or article. Other
 	//     top-level DITA elements that are more content-specific are <concept>, <task>, <reference>, and
 	//     <glossary>. Category: Topic elements
-	configureAsSheetFrame(sxModule, 'self::topic', t('topic'), {
+	configureAsSheetFrame(sxModule, xq`self::topic`, t('topic'), {
 		defaultTextContainer: 'body',
 		titleQuery:
-			'./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()',
+			xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		blockFooter: [
-			createRelatedNodesQueryWidget('./related-links'),
+			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(
-				'descendant::fn[not(@conref) and fonto:in-inline-layout(.)]'
+				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
 			)
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()]
@@ -265,17 +266,17 @@ export default function configureSxModule(sxModule) {
 	// topic nested in topic
 	configureAsFrame(
 		sxModule,
-		'self::topic[parent::*[fonto:dita-class(., "topic/topic")]]',
+		xq`self::topic[parent::*[fonto:dita-class(., "topic/topic")]]`,
 		undefined,
 		{
 			defaultTextContainer: 'body',
-			blockFooter: [createRelatedNodesQueryWidget('./related-links')],
+			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()]
 		}
 	);
 
 	// title in topic
-	configureAsTitleFrame(sxModule, 'self::title[parent::topic]', undefined, {
+	configureAsTitleFrame(sxModule, xq`self::title[parent::topic]`, undefined, {
 		fontVariation: 'document-title'
 	});
 }

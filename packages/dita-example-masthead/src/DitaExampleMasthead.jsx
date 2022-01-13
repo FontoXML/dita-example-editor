@@ -18,6 +18,7 @@ import StartToolbar from './toolbars/StartToolbar.jsx';
 import StructureToolbar from './toolbars/StructureToolbar.jsx';
 import TaskToolbar from './toolbars/TaskToolbar.jsx';
 import ToolsToolbar from './toolbars/ToolsToolbar.jsx';
+import xq from 'fontoxml-selectors/src/xq';
 
 const labels = {
 	matching: 'Matching question',
@@ -44,21 +45,21 @@ const tabs = result => [
 		id: 'table',
 		label: 'Table',
 		isVisibleTabQuery:
-			'ancestor-or-self::*[self::table or self::simpletable or self::dl or self::parml or self::properties or self::choicetable]',
+			xq`ancestor-or-self::*[self::table or self::simpletable or self::dl or self::parml or self::properties or self::choicetable]`,
 		isHighlightedTab: true,
 		content: <TableToolbar />
 	},
 	{
 		id: 'task',
 		label: 'Task',
-		isVisibleTabQuery: 'ancestor-or-self::task',
+		isVisibleTabQuery: xq`ancestor-or-self::task`,
 		isHighlightedTab: true,
 		content: <TaskToolbar />
 	},
 	{
 		id: 'glossary',
 		label: 'Glossary',
-		isVisibleTabQuery: 'ancestor-or-self::glossgroup',
+		isVisibleTabQuery: xq`ancestor-or-self::glossgroup`,
 		isHighlightedTab: true,
 		content: <GlossaryToolbar />
 	},
@@ -66,7 +67,7 @@ const tabs = result => [
 		id: 'learning',
 		label: 'Learning & training',
 		isVisibleTabQuery:
-			'ancestor-or-self::*[self::learningAssessment or self::learningPlan or self::learningOverview or self::learningSummary or self::learningContent]',
+			xq`ancestor-or-self::*[self::learningAssessment or self::learningPlan or self::learningOverview or self::learningSummary or self::learningContent]`,
 		isHighlightedTab: true,
 		content: <LearningTrainingToolbar />
 	},
@@ -74,7 +75,7 @@ const tabs = result => [
 		id: 'question',
 		label: getQuestionLabel(result),
 		isVisibleTabQuery:
-			'ancestor-or-self::*[self::lcMatching2 or self::lcMultipleSelect2 or self::lcOpenQuestion2 or self::lcSequencing2 or self::lcSingleSelect2 or self::lcTrueFalse2]',
+			xq`ancestor-or-self::*[self::lcMatching2 or self::lcMultipleSelect2 or self::lcOpenQuestion2 or self::lcSequencing2 or self::lcSingleSelect2 or self::lcTrueFalse2]`,
 		isHighlightedTab: true,
 		content: <QuestionToolbar />
 	},
@@ -86,12 +87,12 @@ export default function DitaExampleMasthead() {
 	return (
 		<FxBooleanXPathQueryByNameFromSelection
 			xpathQueryByName={{
-				matching: 'ancestor-or-self::lcMatching2',
-				multipleSelect: 'ancestor-or-self::lcMultipleSelect2',
-				openQuestion: 'ancestor-or-self::lcOpenQuestion2',
-				sequencing: 'ancestor-or-self::lcSequencing2',
-				singleSelect: 'ancestor-or-self::lcSingleSelect2',
-				trueFalse: 'ancestor-or-self::lcTrueFalse2'
+				matching: xq`ancestor-or-self::lcMatching2`,
+				multipleSelect: xq`ancestor-or-self::lcMultipleSelect2`,
+				openQuestion: xq`ancestor-or-self::lcOpenQuestion2`,
+				sequencing: xq`ancestor-or-self::lcSequencing2`,
+				singleSelect: xq`ancestor-or-self::lcSingleSelect2`,
+				trueFalse: xq`ancestor-or-self::lcTrueFalse2`
 			}}
 		>
 			{({ xpathQueryResultByName }) => (

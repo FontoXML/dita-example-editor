@@ -3,6 +3,7 @@ import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery.js';
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult.js';
 import evaluateXPathToNodes from 'fontoxml-selectors/src/evaluateXPathToNodes.js';
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 const wrapAppendixElementsInAppendices = (argument, blueprint) => {
 	const bookmapNode = blueprint.lookup(argument.contextNodeId);
@@ -11,7 +12,7 @@ const wrapAppendixElementsInAppendices = (argument, blueprint) => {
 		return CustomMutationResult.notAllowed();
 	}
 
-	const appendixNodes = evaluateXPathToNodes('./appendix', bookmapNode, blueprint);
+	const appendixNodes = evaluateXPathToNodes(xq`./appendix`, bookmapNode, blueprint);
 
 	if (!appendixNodes.length) {
 		return CustomMutationResult.notAllowed();

@@ -4,6 +4,7 @@ import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult.js
 import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolean.js';
 import evaluateXPathToFirstNode from 'fontoxml-selectors/src/evaluateXPathToFirstNode.js';
 import primitives from 'fontoxml-base-flow/src/primitives.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 const replaceBooktitleWithTitle = (argument, blueprint, format, _selection) => {
 	const booktitleNode = blueprint.lookup(argument.contextNodeId);
@@ -19,13 +20,13 @@ const replaceBooktitleWithTitle = (argument, blueprint, format, _selection) => {
 	}
 
 	const mainbooktitleNode = evaluateXPathToFirstNode(
-		'./child::mainbooktitle',
+		xq`./child::mainbooktitle`,
 		booktitleNode,
 		blueprint
 	);
 
 	bookTitleChildNodes.forEach(node => {
-		if (!evaluateXPathToBoolean('self::mainbooktitle', node, blueprint)) {
+		if (!evaluateXPathToBoolean(xq`self::mainbooktitle`, node, blueprint)) {
 			blueprint.removeChild(booktitleNode, node);
 		}
 	});
