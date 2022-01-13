@@ -106,9 +106,10 @@ export default function configureSxModule(sxModule) {
 	// choicetable
 	//     The <choicetable> element contains a series of optional choices available within a step of a task.
 	//     Category: Task elements
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
 	configureAsFrame(sxModule, xq`self::choicetable`, t('choice table'), {
 		contextualOperations: [{ name: ':contextual-delete-choicetable' }],
-		tabNavigationItemSelector: xq`name() = ("choptionhd", "chdeschd", "choption", "chdesc")`,
+		tabNavigationItemSelector: `name() = ("choptionhd", "chdeschd", "choption", "chdesc")`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});

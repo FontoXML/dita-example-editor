@@ -216,10 +216,11 @@ export default function configureSxModule(sxModule) {
 
 	// lcTime
 	//     The <lcTime> specifies the time expected to complete an activity.
+	// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 	configureAsFrameWithBlock(sxModule, xq`self::lcTime`, t('time'), {
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockHeaderRight: [
-			createLabelQueryWidget(xq`./@value`, {
+			createLabelQueryWidget(`./@value`, {
 				inline: true
 			}),
 			createIconWidget('clock-o', {

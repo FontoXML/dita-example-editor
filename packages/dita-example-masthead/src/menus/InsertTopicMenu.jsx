@@ -10,6 +10,7 @@ import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint.js';
 import selectionManager from 'fontoxml-selection/src/selectionManager.js';
 import useXPath from 'fontoxml-fx/src/useXPath.js';
 import t from 'fontoxml-localization/src/t.js';
+import xq from 'fontoxml-selectors/src/xq';
 
 import { Drop, Menu, MenuGroup, MenuItemWithDrop } from 'fds/components';
 

@@ -129,9 +129,10 @@ export default function configureSxModule(sxModule) {
 	//     is designed for documenting programming parameters. This element is part of the DITA programming
 	//     domain, a special set of DITA elements designed to document programming tasks, concepts and
 	//     reference information. Category: Programming elements
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
 	configureAsFrame(sxModule, xq`self::parml`, t('parameter table'), {
 		contextualOperations: [{ name: ':contextual-delete-parml' }],
-		tabNavigationItemSelector: xq`self::pt or self::pd`,
+		tabNavigationItemSelector: `self::pt or self::pd`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});

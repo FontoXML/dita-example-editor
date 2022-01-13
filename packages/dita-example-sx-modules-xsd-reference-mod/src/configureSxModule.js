@@ -55,10 +55,11 @@ export default function configureSxModule(sxModule) {
 	//     description. The typical rendering is usually in a table-like format. To represent multiple values
 	//     for a type, just create additional property elements and use only the <propvalue> element (and
 	//     <propdesc> when needed) for each successive value. Category: Reference elements
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
 	configureAsFrame(sxModule, xq`self::properties`, t('properties'), {
 		contextualOperations: [{ name: ':contextual-delete-properties' }],
 		tabNavigationItemSelector:
-			xq`name() = ("proptypehd", "propvaluehd", "propdeschd", "proptype", "propvalue", "propdesc")`,
+			`name() = ("proptypehd", "propvaluehd", "propdeschd", "proptype", "propvalue", "propdesc")`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});

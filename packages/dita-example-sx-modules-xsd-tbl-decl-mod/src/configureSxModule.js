@@ -66,9 +66,10 @@ export default function configureSxModule(sxModule) {
 	// tgroup
 	//     The <tgroup> element in a table contains column, row, spanning, header and footer specifications,
 	//     and the body (<tbody>) of the table. Category: Table elements
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
 	configureProperties(sxModule, xq`self::tgroup`, {
 		markupLabel: t('table'),
-		tabNavigationItemSelector: xq`self::entry`
+		tabNavigationItemSelector: `self::entry`
 	});
 
 	// thead

@@ -140,9 +140,10 @@ export default function configureSxModule(sxModule) {
 	//     A definition list (<dl>) is a list of terms and corresponding definitions. The term (<dt>) is
 	//     usually flush left. The description or definition (<dd>) is usually either indented and on the next
 	//     line, or on the same line to the right of the term. Category: Body elements
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
 	configureAsFrame(sxModule, xq`self::dl`, t('definition table'), {
 		contextualOperations: [{ name: ':contextual-delete-dl' }],
-		tabNavigationItemSelector: xq`self::dthd or self::ddhd or self::dt or self::dd`,
+		tabNavigationItemSelector: `self::dthd or self::ddhd or self::dt or self::dd`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
@@ -583,9 +584,10 @@ export default function configureSxModule(sxModule) {
 		showSelectionWidget: true
 	});
 
+	// TODO add xq to tabNavigationItemSelector when it has been implemented
 	configureProperties(sxModule, xq`self::simpletable`, {
 		markupLabel: t('simple table'),
-		tabNavigationItemSelector: xq`self::stentry`,
+		tabNavigationItemSelector: `self::stentry`,
 		blockHeaderLeft: [createMarkupLabelWidget()]
 	});
 
