@@ -21,3 +21,5 @@ configurationManager.set('unique-id-configurations', [
 		localName: 'id'
 	}
 ]);
+
+configurationManager.set('splash-screen-ids', ['new-in-fonto-8.0']);
