@@ -1,5 +1,5 @@
-import configureAsMapSheetFrame from 'fontoxml-dita/src/configureAsMapSheetFrame.js';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved.js';
+import configureAsSheetFrame from 'fontoxml-families/src/configureAsSheetFrame.js';
 import configureAsStructure from 'fontoxml-families/src/configureAsStructure.js';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
@@ -31,12 +31,11 @@ export default function configureSxModule(sxModule) {
 	// topichead
 	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
 	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
-	configureAsMapSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
-		titleQuery:
-			xq`if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)`,
+	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
+		titleQuery: xq`if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)`,
 		variation: 'compact-vertical',
 		visibleChildSelectorOrNodeSpec: xq`self::topicmeta`,
-		blockHeaderLeft: [createMarkupLabelWidget()]
+		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
 	// topicmeta in topichead
@@ -48,7 +47,7 @@ export default function configureSxModule(sxModule) {
 		xq`self::navtitle and parent::topicmeta[parent::topichead]`,
 		undefined,
 		{
-			fontVariation: 'document-title'
+			fontVariation: 'document-title',
 		}
 	);
 
@@ -57,10 +56,10 @@ export default function configureSxModule(sxModule) {
 	//     hierarchy, as opposed to nested < topicref> elements within a <topicref>, which does imply a
 	//     structural hierarchy. It is typically used outside a hierarchy to identify groups for linking
 	//     without affecting the resulting toc/navigation output. Category: Mapgroup elements
-	configureAsMapSheetFrame(sxModule, xq`self::topicgroup`, t('untitled topic group'), {
+	configureAsSheetFrame(sxModule, xq`self::topicgroup`, t('untitled topic group'), {
 		variation: 'compact-vertical',
 		visibleChildSelectorOrNodeSpec: xq`self::topicmeta`,
-		blockHeaderLeft: [createMarkupLabelWidget()]
+		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
 	// topicset

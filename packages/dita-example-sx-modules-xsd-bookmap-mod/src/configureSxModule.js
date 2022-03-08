@@ -1,7 +1,7 @@
 import configureAsFrame from 'fontoxml-families/src/configureAsFrame.js';
 import configureAsFrameWithBlock from 'fontoxml-families/src/configureAsFrameWithBlock.js';
-import configureAsMapSheetFrame from 'fontoxml-dita/src/configureAsMapSheetFrame.js';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved.js';
+import configureAsSheetFrame from 'fontoxml-families/src/configureAsSheetFrame.js';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame.js';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
@@ -13,30 +13,30 @@ import xq from 'fontoxml-selectors/src/xq';
 
 import bookmapElementLabels from './api/bookmapElementLabels.js';
 
-const getPlaceholderOrContainerOperations = placeholderOrContainer => [
+const getPlaceholderOrContainerOperations = (placeholderOrContainer) => [
 	[':contextual-insert-@href--from-template', ':contextual-insert-@href--to-existing-document'],
 	[
 		'contextual-topicref-move-up',
 		'contextual-topicref-move-down',
 		'contextual-topicref-move-to-top',
-		'contextual-topicref-move-to-bottom'
+		'contextual-topicref-move-to-bottom',
 	],
-	[`:contextual-delete-bookmap-${placeholderOrContainer}-element`]
+	[`:contextual-delete-bookmap-${placeholderOrContainer}-element`],
 ];
 
 const insertTopicOperations = [
 	':contextual-insert-topicref--from-template',
-	':contextual-insert-topicref--to-existing-document'
+	':contextual-insert-topicref--to-existing-document',
 ];
-const convertToPlaceholderOrContainerOperations = placeholderOrContainer => [
+const convertToPlaceholderOrContainerOperations = (placeholderOrContainer) => [
 	[`:contextual-convert-to-${placeholderOrContainer}`],
 	[
 		'contextual-topicref-move-up',
 		'contextual-topicref-move-down',
 		'contextual-topicref-move-to-top',
-		'contextual-topicref-move-to-bottom'
+		'contextual-topicref-move-to-bottom',
 	],
-	['contextual-topicref-remove']
+	['contextual-topicref-remove'],
 ];
 
 function uppercaseFirstLetter(input) {
@@ -58,22 +58,22 @@ const getSubMenuForAlternativeInsertRefElement = (
 			contents: [
 				{ name: `:${context}-insert-${refElementName}--from-template` },
 				{
-					name: `:${context}-insert-${refElementName}--to-existing-document`
-				}
-			]
+					name: `:${context}-insert-${refElementName}--to-existing-document`,
+				},
+			],
 		},
 		{
-			contents: [{ name: `:${context}-insert-${refElementName}--${placeholderOrContainer}` }]
-		}
-	]
+			contents: [{ name: `:${context}-insert-${refElementName}--${placeholderOrContainer}` }],
+		},
+	],
 });
 
 function formatContextualOperationListWithGroups(list) {
-	return list.map(group => ({
-		contents: group.map(operation => ({
+	return list.map((group) => ({
+		contents: group.map((operation) => ({
 			name: operation,
-			hideIn: ['context-menu', 'breadcrumbs-menu']
-		}))
+			hideIn: ['context-menu', 'breadcrumbs-menu'],
+		})),
 	}));
 }
 
@@ -89,9 +89,9 @@ const getSubMenuForRefElement = (refElementName, parent, placeholderOrContainer)
 						'Create a new topic and insert it under {PARENT_DESCRIPTION} as {ELEMENT_DESCRIPTION}.',
 						{
 							PARENT_DESCRIPTION: bookmapElementLabels[parent].description,
-							ELEMENT_DESCRIPTION: bookmapElementLabels[refElementName].description
+							ELEMENT_DESCRIPTION: bookmapElementLabels[refElementName].description,
 						}
-					)
+					),
 				},
 				{
 					name: `:_contextual-insert-{refElementName}--to-existing-document`,
@@ -100,18 +100,18 @@ const getSubMenuForRefElement = (refElementName, parent, placeholderOrContainer)
 						'Insert an existing topic under {PARENT_DESCRIPTION} as {ELEMENT_DESCRIPTION}.',
 						{
 							PARENT_DESCRIPTION: bookmapElementLabels[parent].description,
-							ELEMENT_DESCRIPTION: bookmapElementLabels[refElementName].description
+							ELEMENT_DESCRIPTION: bookmapElementLabels[refElementName].description,
 						}
-					)
-				}
-			]
+					),
+				},
+			],
 		},
 		{
 			contents: [
 				{
 					name: `:_contextual-insert-{elementName}--placeholder-container`,
 					label: t('Insert as {CONTAINER_PLACEHOLDER}', {
-						CONTAINER_PLACEHOLDER: placeholderOrContainer
+						CONTAINER_PLACEHOLDER: placeholderOrContainer,
 					}),
 					operationData: { elementName: refElementName },
 					tooltipContent: t(
@@ -119,13 +119,13 @@ const getSubMenuForRefElement = (refElementName, parent, placeholderOrContainer)
 						{
 							PARENT_DESCRIPTION: bookmapElementLabels[parent].description,
 							ELEMENT_DESCRIPTION: bookmapElementLabels[refElementName].description,
-							CONTAINER_PLACEHOLDER: placeholderOrContainer
+							CONTAINER_PLACEHOLDER: placeholderOrContainer,
 						}
-					)
-				}
-			]
-		}
-	]
+					),
+				},
+			],
+		},
+	],
 });
 
 export default function configureSxModule(sxModule) {
@@ -134,7 +134,7 @@ export default function configureSxModule(sxModule) {
 		'bookmap:retrieve-element-label',
 		['xs:string'],
 		'xs:string?',
-		function(_dynamicContext, nodeName) {
+		function (_dynamicContext, nodeName) {
 			return (
 				(bookmapElementLabels[nodeName] && bookmapElementLabels[nodeName].markupLabel) ||
 				null
@@ -146,12 +146,17 @@ export default function configureSxModule(sxModule) {
 	//     The <abbrevlist> element references a list of abbreviations. It indicates to the processing software
 	//     that the author wants an abbreviation list generated at the particular location. Category: Bookmap
 	//     elements
-	configureAsRemoved(sxModule, xq`self::abbrevlist`, bookmapElementLabels.abbrevlist.markupLabel, {
-		contextualOperations: formatContextualOperationListWithGroups(
-			convertToPlaceholderOrContainerOperations('placeholder')
-		)
-	});
-	configureAsMapSheetFrame(
+	configureAsRemoved(
+		sxModule,
+		xq`self::abbrevlist`,
+		bookmapElementLabels.abbrevlist.markupLabel,
+		{
+			contextualOperations: formatContextualOperationListWithGroups(
+				convertToPlaceholderOrContainerOperations('placeholder')
+			),
+		}
+	);
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::abbrevlist[not(@href)]`,
 		bookmapElementLabels.abbrevlist.markupLabel,
@@ -160,7 +165,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -168,12 +173,17 @@ export default function configureSxModule(sxModule) {
 	//     The <amendments> element references a list of amendments or updates to the book. It indicates to the
 	//     processing software that the author wants an amendments list generated at the particular location.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, xq`self::amendments`, bookmapElementLabels.amendments.markupLabel, {
-		contextualOperations: formatContextualOperationListWithGroups(
-			convertToPlaceholderOrContainerOperations('placeholder')
-		)
-	});
-	configureAsMapSheetFrame(
+	configureAsRemoved(
+		sxModule,
+		xq`self::amendments`,
+		bookmapElementLabels.amendments.markupLabel,
+		{
+			contextualOperations: formatContextualOperationListWithGroups(
+				convertToPlaceholderOrContainerOperations('placeholder')
+			),
+		}
+	);
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::amendments[not(@href)]`,
 		bookmapElementLabels.amendments.markupLabel,
@@ -182,26 +192,31 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
 	// appendices
 	//     The <appendices> element is an optional wrapper for <appendix> elements within a bookmap.
-	configureAsRemoved(sxModule, xq`self::appendices`, bookmapElementLabels.appendices.markupLabel, {
-		contextualOperations: [
-			{
-				hideIn: ['context-menu', 'breadcrumbs-menu'],
-				contents: [getSubMenuForRefElement('appendix', 'appendices', 'container')]
-			}
-		].concat(
-			formatContextualOperationListWithGroups([
-				[':contextual-convert-to-container'],
-				[':contextual-unwrap-appendices']
-			])
-		)
-	});
-	configureAsMapSheetFrame(
+	configureAsRemoved(
+		sxModule,
+		xq`self::appendices`,
+		bookmapElementLabels.appendices.markupLabel,
+		{
+			contextualOperations: [
+				{
+					hideIn: ['context-menu', 'breadcrumbs-menu'],
+					contents: [getSubMenuForRefElement('appendix', 'appendices', 'container')],
+				},
+			].concat(
+				formatContextualOperationListWithGroups([
+					[':contextual-convert-to-container'],
+					[':contextual-unwrap-appendices'],
+				])
+			),
+		}
+	);
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::appendices[not(@href)]`,
 		bookmapElementLabels.appendices.markupLabel,
@@ -209,19 +224,19 @@ export default function configureSxModule(sxModule) {
 			contextualOperations: [
 				{
 					hideIn: ['context-menu', 'breadcrumbs-menu'],
-					contents: [getSubMenuForRefElement('appendix', 'appendices', 'container')]
-				}
+					contents: [getSubMenuForRefElement('appendix', 'appendices', 'container')],
+				},
 			].concat(
 				formatContextualOperationListWithGroups([
 					[
 						':contextual-insert-@href--from-template',
-						':contextual-insert-@href--to-existing-document'
+						':contextual-insert-@href--to-existing-document',
 					],
-					[':contextual-unwrap-appendices--container']
+					[':contextual-unwrap-appendices--container'],
 				])
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -230,20 +245,20 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::appendix`, bookmapElementLabels.appendix.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
-			...convertToPlaceholderOrContainerOperations('container')
-		])
+			...convertToPlaceholderOrContainerOperations('container'),
+		]),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::appendix[not(@href)]`,
 		bookmapElementLabels.appendix.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
-				...getPlaceholderOrContainerOperations('container')
+				...getPlaceholderOrContainerOperations('container'),
 			]),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -256,7 +271,7 @@ export default function configureSxModule(sxModule) {
 	//     The <backmatter> element contains the material that follows the main body of a document and any
 	//     appendixes. It may include items such as a colophon, legal notices, and various types of book lists
 	//     such as a glossary or an index. Category: Bookmap elements
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::backmatter`,
 		bookmapElementLabels.backmatter.markupLabel,
@@ -267,24 +282,26 @@ export default function configureSxModule(sxModule) {
 					contents: [
 						getSubMenuForRefElement('amendments', 'backmatter', 'placeholder'),
 						{
-							name: ':contextual-insert-booklists'
+							name: ':contextual-insert-booklists',
 						},
 						getSubMenuForRefElement('colophon', 'backmatter', 'placeholder'),
 						getSubMenuForRefElement('dedication', 'backmatter', 'placeholder'),
 						getSubMenuForRefElement('notices', 'backmatter', 'container'),
 						{
 							subMenuLabel: t('Topic'),
-							contents: insertTopicOperations.map(operation => ({ name: operation }))
-						}
-					]
+							contents: insertTopicOperations.map((operation) => ({
+								name: operation,
+							})),
+						},
+					],
 				},
 				{
 					name: ':contextual-delete-bookmap-container-element',
-					hideIn: ['context-menu', 'breadcrumbs-menu']
-				}
+					hideIn: ['context-menu', 'breadcrumbs-menu'],
+				},
 			],
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -293,12 +310,17 @@ export default function configureSxModule(sxModule) {
 	//     the processing software that the author wants a bibliography, containing links to related books,
 	//     articles, published papers, or other types of material, generated at the particular location.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, xq`self::bibliolist`, bookmapElementLabels.bibliolist.markupLabel, {
-		contextualOperations: formatContextualOperationListWithGroups(
-			convertToPlaceholderOrContainerOperations('placeholder')
-		)
-	});
-	configureAsMapSheetFrame(
+	configureAsRemoved(
+		sxModule,
+		xq`self::bibliolist`,
+		bookmapElementLabels.bibliolist.markupLabel,
+		{
+			contextualOperations: formatContextualOperationListWithGroups(
+				convertToPlaceholderOrContainerOperations('placeholder')
+			),
+		}
+	);
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::bibliolist[not(@href)]`,
 		bookmapElementLabels.bibliolist.markupLabel,
@@ -307,7 +329,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -322,10 +344,10 @@ export default function configureSxModule(sxModule) {
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				convertToPlaceholderOrContainerOperations('placeholder')
-			)
+			),
 		}
 	);
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::bookabstract[not(@href)]`,
 		bookmapElementLabels.bookabstract.markupLabel,
@@ -334,7 +356,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -367,11 +389,11 @@ export default function configureSxModule(sxModule) {
 	//     Category: Bookmap elements
 	configureAsFrameWithBlock(sxModule, xq`self::booklibrary`, t('book library'), {
 		contextualOperations: [
-			{ name: ':contextual-delete-booklibrary', hideIn: ['structure-view'] }
+			{ name: ':contextual-delete-booklibrary', hideIn: ['structure-view'] },
 		],
 		emptyElementPlaceholderText: t('type the book library information'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideAfter: [createElementMenuButtonWidget()]
+		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
 
 	// booklist
@@ -383,9 +405,9 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::booklist`, bookmapElementLabels.booklist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
-		)
+		),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::booklist[not(@href)]`,
 		bookmapElementLabels.booklist.markupLabel,
@@ -394,7 +416,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -405,7 +427,7 @@ export default function configureSxModule(sxModule) {
 	//     software that the author wants the lists generated at the <booklists> location. Category: Bookmap
 	//     elements
 
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::booklists`,
 		bookmapElementLabels.booklists.markupLabel,
@@ -422,38 +444,38 @@ export default function configureSxModule(sxModule) {
 						getSubMenuForRefElement('indexlist', 'booklists', 'placeholder'),
 						getSubMenuForRefElement('tablelist', 'booklists', 'placeholder'),
 						getSubMenuForRefElement('trademarklist', 'booklists', 'placeholder'),
-						getSubMenuForRefElement('toc', 'booklists', 'placeholder')
-					]
+						getSubMenuForRefElement('toc', 'booklists', 'placeholder'),
+					],
 				},
 				{
 					contents: [
 						'contextual-topicref-move-up',
 						'contextual-topicref-move-down',
 						'contextual-topicref-move-to-top',
-						'contextual-topicref-move-to-bottom'
-					].map(operation => ({
+						'contextual-topicref-move-to-bottom',
+					].map((operation) => ({
 						name: operation,
-						hideIn: ['context-menu', 'breadcrumbs-menu']
-					}))
+						hideIn: ['context-menu', 'breadcrumbs-menu'],
+					})),
 				},
 				{
 					contents: [
 						{
 							name: ':contextual-delete-bookmap-container-element',
-							hideIn: ['context-menu', 'breadcrumbs-menu']
-						}
-					]
-				}
+							hideIn: ['context-menu', 'breadcrumbs-menu'],
+						},
+					],
+				},
 			],
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
 	// bookmap
 	//     The <bookmap> element is a map file used to organize DITA content into a traditional book format.
 	//     Category: Bookmap elements
-	configureAsMapSheetFrame(sxModule, xq`self::bookmap`, bookmapElementLabels.bookmap.markupLabel, {
+	configureAsSheetFrame(sxModule, xq`self::bookmap`, bookmapElementLabels.bookmap.markupLabel, {
 		contextualOperations: [
 			{
 				contents: [
@@ -466,42 +488,42 @@ export default function configureSxModule(sxModule) {
 								contents: [
 									{
 										name: ':bookmap-insert-book-library',
-										hideIn: ['structure-view']
+										hideIn: ['structure-view'],
 									},
 									{
 										name: ':bookmap-insert-alternative-title',
-										hideIn: ['structure-view']
-									}
-								]
-							}
-						]
-					}
+										hideIn: ['structure-view'],
+									},
+								],
+							},
+						],
+					},
 				],
-				hideIn: ['structure-view']
+				hideIn: ['structure-view'],
 			},
 
 			{
 				hideIn: ['context-menu', 'breadcrumbs-menu', 'element-menu'],
-				contents: [{ name: ':contextual-insert-frontmatter' }]
+				contents: [{ name: ':contextual-insert-frontmatter' }],
 			},
 			{
 				hideIn: ['context-menu', 'breadcrumbs-menu', 'element-menu'],
 				contents: [
 					getSubMenuForAlternativeInsertRefElement('chapter', 'container', 'bookmap'),
-					getSubMenuForAlternativeInsertRefElement('part', 'container', 'bookmap')
-				]
+					getSubMenuForAlternativeInsertRefElement('part', 'container', 'bookmap'),
+				],
 			},
 			{
 				hideIn: ['context-menu', 'breadcrumbs-menu', 'element-menu'],
 				contents: [
 					getSubMenuForAlternativeInsertRefElement('appendices', 'container', 'bookmap'),
-					getSubMenuForAlternativeInsertRefElement('appendix', 'container', 'bookmap')
-				]
+					getSubMenuForAlternativeInsertRefElement('appendix', 'container', 'bookmap'),
+				],
 			},
 			{
 				hideIn: ['context-menu', 'breadcrumbs-menu', 'element-menu'],
-				contents: [{ name: ':contextual-insert-backmatter' }]
-			}
+				contents: [{ name: ':contextual-insert-backmatter' }],
+			},
 		],
 		defaultTextContainer: 'title',
 		titleQuery: xq`
@@ -511,15 +533,15 @@ export default function configureSxModule(sxModule) {
 		blockFooter: [
 			createRelatedNodesQueryWidget(
 				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(name())]`
-			)
+			),
 		],
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideAfter: [createElementMenuButtonWidget()]
+		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
 
 	// title in map
 	configureAsTitleFrame(sxModule, xq`self::title[parent::bookmap]`, undefined, {
-		fontVariation: 'collection-title'
+		fontVariation: 'collection-title',
 	});
 
 	// bookmeta
@@ -557,7 +579,7 @@ export default function configureSxModule(sxModule) {
 	//     The <booktitle> element contains the title information for a book. , including <booklibrary> data, a
 	//     <maintitle> and subtitle (<titlealt>) as required. Category: Bookmap elements
 	configureAsFrame(sxModule, xq`self::booktitle`, t('book title'), {
-		blockHeaderLeft: [createMarkupLabelWidget()]
+		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
 	// booktitlealt
@@ -565,11 +587,11 @@ export default function configureSxModule(sxModule) {
 	//     Category: Bookmap elements
 	configureAsFrameWithBlock(sxModule, xq`self::booktitlealt`, t('alternative title'), {
 		contextualOperations: [
-			{ name: ':contextual-delete-booktitlealt', hideIn: ['structure-view'] }
+			{ name: ':contextual-delete-booktitlealt', hideIn: ['structure-view'] },
 		],
 		emptyElementPlaceholderText: t('type the alternative title'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideAfter: [createElementMenuButtonWidget()]
+		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
 
 	// chapter
@@ -577,20 +599,20 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::chapter`, bookmapElementLabels.chapter.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
-			...convertToPlaceholderOrContainerOperations('container')
-		])
+			...convertToPlaceholderOrContainerOperations('container'),
+		]),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::chapter[not(@href)]`,
 		bookmapElementLabels.chapter.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
-				...getPlaceholderOrContainerOperations('container')
+				...getPlaceholderOrContainerOperations('container'),
 			]),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -604,9 +626,9 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::colophon`, bookmapElementLabels.colophon.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
-		)
+		),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::colophon[not(@href)]`,
 		bookmapElementLabels.colophon.markupLabel,
@@ -615,7 +637,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -641,12 +663,17 @@ export default function configureSxModule(sxModule) {
 	// dedication
 	//     The <dedication> element references a topic containing a dedication for the book, such as to a
 	//     person or group. Category: Bookmap elements
-	configureAsRemoved(sxModule, xq`self::dedication`, bookmapElementLabels.dedication.markupLabel, {
-		contextualOperations: formatContextualOperationListWithGroups(
-			convertToPlaceholderOrContainerOperations('placeholder')
-		)
-	});
-	configureAsMapSheetFrame(
+	configureAsRemoved(
+		sxModule,
+		xq`self::dedication`,
+		bookmapElementLabels.dedication.markupLabel,
+		{
+			contextualOperations: formatContextualOperationListWithGroups(
+				convertToPlaceholderOrContainerOperations('placeholder')
+			),
+		}
+	);
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::dedication[not(@href)]`,
 		bookmapElementLabels.dedication.markupLabel,
@@ -655,30 +682,35 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
 	// draftintro
 	//     The <draftintro> element references a topic used as an introduction to the draft of this book.
 	//     Category: Bookmap elements
-	configureAsRemoved(sxModule, xq`self::draftintro`, bookmapElementLabels.draftintro.markupLabel, {
-		contextualOperations: formatContextualOperationListWithGroups([
-			insertTopicOperations,
-			...convertToPlaceholderOrContainerOperations('container')
-		])
-	});
-	configureAsMapSheetFrame(
+	configureAsRemoved(
+		sxModule,
+		xq`self::draftintro`,
+		bookmapElementLabels.draftintro.markupLabel,
+		{
+			contextualOperations: formatContextualOperationListWithGroups([
+				insertTopicOperations,
+				...convertToPlaceholderOrContainerOperations('container'),
+			]),
+		}
+	);
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::draftintro[not(@href)]`,
 		bookmapElementLabels.draftintro.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
-				...getPlaceholderOrContainerOperations('container')
+				...getPlaceholderOrContainerOperations('container'),
 			]),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -696,12 +728,17 @@ export default function configureSxModule(sxModule) {
 	//     The <figurelist> element references a list of figures in the book. It indicates to the processing
 	//     software that the author wants a list of figures generated at the particular location. Category:
 	//     Bookmap elements
-	configureAsRemoved(sxModule, xq`self::figurelist`, bookmapElementLabels.figurelist.markupLabel, {
-		contextualOperations: formatContextualOperationListWithGroups(
-			convertToPlaceholderOrContainerOperations('placeholder')
-		)
-	});
-	configureAsMapSheetFrame(
+	configureAsRemoved(
+		sxModule,
+		xq`self::figurelist`,
+		bookmapElementLabels.figurelist.markupLabel,
+		{
+			contextualOperations: formatContextualOperationListWithGroups(
+				convertToPlaceholderOrContainerOperations('placeholder')
+			),
+		}
+	);
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::figurelist[not(@href)]`,
 		bookmapElementLabels.figurelist.markupLabel,
@@ -710,7 +747,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -718,7 +755,7 @@ export default function configureSxModule(sxModule) {
 	//     The <frontmatter> element contains the material that precedes the main body of a document. It may
 	//     include items such as an abstract, a preface, and various types of book lists such as a <toc>,
 	//     <tablelist>, or <figurelist>. Category: Bookmap elements
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::frontmatter`,
 		bookmapElementLabels.frontmatter.markupLabel,
@@ -729,7 +766,7 @@ export default function configureSxModule(sxModule) {
 					contents: [
 						getSubMenuForRefElement('bookabstract', 'frontmatter', 'placeholder'),
 						{
-							name: ':contextual-insert-booklists'
+							name: ':contextual-insert-booklists',
 						},
 						getSubMenuForRefElement('colophon', 'frontmatter', 'placeholder'),
 						getSubMenuForRefElement('dedication', 'frontmatter', 'placeholder'),
@@ -738,21 +775,23 @@ export default function configureSxModule(sxModule) {
 						getSubMenuForRefElement('preface', 'frontmatter', 'container'),
 						{
 							subMenuLabel: t('Topic'),
-							contents: insertTopicOperations.map(operation => ({ name: operation }))
-						}
-					]
+							contents: insertTopicOperations.map((operation) => ({
+								name: operation,
+							})),
+						},
+					],
 				},
 				{
 					contents: [
 						{
 							name: ':contextual-delete-bookmap-container-element',
-							hideIn: ['context-menu', 'breadcrumbs-menu']
-						}
-					]
-				}
+							hideIn: ['context-menu', 'breadcrumbs-menu'],
+						},
+					],
+				},
 			],
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -767,21 +806,21 @@ export default function configureSxModule(sxModule) {
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
-				...convertToPlaceholderOrContainerOperations('container')
-			])
+				...convertToPlaceholderOrContainerOperations('container'),
+			]),
 		}
 	);
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::glossarylist[not(@href)]`,
 		bookmapElementLabels.glossarylist.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
-				...getPlaceholderOrContainerOperations('container')
+				...getPlaceholderOrContainerOperations('container'),
 			]),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -791,9 +830,9 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::indexlist`, bookmapElementLabels.indexlist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
-		)
+		),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::indexlist[not(@href)]`,
 		bookmapElementLabels.indexlist.markupLabel,
@@ -802,7 +841,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -816,7 +855,7 @@ export default function configureSxModule(sxModule) {
 	//     elements
 	configureAsTitleFrame(sxModule, xq`self::mainbooktitle`, t('main book title'), {
 		fontVariation: 'collection-title',
-		emptyElementPlaceholderText: t('type the book title')
+		emptyElementPlaceholderText: t('type the book title'),
 	});
 
 	// maintainer
@@ -834,20 +873,20 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::notices`, bookmapElementLabels.notices.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
-			...convertToPlaceholderOrContainerOperations('container')
-		])
+			...convertToPlaceholderOrContainerOperations('container'),
+		]),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::notices[not(@href)]`,
 		bookmapElementLabels.notices.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
-				...getPlaceholderOrContainerOperations('container')
+				...getPlaceholderOrContainerOperations('container'),
 			]),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -871,19 +910,19 @@ export default function configureSxModule(sxModule) {
 					getSubMenuForRefElement('chapter', 'part', 'container'),
 					{
 						subMenuLabel: t('Topic'),
-						contents: insertTopicOperations.map(operation => ({
-							name: operation
-						}))
-					}
-				]
-			}
+						contents: insertTopicOperations.map((operation) => ({
+							name: operation,
+						})),
+					},
+				],
+			},
 		].concat(
 			formatContextualOperationListWithGroups(
 				convertToPlaceholderOrContainerOperations('container')
 			)
-		)
+		),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::part[not(@href)]`,
 		bookmapElementLabels.part.markupLabel,
@@ -895,19 +934,19 @@ export default function configureSxModule(sxModule) {
 						getSubMenuForRefElement('chapter', 'part', 'container'),
 						{
 							subMenuLabel: t('Topic'),
-							contents: insertTopicOperations.map(operation => ({
-								name: operation
-							}))
-						}
-					]
-				}
+							contents: insertTopicOperations.map((operation) => ({
+								name: operation,
+							})),
+						},
+					],
+				},
 			].concat(
 				formatContextualOperationListWithGroups(
 					getPlaceholderOrContainerOperations('container')
 				)
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -923,20 +962,20 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::preface`, bookmapElementLabels.preface.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups([
 			insertTopicOperations,
-			...convertToPlaceholderOrContainerOperations('container')
-		])
+			...convertToPlaceholderOrContainerOperations('container'),
+		]),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::preface[not(@href)]`,
 		bookmapElementLabels.preface.markupLabel,
 		{
 			contextualOperations: formatContextualOperationListWithGroups([
 				insertTopicOperations,
-				...getPlaceholderOrContainerOperations('container')
+				...getPlaceholderOrContainerOperations('container'),
 			]),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -990,9 +1029,9 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::tablelist`, bookmapElementLabels.tablelist.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
-		)
+		),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::tablelist[not(@href)]`,
 		bookmapElementLabels.tablelist.markupLabel,
@@ -1001,7 +1040,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -1017,9 +1056,9 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::toc`, bookmapElementLabels.toc.markupLabel, {
 		contextualOperations: formatContextualOperationListWithGroups(
 			convertToPlaceholderOrContainerOperations('placeholder')
-		)
+		),
 	});
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::toc[not(@href)]`,
 		bookmapElementLabels.toc.markupLabel,
@@ -1028,7 +1067,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 
@@ -1043,10 +1082,10 @@ export default function configureSxModule(sxModule) {
 		{
 			contextualOperations: formatContextualOperationListWithGroups(
 				convertToPlaceholderOrContainerOperations('placeholder')
-			)
+			),
 		}
 	);
-	configureAsMapSheetFrame(
+	configureAsSheetFrame(
 		sxModule,
 		xq`self::trademarklist[not(@href)]`,
 		bookmapElementLabels.trademarklist.markupLabel,
@@ -1055,7 +1094,7 @@ export default function configureSxModule(sxModule) {
 				getPlaceholderOrContainerOperations('placeholder')
 			),
 			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
-			blockHeaderLeft: [createMarkupLabelWidget()]
+			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
 

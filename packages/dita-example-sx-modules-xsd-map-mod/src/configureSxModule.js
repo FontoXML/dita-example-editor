@@ -1,5 +1,5 @@
-import configureAsMapSheetFrame from 'fontoxml-dita/src/configureAsMapSheetFrame.js';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved.js';
+import configureAsSheetFrame from 'fontoxml-families/src/configureAsSheetFrame.js';
 import configureAsStructure from 'fontoxml-families/src/configureAsStructure.js';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame.js';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget.js';
@@ -15,23 +15,22 @@ export default function configureSxModule(sxModule) {
 	configureAsRemoved(sxModule, xq`self::linktext`, t('link text'));
 
 	// map
-	configureAsMapSheetFrame(sxModule, xq`self::map`, t('map'), {
+	configureAsSheetFrame(sxModule, xq`self::map`, t('map'), {
 		defaultTextContainer: 'title',
-		titleQuery:
-			xq`title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+		titleQuery: xq`title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		variation: 'compact-vertical',
 		visibleChildSelectorOrNodeSpec: xq`self::title`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(
 				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
-			)
+			),
 		],
-		blockHeaderLeft: [createMarkupLabelWidget()]
+		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
 	// title in map
 	configureAsTitleFrame(sxModule, xq`self::title[parent::map]`, undefined, {
-		fontVariation: 'collection-title'
+		fontVariation: 'collection-title',
 	});
 
 	// navref
@@ -66,12 +65,11 @@ export default function configureSxModule(sxModule) {
 	// topichead
 	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
 	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
-	configureAsMapSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
-		titleQuery:
-			xq`if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)`,
+	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
+		titleQuery: xq`if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)`,
 		variation: 'compact-vertical',
 		visibleChildSelectorOrNodeSpec: xq`self::topicmeta`,
-		blockHeaderLeft: [createMarkupLabelWidget()]
+		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
 	// topicgroup
@@ -79,10 +77,10 @@ export default function configureSxModule(sxModule) {
 	//     hierarchy, as opposed to nested < topicref> elements within a <topicref>, which does imply a
 	//     structural hierarchy. It is typically used outside a hierarchy to identify groups for linking
 	//     without affecting the resulting toc/navigation output. Category: Mapgroup elements
-	configureAsMapSheetFrame(sxModule, xq`self::topicgroup`, t('untitled topic group'), {
+	configureAsSheetFrame(sxModule, xq`self::topicgroup`, t('untitled topic group'), {
 		variation: 'compact-vertical',
 		visibleChildSelectorOrNodeSpec: xq`self::topicmeta`,
-		blockHeaderLeft: [createMarkupLabelWidget()]
+		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
 	// topicmeta
@@ -96,7 +94,7 @@ export default function configureSxModule(sxModule) {
 		xq`self::navtitle and parent::topicmeta[parent::topichead]`,
 		undefined,
 		{
-			fontVariation: 'document-title'
+			fontVariation: 'document-title',
 		}
 	);
 
