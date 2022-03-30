@@ -174,7 +174,6 @@ export default function configureSxModule(sxModule) {
 	// lcGapItem
 	//     The <lcGapItem> describes gaps between existing training objectives and related job-task-analysis
 	//     content.
-	// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 	configureAsFrame(sxModule, xq`self::lcGapItem`, t('gap item'), {
 		contextualOperations: [
 			{ name: ':lcGapItem-insert-title' },
@@ -189,7 +188,7 @@ export default function configureSxModule(sxModule) {
 		isIgnoredForNavigation: false,
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideBefore: [createLabelQueryWidget(`"\u25cf"`)],
+		blockOutsideBefore: [createLabelQueryWidget(xq`"\u25cf"`)],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 
@@ -267,7 +266,6 @@ export default function configureSxModule(sxModule) {
 	// lcInterventionItem
 	//     The <lcInterventionItem> describes how learning content is built, based on a systems approach to
 	//     analyzing, designing, developing, implementing, and evaluating any instructional experience.
-	// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 	configureAsFrame(sxModule, xq`self::lcInterventionItem`, t('intervention item'), {
 		contextualOperations: [
 			{ name: ':lcInterventionItem-insert-title' },
@@ -283,7 +281,7 @@ export default function configureSxModule(sxModule) {
 		isIgnoredForNavigation: false,
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
-		blockOutsideBefore: [createLabelQueryWidget('"\u25cf"')],
+		blockOutsideBefore: [createLabelQueryWidget(xq`"\u25cf"`)],
 		blockOutsideAfter: [createElementMenuButtonWidget()]
 	});
 

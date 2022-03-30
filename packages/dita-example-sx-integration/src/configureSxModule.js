@@ -54,10 +54,9 @@ export default function configureSxModule(sxModule) {
 				then $title
 				else string-join(upper-case(bookmap:retrieve-element-label($refNodeName)) || ": " || $title)`,
 			blockHeaderLeft: 
-			// TODO: Upgrade the createLabelQueryWidget when it accepts XQuery template tags in 7.18
 			[
-				createLabelQueryWidget(`""`, {
-					prefixQuery: `
+				createLabelQueryWidget(xq`""`, {
+					prefixQuery: xq`
 					let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name()
 
 					return
