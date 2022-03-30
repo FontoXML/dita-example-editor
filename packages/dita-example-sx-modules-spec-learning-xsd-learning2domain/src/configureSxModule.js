@@ -309,10 +309,9 @@ export default function configureSxModule(sxModule) {
 
 	// lcMatchTable2
 	//     The <lcMatchTable2> element in an assessment interaction provides a format for matching items.
-	// TODO add xq to tabNavigationItemSelector when it has been implemented
 	configureAsStructure(sxModule, xq`self::lcMatchTable2`, t('match table'), {
 		tabNavigationItemSelector:
-			`name() = ("lcItem2", "lcMatchingItem2", "lcMatchingItemFeedback2")`
+			xq`name() = ("lcItem2", "lcMatchingItem2", "lcMatchingItemFeedback2")`
 	});
 
 	// lcMultipleSelect2
