@@ -1,0 +1,6 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	// Changing options defined in the base configuration may result in
+	// unexpected behavior in your IDE.
+	"extends": "./platform/tsconfig.json"
+}

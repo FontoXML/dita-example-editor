@@ -5,7 +5,9 @@
 	"private": true,
 	"scripts": {
 		"start": "fdt editor run",
-		"postinstall": "fdt editor upgrade --non-interactive --version 7.17.1"
+		"postinstall": "fdt editor upgrade --non-interactive --version 8.0.0"
 	},
-	"dependencies": {}
+	"devDependencies": {
+		"typescript": "^4.3.4"
+	}
 }
