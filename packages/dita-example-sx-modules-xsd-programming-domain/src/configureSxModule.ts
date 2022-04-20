@@ -9,9 +9,10 @@ import configureAsStructure from 'fontoxml-families/src/configureAsStructure';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// apiname
 	//     The <apiname> element provides the name of an application programming interface (API) such as a Java
 	//     class name or method name. This element is part of the DITA programming domain, a special set of

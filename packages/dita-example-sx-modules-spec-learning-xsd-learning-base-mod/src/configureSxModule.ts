@@ -9,9 +9,10 @@ import createIconWidget from 'fontoxml-families/src/createIconWidget';
 import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// lcAudience
 	//     The <lcAudience> describes characteristics of the learners who take the instruction.
 	configureAsFrame(sxModule, xq`self::lcAudience`, t('audience'), {

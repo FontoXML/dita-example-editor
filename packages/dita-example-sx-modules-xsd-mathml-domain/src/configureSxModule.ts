@@ -3,9 +3,10 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import t from 'fontoxml-localization/src/t';
 import configureAsInlineMathMlContainer from 'fontoxml-mathml/src/configureAsInlineMathMlContainer';
 import configureAsMathMlContainer from 'fontoxml-mathml/src/configureAsMathMlContainer';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// mathml
 	//     The MathML container (<mathml>) element contains inline MathML markup or references to MathML
 	//     elements stored in a separate non-DITA XML document. The purpose of this element is simply to

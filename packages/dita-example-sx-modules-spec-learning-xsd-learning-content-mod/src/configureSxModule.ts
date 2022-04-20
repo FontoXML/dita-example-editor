@@ -6,9 +6,10 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// learningContent
 	//     A Learning Content topic provides the learning content itself, and enables direct use of content
 	//     from DITA task, concept, and reference topics, as well as additional content of any topic type that

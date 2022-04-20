@@ -14,9 +14,10 @@ import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidg
 import createNumberingWidget from 'fontoxml-families/src/createNumberingWidget';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// chdesc
 	//     The <chdesc> element is a description of an option that a user chooses while performing a step to
 	//     accomplish a task. It explains why the user would choose that option, and might explain the result

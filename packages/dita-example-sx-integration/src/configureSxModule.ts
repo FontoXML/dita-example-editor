@@ -7,9 +7,10 @@ import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved';
 import configureProperties from 'fontoxml-families/src/configureProperties';
 import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// Mark this configureSxModule.js file as an addon entry file, so that we don't have to explicitly depend on
 	// this package from an *-sx-shell. The best practice is to always depend on the specific *-sx-module packages
 	// from your own shell.

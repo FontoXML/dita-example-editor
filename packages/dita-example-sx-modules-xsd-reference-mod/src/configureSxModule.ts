@@ -10,9 +10,10 @@ import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMe
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// propdesc
 	//     The <propdesc> element is used to provide a short description of the property type and its listed
 	//     values (or just the value). Category: Reference elements

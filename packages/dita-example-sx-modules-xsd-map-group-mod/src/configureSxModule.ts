@@ -4,9 +4,10 @@ import configureAsStructure from 'fontoxml-families/src/configureAsStructure';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// anchorref
 	//     The contents of an <anchorref> element are rendered both in the original authored location and at
 	//     the location of the referenced <anchor> element. The referenced <anchor> element can be defined in

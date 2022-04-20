@@ -3,6 +3,7 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import configureProperties from 'fontoxml-families/src/configureProperties';
 import registerNodeStatus from 'fontoxml-families/src/registerNodeStatus';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
 // Operation names to create a child topic, either from template or reusing an existing topic;
@@ -37,7 +38,7 @@ function formatContextualOperationListWithGroups(list) {
 	}));
 }
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	sxModule.markAsAddon();
 
 	// Configure DITA elements that extend the map/topicref/topic classes to show up in

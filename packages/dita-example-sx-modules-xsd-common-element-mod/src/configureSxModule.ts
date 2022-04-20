@@ -21,9 +21,10 @@ import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMe
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import configureAsListElements from 'fontoxml-list-flow/src/configureAsListElements';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// alt
 	//     The alt element provides alternate text for an image. It is equivalent to the alt attribute on the
 	//     image element; the attribute is deprecated, so the alt element should be used instead. As an

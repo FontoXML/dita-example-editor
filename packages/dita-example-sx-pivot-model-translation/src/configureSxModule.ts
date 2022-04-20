@@ -1,7 +1,8 @@
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import pivotModelTransformerManager from 'fontoxml-pivot-model/src/pivotModelTransformerManager';
-import xq from 'fontoxml-selectors/src/xq';
+import PivotNodeTypes from 'fontoxml-pivot-model/src/PivotNodeTypes';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// This is the configuration for transforming clipboard data, for example from MS Word or your browser, into
 	// the logical default DITA structure.
 	//
@@ -15,7 +16,7 @@ export default function configureSxModule(sxModule) {
 		},
 
 		{
-			type: 'inline',
+			type: PivotNodeTypes.inline,
 			qualifiedName: 'xref',
 			attributes: { format: 'html', scope: 'external' },
 			copyAttributes: { href: 'reference' },
@@ -24,65 +25,65 @@ export default function configureSxModule(sxModule) {
 		{
 			qualifiedName: 'b',
 			flags: ['bold'],
-			type: 'inline',
+			type: PivotNodeTypes.inline,
 		},
 		{
 			qualifiedName: 'sup',
 			flags: ['superscript'],
-			type: 'inline',
+			type: PivotNodeTypes.inline,
 		},
 		{
 			qualifiedName: 'sub',
 			flags: ['subscript'],
-			type: 'inline',
+			type: PivotNodeTypes.inline,
 		},
 		{
 			qualifiedName: 'u',
 			flags: ['underline'],
-			type: 'inline',
+			type: PivotNodeTypes.inline,
 		},
 		{
 			qualifiedName: 'i',
 			flags: ['italic'],
-			type: 'inline',
+			type: PivotNodeTypes.inline,
 		},
 
 		// <b> is the preferred inline, which is why it is repeated here without flags.
 		{
 			qualifiedName: 'b',
-			type: 'inline',
+			type: PivotNodeTypes.inline,
 		},
 
 		// <p> is the preferred block-level to contain text.
 		{
 			qualifiedName: 'p',
-			type: 'block',
+			type: PivotNodeTypes.block,
 		},
 
 		{
 			qualifiedName: null,
-			type: 'frame',
+			type: PivotNodeTypes.frame,
 		},
 
 		{
 			qualifiedName: 'ul',
-			type: 'group',
+			type: PivotNodeTypes.group,
 			flags: ['unordered-list'],
 			contents: [
 				{
 					qualifiedName: 'li',
-					type: 'frame',
+					type: PivotNodeTypes.frame,
 				},
 			],
 		},
 		{
 			qualifiedName: 'ol',
-			type: 'group',
+			type: PivotNodeTypes.group,
 			flags: ['ordered-list'],
 			contents: [
 				{
 					qualifiedName: 'li',
-					type: 'frame',
+					type: PivotNodeTypes.frame,
 				},
 			],
 		},
@@ -90,11 +91,11 @@ export default function configureSxModule(sxModule) {
 		// <ul> is the preferred list container which is why it is repeated here without flags.
 		{
 			qualifiedName: 'ul',
-			type: 'group',
+			type: PivotNodeTypes.group,
 			contents: [
 				{
 					qualifiedName: 'li',
-					type: 'frame',
+					type: PivotNodeTypes.frame,
 				},
 			],
 		},
@@ -103,10 +104,10 @@ export default function configureSxModule(sxModule) {
 	// Ignore blocks under <pre>
 	pivotModelTransformerManager.registerContextualTransformer(
 		sxModule,
-		xq`ancestor-or-self::pre`,
+		'ancestor-or-self::pre',
 		{
 			qualifiedName: null,
-			type: 'block',
+			type: PivotNodeTypes.block,
 		}
 	);
 }
