@@ -1,10 +1,11 @@
 import configureAsImageInFrame from 'fontoxml-families/src/configureAsImageInFrame';
 import configureAsInlineImageInFrame from 'fontoxml-families/src/configureAsInlineImageInFrame';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
 // This file removes the permanentId which is the other way around then for cross reference,
 // for compatability reasons.
-export default function configureImageWithoutPermanentId(sxModule) {
+export default function configureImageWithoutPermanentId(sxModule: SxModule) {
 	// To disable permanentId's in images (also known as the reference pipeline), set
 	// isPermanentId to false.
 

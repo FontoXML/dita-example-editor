@@ -6,9 +6,10 @@ import configureContextualOperations from 'fontoxml-families/src/configureContex
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// learningOverview
 	//     A Learning Overview topic identifies the learning objectives, includes other information helpful to
 	//     the learner, such as prerequisites, duration, intended audience, and can include information and

@@ -8,9 +8,10 @@ import createIconWidget from 'fontoxml-families/src/createIconWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import createOrderingByAttributeWidget from 'fontoxml-families/src/createOrderingByAttributeWidget';
 import t from 'fontoxml-localization/src/t';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule) {
+export default function configureSxModule(sxModule: SxModule) {
 	// lcAnswerContent2
 	//     The <lcAnswerContent2> element in a learning assessment interaction provides the content for an
 	//     answer option, which the learner can select as correct or incorrect.
