@@ -7,7 +7,7 @@ import {
 	MenuGroup,
 	MenuItemWithDrop,
 } from 'fds/components';
-import React from 'react';
+import * as React from 'react';
 
 import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';

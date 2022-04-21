@@ -1,5 +1,5 @@
 import { Flex } from 'fds/components';
-import React from 'react';
+import * as React from 'react';
 
 import FindAndReplaceDropButton from 'fontoxml-find-and-replace/src/FindAndReplaceDropButton';
 import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection';

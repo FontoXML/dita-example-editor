@@ -1,5 +1,5 @@
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult';
-import blueprintMutations from 'fontoxml-blueprints/src/blueprintMutations';
+import { unsafeMoveNodes } from 'fontoxml-blueprints/src/blueprintMutations';
 import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery';
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager';
 import evaluateXPathToNodes from 'fontoxml-selectors/src/evaluateXPathToNodes';
@@ -33,7 +33,7 @@ const wrapAppendixElementsInAppendices = (argument, blueprint) => {
 
 	blueprint.insertBefore(bookmapNode, appendicesNode, appendixNodes[0]);
 
-	blueprintMutations.unsafeMoveNodes(
+	unsafeMoveNodes(
 		appendixNodes[0],
 		appendixNodes[appendixNodes.length - 1],
 		blueprint,

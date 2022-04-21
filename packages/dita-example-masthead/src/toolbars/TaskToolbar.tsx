@@ -5,7 +5,7 @@ import {
 	MastheadToolbarButtons,
 	Menu,
 } from 'fds/components';
-import React from 'react';
+import * as React from 'react';
 
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';

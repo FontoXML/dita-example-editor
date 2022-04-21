@@ -6,7 +6,7 @@ import {
 	Menu,
 	MenuGroup,
 } from 'fds/components';
-import React from 'react';
+import * as React from 'react';
 
 import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';

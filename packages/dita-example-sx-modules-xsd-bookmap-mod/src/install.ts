@@ -2,9 +2,13 @@ import addCustomMutation from 'fontoxml-base-flow/src/addCustomMutation';
 import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
 import documentsHierarchy from 'fontoxml-documents/src/documentsHierarchy';
 import documentsManager from 'fontoxml-documents/src/documentsManager';
-import addAction from 'fontoxml-operations/src/addAction';
+import type { DocumentId } from 'fontoxml-documents/src/types';
+import type { FontoDocumentNode } from 'fontoxml-dom-utils/src/types';
+import addAction, { CANCEL_OPERATION } from 'fontoxml-operations/src/addAction';
 import addTransform from 'fontoxml-operations/src/addTransform';
+import type { StepData } from 'fontoxml-operations/src/types';
 import documentLoader from 'fontoxml-remote-documents/src/documentLoader';
+import type { RemoteDocumentId } from 'fontoxml-remote-documents/src/types';
 import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolean';
 import xq from 'fontoxml-selectors/src/xq';
 
@@ -12,33 +16,42 @@ import replaceBooktitleWithTitle from './api/replaceBooktitleWithTitle';
 import replaceTitleWithBooktitle from './api/replaceTitleWithBooktitle';
 import wrapAppendixElementsInAppendices from './api/wrapAppendixElementsInAppendices';
 
-function isDocumentAMapPromise(stepData) {
-	const remoteDocumentId =
-		stepData.selectedDocumentTemplateId || stepData.remoteDocumentId;
+async function isDocumentAMapPromise(
+	stepData: StepData &
+		(
+			| { documentId: DocumentId }
+			| { remoteDocumentId: RemoteDocumentId }
+			| { selectedDocumentTemplateId: RemoteDocumentId }
+		)
+): Promise<boolean> {
+	const remoteDocumentId = (stepData.selectedDocumentTemplateId ||
+		stepData.remoteDocumentId) as RemoteDocumentId;
 
-	const getDocumentId = stepData.documentId
-		? Promise.resolve(stepData.documentId)
-		: documentLoader.loadDocument(remoteDocumentId);
+	const getDocumentId = (
+		stepData.documentId
+			? Promise.resolve(stepData.documentId)
+			: documentLoader.loadDocument(remoteDocumentId)
+	) as Promise<DocumentId>;
 
-	return getDocumentId.then((documentId) => {
-		const documentNode = documentId
-			? documentsManager.getDocumentNode(documentId)
-			: null;
-		if (!documentNode) {
-			return true;
-		}
-
-		if (
-			evaluateXPathToBoolean(
-				xq`fonto:dita-class(., "map/map")`,
-				documentNode.documentElement,
-				readOnlyBlueprint
-			)
-		) {
-			return true;
-		}
-		return false;
-	});
+	const documentId = await getDocumentId;
+	const documentNode = documentId
+		? (documentsManager.getDocumentNode(
+				documentId
+		  ) as FontoDocumentNode<'readable'>)
+		: null;
+	if (!documentNode) {
+		return true;
+	}
+	if (
+		evaluateXPathToBoolean(
+			xq`fonto:dita-class(., "map/map")`,
+			documentNode.documentElement,
+			readOnlyBlueprint
+		)
+	) {
+		return true;
+	}
+	return false;
 }
 
 export default function install() {
@@ -57,25 +70,22 @@ export default function install() {
 
 	addAction(
 		'disableWhenSelectedDocumentedIsAMap',
-		function (stepData) {
-			return isDocumentAMapPromise(stepData).then((isDocumentAMap) => {
-				if (isDocumentAMap) {
-					return addAction.CANCEL_OPERATION;
-				}
-			});
+		async function (stepData) {
+			if (await isDocumentAMapPromise(stepData)) {
+				return CANCEL_OPERATION;
+			}
+			return undefined;
 		},
-		function (stepData) {
-			return isDocumentAMapPromise(stepData).then((isDocumentAMap) => {
-				if (isDocumentAMap) {
-					return {
-						enabled: false,
-					};
-				}
-
+		async function (stepData) {
+			if (await isDocumentAMapPromise(stepData)) {
 				return {
-					enabled: true,
+					enabled: false,
 				};
-			});
+			}
+
+			return {
+				enabled: true,
+			};
 		}
 	);
 

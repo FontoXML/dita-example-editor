@@ -43,7 +43,7 @@ const convertToPlaceholderOrContainerOperations = (placeholderOrContainer) => [
 	['contextual-topicref-remove'],
 ];
 
-function uppercaseFirstLetter(input) {
+function uppercaseFirstLetter(input: string) {
 	if (input === '') {
 		return input;
 	}
