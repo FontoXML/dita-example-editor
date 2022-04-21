@@ -1,6 +1,7 @@
 import bookmapElementLabels from 'dita-example-sx-modules-xsd-bookmap-mod/src/api/bookmapElementLabels';
 import { Drop, Menu, MenuGroup, MenuItemWithDrop } from 'fds/components';
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 
 import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
 import documentsHierarchy from 'fontoxml-documents/src/documentsHierarchy';
@@ -14,7 +15,7 @@ import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolea
 import evaluateXPathToString from 'fontoxml-selectors/src/evaluateXPathToString';
 import xq from 'fontoxml-selectors/src/xq';
 
-function uppercaseFirstLetter(input) {
+function uppercaseFirstLetter(input: string) {
 	if (input === '') {
 		return input;
 	}
@@ -206,7 +207,8 @@ const InsertTopicMenu = () => {
 		}
 
 		if (!newRefNodeId) {
-			let ancestor = selectionManager.getCommonAncestorContainer();
+			let ancestor =
+				selectionManager.getCommonAncestorContainer() as FontoNode<'readable'>;
 			while (ancestor) {
 				const ancestorNodeId = getNodeId(ancestor);
 

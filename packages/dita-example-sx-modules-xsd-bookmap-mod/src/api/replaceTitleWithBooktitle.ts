@@ -1,6 +1,6 @@
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult';
-import primitives from 'fontoxml-base-flow/src/primitives';
-import blueprintMutations from 'fontoxml-blueprints/src/blueprintMutations';
+import { convertElement } from 'fontoxml-base-flow/src/primitives';
+import { unsafeMoveNodes } from 'fontoxml-blueprints/src/blueprintMutations';
 import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery';
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager';
 
@@ -22,7 +22,7 @@ const replaceTitleWithBooktitle = (argument, blueprint, format, _selection) => {
 		titleNode
 	);
 
-	blueprintMutations.unsafeMoveNodes(
+	unsafeMoveNodes(
 		titleNode,
 		titleNode,
 		blueprint,
@@ -31,7 +31,7 @@ const replaceTitleWithBooktitle = (argument, blueprint, format, _selection) => {
 		false
 	);
 
-	primitives.convertElement(blueprint, titleNode, 'mainbooktitle', format);
+	convertElement(blueprint, titleNode, 'mainbooktitle', format);
 
 	return CustomMutationResult.ok();
 };

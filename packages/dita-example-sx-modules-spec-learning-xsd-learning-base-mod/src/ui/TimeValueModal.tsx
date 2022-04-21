@@ -8,31 +8,40 @@ import {
 	ModalHeader,
 	TextInput,
 } from 'fds/components';
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { func, shape, string } from 'prop-types';
+import { Component } from 'react';
+import * as React from 'react';
 
-class TimeValueModal extends Component {
-	static propTypes = {
-		cancelModal: PropTypes.func.isRequired,
-		data: PropTypes.shape({
-			modalPrimaryButtonLabel: PropTypes.string,
-			timeValue: PropTypes.string,
+class TimeValueModal extends Component<{
+	cancelModal(): void;
+	data: {
+		modalPrimaryButtonLabel: string;
+		timeValue: string;
+	};
+	submitModal({ timeValue: string }): void;
+}> {
+	public static propTypes = {
+		cancelModal: func.isRequired,
+		data: shape({
+			modalPrimaryButtonLabel: string,
+			timeValue: string,
 		}),
-		submitModal: PropTypes.func.isRequired,
+		submitModal: func.isRequired,
 	};
 
-	textInputRef = null;
+	private textInputRef = null;
 
-	state = {
+	public state = {
 		timeValue: this.props.data.timeValue || '',
 	};
 
-	handlePrimaryButtonClick = () =>
+	private readonly handlePrimaryButtonClick = () => {
 		this.props.submitModal({
 			timeValue: this.state.timeValue,
 		});
+	};
 
-	handleKeyDown = (event) => {
+	private readonly handleKeyDown = (event) => {
 		switch (event.key) {
 			case 'Escape':
 				this.props.cancelModal();
@@ -45,15 +54,16 @@ class TimeValueModal extends Component {
 		}
 	};
 
-	handleTextInputChange = (value) => {
+	private readonly handleTextInputChange = (value) => {
 		this.setState({
 			timeValue: value,
 		});
 	};
 
-	handleTextInputRef = (textInputRef) => (this.textInputRef = textInputRef);
+	private readonly handleTextInputRef = (textInputRef) =>
+		(this.textInputRef = textInputRef);
 
-	render() {
+	public render() {
 		return (
 			<Modal size="s" onKeyDown={this.handleKeyDown}>
 				<ModalHeader icon="clock-o" title="Enter the time duration" />
@@ -86,7 +96,7 @@ class TimeValueModal extends Component {
 		);
 	}
 
-	componentDidMount() {
+	public componentDidMount() {
 		this.textInputRef.focus();
 	}
 }
