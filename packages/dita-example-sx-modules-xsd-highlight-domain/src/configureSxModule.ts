@@ -64,7 +64,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     The teletype (<tt>) element is used to apply monospaced highlighting to the content of the element.
 	//     Category: Typographic elements
 	configureAsInlineFormatting(sxModule, xq`self::tt`, t('teletype'), {
-		isMonospaced: 'true',
+		isMonospaced: true,
 	});
 
 	// u

@@ -37,6 +37,7 @@ export default function install() {
 					!evaluateXPathToBoolean(
 						xq`child::*/child::*[name() = ${column.currentNodeName}]`,
 						tableNode,
+						// @ts-expect-error The types of ReadOnlyBlueprint and IDomFacade are incompatible. This will be fixed in 8.1
 						readOnlyBlueprint
 					)
 				) {
@@ -49,6 +50,7 @@ export default function install() {
 						evaluateXPathToBoolean(
 							xq`child::*/child::*[name() = ${nodeName}]`,
 							tableNode,
+							// @ts-expect-error The types of ReadOnlyBlueprint and IDomFacade are incompatible. This will be fixed in 8.1
 							readOnlyBlueprint
 						)
 					)
