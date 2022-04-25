@@ -159,7 +159,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		'bookmap:retrieve-element-label',
 		['xs:string'],
 		'xs:string?',
-		function (_dynamicContext, nodeName) {
+		function (_dynamicContext, nodeName: string) {
 			return (
 				(bookmapElementLabels[nodeName] &&
 					bookmapElementLabels[nodeName].markupLabel) ||
