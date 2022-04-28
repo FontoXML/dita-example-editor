@@ -10,16 +10,21 @@
 		"lint-fix": "eslint --fix \"./packages/**/*.ts\" \"./packages/**/*.tsx\" \"./config/**/*.ts\""
 	},
 	"devDependencies": {
-		"@babel/eslint-plugin": "^7.17.7",
-		"@fontoxml/eslint-config": "^4.0.2",
-		"@typescript-eslint/eslint-plugin": "^5.20.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-import-resolver-typescript": "^2.7.1",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-prettier": "^4.0.0",
-		"eslint-plugin-react": "^7.29.4",
-		"eslint-plugin-react-hooks": "^4.4.0",
-		"eslint-plugin-simple-import-sort": "^7.0.0",
-		"typescript": "^4.3.4"
+		"@babel/eslint-plugin": "7.14.5",
+		"@fontoxml/eslint-config": "4.0.2",
+		"@types/chai": "4.2.19",
+		"@types/mocha": "8.2.2",
+		"@types/sinon": "10.0.2",
+		"@typescript-eslint/eslint-plugin": "4.28.0",
+		"eslint": "^7.29.0",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-import-resolver-typescript": "2.4.0",
+		"eslint-plugin-import": "2.23.4",
+		"eslint-plugin-prettier": "3.4.0",
+		"eslint-plugin-react": "7.24.0",
+		"eslint-plugin-react-hooks": "4.2.0",
+		"eslint-plugin-simple-import-sort": "7.0.0",
+		"prettier": "2.3.2",
+		"typescript": "4.3.4"
 	}
 }
