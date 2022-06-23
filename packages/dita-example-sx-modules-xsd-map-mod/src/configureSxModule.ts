@@ -20,7 +20,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		defaultTextContainer: 'title',
 		titleQuery: xq`title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
 		variation: 'compact-vertical',
-		visibleChildSelectorOrNodeSpec: xq`self::title`,
+		visibleChildSelector: xq`self::title`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(
 				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`
@@ -69,7 +69,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
 		titleQuery: xq`if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)`,
 		variation: 'compact-vertical',
-		visibleChildSelectorOrNodeSpec: xq`self::topicmeta`,
+		visibleChildSelector: xq`self::topicmeta`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -84,7 +84,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		t('untitled topic group'),
 		{
 			variation: 'compact-vertical',
-			visibleChildSelectorOrNodeSpec: xq`self::topicmeta`,
+			visibleChildSelector: xq`self::topicmeta`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);

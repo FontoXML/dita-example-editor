@@ -269,7 +269,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		titleQuery: xq`./cmd`,
 		blockBefore: [
 			createNumberingWidget(xq`self::step`, {
-				containerSelectorOrNodeSpec: xq`self::steps`,
+				containerSelector: xq`self::steps`,
 				prefix: 'step',
 			}),
 		],
@@ -454,7 +454,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		blockBefore: [
 			createNumberingWidget(xq`self::substep`, {
 				numberingStyle: 'lowerAlpha',
-				containerSelectorOrNodeSpec: xq`self::substeps`,
+				containerSelector: xq`self::substeps`,
 				prefix: 'step',
 			}),
 		],
