@@ -1,4 +1,4 @@
-import configureAsSimpletableTableElements from 'fontoxml-dita/src/configureAsSimpletableTableElements';
+import { ListStyles } from 'fontoxml-list-flow/src/configureAsListElements';
 import configureAsBlock from 'fontoxml-families/src/configureAsBlock';
 import configureAsDefinitionsTableRow from 'fontoxml-families/src/configureAsDefinitionsTableRow';
 import configureAsFrame from 'fontoxml-families/src/configureAsFrame';
@@ -11,7 +11,9 @@ import configureAsInlineImageInFrame from 'fontoxml-families/src/configureAsInli
 import configureAsInlineLink from 'fontoxml-families/src/configureAsInlineLink';
 import configureAsInlineObject from 'fontoxml-families/src/configureAsInlineObject';
 import configureAsInlineStructure from 'fontoxml-families/src/configureAsInlineStructure';
+import configureAsListElements from 'fontoxml-list-flow/src/configureAsListElements';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved';
+import configureAsSimpletableTableElements from 'fontoxml-dita/src/configureAsSimpletableTableElements';
 import configureAsStructure from 'fontoxml-families/src/configureAsStructure';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame';
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations';
@@ -19,7 +21,6 @@ import configureMarkupLabel from 'fontoxml-families/src/configureMarkupLabel';
 import configureProperties from 'fontoxml-families/src/configureProperties';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
-import configureAsListElements from 'fontoxml-list-flow/src/configureAsListElements';
 import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
@@ -532,7 +533,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	configureAsListElements(sxModule, {
 		list: {
 			selector: xq`self::ol`,
-			style: configureAsListElements.NUMBERED_LIST_STYLE,
+			style: ListStyles.NUMBERED,
 			nodeName: 'ol',
 		},
 		item: {
@@ -638,7 +639,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	configureAsListElements(sxModule, {
 		list: {
 			selector: xq`self::sl`,
-			style: configureAsListElements.EMPTY_LIST_STYLE,
+			style: ListStyles.EMPTY,
 		},
 		item: {
 			selector: xq`self::sli`,
@@ -740,7 +741,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	configureAsListElements(sxModule, {
 		list: {
 			selector: xq`self::ul`,
-			style: configureAsListElements.BULLETED_LIST_STYLE,
+			style: ListStyles.BULLETED,
 			nodeName: 'ul',
 		},
 		item: {

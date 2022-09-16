@@ -10,9 +10,10 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     http://documentation.fontoxml.com/editor/latest/define-copy-paste-behaviour-3099104.html
 	pivotModelTransformerManager.registerTransformers(sxModule, [
 		{
-			qualifiedName: 'table',
+			figureQualifiedName: 'table',
+			qualifiedName: 'tgroup',
 			isTable: true,
-			cellQualifiedName: 'entry',
+			cellQualifiedName: 'entry'
 		},
 
 		{

@@ -19,7 +19,6 @@ export default function configureSxModule(sxModule: SxModule) {
 	configureAsSheetFrame(sxModule, xq`self::map`, t('map'), {
 		defaultTextContainer: 'title',
 		titleQuery: xq`title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
-		variation: 'compact-vertical',
 		visibleChildSelector: xq`self::title`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(
@@ -68,7 +67,6 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
 	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
 		titleQuery: xq`if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)`,
-		variation: 'compact-vertical',
 		visibleChildSelector: xq`self::topicmeta`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
@@ -83,7 +81,6 @@ export default function configureSxModule(sxModule: SxModule) {
 		xq`self::topicgroup`,
 		t('untitled topic group'),
 		{
-			variation: 'compact-vertical',
 			visibleChildSelector: xq`self::topicmeta`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}

@@ -307,13 +307,12 @@ const InsertTopicMenu = () => {
 			<MenuGroup>
 				<FxOperationMenuItem
 					icon="sitemap"
-					label="View the structure panel"
+					label="View the outline"
 					operationData={{
-						tabId: 'structure',
 						disableWhenAlreadyOpen: true,
 					}}
-					operationName="open-sidebar-tab"
-					tooltipContent="Document structure"
+					operationName="open-structure-view"
+					tooltipContent="Document outline"
 				/>
 			</MenuGroup>
 		</Menu>

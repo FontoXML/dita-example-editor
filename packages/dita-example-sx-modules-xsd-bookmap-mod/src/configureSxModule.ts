@@ -692,7 +692,7 @@ export default function configureSxModule(sxModule: SxModule) {
 				),
 			],
 			blockHeaderLeft: [createMarkupLabelWidget()],
-			blockOutsideAfter: [createElementMenuButtonWidget()],
+			blockHeaderRight: [createElementMenuButtonWidget()],
 		}
 	);
 

@@ -7,11 +7,12 @@ import {
 	MenuGroup,
 	MenuItemWithDrop,
 } from 'fds/components';
-import * as React from 'react';
+import React, { useMemo } from 'react';
 
-import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
+import useXPath from 'fontoxml-fx/src/useXPath';
+import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
 
 const renderNeedsAnalysisDrop = () => (
@@ -108,172 +109,215 @@ const renderNeedsAnalysisDrop = () => (
 	</Drop>
 );
 
-const LearningTrainingToolbar = () => (
-	<FxBooleanXPathQueryByNameFromSelection
-		xpathQueryByName={{
-			learningAssessment: xq`ancestor-or-self::learningAssessment`,
-			learningContent: xq`ancestor-or-self::learningContent`,
-			learningOverview: xq`ancestor-or-self::learningOverview`,
-			learningSummary: xq`ancestor-or-self::learningSummary`,
-			learningPlan: xq`ancestor-or-self::learningPlan`,
-		}}
-	>
-		{({ xpathQueryResultByName }) => (
-			<MastheadToolbar>
-				{xpathQueryResultByName.learningAssessment && (
-					<MastheadToolbarButtons>
-						<FxOperationButton operationName=":insert-lcIntro" />
-						<FxOperationButton operationName=":insert-lcObjectives" />
-						<FxOperationButton operationName=":insert-lcDuration" />
-					</MastheadToolbarButtons>
-				)}
-				{xpathQueryResultByName.learningAssessment && (
-					<MastheadToolbarButtons>
-						<FxOperationButton operationName=":insert-lcSummary" />
-					</MastheadToolbarButtons>
-				)}
+const LearningTrainingToolbar = () => {
+	const learningAssessment = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::learningAssessment`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const learningContent = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::learningContent`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const learningOverview = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::learningOverview`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const learningSummary = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::learningSummary`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const learningPlan = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::learningPlan`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
 
-				{xpathQueryResultByName.learningContent && (
-					<MastheadToolbarButtons>
-						<FxOperationButton operationName=":insert-lcIntro" />
-						<FxOperationButton operationName=":insert-lcDuration" />
-						<FxOperationButton operationName=":insert-lcObjectives" />
-						<FxOperationButton operationName=":insert-lcChallenge" />
-						<FxOperationButton operationName=":insert-lcInstruction" />
-					</MastheadToolbarButtons>
-				)}
+	const xpathQueryResultByName = useMemo(
+		() => ({
+			learningAssessment,
+			learningContent,
+			learningOverview,
+			learningSummary,
+			learningPlan,
+		}),
+		[
+			learningAssessment,
+			learningContent,
+			learningOverview,
+			learningSummary,
+			learningPlan,
+		]
+	);
 
-				{xpathQueryResultByName.learningOverview && (
-					<MastheadToolbarButtons>
-						<FxOperationButton operationName=":insert-lcIntro" />
-						<FxOperationButton operationName=":insert-lcAudience" />
-						<FxOperationButton operationName=":insert-lcDuration" />
-						<FxOperationButton operationName=":insert-lcPrereqs" />
-						<FxOperationButton operationName=":insert-lcObjectives" />
-						<FxOperationButton operationName=":insert-lcResources" />
-					</MastheadToolbarButtons>
-				)}
-
-				{xpathQueryResultByName.learningSummary && (
-					<MastheadToolbarButtons>
-						<FxOperationButton operationName=":insert-lcSummary" />
-						<FxOperationButton operationName=":insert-lcObjectives" />
-						<FxOperationButton operationName=":insert-lcReview" />
-						<FxOperationButton operationName=":insert-lcNextSteps" />
-						<FxOperationButton operationName=":insert-lcResources" />
-					</MastheadToolbarButtons>
-				)}
-
-				{xpathQueryResultByName.learningPlan && (
-					<MastheadToolbarButtons>
-						<ButtonWithDrop
-							label="Project"
-							renderDrop={() => (
-								<Drop>
-									<Menu>
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcProject" />
-										</MenuGroup>
-
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcClient" />
-											<FxOperationMenuItem operationName=":insert-lcPlanTitle" />
-											<FxOperationMenuItem operationName=":insert-lcCIN" />
-											<FxOperationMenuItem operationName=":insert-lcModDate" />
-											<FxOperationMenuItem operationName=":insert-lcDelivDate" />
-											<FxOperationMenuItem operationName=":insert-lcPlanSubject" />
-											<FxOperationMenuItem operationName=":insert-lcPlanDescrip" />
-											<FxOperationMenuItem operationName=":insert-lcPlanPrereqs" />
-										</MenuGroup>
-									</Menu>
-								</Drop>
-							)}
-						/>
-						<ButtonWithDrop
-							label="Needs analysis"
-							renderDrop={renderNeedsAnalysisDrop}
-						/>
-						<ButtonWithDrop
-							label="Gap analysis"
-							renderDrop={() => (
-								<Drop>
-									<Menu>
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcGapAnalysis" />
-											<FxOperationMenuItem operationName=":insert-lcGapItem" />
-										</MenuGroup>
-
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcPlanObjective" />
-											<FxOperationMenuItem operationName=":insert-lcJtaItem" />
-											<FxOperationMenuItem operationName=":insert-lcGapItemDelta" />
-										</MenuGroup>
-									</Menu>
-								</Drop>
-							)}
-						/>
-						<ButtonWithDrop
-							label="Intervention"
-							renderDrop={() => (
-								<Drop>
-									<Menu>
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcIntervention" />
-											<FxOperationMenuItem operationName=":insert-lcInterventionItem" />
-										</MenuGroup>
-
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcLearnStrat" />
-											<FxOperationMenuItem operationName=":insert-lcPlanObjective" />
-											<FxOperationMenuItem operationName=":insert-lcAssessment" />
-											<FxOperationMenuItem operationName=":insert-lcDelivery" />
-										</MenuGroup>
-									</Menu>
-								</Drop>
-							)}
-						/>
-						<ButtonWithDrop
-							label="Technical"
-							renderDrop={() => (
-								<Drop>
-									<Menu>
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcTechnical" />
-										</MenuGroup>
-
-										<MenuGroup>
-											<FxOperationMenuItem operationName=":insert-lcLMS" />
-											<FxOperationMenuItem operationName=":insert-lcNoLMS" />
-											<FxOperationMenuItem operationName=":insert-lcHandouts" />
-											<FxOperationMenuItem operationName=":insert-lcClassroom" />
-											<FxOperationMenuItem operationName=":insert-lcOJT" />
-											<FxOperationMenuItem operationName=":insert-lcConstraints" />
-											<FxOperationMenuItem operationName=":insert-lcW3C" />
-											<FxOperationMenuItem operationName=":insert-lcPlayers" />
-											<FxOperationMenuItem operationName=":insert-lcGraphics" />
-											<FxOperationMenuItem operationName=":insert-lcViewers" />
-											<FxOperationMenuItem operationName=":insert-lcResolution" />
-											<FxOperationMenuItem operationName=":insert-lcFileSizeLimitations" />
-											<FxOperationMenuItem operationName=":insert-lcDownloadTime" />
-											<FxOperationMenuItem operationName=":insert-lcSecurity" />
-										</MenuGroup>
-									</Menu>
-								</Drop>
-							)}
-						/>
-					</MastheadToolbarButtons>
-				)}
-
+	return (
+		<MastheadToolbar>
+			{xpathQueryResultByName.learningAssessment && (
 				<MastheadToolbarButtons>
-					<FxOperationButton operationName=":insert-lcInstructornote2" />
+					<FxOperationButton operationName=":insert-lcIntro" />
+					<FxOperationButton operationName=":insert-lcObjectives" />
+					<FxOperationButton operationName=":insert-lcDuration" />
 				</MastheadToolbarButtons>
-
+			)}
+			{xpathQueryResultByName.learningAssessment && (
 				<MastheadToolbarButtons>
-					<FxOperationButton operationName="insert-{question}--from-operation-browser" />
+					<FxOperationButton operationName=":insert-lcSummary" />
 				</MastheadToolbarButtons>
-			</MastheadToolbar>
-		)}
-	</FxBooleanXPathQueryByNameFromSelection>
-);
+			)}
+
+			{xpathQueryResultByName.learningContent && (
+				<MastheadToolbarButtons>
+					<FxOperationButton operationName=":insert-lcIntro" />
+					<FxOperationButton operationName=":insert-lcDuration" />
+					<FxOperationButton operationName=":insert-lcObjectives" />
+					<FxOperationButton operationName=":insert-lcChallenge" />
+					<FxOperationButton operationName=":insert-lcInstruction" />
+				</MastheadToolbarButtons>
+			)}
+
+			{xpathQueryResultByName.learningOverview && (
+				<MastheadToolbarButtons>
+					<FxOperationButton operationName=":insert-lcIntro" />
+					<FxOperationButton operationName=":insert-lcAudience" />
+					<FxOperationButton operationName=":insert-lcDuration" />
+					<FxOperationButton operationName=":insert-lcPrereqs" />
+					<FxOperationButton operationName=":insert-lcObjectives" />
+					<FxOperationButton operationName=":insert-lcResources" />
+				</MastheadToolbarButtons>
+			)}
+
+			{xpathQueryResultByName.learningSummary && (
+				<MastheadToolbarButtons>
+					<FxOperationButton operationName=":insert-lcSummary" />
+					<FxOperationButton operationName=":insert-lcObjectives" />
+					<FxOperationButton operationName=":insert-lcReview" />
+					<FxOperationButton operationName=":insert-lcNextSteps" />
+					<FxOperationButton operationName=":insert-lcResources" />
+				</MastheadToolbarButtons>
+			)}
+
+			{xpathQueryResultByName.learningPlan && (
+				<MastheadToolbarButtons>
+					<ButtonWithDrop
+						label="Project"
+						renderDrop={() => (
+							<Drop>
+								<Menu>
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcProject" />
+									</MenuGroup>
+
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcClient" />
+										<FxOperationMenuItem operationName=":insert-lcPlanTitle" />
+										<FxOperationMenuItem operationName=":insert-lcCIN" />
+										<FxOperationMenuItem operationName=":insert-lcModDate" />
+										<FxOperationMenuItem operationName=":insert-lcDelivDate" />
+										<FxOperationMenuItem operationName=":insert-lcPlanSubject" />
+										<FxOperationMenuItem operationName=":insert-lcPlanDescrip" />
+										<FxOperationMenuItem operationName=":insert-lcPlanPrereqs" />
+									</MenuGroup>
+								</Menu>
+							</Drop>
+						)}
+					/>
+					<ButtonWithDrop
+						label="Needs analysis"
+						renderDrop={renderNeedsAnalysisDrop}
+					/>
+					<ButtonWithDrop
+						label="Gap analysis"
+						renderDrop={() => (
+							<Drop>
+								<Menu>
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcGapAnalysis" />
+										<FxOperationMenuItem operationName=":insert-lcGapItem" />
+									</MenuGroup>
+
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcPlanObjective" />
+										<FxOperationMenuItem operationName=":insert-lcJtaItem" />
+										<FxOperationMenuItem operationName=":insert-lcGapItemDelta" />
+									</MenuGroup>
+								</Menu>
+							</Drop>
+						)}
+					/>
+					<ButtonWithDrop
+						label="Intervention"
+						renderDrop={() => (
+							<Drop>
+								<Menu>
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcIntervention" />
+										<FxOperationMenuItem operationName=":insert-lcInterventionItem" />
+									</MenuGroup>
+
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcLearnStrat" />
+										<FxOperationMenuItem operationName=":insert-lcPlanObjective" />
+										<FxOperationMenuItem operationName=":insert-lcAssessment" />
+										<FxOperationMenuItem operationName=":insert-lcDelivery" />
+									</MenuGroup>
+								</Menu>
+							</Drop>
+						)}
+					/>
+					<ButtonWithDrop
+						label="Technical"
+						renderDrop={() => (
+							<Drop>
+								<Menu>
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcTechnical" />
+									</MenuGroup>
+
+									<MenuGroup>
+										<FxOperationMenuItem operationName=":insert-lcLMS" />
+										<FxOperationMenuItem operationName=":insert-lcNoLMS" />
+										<FxOperationMenuItem operationName=":insert-lcHandouts" />
+										<FxOperationMenuItem operationName=":insert-lcClassroom" />
+										<FxOperationMenuItem operationName=":insert-lcOJT" />
+										<FxOperationMenuItem operationName=":insert-lcConstraints" />
+										<FxOperationMenuItem operationName=":insert-lcW3C" />
+										<FxOperationMenuItem operationName=":insert-lcPlayers" />
+										<FxOperationMenuItem operationName=":insert-lcGraphics" />
+										<FxOperationMenuItem operationName=":insert-lcViewers" />
+										<FxOperationMenuItem operationName=":insert-lcResolution" />
+										<FxOperationMenuItem operationName=":insert-lcFileSizeLimitations" />
+										<FxOperationMenuItem operationName=":insert-lcDownloadTime" />
+										<FxOperationMenuItem operationName=":insert-lcSecurity" />
+									</MenuGroup>
+								</Menu>
+							</Drop>
+						)}
+					/>
+				</MastheadToolbarButtons>
+			)}
+
+			<MastheadToolbarButtons>
+				<FxOperationButton operationName=":insert-lcInstructornote2" />
+			</MastheadToolbarButtons>
+
+			<MastheadToolbarButtons>
+				<FxOperationButton operationName="insert-{question}--from-operation-browser" />
+			</MastheadToolbarButtons>
+		</MastheadToolbar>
+	);
+};
 
 export default LearningTrainingToolbar;

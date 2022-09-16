@@ -59,8 +59,7 @@ const ToolsToolbar = () => (
 			<FxOperationButton
 				icon="align-right icon-flip-vertical"
 				label="Outline"
-				operationData={{ tabId: 'structure' }}
-				operationName="toggle-sidebar-tab"
+				operationName="toggle-structure-view"
 				tooltipContent="Document outline"
 			/>
 

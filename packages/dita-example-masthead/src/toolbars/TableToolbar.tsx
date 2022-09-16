@@ -10,6 +10,7 @@ import {
 import * as React from 'react';
 
 import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem';
+import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 
 const TableToolbar = () => (
@@ -46,6 +47,8 @@ const TableToolbar = () => (
 								]}
 							/>
 
+							<FxOperationMenuItem operationName="split-cell-into-rows" />
+
 							<FxMultiOperationsMenuItem
 								operations={[
 									{ operationName: 'row-delete' },
@@ -70,6 +73,9 @@ const TableToolbar = () => (
 						<Menu>
 							<FxOperationMenuItem operationName="column-insert" />
 							<FxOperationMenuItem operationName="column-after-insert" />
+
+							<FxOperationMenuItem operationName="split-cell-into-columns" />
+
 							<FxMultiOperationsMenuItem
 								operations={[
 									{ operationName: 'column-delete' },
@@ -83,27 +89,21 @@ const TableToolbar = () => (
 					</Drop>
 				)}
 			/>
+		</MastheadToolbarButtons>
 
+		<MastheadToolbarButtons>
+			<FxOperationButton operationName="merge-selected-cells" />
+		</MastheadToolbarButtons>
+
+		<MastheadToolbarButtons>
 			<ButtonWithDrop
-				label="Cell"
+				label="Split cells"
+				icon="split-cells"
 				renderDrop={() => (
 					<Drop>
 						<Menu>
-							<MenuGroup>
-								<FxOperationMenuItem operationName="split-cell-into-rows" />
-								<FxOperationMenuItem operationName="split-cell-into-columns" />
-							</MenuGroup>
-
-							<MenuGroup>
-								<FxOperationMenuItem operationName="merge-cell-right" />
-								<FxOperationMenuItem operationName="merge-cell-left" />
-								<FxOperationMenuItem operationName="merge-cell-above" />
-								<FxOperationMenuItem operationName="merge-cell-below" />
-							</MenuGroup>
-
-							<MenuGroup>
-								<FxOperationMenuItem operationName="split-cell-completely" />
-							</MenuGroup>
+							<FxOperationMenuItem operationName="split-cell-into-rows" />
+							<FxOperationMenuItem operationName="split-cell-into-columns" />
 						</Menu>
 					</Drop>
 				)}

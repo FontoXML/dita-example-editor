@@ -1,11 +1,12 @@
 import { Flex } from 'fds/components';
-import * as React from 'react';
+import React, { useMemo } from 'react';
 
 import FindAndReplaceDropButton from 'fontoxml-find-and-replace/src/FindAndReplaceDropButton';
-import FxBooleanXPathQueryByNameFromSelection from 'fontoxml-fx/src/FxBooleanXPathQueryByNameFromSelection';
 import FxEditorMasthead from 'fontoxml-fx/src/FxEditorMasthead';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxSaveButton from 'fontoxml-fx/src/FxSaveButton';
+import useXPath from 'fontoxml-fx/src/useXPath';
+import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
 import TableToolbar from 'fontoxml-table-flow/src/TableToolbar';
 
@@ -80,36 +81,85 @@ const tabs = (result) => [
 ];
 
 export default function DitaExampleMasthead() {
+	const matching = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcMatching2`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const multipleSelect = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcMultipleSelect2`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const openQuestion = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcOpenQuestion2`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const sequencing = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcSequencing2`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const singleSelect = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcSingleSelect2`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+	const trueFalse = useXPath(
+		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcTrueFalse2`,
+		null,
+		{
+			expectedResultType: ReturnTypes.BOOLEAN,
+		}
+	);
+
+	const xpathQueryResultByName = useMemo(
+		() => ({
+			matching,
+			multipleSelect,
+			openQuestion,
+			sequencing,
+			singleSelect,
+			trueFalse,
+		}),
+		[
+			matching,
+			multipleSelect,
+			openQuestion,
+			sequencing,
+			singleSelect,
+			trueFalse,
+		]
+	);
+
 	return (
-		<FxBooleanXPathQueryByNameFromSelection
-			xpathQueryByName={{
-				matching: xq`ancestor-or-self::lcMatching2`,
-				multipleSelect: xq`ancestor-or-self::lcMultipleSelect2`,
-				openQuestion: xq`ancestor-or-self::lcOpenQuestion2`,
-				sequencing: xq`ancestor-or-self::lcSequencing2`,
-				singleSelect: xq`ancestor-or-self::lcSingleSelect2`,
-				trueFalse: xq`ancestor-or-self::lcTrueFalse2`,
-			}}
-		>
-			{({ xpathQueryResultByName }) => (
-				<FxEditorMasthead
-					quickAccessButtons={
-						<Flex flexDirection="row" flex="none">
-							<FxOperationButton label="" operationName="undo" />
-							<FxOperationButton label="" operationName="redo" />
+		<FxEditorMasthead
+			quickAccessButtons={
+				<Flex flexDirection="row" flex="none">
+					<FxOperationButton label="" operationName="undo" />
+					<FxOperationButton label="" operationName="redo" />
 
-							<FxOperationButton
-								label=""
-								operationName="convert-range-to-plain-text"
-							/>
+					<FxOperationButton
+						label=""
+						operationName="convert-range-to-plain-text"
+					/>
 
-							<FxSaveButton />
-						</Flex>
-					}
-					mastheadAlignRightContent={<FindAndReplaceDropButton />}
-					tabs={tabs(xpathQueryResultByName)}
-				/>
-			)}
-		</FxBooleanXPathQueryByNameFromSelection>
+					<FxSaveButton />
+				</Flex>
+			}
+			mastheadAlignRightContent={<FindAndReplaceDropButton />}
+			tabs={tabs(xpathQueryResultByName)}
+		/>
 	);
 }
