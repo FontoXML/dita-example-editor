@@ -2,6 +2,7 @@ import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved';
 import configureAsSheetFrame from 'fontoxml-families/src/configureAsSheetFrame';
 import configureAsStructure from 'fontoxml-families/src/configureAsStructure';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame';
+import configureProperties from 'fontoxml-families/src/configureProperties';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
@@ -28,6 +29,15 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     into the container map at the position of the reference, and the relationship tables of the child
 	//     map are added to the parent map.
 	configureAsRemoved(sxModule, xq`self::mapref`, t('mapref'));
+
+	// Override hierarchy config as maprefs don't need the format attribute and always refer to DITA maps
+	configureProperties(sxModule, xq`self::mapref`, {
+		// This needs priority as the fonto:dita-class selectors in dita-example-sx-hierarchy are
+		// considered to be more specific than self::mapref and would otherwise take precedence.
+		priority: 10,
+		// Combine children of the topicref with the hierarchy children of the target map
+		hierarchyChildNodesQuery: xq`(child::*[fonto:dita-class(., "map/topicref")], fonto:document(@href)/*/fonto:hierarchy-child-nodes(.))`,
+	});
 
 	// topichead
 	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
