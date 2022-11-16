@@ -492,7 +492,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     with a title, short description and body. Category: Task elements
 	configureAsSheetFrame(sxModule, xq`self::task`, t('task'), {
 		defaultTextContainer: 'taskbody',
-		titleQuery: xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+		titleQuery: xq`fonto:curated-text-in-node(./title)`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockFooter: [
 			createRelatedNodesQueryWidget(xq`./related-links`),

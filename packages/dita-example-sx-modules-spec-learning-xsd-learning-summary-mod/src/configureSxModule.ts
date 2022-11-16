@@ -20,7 +20,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		t('learning summary'),
 		{
 			defaultTextContainer: 'learningSummarybody',
-			titleQuery: xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+			titleQuery: xq`fonto:curated-text-in-node(./title)`,
 			blockFooter: [
 				createRelatedNodesQueryWidget(xq`./related-links`),
 				createRelatedNodesQueryWidget(

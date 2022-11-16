@@ -12,7 +12,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     The <glossgroup> element may be used to contain multiple <glossentry> topics within a single
 	//     collection.
 	configureAsSheetFrame(sxModule, xq`self::glossgroup`, t('glossary'), {
-		titleQuery: xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+		titleQuery: xq`fonto:curated-text-in-node(./title)`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(
 				xq`descendant::fn[not(@conref) and fonto:in-inline-layout(.)]`

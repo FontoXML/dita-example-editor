@@ -20,7 +20,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		t('learning overview'),
 		{
 			defaultTextContainer: 'learningOverviewbody',
-			titleQuery: xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+			titleQuery: xq`fonto:curated-text-in-node(./title)`,
 			blockFooter: [
 				createRelatedNodesQueryWidget(xq`./related-links`),
 				createRelatedNodesQueryWidget(
@@ -38,7 +38,7 @@ export default function configureSxModule(sxModule: SxModule) {
 		undefined,
 		{
 			defaultTextContainer: 'learningOverviewbody',
-			titleQuery: xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+			titleQuery: xq`fonto:curated-text-in-node(./title)`,
 			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
