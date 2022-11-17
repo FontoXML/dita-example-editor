@@ -298,7 +298,7 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     <glossary>. Category: Topic elements
 	configureAsSheetFrame(sxModule, xq`self::topic`, t('topic'), {
 		defaultTextContainer: 'body',
-		titleQuery: xq`./title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+		titleQuery: xq`fonto:curated-text-in-node(./title)`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(
