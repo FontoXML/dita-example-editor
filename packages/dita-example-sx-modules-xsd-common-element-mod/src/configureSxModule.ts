@@ -369,10 +369,6 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     lists, while bullets and dashes are usually output with list items in unordered lists. Category:
 	//     Body elements
 	configureProperties(sxModule, xq`self::li`, {
-		contextualOperations: [
-			{ name: ':contextual-insert-li--above' },
-			{ name: ':contextual-insert-li--below' },
-		],
 		markupLabel: t('item'),
 	});
 
@@ -629,10 +625,6 @@ export default function configureSxModule(sxModule: SxModule) {
 	//     a number (as in an ordered list) or bullet (as in an unordered list). Category: Body elements
 	configureMarkupLabel(sxModule, xq`self::sl`, t('simple list'));
 	configureProperties(sxModule, xq`self::sli`, {
-		contextualOperations: [
-			{ name: ':contextual-insert-sli--above' },
-			{ name: ':contextual-insert-sli--below' },
-		],
 		markupLabel: t('item'),
 	});
 
