@@ -24,19 +24,11 @@ import xq from 'fontoxml-selectors/src/xq';
  * intended interpretation of specific elements.
  */
 export default function configureSxModule(sxModule: SxModule): void {
-	// Any root-level document has a hierarchy node for its root element
-	configureProperties(sxModule, xq`self::document-node()`, {
-		hierarchyChildNodesQuery: xq`child::*`,
-		hierarchyContentQuery: null,
-	});
-
 	// Configure map and its specializations
 
 	configureProperties(sxModule, xq`self::*[fonto:dita-class(., "map/map")]`, {
 		// maps have topicrefs and any of its specializations as children
 		hierarchyChildNodesQuery: xq`child::*[fonto:dita-class(., "map/topicref")]`,
-		// maps show a sheetframe for themselves
-		hierarchyContentQuery: xq`.`,
 	});
 
 	// Configure topicref and its specializations
@@ -49,12 +41,14 @@ export default function configureSxModule(sxModule: SxModule): void {
 			hierarchyChildNodesQuery: xq`child::*[fonto:dita-class(., "map/topicref")]`,
 		}
 	);
-	// Each topicref with an href points at a content document
+	// Each topicref with an href points at a content document. We'll use the document element for
+	// consistency and to provide a useful `contextNodeId` on operations triggered from the
+	// hierarchy node's Outline item.
 	configureProperties(
 		sxModule,
 		xq`self::*[fonto:dita-class(., "map/topicref") and @href]`,
 		{
-			hierarchyContentQuery: xq`fonto:document(@href)`,
+			hierarchyContentQuery: xq`fonto:document(@href)/*`,
 		}
 	);
 	// Each topicref without an href represents itself (e.g., topichead / topicgroup)
