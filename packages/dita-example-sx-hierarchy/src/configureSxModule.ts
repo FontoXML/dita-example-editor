@@ -69,4 +69,13 @@ export default function configureSxModule(sxModule: SxModule): void {
 			hierarchyChildNodesQuery: xq`(child::*[fonto:dita-class(., "map/topicref")], fonto:document(@href)/*/fonto:hierarchy-child-nodes(.))`,
 		}
 	);
+
+	// Maprefs don't need the format attribute and always refer to DITA maps
+	configureProperties(sxModule, xq`self::mapref`, {
+		// This needs priority as the fonto:dita-class selectors in the rules above are considered
+		// to be more specific than self::mapref and would otherwise take precedence.
+		priority: 10,
+		// Combine children of the topicref with the hierarchy children of the target map
+		hierarchyChildNodesQuery: xq`(child::*[fonto:dita-class(., "map/topicref")], fonto:document(@href)/*/fonto:hierarchy-child-nodes(.))`,
+	});
 }
