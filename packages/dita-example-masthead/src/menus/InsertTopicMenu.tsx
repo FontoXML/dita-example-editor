@@ -7,12 +7,14 @@ import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
 import documentsHierarchy from 'fontoxml-documents/src/documentsHierarchy';
 import documentsManager from 'fontoxml-documents/src/documentsManager';
 import getNodeId from 'fontoxml-dom-identification/src/getNodeId';
+import type { FontoNode } from 'fontoxml-dom-utils/src/types';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import useXPath from 'fontoxml-fx/src/useXPath';
 import t from 'fontoxml-localization/src/t';
 import selectionManager from 'fontoxml-selection/src/selectionManager';
 import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolean';
 import evaluateXPathToString from 'fontoxml-selectors/src/evaluateXPathToString';
+import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
 
 function uppercaseFirstLetter(input: string) {
@@ -168,7 +170,11 @@ function createTopicSubMenu(refNodeId) {
 }
 
 const InsertTopicMenu = () => {
-	const selectionNode = useXPath(xq`fonto:selection-common-ancestor()`);
+	const selectionNode = useXPath(
+		xq`fonto:selection-common-ancestor()`,
+		null,
+		{ expectedResultType: ReturnTypes.FIRST_NODE }
+	);
 	const [refNodeId, setRefNodeId] = useState(null);
 	const [refElementName, setRefElementName] = useState('');
 	const [isContainerOrPlaceholder, setIsContainerOrPlaceholder] =
