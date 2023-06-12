@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcSummary": {
 		"label": "t__Remove summary",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

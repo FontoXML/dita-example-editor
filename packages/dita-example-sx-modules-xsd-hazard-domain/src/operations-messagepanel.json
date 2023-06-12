@@ -1,7 +1,7 @@
 {
 	":contextual-delete-messagepanel": {
 		"label": "t__Remove message panel",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

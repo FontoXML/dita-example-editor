@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcResources": {
 		"label": "t__Remove resources",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

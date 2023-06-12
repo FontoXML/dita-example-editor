@@ -1,7 +1,7 @@
 {
 	":contextual-delete-equation-figure": {
 		"label": "t__Remove figure",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

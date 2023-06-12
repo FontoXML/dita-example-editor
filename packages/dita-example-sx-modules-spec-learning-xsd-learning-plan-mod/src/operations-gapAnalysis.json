@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcGapAnalysis": {
 		"label": "t__Remove gap analysis",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -46,7 +46,7 @@
 	},
 	":contextual-delete-lcGapItem": {
 		"label": "t__Remove gap item",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

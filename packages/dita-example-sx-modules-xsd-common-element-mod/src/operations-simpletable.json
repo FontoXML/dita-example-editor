@@ -1,7 +1,7 @@
 {
 	":contextual-delete-simpletable": {
 		"label": "t__Remove simple table",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/table-contextual-delete"
 		}

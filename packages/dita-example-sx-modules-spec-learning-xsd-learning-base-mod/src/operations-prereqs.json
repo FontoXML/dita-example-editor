@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcPrereqs": {
 		"label": "t__Remove prerequisites",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

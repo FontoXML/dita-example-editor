@@ -1,14 +1,14 @@
 {
 	":contextual-delete-step": {
 		"label": "t__Remove step",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-substep": {
 		"label": "t__Remove substep",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

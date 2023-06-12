@@ -1,7 +1,7 @@
 {
 	":contextual-delete-refsyn": {
 		"label": "t__Remove reference syntax",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

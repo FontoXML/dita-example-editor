@@ -1,14 +1,14 @@
 {
 	":contextual-delete-glossAlt": {
 		"label": "t__Remove variation",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-glossentry": {
 		"label": "t__Remove term",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

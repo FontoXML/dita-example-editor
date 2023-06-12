@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcIntro": {
 		"label": "t__Remove intro",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

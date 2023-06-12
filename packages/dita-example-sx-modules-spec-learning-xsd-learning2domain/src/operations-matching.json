@@ -1,14 +1,14 @@
 {
 	":contextual-delete-lcMatchingHeader2": {
 		"label": "t__Remove header",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-lcMatchingPair2": {
 		"label": "t__Remove pair",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

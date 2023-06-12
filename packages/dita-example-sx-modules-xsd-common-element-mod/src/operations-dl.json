@@ -1,21 +1,21 @@
 {
 	":contextual-delete-dl": {
 		"label": "t__Remove definition table",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-dlentry": {
 		"label": "t__Remove row",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-dlhead": {
 		"label": "t__Remove header row",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -57,7 +57,7 @@
 	":delete-dlentry-dlhead": {
 		"label": "t__Remove row",
 		"description": "t__Remove this row from the definition table.",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
@@ -73,7 +73,7 @@
 	":delete-dlhead": {
 		"label": "t__Remove header row",
 		"description": "t__Remove the header from the definition table.",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",

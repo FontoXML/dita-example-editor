@@ -1,14 +1,14 @@
 {
 	":contextual-delete-parml": {
 		"label": "t__Remove parameter table",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-plentry": {
 		"label": "t__Remove row",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -50,7 +50,7 @@
 	":delete-plentry": {
 		"label": "t__Remove row",
 		"description": "t__Remove this row from the parameter table.",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",

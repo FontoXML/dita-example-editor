@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcInstruction": {
 		"label": "t__Remove instruction",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

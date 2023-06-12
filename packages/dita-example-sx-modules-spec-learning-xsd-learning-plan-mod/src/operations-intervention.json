@@ -65,7 +65,7 @@
 	},
 	":contextual-delete-lcIntervention": {
 		"label": "t__Remove intervention",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -110,7 +110,7 @@
 	},
 	":contextual-delete-lcInterventionItem": {
 		"label": "t__Remove intervention item",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

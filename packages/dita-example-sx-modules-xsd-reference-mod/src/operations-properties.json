@@ -1,28 +1,28 @@
 {
 	":contextual-delete-properties": {
 		"label": "t__Remove property table",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-properties-column": {
 		"label": "t__Remove column",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "custom-mutation/remove-properties-column"
 		}
 	},
 	":contextual-delete-property": {
 		"label": "t__Remove row",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-prophead": {
 		"label": "t__Remove header row",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -80,7 +80,7 @@
 	":delete-properties-column": {
 		"label": "t__Remove column",
 		"description": "t__Remove the current column from the property table",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
@@ -96,7 +96,7 @@
 	":delete-property-prophead": {
 		"label": "t__Remove row",
 		"description": "t__Remove this row from the property table.",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
@@ -112,7 +112,7 @@
 	":delete-prophead": {
 		"label": "t__Remove header row",
 		"description": "t__Remove the header from the property table.",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",

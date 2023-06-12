@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcDuration": {
 		"label": "t__Remove duration",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

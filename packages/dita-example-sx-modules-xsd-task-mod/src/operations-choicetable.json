@@ -1,21 +1,21 @@
 {
 	":contextual-delete-chhead": {
 		"label": "t__Remove header row",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-choicetable": {
 		"label": "t__Remove choice table",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-chrow": {
 		"label": "t__Remove row",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -57,7 +57,7 @@
 	":delete-chhead": {
 		"label": "t__Remove header row",
 		"description": "t__Remove the header from the choice table.",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
@@ -76,7 +76,7 @@
 	":delete-chrow-chhead": {
 		"label": "t__Remove row",
 		"description": "t__Remove this row from the choice table.",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",

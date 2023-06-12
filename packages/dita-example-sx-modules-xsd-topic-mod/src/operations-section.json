@@ -1,7 +1,7 @@
 {
 	":contextual-delete-section": {
 		"label": "t__Remove section",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

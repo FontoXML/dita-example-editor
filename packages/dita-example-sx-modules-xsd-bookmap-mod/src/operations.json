@@ -232,7 +232,7 @@
 
 	":contextual-delete-bookmap-container-element": {
 		"label": "t__Remove",
-		"icon": "times",
+		"icon": "trash-can",
 		"initialData": {
 			"warningModalBody": "t__Are you sure you want to remove this container? This will also remove descendant documents if there are any.",
 			"warningModalConfirmButtonLabel": "t__Remove",
@@ -247,7 +247,7 @@
 	},
 	":contextual-delete-bookmap-placeholder-element": {
 		"label": "t__Remove",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

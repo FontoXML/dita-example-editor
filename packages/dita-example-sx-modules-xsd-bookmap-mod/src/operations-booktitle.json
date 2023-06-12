@@ -98,14 +98,14 @@
 	},
 	":contextual-delete-booklibrary": {
 		"label": "t__Remove book library",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-booktitlealt": {
 		"label": "t__Remove alternative title",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

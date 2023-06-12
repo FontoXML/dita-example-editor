@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcNextSteps": {
 		"label": "t__Remove next steps",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

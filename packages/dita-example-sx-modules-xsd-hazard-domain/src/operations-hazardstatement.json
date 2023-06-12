@@ -1,7 +1,7 @@
 {
 	":contextual-delete-hazardstatement": {
 		"label": "t__Remove hazard statement",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

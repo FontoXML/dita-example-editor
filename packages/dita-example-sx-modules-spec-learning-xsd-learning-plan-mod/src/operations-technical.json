@@ -1,7 +1,7 @@
 {
 	":contextual-delete-lcClassroom": {
 		"label": "t__Remove classroom",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -35,7 +35,7 @@
 	},
 	":contextual-delete-lcConstraints": {
 		"label": "t__Remove constraints",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -69,7 +69,7 @@
 	},
 	":contextual-delete-lcDownloadTime": {
 		"label": "t__Remove download time",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -103,7 +103,7 @@
 	},
 	":contextual-delete-lcFileSizeLimitations": {
 		"label": "t__Remove file size limitations",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -137,7 +137,7 @@
 	},
 	":contextual-delete-lcGraphics": {
 		"label": "t__Remove graphics",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -171,7 +171,7 @@
 	},
 	":contextual-delete-lcHandouts": {
 		"label": "t__Remove handouts",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -205,7 +205,7 @@
 	},
 	":contextual-delete-lcLMS": {
 		"label": "t__Remove LMS",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -239,7 +239,7 @@
 	},
 	":contextual-delete-lcNoLMS": {
 		"label": "t__Remove no LMS",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -273,7 +273,7 @@
 	},
 	":contextual-delete-lcOJT": {
 		"label": "t__Remove on-the-job-training",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -307,7 +307,7 @@
 	},
 	":contextual-delete-lcPlayers": {
 		"label": "t__Remove players",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -341,7 +341,7 @@
 	},
 	":contextual-delete-lcResolution": {
 		"label": "t__Remove resolution",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -375,7 +375,7 @@
 	},
 	":contextual-delete-lcSecurity": {
 		"label": "t__Remove security",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -409,7 +409,7 @@
 	},
 	":contextual-delete-lcTechnical": {
 		"label": "t__Remove technical",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -452,7 +452,7 @@
 	},
 	":contextual-delete-lcViewers": {
 		"label": "t__Remove viewers",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
@@ -486,7 +486,7 @@
 	},
 	":contextual-delete-lcW3C": {
 		"label": "t__Remove W3C",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

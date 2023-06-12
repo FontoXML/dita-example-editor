@@ -2,14 +2,14 @@
 
 	":contextual-delete-lcArea2": {
 		"label": "t__Remove area",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
 	},
 	":contextual-delete-question": {
 		"label": "t__Remove question",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}

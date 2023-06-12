@@ -1,7 +1,7 @@
 {
 	":contextual-delete-example": {
 		"label": "t__Remove example",
-		"icon": "times",
+		"icon": "trash-can",
 		"steps": {
 			"type": "operation/delete-node"
 		}
