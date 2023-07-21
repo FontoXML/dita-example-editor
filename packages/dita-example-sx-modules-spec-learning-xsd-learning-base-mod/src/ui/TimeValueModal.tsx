@@ -8,7 +8,6 @@ import {
 	ModalHeader,
 	TextInput,
 } from 'fds/components';
-import { func, shape, string } from 'prop-types';
 import { Component } from 'react';
 import * as React from 'react';
 
@@ -20,15 +19,6 @@ class TimeValueModal extends Component<{
 	};
 	submitModal({ timeValue: string }): void;
 }> {
-	public static propTypes = {
-		cancelModal: func.isRequired,
-		data: shape({
-			modalPrimaryButtonLabel: string,
-			timeValue: string,
-		}),
-		submitModal: func.isRequired,
-	};
-
 	private textInputRef = null;
 
 	public state = {
