@@ -39,7 +39,7 @@ const StartToolbar: FC = () => {
 			</MastheadToolbarButtons>
 
 			<MastheadToolbarButtons>
-				<FxOperationButton operationName="default-special-character-insert" />
+				<FxOperationButton operationName="open-default-special-character-dialog" />
 			</MastheadToolbarButtons>
 		</MastheadToolbar>
 	);
