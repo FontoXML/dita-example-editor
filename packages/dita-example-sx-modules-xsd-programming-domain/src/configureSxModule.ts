@@ -12,7 +12,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// apiname
 	//     The <apiname> element provides the name of an application programming interface (API) such as a Java
 	//     class name or method name. This element is part of the DITA programming domain, a special set of

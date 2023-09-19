@@ -8,7 +8,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// menucascade
 	//     The <menucascade> element is used to document a series of menu choices. The <menucascade> element
 	//     contains one or more user interface control (<uicontrol>) elements, for example: Start > Programs >

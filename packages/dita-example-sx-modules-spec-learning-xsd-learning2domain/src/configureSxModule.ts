@@ -11,7 +11,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// lcAnswerContent2
 	//     The <lcAnswerContent2> element in a learning assessment interaction provides the content for an
 	//     answer option, which the learner can select as correct or incorrect.

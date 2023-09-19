@@ -10,7 +10,7 @@ import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidg
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// Mark this configureSxModule.js file as an addon entry file, so that we don't have to explicitly depend on
 	// this package from an *-sx-shell. The best practice is to always depend on the specific *-sx-module packages
 	// from your own shell.

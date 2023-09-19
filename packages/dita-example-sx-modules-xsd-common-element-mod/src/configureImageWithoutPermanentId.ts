@@ -5,7 +5,9 @@ import xq from 'fontoxml-selectors/src/xq';
 
 // This file removes the permanentId which is the other way around then for cross reference,
 // for compatability reasons.
-export default function configureImageWithoutPermanentId(sxModule: SxModule) {
+export default function configureImageWithoutPermanentId(
+	sxModule: SxModule
+): void {
 	// To disable permanentId's in images (also known as the reference pipeline), set
 	// isPermanentId to false.
 

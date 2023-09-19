@@ -3,6 +3,7 @@ import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
 import documentsManager from 'fontoxml-documents/src/documentsManager';
 import getNodeId from 'fontoxml-dom-identification/src/getNodeId';
 import addTransform from 'fontoxml-operations/src/addTransform';
+import type { OperationStepData } from 'fontoxml-operations/src/types';
 import selectionManager from 'fontoxml-selection/src/selectionManager';
 import evaluateXPathToFirstNode from 'fontoxml-selectors/src/evaluateXPathToFirstNode';
 import evaluateXPathToStrings from 'fontoxml-selectors/src/evaluateXPathToStrings';
@@ -11,7 +12,7 @@ import xq from 'fontoxml-selectors/src/xq';
 import insertNodeAndRemoveFromSiblings from './api/insertNodeAndRemoveFromSiblingsCustomMutation';
 import replaceNodesWithMappedStructure from './api/replaceNodesWithMappedStructureCustomMutation';
 
-export default function install() {
+export default function install(): void {
 	addCustomMutation(
 		'insert-node-and-remove-from-siblings',
 		insertNodeAndRemoveFromSiblings
@@ -21,36 +22,39 @@ export default function install() {
 		replaceNodesWithMappedStructure
 	);
 
-	addTransform('setSequenceValue', function setSequenceValue(stepData) {
-		const contextNode = documentsManager.getNodeById(
-			stepData.contextNodeId
-		);
-		if (!contextNode || !stepData.sequenceValueXPathQuery) {
-			if (!stepData.operationState) {
-				stepData.operationState = {};
+	addTransform(
+		'setSequenceValue',
+		function setSequenceValue(stepData: OperationStepData) {
+			const contextNode = documentsManager.getNodeById(
+				stepData.contextNodeId
+			);
+			if (!contextNode || !stepData.sequenceValueXPathQuery) {
+				if (!stepData.operationState) {
+					stepData.operationState = {};
+				}
+				stepData.operationState.enabled = false;
+				return stepData;
 			}
-			stepData.operationState.enabled = false;
-			return stepData;
-		}
 
-		const sequenceValues = evaluateXPathToStrings(
-			stepData.sequenceValueXPathQuery,
-			contextNode,
-			readOnlyBlueprint
-		);
-		stepData.value = String(sequenceValues.length + 1);
+			const sequenceValues = evaluateXPathToStrings(
+				stepData.sequenceValueXPathQuery,
+				contextNode,
+				readOnlyBlueprint
+			);
+			stepData.value = String(sequenceValues.length + 1);
 
-		if (sequenceValues.length > 0) {
-			for (let i = 1; i <= sequenceValues.length; i++) {
-				if (!sequenceValues.includes(String(i))) {
-					stepData.value = String(i);
-					break;
+			if (sequenceValues.length > 0) {
+				for (let i = 1; i <= sequenceValues.length; i++) {
+					if (!sequenceValues.includes(String(i))) {
+						stepData.value = String(i);
+						break;
+					}
 				}
 			}
-		}
 
-		return stepData;
-	});
+			return stepData;
+		}
+	);
 
 	addTransform(
 		'disableOperationIfContextNode',

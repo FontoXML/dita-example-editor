@@ -3,6 +3,6 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	configureMarkupLabel(sxModule, xq`self::task`, t('general task'));
 }

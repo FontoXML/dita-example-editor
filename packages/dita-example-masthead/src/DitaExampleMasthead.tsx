@@ -1,6 +1,7 @@
-import { Flex } from 'fds/components';
-import React, { useMemo } from 'react';
+import type { FC } from 'react';
+import { useMemo } from 'react';
 
+import { Flex } from 'fontoxml-design-system/src/components';
 import FindAndReplaceDropButton from 'fontoxml-find-and-replace/src/FindAndReplaceDropButton';
 import FxEditorMasthead from 'fontoxml-fx/src/FxEditorMasthead';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
@@ -80,7 +81,7 @@ const tabs = (result) => [
 	{ id: 'tools', label: 'Tools', content: <ToolsToolbar /> },
 ];
 
-export default function DitaExampleMasthead() {
+const DitaExampleMasthead: FC = () => {
 	const matching = useXPath(
 		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcMatching2`,
 		null,
@@ -162,4 +163,6 @@ export default function DitaExampleMasthead() {
 			tabs={tabs(xpathQueryResultByName)}
 		/>
 	);
-}
+};
+
+export default DitaExampleMasthead;

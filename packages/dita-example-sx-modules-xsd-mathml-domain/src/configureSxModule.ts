@@ -6,7 +6,7 @@ import configureAsMathMlContainer from 'fontoxml-mathml/src/configureAsMathMlCon
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// mathml
 	//     The MathML container (<mathml>) element contains inline MathML markup or references to MathML
 	//     elements stored in a separate non-DITA XML document. The purpose of this element is simply to

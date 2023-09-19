@@ -1,4 +1,4 @@
-import { ListStyles } from 'fontoxml-list-flow/src/configureAsListElements';
+import configureAsSimpletableTableElements from 'fontoxml-dita/src/configureAsSimpletableTableElements';
 import configureAsBlock from 'fontoxml-families/src/configureAsBlock';
 import configureAsDefinitionsTableRow from 'fontoxml-families/src/configureAsDefinitionsTableRow';
 import configureAsFrame from 'fontoxml-families/src/configureAsFrame';
@@ -11,9 +11,7 @@ import configureAsInlineImageInFrame from 'fontoxml-families/src/configureAsInli
 import configureAsInlineLink from 'fontoxml-families/src/configureAsInlineLink';
 import configureAsInlineObject from 'fontoxml-families/src/configureAsInlineObject';
 import configureAsInlineStructure from 'fontoxml-families/src/configureAsInlineStructure';
-import configureAsListElements from 'fontoxml-list-flow/src/configureAsListElements';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved';
-import configureAsSimpletableTableElements from 'fontoxml-dita/src/configureAsSimpletableTableElements';
 import configureAsStructure from 'fontoxml-families/src/configureAsStructure';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame';
 import configureContextualOperations from 'fontoxml-families/src/configureContextualOperations';
@@ -21,11 +19,14 @@ import configureMarkupLabel from 'fontoxml-families/src/configureMarkupLabel';
 import configureProperties from 'fontoxml-families/src/configureProperties';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
+import configureAsListElements, {
+	ListStyles,
+} from 'fontoxml-list-flow/src/configureAsListElements';
 import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// alt
 	//     The alt element provides alternate text for an image. It is equivalent to the alt attribute on the
 	//     image element; the attribute is deprecated, so the alt element should be used instead. As an

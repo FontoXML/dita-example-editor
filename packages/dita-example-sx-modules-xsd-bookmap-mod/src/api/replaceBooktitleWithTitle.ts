@@ -1,14 +1,25 @@
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult';
 import { convertElement } from 'fontoxml-base-flow/src/primitives';
+import type Blueprint from 'fontoxml-blueprints/src/Blueprint';
 import { unsafeCollapseElement } from 'fontoxml-blueprints/src/blueprintMutations';
 import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery';
+import type BlueprintSelection from 'fontoxml-blueprints/src/BlueprintSelection';
 import type { FontoElementNode } from 'fontoxml-dom-utils/src/types';
+import type { OperationStepData } from 'fontoxml-operations/src/types';
+import type { Format } from 'fontoxml-schema-experience/src/format';
 import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolean';
 import evaluateXPathToFirstNode from 'fontoxml-selectors/src/evaluateXPathToFirstNode';
 import xq from 'fontoxml-selectors/src/xq';
 
-const replaceBooktitleWithTitle = (argument, blueprint, format, _selection) => {
-	const booktitleNode = blueprint.lookup(argument.contextNodeId);
+const replaceBooktitleWithTitle = (
+	stepData: OperationStepData & {
+		contextNodeId: string;
+	},
+	blueprint: Blueprint,
+	format: Format,
+	_selection: BlueprintSelection
+): CustomMutationResult => {
+	const booktitleNode = blueprint.lookup(stepData.contextNodeId);
 
 	if (
 		!booktitleNode ||

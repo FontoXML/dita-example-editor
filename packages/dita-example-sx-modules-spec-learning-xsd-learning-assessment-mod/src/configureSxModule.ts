@@ -9,7 +9,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// learningAssessment
 	//     A Learning Assessment presents questions or interactions that measure progress, encourage
 	//     recollection, and stimulate reinforcement of the learning content, and can be presented before the

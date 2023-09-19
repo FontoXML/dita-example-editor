@@ -3,7 +3,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// b
 	//     The bold (<b>) element is used to apply bold highlighting to the content of the element. Use this
 	//     element only when there is not some other more proper element. For example, for specific items such

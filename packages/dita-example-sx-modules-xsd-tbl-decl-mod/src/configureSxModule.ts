@@ -6,7 +6,7 @@ import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager'
 import xq from 'fontoxml-selectors/src/xq';
 import configureAsCalsTableElements from 'fontoxml-table-flow-cals/src/configureAsCalsTableElements';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// CALS table
 	configureAsCalsTableElements(sxModule, {
 		table: {

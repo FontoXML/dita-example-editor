@@ -1,5 +1,7 @@
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult';
+import type Blueprint from 'fontoxml-blueprints/src/Blueprint';
 import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery';
+import type { OperationStepData } from 'fontoxml-operations/src/types';
 import evaluateXPathToFirstNode from 'fontoxml-selectors/src/evaluateXPathToFirstNode';
 import evaluateXPathToNodes from 'fontoxml-selectors/src/evaluateXPathToNodes';
 import xq from 'fontoxml-selectors/src/xq';
@@ -11,21 +13,28 @@ import xq from 'fontoxml-selectors/src/xq';
  * @param {string | XQExpression} referenceNodeQuery   An XPath Query or XQExpression to find a node
  * 										               which should become the next sibling of the new node.
  */
-export default function insertNodeAndRemoveFromSiblings(argument, blueprint) {
-	const contextNode = blueprint.lookup(argument.contextNodeId);
+export default function insertNodeAndRemoveFromSiblings(
+	stepData: OperationStepData & {
+		contextNodeId: string;
+		nodeName: string;
+		referenceNodeQuery: string;
+	},
+	blueprint: Blueprint
+): CustomMutationResult {
+	const contextNode = blueprint.lookup(stepData.contextNodeId);
 	if (
 		!contextNode ||
-		!argument.nodeName ||
+		!stepData.nodeName ||
 		!blueprintQuery.isInDocument(blueprint, contextNode)
 	) {
 		return CustomMutationResult.notAllowed();
 	}
 
 	const documentNode = blueprintQuery.getDocumentNode(blueprint, contextNode);
-	const newNode = documentNode.createElement(argument.nodeName);
-	const referenceNode = argument.referenceNodeQuery
+	const newNode = documentNode.createElement(stepData.nodeName);
+	const referenceNode = stepData.referenceNodeQuery
 		? evaluateXPathToFirstNode(
-				argument.referenceNodeQuery,
+				stepData.referenceNodeQuery,
 				contextNode,
 				blueprint
 		  )
@@ -43,7 +52,7 @@ export default function insertNodeAndRemoveFromSiblings(argument, blueprint) {
 		)
 		.forEach(function (siblingNode) {
 			const removeNode = evaluateXPathToFirstNode(
-				xq`child::*[name() = ${argument.nodeName}]`,
+				xq`child::*[name() = ${stepData.nodeName}]`,
 				siblingNode,
 				blueprint
 			);

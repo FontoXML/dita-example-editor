@@ -6,7 +6,7 @@ import type { DocumentId } from 'fontoxml-documents/src/types';
 import type { FontoDocumentNode } from 'fontoxml-dom-utils/src/types';
 import addAction, { CANCEL_OPERATION } from 'fontoxml-operations/src/addAction';
 import addTransform from 'fontoxml-operations/src/addTransform';
-import type { StepData } from 'fontoxml-operations/src/types';
+import type { OperationStepData } from 'fontoxml-operations/src/types';
 import documentLoader from 'fontoxml-remote-documents/src/documentLoader';
 import type { RemoteDocumentId } from 'fontoxml-remote-documents/src/types';
 import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolean';
@@ -17,7 +17,7 @@ import replaceTitleWithBooktitle from './api/replaceTitleWithBooktitle';
 import wrapAppendixElementsInAppendices from './api/wrapAppendixElementsInAppendices';
 
 async function isDocumentAMapPromise(
-	stepData: StepData &
+	stepData: OperationStepData &
 		(
 			| { documentId: DocumentId }
 			| { remoteDocumentId: RemoteDocumentId }
@@ -54,7 +54,7 @@ async function isDocumentAMapPromise(
 	return false;
 }
 
-export default function install() {
+export default function install(): void {
 	addCustomMutation(
 		'replace-title-with-booktitle',
 		replaceTitleWithBooktitle

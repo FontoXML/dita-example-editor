@@ -9,7 +9,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// learningSummary
 	//     A Learning Summary recaps and provides context for the achievement or accomplishment of learning
 	//     objectives, provides guidance to reinforce learning and long-term memory, and may pose questions to

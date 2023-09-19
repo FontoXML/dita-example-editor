@@ -2,7 +2,7 @@ import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager'
 import pivotModelTransformerManager from 'fontoxml-pivot-model/src/pivotModelTransformerManager';
 import PivotNodeTypes from 'fontoxml-pivot-model/src/PivotNodeTypes';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// This is the configuration for transforming clipboard data, for example from MS Word or your browser, into
 	// the logical default DITA structure.
 	//
@@ -13,7 +13,7 @@ export default function configureSxModule(sxModule: SxModule) {
 			figureQualifiedName: 'table',
 			qualifiedName: 'tgroup',
 			isTable: true,
-			cellQualifiedName: 'entry'
+			cellQualifiedName: 'entry',
 		},
 
 		{

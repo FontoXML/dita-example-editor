@@ -38,7 +38,7 @@ function formatContextualOperationListWithGroups(list) {
 	}));
 }
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	sxModule.markAsAddon();
 
 	// Configure DITA elements that extend the map/topicref/topic classes to show up in

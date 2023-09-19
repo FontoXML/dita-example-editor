@@ -15,7 +15,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// abstract
 	//     The abstract element occurs between the topic title and the topic body, as the initial content of a
 	//     topic. It can contain paragraph-level content as well as one or more shortdesc elements which can be

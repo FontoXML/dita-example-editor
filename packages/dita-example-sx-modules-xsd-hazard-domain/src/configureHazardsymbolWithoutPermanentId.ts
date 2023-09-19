@@ -6,7 +6,7 @@ import xq from 'fontoxml-selectors/src/xq';
 // for compatability reasons.
 export default function configureHazardSymbolWithoutPermanentId(
 	sxModule: SxModule
-) {
+): void {
 	// To disable permanentId's in hazard symbols (also known as the reference pipeline), set
 	// isPermanentId to false.
 

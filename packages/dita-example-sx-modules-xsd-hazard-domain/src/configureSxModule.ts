@@ -9,7 +9,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// consequence
 	//     The <consequence> element is the container for the second text entry of a safety label. It contains
 	//     the description of the consequences of not avoiding the hazard, such as "Keep guard in place".

@@ -1,5 +1,9 @@
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult';
+import type Blueprint from 'fontoxml-blueprints/src/Blueprint';
 import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery';
+import type BlueprintSelection from 'fontoxml-blueprints/src/BlueprintSelection';
+import type { OperationStepData } from 'fontoxml-operations/src/types';
+import type { Format } from 'fontoxml-schema-experience/src/format';
 import evaluateXPathToFirstNode from 'fontoxml-selectors/src/evaluateXPathToFirstNode';
 import createStencil from 'fontoxml-stencils/src/createStencil';
 
@@ -16,11 +20,13 @@ import createStencil from 'fontoxml-stencils/src/createStencil';
  * @param {Object} queryToReplacementStructureMapping
  */
 export default function replaceNodesWithMappedStructure(
-	stepData,
-	blueprint,
-	format,
-	selection
-) {
+	stepData: OperationStepData & {
+		contextNodeId: string;
+	},
+	blueprint: Blueprint,
+	format: Format,
+	selection: BlueprintSelection
+): CustomMutationResult {
 	const contextNode = blueprint.lookup(stepData.contextNodeId);
 	const documentNode = blueprintQuery.getDocumentNode(
 		blueprint,

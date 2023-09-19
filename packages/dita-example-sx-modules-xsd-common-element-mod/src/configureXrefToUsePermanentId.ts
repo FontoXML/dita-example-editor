@@ -1,8 +1,11 @@
 import configureAsInlineLink from 'fontoxml-families/src/configureAsInlineLink';
 import configureProperties from 'fontoxml-families/src/configureProperties';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureXrefToUsePermanentId(sxModule) {
+export default function configureXrefToUsePermanentId(
+	sxModule: SxModule
+): void {
 	// To enable permanentId's in cross references (also known as the reference pipeline), reconfigure the attribute
 	// name that is expected to contain the permanentId, and set popoverData.targetIsPermanent to TRUE.
 

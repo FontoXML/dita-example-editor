@@ -1,3 +1,6 @@
+import type { FC } from 'react';
+import { useMemo } from 'react';
+
 import {
 	ButtonWithDrop,
 	Drop,
@@ -6,9 +9,7 @@ import {
 	Menu,
 	MenuGroup,
 	MenuItemWithDrop,
-} from 'fds/components';
-import React, { useMemo } from 'react';
-
+} from 'fontoxml-design-system/src/components';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import useXPath from 'fontoxml-fx/src/useXPath';
@@ -109,7 +110,7 @@ const renderNeedsAnalysisDrop = () => (
 	</Drop>
 );
 
-const LearningTrainingToolbar = () => {
+const LearningTrainingToolbar: FC = () => {
 	const learningAssessment = useXPath(
 		xq`fonto:selection-common-ancestor()/ancestor-or-self::learningAssessment`,
 		null,

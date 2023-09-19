@@ -2,12 +2,13 @@ import addCustomMutation from 'fontoxml-base-flow/src/addCustomMutation';
 import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
 import documentsManager from 'fontoxml-documents/src/documentsManager';
 import addTransform from 'fontoxml-operations/src/addTransform';
+import type { OperationStepData } from 'fontoxml-operations/src/types';
 import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolean';
 import xq from 'fontoxml-selectors/src/xq';
 
 import removePropertiesColumn from './api/removePropertiesColumnCustomMutation';
 
-export default function install() {
+export default function install(): void {
 	addCustomMutation('remove-properties-column', removePropertiesColumn);
 
 	/**
@@ -22,7 +23,9 @@ export default function install() {
 	 */
 	addTransform(
 		'setChildNodeStructureForExistingColumns',
-		function setChildNodeStructureForExistingColumns(stepData) {
+		function setChildNodeStructureForExistingColumns(
+			stepData: OperationStepData
+		) {
 			const tableNode = documentsManager.getNodeById(
 				stepData.tableNodeId
 			);

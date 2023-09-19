@@ -12,7 +12,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// lcAge
 	//     The <lcAge> provides the age range of the intended learner audience, for use by curriculum
 	//     developers and course planners.

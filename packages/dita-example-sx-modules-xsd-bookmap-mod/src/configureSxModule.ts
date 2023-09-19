@@ -153,7 +153,7 @@ const getSubMenuForRefElement = (
 	],
 });
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	namespaceManager.addNamespace('bookmap', 'urn:fonto:dita:bookmap');
 	registerCustomXPathFunction(
 		'bookmap:retrieve-element-label',

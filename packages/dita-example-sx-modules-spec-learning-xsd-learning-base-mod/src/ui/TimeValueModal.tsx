@@ -1,3 +1,6 @@
+import type { ReactElement } from 'react';
+import { Component } from 'react';
+
 import {
 	Button,
 	Form,
@@ -7,9 +10,7 @@ import {
 	ModalFooter,
 	ModalHeader,
 	TextInput,
-} from 'fds/components';
-import { Component } from 'react';
-import * as React from 'react';
+} from 'fontoxml-design-system/src/components';
 
 class TimeValueModal extends Component<{
 	cancelModal(): void;
@@ -53,7 +54,7 @@ class TimeValueModal extends Component<{
 	private readonly handleTextInputRef = (textInputRef) =>
 		(this.textInputRef = textInputRef);
 
-	public render() {
+	public render(): ReactElement {
 		return (
 			<Modal size="s" onKeyDown={this.handleKeyDown}>
 				<ModalHeader icon="clock-o" title="Enter the time duration" />
@@ -86,7 +87,7 @@ class TimeValueModal extends Component<{
 		);
 	}
 
-	public componentDidMount() {
+	public componentDidMount(): void {
 		this.textInputRef.focus();
 	}
 }

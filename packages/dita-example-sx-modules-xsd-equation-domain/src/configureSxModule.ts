@@ -8,7 +8,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// equation-block
 	//     The Block Equation element (<equation-block>) represents an equation to be rendered as a block.
 	//     Block equations may be numbered. The equation content may be represented in any number of ways,

@@ -1,9 +1,12 @@
 import configureAsRelatedLink from 'fontoxml-dita/src/configureAsRelatedLink';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
+import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureXrefToUsePermanentId(sxModule) {
+export default function configureXrefToUsePermanentId(
+	sxModule: SxModule
+): void {
 	// To enable permanentId's in references (also known as the reference pipeline), change
 	// hasPermanentId to TRUE, and set popoverData.targetIsPermanent to TRUE.
 

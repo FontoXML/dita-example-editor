@@ -1,19 +1,20 @@
+import type { FC } from 'react';
+import { useMemo } from 'react';
+
 import {
 	ButtonWithDrop,
 	Drop,
 	MastheadToolbar,
 	MastheadToolbarButtons,
 	Menu,
-} from 'fds/components';
-import React, { useMemo } from 'react';
-
+} from 'fontoxml-design-system/src/components';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import useXPath from 'fontoxml-fx/src/useXPath';
 import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
 
-const QuestionToolbar = () => {
+const QuestionToolbar: FC = () => {
 	const matching = useXPath(
 		xq`fonto:selection-common-ancestor()/ancestor-or-self::lcMatching2`,
 		null,

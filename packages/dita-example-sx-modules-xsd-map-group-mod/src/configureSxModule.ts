@@ -7,7 +7,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// anchorref
 	//     The contents of an <anchorref> element are rendered both in the original authored location and at
 	//     the location of the referenced <anchor> element. The referenced <anchor> element can be defined in

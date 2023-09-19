@@ -10,7 +10,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// conbody
 	//     The <conbody> element is the main body-level element for a concept. Like the <body> element of a
 	//     general <topic>, <conbody> allows paragraphs, lists, and other elements as well as sections and

@@ -1,9 +1,14 @@
 import bookmapElementLabels from 'dita-example-sx-modules-xsd-bookmap-mod/src/api/bookmapElementLabels';
-import { Drop, Menu, MenuGroup, MenuItemWithDrop } from 'fds/components';
-import * as React from 'react';
+import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 
 import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
+import {
+	Drop,
+	Menu,
+	MenuGroup,
+	MenuItemWithDrop,
+} from 'fontoxml-design-system/src/components';
 import documentsHierarchy from 'fontoxml-documents/src/documentsHierarchy';
 import documentsManager from 'fontoxml-documents/src/documentsManager';
 import getNodeId from 'fontoxml-dom-identification/src/getNodeId';
@@ -169,7 +174,7 @@ function createTopicSubMenu(refNodeId) {
 	);
 }
 
-const InsertTopicMenu = () => {
+const InsertTopicMenu: FC = () => {
 	const selectionNode = useXPath(
 		xq`fonto:selection-common-ancestor()`,
 		null,
@@ -327,6 +332,7 @@ const InsertTopicMenu = () => {
 	if (refElementName === 'bookmap') {
 		return wrapInMenu([
 			<FxOperationMenuItem
+				key=":contextual-insert-frontmatter"
 				operationName=":contextual-insert-frontmatter"
 				operationData={{ contextNodeId: refNodeId }}
 			/>,
@@ -359,6 +365,7 @@ const InsertTopicMenu = () => {
 				)}
 			</>,
 			<FxOperationMenuItem
+				key=":contextual-insert-backmatter"
 				operationName=":contextual-insert-backmatter"
 				operationData={{ contextNodeId: refNodeId }}
 			/>,

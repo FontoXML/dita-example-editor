@@ -1,12 +1,20 @@
 import CustomMutationResult from 'fontoxml-base-flow/src/CustomMutationResult';
+import type Blueprint from 'fontoxml-blueprints/src/Blueprint';
 import { unsafeMoveNodes } from 'fontoxml-blueprints/src/blueprintMutations';
 import blueprintQuery from 'fontoxml-blueprints/src/blueprintQuery';
 import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager';
+import type { OperationStepData } from 'fontoxml-operations/src/types';
 import evaluateXPathToNodes from 'fontoxml-selectors/src/evaluateXPathToNodes';
 import xq from 'fontoxml-selectors/src/xq';
 
-const wrapAppendixElementsInAppendices = (argument, blueprint) => {
-	const bookmapNode = blueprint.lookup(argument.contextNodeId);
+const wrapAppendixElementsInAppendices = (
+	stepData: OperationStepData & {
+		contextNodeId: string;
+		href: string;
+	},
+	blueprint: Blueprint
+): CustomMutationResult => {
+	const bookmapNode = blueprint.lookup(stepData.contextNodeId);
 
 	if (!bookmapNode || !blueprintQuery.isInDocument(blueprint, bookmapNode)) {
 		return CustomMutationResult.notAllowed();
@@ -27,8 +35,8 @@ const wrapAppendixElementsInAppendices = (argument, blueprint) => {
 		'appendices'
 	);
 
-	if (argument.href) {
-		blueprint.setAttribute(appendicesNode, 'href', argument.href);
+	if (stepData.href) {
+		blueprint.setAttribute(appendicesNode, 'href', stepData.href);
 	}
 
 	blueprint.insertBefore(bookmapNode, appendicesNode, appendixNodes[0]);

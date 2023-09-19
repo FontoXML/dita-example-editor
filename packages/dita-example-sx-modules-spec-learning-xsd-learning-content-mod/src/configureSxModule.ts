@@ -9,7 +9,7 @@ import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
 import xq from 'fontoxml-selectors/src/xq';
 
-export default function configureSxModule(sxModule: SxModule) {
+export default function configureSxModule(sxModule: SxModule): void {
 	// learningContent
 	//     A Learning Content topic provides the learning content itself, and enables direct use of content
 	//     from DITA task, concept, and reference topics, as well as additional content of any topic type that

@@ -1,6 +1,6 @@
 import addTransform from 'fontoxml-operations/src/addTransform';
 
-export default function install() {
+export default function install(): void {
 	addTransform(
 		'unsetSelectedImageIdForGetState',
 		function (stepData) {
