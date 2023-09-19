@@ -4,12 +4,11 @@ module.exports = {
 	},
 	extends: ['@fontoxml', '@fontoxml/eslint-config/typeinfo'],
 	ignorePatterns: [
-		'editor/config.json',
 		'.eslintrc.js',
-		'editor/dev-cms/**',
-		'editor/packages/*/assets/**',
-		'editor/platform/**',
-		'schema/**',
+		'config.json',
+		'dev-cms/**',
+		'packages/*/assets/**',
+		'platform/**',
 	],
 	parserOptions: {
 		// Required for running TypeScript/type-aware rules.

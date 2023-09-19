@@ -6,25 +6,25 @@
 	"scripts": {
 		"start": "fdt editor run",
 		"postinstall": "fdt editor upgrade --non-interactive --version 8.5.2",
-		"lint": "eslint \"./packages/**/*.ts\" \"./packages/**/*.tsx\" \"./config/**/*.ts\"",
-		"lint-fix": "eslint --fix \"./packages/**/*.ts\" \"./packages/**/*.tsx\" \"./config/**/*.ts\""
+		"lint": "eslint \"./packages/**/*.ts\" \"./packages/**/*.tsx\" \"./config/**/*.ts\""
 	},
 	"devDependencies": {
 		"@babel/eslint-plugin": "7.14.5",
-		"@fontoxml/eslint-config": "4.0.2",
+		"@fontoxml/eslint-config": "4.1.1",
 		"@types/chai": "4.2.19",
 		"@types/mocha": "8.2.2",
 		"@types/sinon": "10.0.2",
 		"@typescript-eslint/eslint-plugin": "4.28.0",
-		"eslint": "^7.29.0",
+		"eslint": "7.29.0",
 		"eslint-config-prettier": "8.3.0",
 		"eslint-import-resolver-typescript": "2.4.0",
 		"eslint-plugin-import": "2.23.4",
 		"eslint-plugin-prettier": "3.4.0",
-		"eslint-plugin-react": "7.24.0",
-		"eslint-plugin-react-hooks": "4.2.0",
+		"eslint-plugin-react": "7.32.2",
+		"eslint-plugin-react-hooks": "4.6.0",
 		"eslint-plugin-simple-import-sort": "7.0.0",
 		"prettier": "2.3.2",
-		"typescript": "4.3.4"
+		"typescript": "4.3.4",
+		"typescript-strict-plugin": "2.1.0"
 	}
 }
