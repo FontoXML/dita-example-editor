@@ -20,7 +20,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::equation-block`,
 		t('equation'),
 		{
-			contextualOperations: [{ name: 'mathml-edit' }],
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -82,10 +81,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	configureAsInlineFrame(
 		sxModule,
 		xq`self::equation-inline`,
-		t('inline equation'),
-		{
-			contextualOperations: [{ name: 'mathml-edit' }],
-		}
+		t('inline equation')
 	);
 
 	// equation-number

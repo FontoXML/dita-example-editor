@@ -31,12 +31,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::mathml[fonto:in-inline-layout(.)]`,
 		t('mathematical expression')
 	);
-	// The edit operation should be on the container of the mathml element in inline layout
-	configureContextualOperations(
-		sxModule,
-		xq`self::mathml[fonto:in-inline-layout(.)]`,
-		[]
-	);
 
 	// mathmlref
 	//     The MathML reference (<mathmlref>) element is used to refer to a non-DITA XML document containing
