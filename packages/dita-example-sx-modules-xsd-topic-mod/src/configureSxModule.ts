@@ -8,7 +8,9 @@ import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved';
 import configureAsSheetFrame from 'fontoxml-families/src/configureAsSheetFrame';
 import configureAsStructure from 'fontoxml-families/src/configureAsStructure';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame';
+import configureProperties from 'fontoxml-families/src/configureProperties';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget';
+import createLabelQueryWidget from 'fontoxml-families/src/createLabelQueryWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget';
 import t from 'fontoxml-localization/src/t';
@@ -317,6 +319,36 @@ export default function configureSxModule(sxModule: SxModule): void {
 			defaultTextContainer: 'body',
 			blockFooter: [createRelatedNodesQueryWidget(xq`./related-links`)],
 			blockHeaderLeft: [createMarkupLabelWidget()],
+		}
+	);
+
+	// Needed for bookmap implementation
+	configureProperties(
+		sxModule,
+		xq`self::*[fonto:dita-class(., "topic/topic")][not(parent::*[fonto:dita-class(., "topic/topic")])]`,
+		{
+			titleQuery: xq`
+					let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name(),
+						$title := fonto:curated-text-in-node(./*[fonto:dita-class(., "topic/title")])
+
+					return
+						if(not($refNodeName) or not(bookmap:retrieve-element-label($refNodeName)))
+						then $title
+						else string-join(upper-case(bookmap:retrieve-element-label($refNodeName)) || ": " || $title)`,
+			blockHeaderLeft: [
+				createLabelQueryWidget(xq`""`, {
+					prefixQuery: xq`
+							let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name()
+
+							return
+								if(not($refNodeName) or not(bookmap:retrieve-element-label($refNodeName)) )
+								then ()
+								else string-join(bookmap:retrieve-element-label($refNodeName) || " | ")`,
+					inline: true,
+				}),
+				createMarkupLabelWidget(),
+			],
+			priority: 10,
 		}
 	);
 

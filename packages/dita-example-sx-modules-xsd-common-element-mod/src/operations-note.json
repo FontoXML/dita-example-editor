@@ -6,6 +6,78 @@
 			"type": "operation/collapse-element"
 		}
 	},
+	":contextual-edit-note[@conref]": {
+		"label": "Edit",
+		"description": "Edit a conref to another existing node.",
+		"steps": [
+			{
+				"type": "transform/resolveDitaUrl",
+				"data": {
+					"continueOnError": true,
+					"url": "x__$data('contextNode')/@conref"
+				}
+			},
+			{
+				"type": "operation/open-document-with-link-selector-browser-modal",
+				"data": {
+					"documentId": "{{targetDocumentId}}",
+					"linkableElementsQuery": "/descendant::note[@id]",
+					"modalPrimaryButtonLabel": "Save",
+					"modalTitle": "Replace reused note",
+					"nodeId": "{{targetNodeId}}"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "operation/replace-node",
+				"data": {
+					"replacementNodeStructure": [
+						"note",
+						{
+							"conref": "{{url}}"
+						}
+					]
+				}
+			}
+		]
+	},
+	":insert-note[@conref]": {
+		"label": "Conref a note",
+		"description": "Insert a conref to an existing node.",
+		"steps": [
+			{
+				"type": "operation/open-document-with-link-selector-browser-modal",
+				"data": {
+					"linkableElementsQuery": "/descendant::note[@id]",
+					"modalTitle": "Add reused note"
+				}
+			},
+			{
+				"type": "transform/createDitaUrlFromLoadedTarget",
+				"data": {
+					"targetDocumentId": "{{documentId}}",
+					"targetNodeId": "{{nodeId}}"
+				}
+			},
+			{
+				"type": "operation/vertical-insert",
+				"data": {
+					"childNodeStructure": [
+						"note",
+						{
+							"conref": "{{url}}"
+						}
+					]
+				}
+			}
+		]
+	},
 	":insert-note": {
 		"label": "t__Note",
 		"description": "t__Contains information that expands on or calls attention to a particular point. This information is typically differentiated from the main text.",

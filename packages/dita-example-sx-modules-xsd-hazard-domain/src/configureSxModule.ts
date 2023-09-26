@@ -158,7 +158,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 				{ name: ':hazardsymbol-insert-alt' },
 			],
 			referenceQuery: xq`@href`,
-			isPermanentId: true,
 		}
 	);
 

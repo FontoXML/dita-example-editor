@@ -183,7 +183,7 @@ const StructureToolbar: FC = () => {
 								</MenuGroup>
 
 								<MenuGroup>
-									<FxOperationMenuItem operationName="insert-note[@conref]" />
+									<FxOperationMenuItem operationName=":insert-note[@conref]" />
 								</MenuGroup>
 							</Menu>
 						</Drop>

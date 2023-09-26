@@ -1,5 +1,9 @@
 import configurationManager from 'fontoxml-configuration/src/configurationManager';
+import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager';
 import xq from 'fontoxml-selectors/src/xq';
+
+namespaceManager.addNamespace('bookmap', 'urn:fonto:dita:bookmap');
+namespaceManager.addNamespace('mathml', 'http://www.w3.org/1998/Math/MathML');
 
 configurationManager.set('paragraph-node-name-for-pasting', 'p');
 

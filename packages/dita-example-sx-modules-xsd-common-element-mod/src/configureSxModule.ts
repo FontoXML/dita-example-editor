@@ -1,3 +1,4 @@
+import configureAsConref from 'fontoxml-dita/src/configureAsConref';
 import configureAsSimpletableTableElements from 'fontoxml-dita/src/configureAsSimpletableTableElements';
 import configureAsBlock from 'fontoxml-families/src/configureAsBlock';
 import configureAsDefinitionsTableRow from 'fontoxml-families/src/configureAsDefinitionsTableRow';
@@ -312,7 +313,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':image-insert-alt' },
 		],
 		referenceQuery: xq`@href`,
-		isPermanentId: true,
 	});
 
 	configureAsInlineImageInFrame(
@@ -327,7 +327,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 				implicit: 'inline',
 			},
 			referenceQuery: xq`@href`,
-			isPermanentId: true,
 		}
 	);
 
@@ -504,6 +503,19 @@ export default function configureSxModule(sxModule: SxModule): void {
 		defaultTextContainer: 'p',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
+	});
+
+	// This is an example configuration for conreffed <note> elements, which is a reuse mechanism in DITA. The
+	// configureAsConref family will itself determine wether an XML tag indeed has all the required conref
+	// information. Fonto will then render the note in the location of the conref, regardless of which document
+	// actually contains the conreffed content.
+	configureAsConref(sxModule, xq`self::note`, 'reused note', {
+		contextualOperations: [],
+		popoverData: {
+			editOperationName: ':contextual-edit-note[@conref]',
+		},
+		blockHeaderLeft: [],
+		blockOutsideAfter: [],
 	});
 
 	Object.keys(NOTE_VISUALIZATION_BY_TYPE).forEach(function (noteType) {

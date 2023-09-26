@@ -1,4 +1,3 @@
-import namespaceManager from 'fontoxml-dom-namespaces/src/namespaceManager';
 import configureAsFrame from 'fontoxml-families/src/configureAsFrame';
 import configureAsFrameWithBlock from 'fontoxml-families/src/configureAsFrameWithBlock';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved';
@@ -154,7 +153,6 @@ const getSubMenuForRefElement = (
 });
 
 export default function configureSxModule(sxModule: SxModule): void {
-	namespaceManager.addNamespace('bookmap', 'urn:fonto:dita:bookmap');
 	registerCustomXPathFunction(
 		'bookmap:retrieve-element-label',
 		['xs:string'],
