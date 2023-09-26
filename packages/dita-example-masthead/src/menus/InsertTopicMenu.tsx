@@ -1,8 +1,7 @@
 import bookmapElementLabels from 'dita-example-sx-modules-xsd-bookmap-mod/src/api/bookmapElementLabels';
 import type { FC } from 'react';
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 
-import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
 import {
 	Drop,
 	Menu,
@@ -10,15 +9,12 @@ import {
 	MenuItemWithDrop,
 } from 'fontoxml-design-system/src/components';
 import documentsHierarchy from 'fontoxml-documents/src/documentsHierarchy';
-import documentsManager from 'fontoxml-documents/src/documentsManager';
 import getNodeId from 'fontoxml-dom-identification/src/getNodeId';
-import type { FontoNode } from 'fontoxml-dom-utils/src/types';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
+import useManagerState from 'fontoxml-fx/src/useManagerState';
 import useXPath from 'fontoxml-fx/src/useXPath';
 import t from 'fontoxml-localization/src/t';
 import selectionManager from 'fontoxml-selection/src/selectionManager';
-import evaluateXPathToBoolean from 'fontoxml-selectors/src/evaluateXPathToBoolean';
-import evaluateXPathToString from 'fontoxml-selectors/src/evaluateXPathToString';
 import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
 
@@ -175,125 +171,58 @@ function createTopicSubMenu(refNodeId) {
 }
 
 const InsertTopicMenu: FC = () => {
-	const selectionNode = useXPath(
-		xq`fonto:selection-common-ancestor()`,
-		null,
-		{ expectedResultType: ReturnTypes.FIRST_NODE }
+	const focusedHierarchyNode = useManagerState(
+		[
+			selectionManager.selectionChangeNotifier,
+			documentsHierarchy.hierarchyChangedNotifier,
+		],
+		() =>
+			documentsHierarchy.get(selectionManager.getFocusedHierarchyNodeId())
 	);
-	const [refNodeId, setRefNodeId] = useState(null);
-	const [refElementName, setRefElementName] = useState('');
-	const [isContainerOrPlaceholder, setIsContainerOrPlaceholder] =
-		useState(false);
 
-	useEffect(() => {
-		let newRefNodeId = null;
+	const traversalRootNode = useMemo(
+		() => focusedHierarchyNode?.documentReference?.getTraversalRootNode(),
+		[focusedHierarchyNode]
+	);
 
-		// Check whether there is a focused hierarchy node
-		const focusedHierarchyNode = selectionManager.getFocusedHierarchyNode();
-		if (
-			focusedHierarchyNode &&
-			focusedHierarchyNode.documentReference &&
-			focusedHierarchyNode.documentReference.sourceNodeId
-		) {
-			let documentElement;
-			if (!focusedHierarchyNode.documentReference.traversalRootNodeId) {
-				const documentNode = documentsManager.getDocumentNode(
-					focusedHierarchyNode.documentReference.documentId
-				);
-				if (documentNode) {
-					documentElement = documentNode.documentElement;
-				}
-			}
-			if (
-				!documentElement ||
-				!evaluateXPathToBoolean(
-					xq`fonto:dita-class(., "map/map")`,
-					documentElement,
-					readOnlyBlueprint
-				)
-			) {
-				newRefNodeId =
-					focusedHierarchyNode.documentReference.sourceNodeId;
-			}
+	const isMap = useXPath(
+		traversalRootNode ? xq`fonto:dita-class(root(.)/*, 'map/map')` : null,
+		traversalRootNode,
+		{ expectedResultType: ReturnTypes.BOOLEAN }
+	);
+
+	const { refNodeId, refNode, refElementName } = useMemo(() => {
+		if (isMap) {
+			return {
+				refNodeId: getNodeId(traversalRootNode),
+				refNode: traversalRootNode,
+				refElementName: traversalRootNode.nodeName,
+			};
 		}
 
-		if (!newRefNodeId) {
-			let ancestor =
-				selectionManager.getCommonAncestorContainer() as FontoNode<'readable'>;
-			while (ancestor) {
-				const ancestorNodeId = getNodeId(ancestor);
+		const sourceNode =
+			focusedHierarchyNode?.documentReference?.getSourceNode();
 
-				// Check if ancestor is itself a topicref or map (then use that)
-				if (
-					evaluateXPathToBoolean(
-						xq`fonto:dita-class(., "map/topicref") or fonto:dita-class(., "map/map")`,
-						ancestor,
-						readOnlyBlueprint
-					)
-				) {
-					newRefNodeId = ancestorNodeId;
-					ancestor = null;
-				} else {
-					// Check if ancestor is the traversal root node of a document hierarchy node (use its sourceNodeId)
-					// eslint-disable-next-line no-loop-func
-					const hierarchyNodeForTraversalRootNode =
-						documentsHierarchy.find(function (node) {
-							return (
-								node.documentReference &&
-								node.documentReference.traversalRootNodeId ===
-									ancestorNodeId
-							);
-						});
-					if (hierarchyNodeForTraversalRootNode) {
-						newRefNodeId =
-							hierarchyNodeForTraversalRootNode.documentReference
-								.sourceNodeId;
-						ancestor = null;
-					} else {
-						ancestor = ancestor.parentNode;
-					}
-				}
-			}
+		if (!sourceNode) {
+			return {
+				refNodeId: null,
+				refNode: null,
+				refElementName: null,
+			};
 		}
 
-		if (!newRefNodeId && selectionManager.focusedDocumentId) {
-			const hierarchyNodeForFocusedDocument = documentsHierarchy.find(
-				function (node) {
-					return (
-						node.documentReference &&
-						node.documentReference.documentId ===
-							selectionManager.focusedDocumentId
-					);
-				}
-			);
-			if (hierarchyNodeForFocusedDocument) {
-				newRefNodeId =
-					hierarchyNodeForFocusedDocument.documentReference
-						.sourceNodeId;
-			}
-		}
+		return {
+			refNodeId: getNodeId(sourceNode),
+			refNode: sourceNode,
+			refElementName: sourceNode.nodeName,
+		};
+	}, [focusedHierarchyNode, traversalRootNode, isMap]);
 
-		setRefNodeId(newRefNodeId);
-		const newRefNode = documentsManager.getNodeById(newRefNodeId);
-		setRefElementName(
-			newRefNode
-				? evaluateXPathToString(
-						xq`./name()`,
-						newRefNode,
-						readOnlyBlueprint
-				  )
-				: ''
-		);
-		setIsContainerOrPlaceholder(
-			newRefNode
-				? evaluateXPathToBoolean(
-						xq`not(@href)`,
-						newRefNode,
-						readOnlyBlueprint
-				  )
-				: ''
-		);
-	}, [selectionNode]);
+	const isContainerOrPlaceholder = useXPath(
+		refNode ? xq`not(@href)` : null,
+		refNode,
+		{ expectedResultType: ReturnTypes.BOOLEAN }
+	);
 
 	const wrapInMenu = (contents) => (
 		<Menu>
