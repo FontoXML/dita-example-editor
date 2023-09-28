@@ -16,6 +16,10 @@ configurationManager.set('spell-checker-configuration', {
 	language: 'en_US',
 });
 
+configurationManager.set('structure-view-configuration', {
+	enableDragAndDrop: true,
+});
+
 configurationManager.set('unique-id-configurations', [
 	{
 		selector: xq`self::*`,
