@@ -1,8 +1,9 @@
-import configureAsRelatedLink from 'fontoxml-dita/src/configureAsRelatedLink';
+import readOnlyBlueprint from 'fontoxml-blueprints/src/readOnlyBlueprint';
 import configureAsFrame from 'fontoxml-families/src/configureAsFrame';
 import configureAsFrameWithBlock from 'fontoxml-families/src/configureAsFrameWithBlock';
 import configureAsGroup from 'fontoxml-families/src/configureAsGroup';
 import configureAsLine from 'fontoxml-families/src/configureAsLine';
+import configureAsObjectInFrame from 'fontoxml-families/src/configureAsObjectInFrame';
 import configureAsOutOfOrderStructure from 'fontoxml-families/src/configureAsOutOfOrderStructure';
 import configureAsRemoved from 'fontoxml-families/src/configureAsRemoved';
 import configureAsSheetFrame from 'fontoxml-families/src/configureAsSheetFrame';
@@ -15,6 +16,7 @@ import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidg
 import createRelatedNodesQueryWidget from 'fontoxml-families/src/createRelatedNodesQueryWidget';
 import t from 'fontoxml-localization/src/t';
 import type { SxModule } from 'fontoxml-modular-schema-experience/src/sxManager';
+import evaluateXPathToString from 'fontoxml-selectors/src/evaluateXPathToString';
 import xq from 'fontoxml-selectors/src/xq';
 
 export default function configureSxModule(sxModule: SxModule): void {
@@ -89,45 +91,43 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     Links elements
 
 	// A cross link. (cross link is used by default)
-	configureAsRelatedLink(sxModule, xq`self::link`, t('link'), {
+	configureAsObjectInFrame(sxModule, xq`self::link`, t('link'), {
 		contextualOperations: [
 			{ name: ':link-insert-linktext' },
 			{ name: ':link-insert-desc' },
 		],
 		backgroundColor: 'grey',
 		defaultTextContainer: 'linktext',
-		hasPermanentId: false,
 		popoverComponentName: 'DitaCrossReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-link[@format=dita]',
 			targetQuery: xq`@href`,
 		},
-		showWhen: 'always',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
+		createInnerJsonMl(sourceNode, renderer) {
+			return [
+				'cv-inline-link',
+				{
+					contenteditable: 'false',
+					'cv-layout': 'inline',
+					'cv-show-when': 'ancestor-has-focus',
+				},
+				['cv-content', evaluateXPathToString(xq`@href`, sourceNode, readOnlyBlueprint)],
+			];
+		}
 	});
 
-	// A web link.
-	configureAsRelatedLink(
+	// A web link. (same as above other than the popover)
+	configureProperties(
 		sxModule,
 		xq`self::link[@format="html"]`,
-		undefined,
 		{
-			contextualOperations: [
-				{ name: ':link-insert-linktext' },
-				{ name: ':link-insert-desc' },
-			],
-			backgroundColor: 'grey',
-			defaultTextContainer: 'linktext',
-			hasPermanentId: false,
 			popoverComponentName: 'WebReferencePopover',
 			popoverData: {
 				editOperationName: ':contextual-edit-link[@format=html]',
 				targetQuery: xq`@href`,
 			},
-			showWhen: 'always',
-			blockHeaderLeft: [createMarkupLabelWidget()],
-			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
 	);
 
