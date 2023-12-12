@@ -771,7 +771,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     target. Category: Body elements
 	configureAsInlineLink(sxModule, xq`self::xref`, t('link'), {
 		emptyElementPlaceholderText: t('type the link text'),
-		referenceQuery: xq`@href`,
 		popoverComponentName: 'DitaCrossReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-xref[@format=dita]',

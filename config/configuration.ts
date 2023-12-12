@@ -7,8 +7,6 @@ namespaceManager.addNamespace('mathml', 'http://www.w3.org/1998/Math/MathML');
 
 configurationManager.set('paragraph-node-name-for-pasting', 'p');
 
-configurationManager.set('conrefs-use-permanent-references', false);
-
 configurationManager.set('preferred-locales', ['en']);
 
 configurationManager.set('spell-checker-configuration', {
