@@ -3,8 +3,7 @@
 module.exports = () => {
 	return {
 		scope: {
-			documentIds: [
-				'clogs/clogs.ditamap'
-			]
-		}
-}}
+			documentIds: ['clogs/clogs.ditamap'],
+		},
+	};
+};

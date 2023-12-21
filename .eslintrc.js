@@ -5,7 +5,7 @@ module.exports = {
 	extends: ['@fontoxml', '@fontoxml/eslint-config/typeinfo'],
 	ignorePatterns: [
 		'.eslintrc.js',
-		'config.json',
+		'config.js',
 		'dev-cms/**',
 		'packages/*/assets/**',
 		'platform/**',

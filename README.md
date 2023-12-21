@@ -41,12 +41,11 @@ configuration:
 $ fdt editor run
 ```
 
-Please see [documentation.fontoxml.com](https://documentation.fontoxml.com/) for extensive guides, tutorials and API
+Please see [documentation.fontoxml.com](https://documentation.fontoxml.com) for extensive guides, tutorials and API
 reference documentation.
 
 See also:
-- [Getting started](https://documentation.fontoxml.com/latest/getting-started-150f2719f456) with a completely
-  new editor configuration.
+- [Getting started](https://documentation.fontoxml.com/latest/get-started-d09d04cfac27)
 - [Configure elements](https://documentation.fontoxml.com/latest/configure-elements-3ac02ec0c6c2)
 - [Create operations](https://documentation.fontoxml.com/latest/create-operations-e21e00935929)
 - [Create a masthead](https://documentation.fontoxml.com/latest/changing-the-masthead-76dec04281f6)
@@ -68,7 +67,7 @@ environment by serving those files from your own host.
 
 See also:
 
-- [Integrate with a CMS](https://documentation.fontoxml.com/latest/integrate-with-a-cms-c214d09ddcaa)
+- [Integrate with a CMS](https://documentation.fontoxml.com/latest/integrate-0cd4a24d50c0)
 - [Build the editor](https://documentation.fontoxml.com/latest/build-the-editor-8a34176f9ce3)
 
 For additional help for this command, run: `$ fdt editor --help`
