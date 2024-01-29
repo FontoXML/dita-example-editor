@@ -23,6 +23,7 @@
 	},
 	":image-insert-alt": {
 		"label": "t__Add alternative text",
+		"icon": "plus",
 		"description": "t__An alternative text may be used for users or platforms that cannot consume images.",
 		"steps": {
 			"type": "operation/horizontal-insert",
@@ -83,5 +84,15 @@
 				}
 			}
 		]
+	},
+	":image-remove-alt": {
+		"label": "t__Remove alternative text",
+		"icon": "trash-can",
+		"steps": {
+			"type": "operation/delete-node",
+			"data": {
+				"contextNodeId": "x__$data?contextNode/alt"
+			}
+		}
 	}
 }

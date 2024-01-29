@@ -29,6 +29,7 @@
 	},
 	":fig-insert-desc": {
 		"label": "t__Add description",
+		"icon": "plus",
 		"description": "t__Contains further information, e.g. photo credits or citations.",
 		"steps": {
 			"type": "operation/horizontal-insert",
@@ -64,6 +65,7 @@
 	},
 	":fig-insert-title": {
 		"label": "t__Add title",
+		"icon": "plus",
 		"description": "t__A short, descriptive title for the image.",
 		"steps": {
 			"type": "operation/horizontal-insert",
@@ -73,6 +75,26 @@
 					[{ "bindTo": "selection", "empty": true }]
 				],
 				"contextNodeId": "{{contextNodeId}}"
+			}
+		}
+	},
+	":fig-delete-title": {
+		"label": "t__Remove title",
+		"icon": "trash-can",
+		"steps": {
+			"type": "operation/delete-node",
+			"data": {
+				"contextNodeId": "x__$data?contextNode/title"
+			}
+		}
+	},
+	":fig-delete-desc": {
+		"label": "t__Remove description",
+		"icon": "trash-can",
+		"steps": {
+			"type": "operation/delete-node",
+			"data": {
+				"contextNodeId": "x__$data?contextNode/desc"
 			}
 		}
 	}

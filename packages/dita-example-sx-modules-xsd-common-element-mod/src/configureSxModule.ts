@@ -220,30 +220,50 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     graphic or artwork), but it can contain several kinds of text objects as well. A title is placed
 	//     inside the figure element to provide a caption to describe the content. Category: Body elements
 	configureAsFrame(sxModule, xq`self::fig`, t('figure'), {
-		contextualOperations: [
-			{ name: ':fig-insert-title' },
-			{ name: ':fig-insert-desc' },
-			{ name: ':fig-append-image', hideIn: ['context-menu'] },
-			{
-				name: ':fig-insert-image',
-				hideIn: ['element-menu', 'breadcrumbs-menu'],
+		contextualOperations: {
+			titleOperations: {
+				priority: 20,
+				contextualOperations: [{ name: ':fig-insert-title' }],
 			},
-			{ name: ':contextual-delete-fig' },
-		],
+			descOperations: {
+				priority: 10,
+				contextualOperations: [{ name: ':fig-insert-desc' }],
+			},
+			otherOperations: {
+				priority: 0,
+				contextualOperations: [
+					{ name: ':fig-append-image', hideIn: ['context-menu'] },
+					{
+						name: ':fig-insert-image',
+						hideIn: ['element-menu', 'breadcrumbs-menu'],
+					},
+					{ name: ':contextual-delete-fig' },
+				],
+			},
+		},
+		isContextMenuScopeBoundary: true,
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
 
-	configureContextualOperations(
-		sxModule,
-		'self::fig[child::simpletable] and not(child::*[not(self::simpletable or self::title or self::desc)])',
-		[
-			{ name: ':fig-insert-title' },
-			{ name: ':fig-insert-desc' },
-			{ name: ':contextual-delete-fig' },
-		]
-	);
+	configureProperties(sxModule, xq`self::fig[child::title]`, {
+		contextualOperations: {
+			titleOperations: {
+				priority: 20,
+				contextualOperations: [{ name: ':fig-delete-title' }],
+			},
+		},
+	});
+
+	configureProperties(sxModule, xq`self::fig[child::desc]`, {
+		contextualOperations: {
+			descOperations: {
+				priority: 10,
+				contextualOperations: [{ name: ':fig-delete-desc' }],
+			},
+		},
+	});
 
 	// title in fig
 	configureAsTitleFrame(sxModule, xq`self::title[parent::fig]`, t('title'), {
@@ -308,11 +328,26 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     the image more accessible for users using screen readers or text-only readers, always include a
 	//     description of the image's content in the alt element. Category: Body elements
 	configureAsImageInFrame(sxModule, xq`self::image`, t('image'), {
-		contextualOperations: [
-			{ name: ':contextual-edit-image' },
-			{ name: ':image-insert-alt' },
-		],
+		contextualOperations: {
+			imageOperations: {
+				priority: 20,
+				contextualOperations: [{ name: ':contextual-edit-image' }],
+			},
+			otherOperations: {
+				priority: 10,
+				contextualOperations: [{ name: ':image-insert-alt' }],
+			},
+		},
 		referenceQuery: xq`@href`,
+	});
+
+	configureProperties(sxModule, xq`self::image[child::alt]`, {
+		contextualOperations: {
+			otherOperations: {
+				priority: 10,
+				contextualOperations: [{ name: ':image-remove-alt' }],
+			},
+		},
 	});
 
 	configureAsInlineImageInFrame(
