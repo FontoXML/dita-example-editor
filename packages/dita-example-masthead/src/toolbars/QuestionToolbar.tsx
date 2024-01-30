@@ -11,9 +11,9 @@ import {
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import useXPath from 'fontoxml-fx/src/useXPath';
+import t from 'fontoxml-localization/src/t';
 import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
-import t from 'fontoxml-localization/src/t';
 
 const QuestionToolbar: FC = () => {
 	const matching = useXPath(

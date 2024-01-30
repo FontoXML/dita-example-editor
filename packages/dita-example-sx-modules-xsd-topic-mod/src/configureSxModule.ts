@@ -105,7 +105,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		},
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
-		createInnerJsonMl(sourceNode, renderer) {
+		createInnerJsonMl(sourceNode, _renderer) {
 			return [
 				'cv-inline-link',
 				{
@@ -113,23 +113,26 @@ export default function configureSxModule(sxModule: SxModule): void {
 					'cv-layout': 'inline',
 					'cv-show-when': 'ancestor-has-focus',
 				},
-				['cv-content', evaluateXPathToString(xq`@href`, sourceNode, readOnlyBlueprint)],
+				[
+					'cv-content',
+					evaluateXPathToString(
+						xq`@href`,
+						sourceNode,
+						readOnlyBlueprint
+					),
+				],
 			];
-		}
+		},
 	});
 
 	// A web link. (same as above other than the popover)
-	configureProperties(
-		sxModule,
-		xq`self::link[@format="html"]`,
-		{
-			popoverComponentName: 'WebReferencePopover',
-			popoverData: {
-				editOperationName: ':contextual-edit-link[@format=html]',
-				targetQuery: xq`@href`,
-			},
-		}
-	);
+	configureProperties(sxModule, xq`self::link[@format="html"]`, {
+		popoverComponentName: 'WebReferencePopover',
+		popoverData: {
+			editOperationName: ':contextual-edit-link[@format=html]',
+			targetQuery: xq`@href`,
+		},
+	});
 
 	// desc in link
 	configureAsGroup(sxModule, xq`self::desc[parent::link]`, undefined, {
