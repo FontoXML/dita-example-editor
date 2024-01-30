@@ -79,14 +79,6 @@ const StructureToolbar: FC = () => {
 
 				<FxOperationsSplitButtonWithDropMenu
 					operations={[
-						{ operationName: ':insert-dl' },
-						{ operationName: ':insert-parml' },
-						{ operationName: ':insert-properties' },
-					]}
-				/>
-
-				<FxOperationsSplitButtonWithDropMenu
-					operations={[
 						{ operationName: ':insert-fig.image' },
 						{ operationName: ':insert-image' },
 					]}
