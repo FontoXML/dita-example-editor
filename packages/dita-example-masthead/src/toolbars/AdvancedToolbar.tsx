@@ -7,6 +7,7 @@ import {
 	MastheadToolbarButtons,
 	Menu,
 	MenuGroup,
+	MenuItemWithDrop,
 } from 'fontoxml-design-system/src/components';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
@@ -44,20 +45,29 @@ const AdvancedToolbar: FC = () => {
 							<Menu>
 								<MenuGroup>
 									<FxOperationMenuItem operationName=":insert-hazardstatement" />
+									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=danger]" />
+									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=tip]" />
+									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=warning]" />
 								</MenuGroup>
 
 								<MenuGroup>
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=attention]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=caution]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=danger]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=fastpath]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=important]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=notice]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=remember]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=restriction]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=tip]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=warning]" />
-									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=other]" />
+									<MenuItemWithDrop
+										label={t('Other hazard types')}
+										renderDrop={() => (
+											<Drop>
+												<Menu>
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=attention]" />
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=caution]" />
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=fastpath]" />
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=important]" />
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=notice]" />
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=remember]" />
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=restriction]" />
+													<FxOperationMenuItem operationName=":insert-hazardstatement[@type=other]" />
+												</Menu>
+											</Drop>
+										)}
+									/>
 								</MenuGroup>
 							</Menu>
 						</Drop>

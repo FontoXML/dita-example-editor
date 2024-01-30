@@ -8,6 +8,7 @@
 	},
 	":hazardstatement-convert-to-@type=null": {
 		"label": "t__Change to standard hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a standard hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -20,6 +21,7 @@
 	},
 	":hazardstatement-convert-to-@type=attention": {
 		"label": "t__Change to attention hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a attention hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -32,6 +34,7 @@
 	},
 	":hazardstatement-convert-to-@type=caution": {
 		"label": "t__Change to caution hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a caution hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -44,6 +47,7 @@
 	},
 	":hazardstatement-convert-to-@type=danger": {
 		"label": "t__Change to danger hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a danger hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -56,6 +60,7 @@
 	},
 	":hazardstatement-convert-to-@type=fastpath": {
 		"label": "t__Change to fastpath hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a fastpath hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -68,6 +73,7 @@
 	},
 	":hazardstatement-convert-to-@type=important": {
 		"label": "t__Change to important hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to an important hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -80,6 +86,7 @@
 	},
 	":hazardstatement-convert-to-@type=notice": {
 		"label": "t__Change to notice hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a notice hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -92,6 +99,7 @@
 	},
 	":hazardstatement-convert-to-@type=other": {
 		"label": "t__Change to other hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to an other hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -104,6 +112,7 @@
 	},
 	":hazardstatement-convert-to-@type=remember": {
 		"label": "t__Change to remember hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a remember hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -116,6 +125,7 @@
 	},
 	":hazardstatement-convert-to-@type=restriction": {
 		"label": "t__Change to restriction hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a restriction hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -128,6 +138,7 @@
 	},
 	":hazardstatement-convert-to-@type=tip": {
 		"label": "t__Change to tip hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a tip hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -140,6 +151,7 @@
 	},
 	":hazardstatement-convert-to-@type=warning": {
 		"label": "t__Change to warning hazard",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this hazard statement to a warning hazard statement.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -151,7 +163,7 @@
 		}
 	},
 	":insert-hazardstatement": {
-		"label": "t__Hazard statement",
+		"label": "t__Generic hazard",
 		"description": "t__Contains hazard warning information and is based on the regulations of ANSI Z535 and ISO 3864.",
 		"steps": {
 			"type": "operation/:_insert-hazardstatement",

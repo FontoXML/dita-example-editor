@@ -8,6 +8,7 @@
 	},
 	":hazardstatement-append-messagepanel": {
 		"label": "t__Add message panel",
+		"icon": "plus",
 		"description": "t__Contains the textual information that is displayed on the hazard statement.",
 		"steps": {
 			"type": "operation/merge-and-insert",
@@ -33,6 +34,7 @@
 	},
 	":hazardstatement-insert-messagepanel": {
 		"label": "t__Add message panel",
+		"icon": "plus",
 		"description": "t__Contains the textual information that is displayed on the hazard statement.",
 		"steps": {
 			"type": "operation/horizontal-insert",
@@ -49,6 +51,7 @@
 	},
 	":messagepanel-append-consequence": {
 		"label": "t__Add consequence",
+		"icon": "plus",
 		"description": "t__Specifies the consequence of failing to avoid a hazard.",
 		"steps": {
 			"type": "operation/merge-and-insert",
@@ -71,6 +74,7 @@
 	},
 	":messagepanel-append-howtoavoid": {
 		"label": "t__Add how to avoid",
+		"icon": "plus",
 		"description": "t__Contains information about how a user can avoid a hazard.",
 		"steps": {
 			"type": "operation/append-structure",
@@ -84,6 +88,7 @@
 	},
 	":messagepanel-insert-consequence": {
 		"label": "t__Add consequence",
+		"icon": "plus",
 		"description": "t__Specifies the consequence of failing to avoid a hazard.",
 		"steps": {
 			"type": "operation/horizontal-insert",
@@ -97,6 +102,7 @@
 	},
 	":messagepanel-insert-howtoavoid": {
 		"label": "t__Add how to avoid",
+		"icon": "plus",
 		"description": "t__Contains information about how a user can avoid a hazard.",
 		"steps": {
 			"type": "operation/horizontal-insert",
