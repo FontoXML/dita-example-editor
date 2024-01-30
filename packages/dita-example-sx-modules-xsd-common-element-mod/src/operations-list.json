@@ -7,9 +7,7 @@
 				"side": "before",
 				"childNodeStructure": [
 					"li",
-					["p",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["p", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}
@@ -22,9 +20,7 @@
 				"side": "after",
 				"childNodeStructure": [
 					"li",
-					["p",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["p", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}
@@ -97,12 +93,11 @@
 	":ol-convert-to-ul": {
 		"label": "t__Change to bulleted list",
 		"description": "t__Change this numbered list to a bulleted list.",
-		"icon": "list-ol",
+		"icon": "list-ul",
 		"steps": {
 			"type": "operation/convert-element",
 			"data": {
-				"nodeNames": ["ul"],
-				"contextNodeId": "{{contextNodeId}}"
+				"nodeNames": ["ul"]
 			}
 		}
 	},
@@ -113,8 +108,7 @@
 		"steps": {
 			"type": "operation/convert-element",
 			"data": {
-				"nodeNames": ["ol"],
-				"contextNodeId": "{{contextNodeId}}"
+				"nodeNames": ["ol"]
 			}
 		}
 	}
