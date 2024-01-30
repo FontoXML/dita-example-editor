@@ -248,6 +248,7 @@
 	},
 	":note-convert-to-@type=null": {
 		"label": "t__Change to standard note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a standard note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -260,6 +261,7 @@
 	},
 	":note-convert-to-@type=attention": {
 		"label": "t__Change to attention note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a attention note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -272,6 +274,7 @@
 	},
 	":note-convert-to-@type=caution": {
 		"label": "t__Change to caution note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a caution note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -284,6 +287,7 @@
 	},
 	":note-convert-to-@type=danger": {
 		"label": "t__Change to danger note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a danger note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -296,6 +300,7 @@
 	},
 	":note-convert-to-@type=fastpath": {
 		"label": "t__Change to fastpath note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a fastpath note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -308,6 +313,7 @@
 	},
 	":note-convert-to-@type=important": {
 		"label": "t__Change to important note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to an important note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -320,6 +326,7 @@
 	},
 	":note-convert-to-@type=notice": {
 		"label": "t__Change to notice note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a notice note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -332,6 +339,7 @@
 	},
 	":note-convert-to-@type=other": {
 		"label": "t__Change to other note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to an other note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -344,6 +352,7 @@
 	},
 	":note-convert-to-@type=remember": {
 		"label": "t__Change to remember note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a remember note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -356,6 +365,7 @@
 	},
 	":note-convert-to-@type=restriction": {
 		"label": "t__Change to restriction note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a restriction note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -368,6 +378,7 @@
 	},
 	":note-convert-to-@type=tip": {
 		"label": "t__Change to tip note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a tip note.",
 		"steps": {
 			"type": "operation/set-attributes",
@@ -380,6 +391,7 @@
 	},
 	":note-convert-to-@type=warning": {
 		"label": "t__Change to warning note",
+		"icon": "arrow-right-arrow-left",
 		"description": "t__Change this note to a warning note.",
 		"steps": {
 			"type": "operation/set-attributes",

@@ -159,24 +159,30 @@ const StructureToolbar: FC = () => {
 										label={t('Generic note')}
 										operationName=":insert-note--task"
 									/>
-								</MenuGroup>
-
-								<MenuGroup>
-									<FxOperationMenuItem operationName=":insert-note[@type=attention]--task" />
-									<FxOperationMenuItem operationName=":insert-note[@type=caution]--task" />
 									<FxOperationMenuItem operationName=":insert-note[@type=danger]--task" />
-									<FxOperationMenuItem operationName=":insert-note[@type=fastpath]--task" />
-									<FxOperationMenuItem operationName=":insert-note[@type=important]--task" />
-									<FxOperationMenuItem operationName=":insert-note[@type=notice]--task" />
-									<FxOperationMenuItem operationName=":insert-note[@type=remember]--task" />
-									<FxOperationMenuItem operationName=":insert-note[@type=restriction]--task" />
 									<FxOperationMenuItem operationName=":insert-note[@type=tip]--task" />
 									<FxOperationMenuItem operationName=":insert-note[@type=warning]--task" />
-									<FxOperationMenuItem operationName=":insert-note[@type=other]--task" />
 								</MenuGroup>
 
 								<MenuGroup>
 									<FxOperationMenuItem operationName=":insert-note[@conref]" />
+									<MenuItemWithDrop
+										label={t('Other note types')}
+										renderDrop={() => (
+											<Drop>
+												<Menu>
+													<FxOperationMenuItem operationName=":insert-note[@type=attention]--task" />
+													<FxOperationMenuItem operationName=":insert-note[@type=caution]--task" />
+													<FxOperationMenuItem operationName=":insert-note[@type=fastpath]--task" />
+													<FxOperationMenuItem operationName=":insert-note[@type=important]--task" />
+													<FxOperationMenuItem operationName=":insert-note[@type=notice]--task" />
+													<FxOperationMenuItem operationName=":insert-note[@type=remember]--task" />
+													<FxOperationMenuItem operationName=":insert-note[@type=restriction]--task" />
+													<FxOperationMenuItem operationName=":insert-note[@type=other]--task" />
+												</Menu>
+											</Drop>
+										)}
+									/>
 								</MenuGroup>
 							</Menu>
 						</Drop>
