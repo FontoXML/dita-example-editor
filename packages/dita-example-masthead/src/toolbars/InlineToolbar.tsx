@@ -11,13 +11,14 @@ import {
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import FxOperationsSplitButtonWithDropMenu from 'fontoxml-fx/src/FxOperationsSplitButtonWithDropMenu';
+import t from 'fontoxml-localization/src/t';
 
 const InlineToolbar: FC = () => {
 	return (
 		<MastheadToolbar>
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Formatting"
+					label={t('Formatting')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -51,7 +52,7 @@ const InlineToolbar: FC = () => {
 				<FxOperationButton operationName=":toggle-q" />
 				<ButtonWithDrop
 					icon="trademark"
-					label="Trademark"
+					label={t('Trademark')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -72,7 +73,7 @@ const InlineToolbar: FC = () => {
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
 					icon="link"
-					label="Link"
+					label={t('Link')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>

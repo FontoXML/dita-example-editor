@@ -10,6 +10,7 @@ import {
 } from 'fontoxml-design-system/src/components';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
+import t from 'fontoxml-localization/src/t';
 
 const GlossaryToolbar: FC = () => {
 	return (
@@ -18,7 +19,7 @@ const GlossaryToolbar: FC = () => {
 				<FxOperationButton operationName=":insert-glossentry" />
 
 				<FxOperationButton
-					label="Sort entries"
+					label={t('Sort entries')}
 					operationName="glossentry-sort"
 					tooltipContent="Sorts the entries in this group alphabetically by term."
 				/>
@@ -28,7 +29,7 @@ const GlossaryToolbar: FC = () => {
 				<FxOperationButton operationName=":insert-glossdef" />
 				<FxOperationButton operationName=":insert-glossUsage--in-glossentry" />
 				<ButtonWithDrop
-					label="Variation"
+					label={t('Variation')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>

@@ -13,6 +13,7 @@ import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import useXPath from 'fontoxml-fx/src/useXPath';
 import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
+import t from 'fontoxml-localization/src/t';
 
 const QuestionToolbar: FC = () => {
 	const matching = useXPath(
@@ -78,7 +79,7 @@ const QuestionToolbar: FC = () => {
 					<FxOperationButton operationName=":insert-lcMatchingHeader2" />
 					<FxOperationButton operationName=":insert-lcMatchingPair2" />
 					<ButtonWithDrop
-						label="Pair feedback"
+						label={t('Pair feedback')}
 						renderDrop={() => (
 							<Drop>
 								<Menu>

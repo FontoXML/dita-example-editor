@@ -11,6 +11,7 @@ import {
 	ModalHeader,
 	TextInput,
 } from 'fontoxml-design-system/src/components';
+import t from 'fontoxml-localization/src/t';
 
 class TimeValueModal extends Component<{
 	cancelModal(): void;
@@ -61,7 +62,7 @@ class TimeValueModal extends Component<{
 
 				<ModalBody>
 					<Form labelPosition="before">
-						<FormRow label="Duration">
+						<FormRow label={t('Duration')}>
 							<TextInput
 								onChange={this.handleTextInputChange}
 								ref={this.handleTextInputRef}
@@ -72,7 +73,10 @@ class TimeValueModal extends Component<{
 				</ModalBody>
 
 				<ModalFooter>
-					<Button label="Cancel" onClick={this.props.cancelModal} />
+					<Button
+						label={t('Cancel')}
+						onClick={this.props.cancelModal}
+					/>
 
 					<Button
 						type="primary"

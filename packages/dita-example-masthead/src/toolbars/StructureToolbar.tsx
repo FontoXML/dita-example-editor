@@ -14,6 +14,7 @@ import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationInsertTableMenu from 'fontoxml-fx/src/FxOperationInsertTableMenu';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import FxOperationsSplitButtonWithDropMenu from 'fontoxml-fx/src/FxOperationsSplitButtonWithDropMenu';
+import t from 'fontoxml-localization/src/t.js';
 
 import InsertTopicMenu from '../menus/InsertTopicMenu.jsx';
 
@@ -22,7 +23,7 @@ const StructureToolbar: FC = () => {
 		<MastheadToolbar>
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Insert topic"
+					label={t('Insert topic')}
 					renderDrop={() => (
 						<Drop>
 							<InsertTopicMenu />
@@ -33,14 +34,14 @@ const StructureToolbar: FC = () => {
 
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Table"
+					label={t('Table')}
 					icon="table"
 					renderDrop={() => (
 						<Drop>
 							<Menu>
 								<MenuGroup>
 									<MenuItemWithDrop
-										label="Generic table"
+										label={t('Generic table')}
 										renderDrop={() => (
 											<Drop>
 												<FxOperationInsertTableMenu operationName=":insert-cals-table" />
@@ -49,7 +50,7 @@ const StructureToolbar: FC = () => {
 									/>
 
 									<MenuItemWithDrop
-										label="Simple table"
+										label={t('Simple table')}
 										renderDrop={() => (
 											<Drop>
 												<FxOperationInsertTableMenu operationName="simpletable-insert" />
@@ -58,7 +59,7 @@ const StructureToolbar: FC = () => {
 									/>
 
 									<MenuItemWithDrop
-										label="Simple table in figure"
+										label={t('Simple table in figure')}
 										renderDrop={() => (
 											<Drop>
 												<FxOperationInsertTableMenu operationName=":insert-fig.simpletable" />
@@ -97,7 +98,7 @@ const StructureToolbar: FC = () => {
 
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Intro"
+					label={t('Intro')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -109,7 +110,7 @@ const StructureToolbar: FC = () => {
 				/>
 
 				<ButtonWithDrop
-					label="Section"
+					label={t('Section')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -127,7 +128,7 @@ const StructureToolbar: FC = () => {
 				/>
 
 				<ButtonWithDrop
-					label="Group"
+					label={t('Group')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -149,13 +150,13 @@ const StructureToolbar: FC = () => {
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
 					icon="sticky-note-o"
-					label="Note"
+					label={t('Note')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
 								<MenuGroup>
 									<FxOperationMenuItem
-										label="Generic note"
+										label={t('Generic note')}
 										operationName=":insert-note--task"
 									/>
 								</MenuGroup>
@@ -188,7 +189,7 @@ const StructureToolbar: FC = () => {
 
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Related links"
+					label={t('Related links')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>

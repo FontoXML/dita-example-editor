@@ -10,13 +10,14 @@ import {
 } from 'fontoxml-design-system/src/components';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
+import t from 'fontoxml-localization/src/t';
 
 const AdvancedToolbar: FC = () => {
 	return (
 		<MastheadToolbar>
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Alternate title"
+					label={t('Alternate title')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -37,7 +38,7 @@ const AdvancedToolbar: FC = () => {
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
 					icon="exclamation-circle"
-					label="Hazard statement"
+					label={t('Hazard statement')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -66,7 +67,7 @@ const AdvancedToolbar: FC = () => {
 
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Reference"
+					label={t('Reference')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -80,7 +81,7 @@ const AdvancedToolbar: FC = () => {
 
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="User interface"
+					label={t('User interface')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -103,7 +104,7 @@ const AdvancedToolbar: FC = () => {
 				/>
 
 				<ButtonWithDrop
-					label="Programming"
+					label={t('Programming')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>

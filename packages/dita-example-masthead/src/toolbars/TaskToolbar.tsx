@@ -10,13 +10,14 @@ import {
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import FxOperationsSplitButtonWithDropMenu from 'fontoxml-fx/src/FxOperationsSplitButtonWithDropMenu';
+import t from 'fontoxml-localization/src/t';
 
 const TaskToolbar: FC = () => {
 	return (
 		<MastheadToolbar>
 			<MastheadToolbarButtons>
 				<ButtonWithDrop
-					label="Task"
+					label={t('Task')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>

@@ -247,7 +247,7 @@ const InsertTopicMenu: FC = () => {
 			<MenuGroup>
 				<FxOperationMenuItem
 					icon="sitemap"
-					label="View the outline"
+					label={t('View the outline')}
 					operationData={{
 						disableWhenAlreadyOpen: true,
 					}}

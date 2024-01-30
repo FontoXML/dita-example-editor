@@ -11,6 +11,7 @@ import {
 import FxMultiOperationsMenuItem from 'fontoxml-fx/src/FxMultiOperationsMenuItem';
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
+import t from 'fontoxml-localization/src/t';
 
 const ToolsToolbar: FC = () => {
 	return (
@@ -20,7 +21,7 @@ const ToolsToolbar: FC = () => {
 
 				<ButtonWithDrop
 					icon="search"
-					label="Zoom"
+					label={t('Zoom')}
 					renderDrop={() => (
 						<Drop>
 							<Menu>
@@ -59,14 +60,14 @@ const ToolsToolbar: FC = () => {
 			<MastheadToolbarButtons>
 				<FxOperationButton
 					icon="align-right icon-flip-vertical"
-					label="Outline"
+					label={t('Outline')}
 					operationName="toggle-structure-view"
 					tooltipContent="Document outline"
 				/>
 
 				<FxOperationButton
 					icon="code"
-					label="Source"
+					label={t('Source')}
 					operationData={{ tabId: 'source' }}
 					operationName="toggle-sidebar-tab"
 					tooltipContent="XML source code"

@@ -13,6 +13,7 @@ import {
 import FxOperationButton from 'fontoxml-fx/src/FxOperationButton';
 import FxOperationMenuItem from 'fontoxml-fx/src/FxOperationMenuItem';
 import useXPath from 'fontoxml-fx/src/useXPath';
+import t from 'fontoxml-localization/src/t';
 import ReturnTypes from 'fontoxml-selectors/src/ReturnTypes';
 import xq from 'fontoxml-selectors/src/xq';
 
@@ -24,7 +25,7 @@ const renderNeedsAnalysisDrop = () => (
 			</MenuGroup>
 
 			<MenuItemWithDrop
-				label="Organizational"
+				label={t('Organizational')}
 				renderDrop={() => (
 					<Drop>
 						<Menu>
@@ -45,7 +46,7 @@ const renderNeedsAnalysisDrop = () => (
 			/>
 
 			<MenuItemWithDrop
-				label="Plan audience"
+				label={t('Plan audience')}
 				renderDrop={() => (
 					<Drop>
 						<Menu>
@@ -69,7 +70,7 @@ const renderNeedsAnalysisDrop = () => (
 			/>
 
 			<MenuItemWithDrop
-				label="Work environment"
+				label={t('Work environment')}
 				renderDrop={() => (
 					<Drop>
 						<Menu>
@@ -88,7 +89,7 @@ const renderNeedsAnalysisDrop = () => (
 			/>
 
 			<MenuItemWithDrop
-				label="Task"
+				label={t('Task')}
 				renderDrop={() => (
 					<Drop>
 						<Menu>
@@ -213,7 +214,7 @@ const LearningTrainingToolbar: FC = () => {
 			{xpathQueryResultByName.learningPlan && (
 				<MastheadToolbarButtons>
 					<ButtonWithDrop
-						label="Project"
+						label={t('Project')}
 						renderDrop={() => (
 							<Drop>
 								<Menu>
@@ -236,11 +237,11 @@ const LearningTrainingToolbar: FC = () => {
 						)}
 					/>
 					<ButtonWithDrop
-						label="Needs analysis"
+						label={t('Needs analysis')}
 						renderDrop={renderNeedsAnalysisDrop}
 					/>
 					<ButtonWithDrop
-						label="Gap analysis"
+						label={t('Gap analysis')}
 						renderDrop={() => (
 							<Drop>
 								<Menu>
@@ -259,7 +260,7 @@ const LearningTrainingToolbar: FC = () => {
 						)}
 					/>
 					<ButtonWithDrop
-						label="Intervention"
+						label={t('Intervention')}
 						renderDrop={() => (
 							<Drop>
 								<Menu>
@@ -279,7 +280,7 @@ const LearningTrainingToolbar: FC = () => {
 						)}
 					/>
 					<ButtonWithDrop
-						label="Technical"
+						label={t('Technical')}
 						renderDrop={() => (
 							<Drop>
 								<Menu>

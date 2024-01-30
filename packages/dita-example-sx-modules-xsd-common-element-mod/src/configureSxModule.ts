@@ -544,7 +544,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// configureAsConref family will itself determine wether an XML tag indeed has all the required conref
 	// information. Fonto will then render the note in the location of the conref, regardless of which document
 	// actually contains the conreffed content.
-	configureAsConref(sxModule, xq`self::note`, 'reused note', {
+	configureAsConref(sxModule, xq`self::note`, t('reused note'), {
 		contextualOperations: [],
 		popoverData: {
 			editOperationName: ':contextual-edit-note[@conref]',
