@@ -18,7 +18,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::consequence`,
 		t('consequence'),
 		{
-			emptyElementPlaceholderText: t('type the consequence'),
+			emptyElementPlaceholderText: t('Type the consequence'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -170,7 +170,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('how to avoid'),
 		{
 			emptyElementPlaceholderText: t(
-				'type the description of how to avoid the hazard'
+				'Type the description of how to avoid the hazard'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
@@ -214,7 +214,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::typeofhazard`,
 		t('type of hazard'),
 		{
-			emptyElementPlaceholderText: t('type the type of hazard'),
+			emptyElementPlaceholderText: t('Type the type of hazard'),
 			fontVariation: 'figure-title',
 		}
 	);

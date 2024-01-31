@@ -34,7 +34,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     element, alt provides direct text entry within an XML editor and is more easily accessed than an
 	//     attribute for translation. Category: Body elements
 	configureAsFrameWithBlock(sxModule, xq`self::alt`, t('alternative text'), {
-		emptyElementPlaceholderText: t('type the alternative text'),
+		emptyElementPlaceholderText: t('Type the alternative text'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -78,7 +78,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     entry. Category: Body elements
 	configureAsStructure(sxModule, xq`self::dd`, t('definition'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the definition'),
+		emptyElementPlaceholderText: t('Type the definition'),
 	});
 
 	configureAsFrame(
@@ -87,7 +87,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('definition'),
 		{
 			defaultTextContainer: 'p',
-			emptyElementPlaceholderText: t('type the definition'),
+			emptyElementPlaceholderText: t('Type the definition'),
 			showWhen: 'has-focus',
 		}
 	);
@@ -98,7 +98,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::dd] and not(preceding-sibling::* or following-sibling::*)`,
 		t('paragraph'),
 		{
-			emptyElementPlaceholderText: t('type the definition'),
+			emptyElementPlaceholderText: t('Type the definition'),
 		}
 	);
 
@@ -106,7 +106,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The definition descriptions heading (<ddhd>) element contains an optional heading or title for a
 	//     column of descriptions or definitions in a definition list. Category: Body elements
 	configureAsBlock(sxModule, xq`self::ddhd`, t('definitions title'), {
-		emptyElementPlaceholderText: t('type the title for the definitions'),
+		emptyElementPlaceholderText: t('Type the title for the definitions'),
 	});
 
 	// desc
@@ -116,7 +116,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     this as hover help. In object, it contains alternate content for use when in contexts that cannot
 	//     display the object. Category: Body elements
 	configureAsFrame(sxModule, xq`self::desc`, t('description'), {
-		emptyElementPlaceholderText: t('type the description'),
+		emptyElementPlaceholderText: t('Type the description'),
 		defaultTextContainer: 'p',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
@@ -126,7 +126,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		sxModule,
 		xq`self::p[parent::desc] and not(preceding-sibling::* or following-sibling::*)`,
 		{
-			emptyElementPlaceholderText: t('type the definition'),
+			emptyElementPlaceholderText: t('Type the definition'),
 		}
 	);
 
@@ -134,7 +134,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     Category: Body elements
 	configureAsFrame(sxModule, xq`self::div`, t('division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-div' }],
-		emptyElementPlaceholderText: t('type the content'),
+		emptyElementPlaceholderText: t('Type the content'),
 		defaultTextContainer: 'p',
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -195,7 +195,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// dt
 	//     The definition term <dt> element contains a term in a definition list entry. Category: Body elements
 	configureAsBlock(sxModule, xq`self::dt`, t('term'), {
-		emptyElementPlaceholderText: t('type the term'),
+		emptyElementPlaceholderText: t('Type the term'),
 	});
 	// dt which is not the only dt in dlentry
 	configureAsFrameWithBlock(
@@ -211,7 +211,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The definition term heading (<dthd>) element is contained in a definition list head (<dlhead>) and
 	//     provides an optional heading for the column of terms in a description list. Category: Body elements
 	configureAsBlock(sxModule, xq`self::dthd`, t('terms title'), {
-		emptyElementPlaceholderText: t('type the title for the terms'),
+		emptyElementPlaceholderText: t('Type the title for the terms'),
 	});
 
 	// fig
@@ -282,7 +282,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     indicate the source for facts or other material used in the text. Category: Miscellaneous elements
 	configureAsFrame(sxModule, xq`self::fn`, t('footnote'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the footnote'),
+		emptyElementPlaceholderText: t('Type the footnote'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -292,7 +292,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('footnote'),
 		{
 			defaultTextContainer: 'p',
-			emptyElementPlaceholderText: t('type the footnote'),
+			emptyElementPlaceholderText: t('Type the footnote'),
 			endDelimiter: ']',
 			startDelimiter: '[',
 			blockHeaderLeft: [],
@@ -305,7 +305,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::fn] and not(preceding-sibling::* or following-sibling::*)`,
 		t('paragraph'),
 		{
-			emptyElementPlaceholderText: t('type the footnote'),
+			emptyElementPlaceholderText: t('Type the footnote'),
 		}
 	);
 
@@ -375,7 +375,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     An <indexterm> element allows the author to indicate that a certain word or phrase should produce an
 	//     index entry in the generated index. Category: Miscellaneous elements
 	configureAsInlineFrame(sxModule, xq`self::indexterm`, t('index term'), {
-		emptyElementPlaceholderText: t('type the index term'),
+		emptyElementPlaceholderText: t('Type the index term'),
 		backgroundColor: 'blue',
 	});
 
@@ -458,7 +458,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::navtitle[parent::titlealts]`,
 		undefined,
 		{
-			emptyElementPlaceholderText: t('type the navigation title'),
+			emptyElementPlaceholderText: t('Type the navigation title'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -737,7 +737,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     Beginning with DITA 1.1, the element may also be used to provide a title for a map. Category: Topic
 	//     elements
 	configureAsTitleFrame(sxModule, xq`self::title`, t('title'), {
-		emptyElementPlaceholderText: t('type the title'),
+		emptyElementPlaceholderText: t('Type the title'),
 	});
 
 	// tm
@@ -805,7 +805,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     location in another topic. The href attribute on the <xref> element provides the location of the
 	//     target. Category: Body elements
 	configureAsInlineLink(sxModule, xq`self::xref`, t('link'), {
-		emptyElementPlaceholderText: t('type the link text'),
+		emptyElementPlaceholderText: t('Type the link text'),
 		popoverComponentName: 'DitaCrossReferencePopover',
 		popoverData: {
 			editOperationName: ':contextual-edit-xref[@format=dita]',

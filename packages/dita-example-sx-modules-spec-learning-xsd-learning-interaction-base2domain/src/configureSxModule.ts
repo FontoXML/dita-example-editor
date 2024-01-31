@@ -18,7 +18,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcInteractionLabel2`,
 		t('interaction label'),
 		{
-			emptyElementPlaceholderText: t('type the interaction label'),
+			emptyElementPlaceholderText: t('Type the interaction label'),
 			fontVariation: 'figure-title',
 		}
 	);

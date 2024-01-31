@@ -461,7 +461,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 					hideIn: ['structure-view'],
 				},
 			],
-			emptyElementPlaceholderText: t('type the book library information'),
+			emptyElementPlaceholderText: t('Type the book library information'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
@@ -760,7 +760,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 					hideIn: ['structure-view'],
 				},
 			],
-			emptyElementPlaceholderText: t('type the alternative title'),
+			emptyElementPlaceholderText: t('Type the alternative title'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
@@ -1076,7 +1076,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('main book title'),
 		{
 			fontVariation: 'collection-title',
-			emptyElementPlaceholderText: t('type the book title'),
+			emptyElementPlaceholderText: t('Type the book title'),
 		}
 	);
 

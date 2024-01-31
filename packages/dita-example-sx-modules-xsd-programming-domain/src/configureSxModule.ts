@@ -32,7 +32,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			backgroundColor: 'brown',
 			contextualOperations: [{ name: ':contextual-unwrap-codeblock' }],
-			emptyElementPlaceholderText: t('type the code'),
+			emptyElementPlaceholderText: t('Type the code'),
 			isMonospaced: true,
 			withNewlineBreakToken: true,
 			blockHeaderLeft: [createMarkupLabelWidget()],
@@ -155,7 +155,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     programming tasks, concepts and reference information. Category: Programming elements
 	configureAsStructure(sxModule, xq`self::pd`, t('definition'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the definition'),
+		emptyElementPlaceholderText: t('Type the definition'),
 	});
 
 	configureAsFrame(
@@ -164,7 +164,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('definition'),
 		{
 			defaultTextContainer: 'p',
-			emptyElementPlaceholderText: t('type the definition'),
+			emptyElementPlaceholderText: t('Type the definition'),
 			showWhen: 'has-focus',
 		}
 	);
@@ -175,7 +175,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::pd] and not(preceding-sibling::p or following-sibling::p)`,
 		t('paragraph'),
 		{
-			emptyElementPlaceholderText: t('type the definition'),
+			emptyElementPlaceholderText: t('Type the definition'),
 		}
 	);
 
@@ -204,7 +204,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     part of the DITA programming domain, a special set of DITA elements designed to document programming
 	//     tasks, concepts and reference information. Category: Programming elements
 	configureAsBlock(sxModule, xq`self::pt`, t('parameter'), {
-		emptyElementPlaceholderText: t('type the parameter'),
+		emptyElementPlaceholderText: t('Type the parameter'),
 	});
 
 	configureAsFrame(
@@ -212,7 +212,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::pt[count(preceding-sibling::* | following-sibling::*) > 1]`,
 		t('parameter'),
 		{
-			emptyElementPlaceholderText: t('type the parameter'),
+			emptyElementPlaceholderText: t('Type the parameter'),
 			showWhen: 'has-focus',
 		}
 	);
@@ -267,7 +267,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     domain, a special set of DITA elements designed to document programming tasks, concepts and
 	//     reference information. Category: Programming elements
 	configureAsInlineFrame(sxModule, xq`self::synph`, t('syntax phrase'), {
-		emptyElementPlaceholderText: t('type the syntax'),
+		emptyElementPlaceholderText: t('Type the syntax'),
 	});
 
 	// syntaxdiagram

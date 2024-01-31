@@ -49,7 +49,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	configureAsFrame(sxModule, xq`self::conbodydiv`, t('body division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-conbodydiv' }],
 		defaultTextContainer: 'section',
-		emptyElementPlaceholderText: t('type the content'),
+		emptyElementPlaceholderText: t('Type the content'),
 		isIgnoredForNavigation: false,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],

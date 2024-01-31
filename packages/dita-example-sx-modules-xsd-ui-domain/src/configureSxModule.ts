@@ -36,7 +36,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			backgroundColor: 'brown',
 			contextualOperations: [{ name: ':contextual-unwrap-screen' }],
-			emptyElementPlaceholderText: t('type the screen text'),
+			emptyElementPlaceholderText: t('Type the screen text'),
 			isMonospaced: true,
 			withNewlineBreakToken: true,
 			blockHeaderLeft: [createMarkupLabelWidget()],
@@ -50,7 +50,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     part of the DITA user interface domain, a special set of DITA elements designed to document user
 	//     interface tasks, concepts and reference information. Category: User interface elements
 	configureAsInlineFrame(sxModule, xq`self::shortcut`, t('shortcut'), {
-		emptyElementPlaceholderText: t('type the shortcut'),
+		emptyElementPlaceholderText: t('Type the shortcut'),
 	});
 
 	// uicontrol
@@ -61,14 +61,14 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     designed to document user interface tasks, concepts and reference information. Category: User
 	//     interface elements
 	configureAsInlineFrame(sxModule, xq`self::uicontrol`, t('UI control'), {
-		emptyElementPlaceholderText: t('type the label of the UI control'),
+		emptyElementPlaceholderText: t('Type the label of the UI control'),
 	});
 
 	configureProperties(
 		sxModule,
 		xq`self::uicontrol[parent::menucascade and preceding-sibling::uicontrol]`,
 		{
-			emptyElementPlaceholderText: t('type the label of the UI control'),
+			emptyElementPlaceholderText: t('Type the label of the UI control'),
 			inlineBefore: [createIconWidget('angle-right')],
 		}
 	);
@@ -80,6 +80,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     DITA elements designed to document user interface tasks, concepts and reference information.
 	//     Category: User interface elements
 	configureAsInlineFrame(sxModule, xq`self::wintitle`, t('window title'), {
-		emptyElementPlaceholderText: t('type the window title'),
+		emptyElementPlaceholderText: t('Type the window title'),
 	});
 }

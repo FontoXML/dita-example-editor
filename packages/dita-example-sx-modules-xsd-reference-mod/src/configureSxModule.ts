@@ -22,7 +22,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-properties-column' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the description'),
+		emptyElementPlaceholderText: t('Type the description'),
 	});
 
 	// p in propdesc
@@ -30,7 +30,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		sxModule,
 		xq`self::p[parent::propdesc] and not(preceding-sibling::p or following-sibling::p)`,
 		{
-			emptyElementPlaceholderText: t('type the description'),
+			emptyElementPlaceholderText: t('Type the description'),
 		}
 	);
 
@@ -47,7 +47,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			],
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t(
-				'type the title for the descriptions'
+				'Type the title for the descriptions'
 			),
 		}
 	);
@@ -58,7 +58,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::propdeschd] and not(preceding-sibling::p or following-sibling::p)`,
 		{
 			emptyElementPlaceholderText: t(
-				'type the title for the descriptions'
+				'Type the title for the descriptions'
 			),
 		}
 	);
@@ -158,7 +158,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		contextualOperations: [
 			{ name: ':contextual-delete-properties-column' },
 		],
-		emptyElementPlaceholderText: t('type the property type'),
+		emptyElementPlaceholderText: t('Type the property type'),
 	});
 
 	// proptypehd
@@ -169,7 +169,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-properties-column' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the title for the property type'),
+		emptyElementPlaceholderText: t('Type the title for the property type'),
 	});
 
 	// p in proptypehd
@@ -178,7 +178,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::proptypehd] and not(preceding-sibling::p or following-sibling::p)`,
 		{
 			emptyElementPlaceholderText: t(
-				'type the title for the property type'
+				'Type the title for the property type'
 			),
 		}
 	);
@@ -191,7 +191,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		contextualOperations: [
 			{ name: ':contextual-delete-properties-column' },
 		],
-		emptyElementPlaceholderText: t('type the value'),
+		emptyElementPlaceholderText: t('Type the value'),
 	});
 
 	// propvaluehd
@@ -202,7 +202,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-properties-column' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the title for the property value'),
+		emptyElementPlaceholderText: t('Type the title for the property value'),
 	});
 
 	// p in propvaluehd
@@ -211,7 +211,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::propvaluehd] and not(preceding-sibling::p or following-sibling::p)`,
 		{
 			emptyElementPlaceholderText: t(
-				'type the title for the property value'
+				'Type the title for the property value'
 			),
 		}
 	);
@@ -255,7 +255,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	configureAsFrame(sxModule, xq`self::refbodydiv`, t('body division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-refbodydiv' }],
 		defaultTextContainer: 'section',
-		emptyElementPlaceholderText: t('type the content'),
+		emptyElementPlaceholderText: t('Type the content'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -316,7 +316,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-unwrap-refsyn' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the syntax'),
+		emptyElementPlaceholderText: t('Type the syntax'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],

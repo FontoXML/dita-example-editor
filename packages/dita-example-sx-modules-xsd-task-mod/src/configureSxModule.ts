@@ -24,7 +24,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     of the choice when it is not immediately obvious. Category: Task elements
 	configureAsStructure(sxModule, xq`self::chdesc`, t('description'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the description'),
+		emptyElementPlaceholderText: t('Type the description'),
 	});
 
 	// p in chdesc
@@ -33,7 +33,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::chdesc] and not(preceding-sibling::p or following-sibling::p)`,
 		t('paragraph'),
 		{
-			emptyElementPlaceholderText: t('type the description'),
+			emptyElementPlaceholderText: t('Type the description'),
 		}
 	);
 
@@ -43,7 +43,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     Description. Category: Task elements
 	configureAsStructure(sxModule, xq`self::chdeschd`, t('title'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the title for the descriptions'),
+		emptyElementPlaceholderText: t('Type the title for the descriptions'),
 	});
 
 	// p in chdeschd
@@ -53,7 +53,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('paragraph'),
 		{
 			emptyElementPlaceholderText: t(
-				'type the title for the descriptions'
+				'Type the title for the descriptions'
 			),
 		}
 	);
@@ -122,7 +122,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The <choption> element describes an option that a user could choose to accomplish a step of a task.
 	//     In a user interface, for example, this might be the name of radio button. Category: Task elements
 	configureAsStructure(sxModule, xq`self::choption`, t('option'), {
-		emptyElementPlaceholderText: t('type the option'),
+		emptyElementPlaceholderText: t('Type the option'),
 		defaultTextContainer: 'p',
 	});
 
@@ -132,7 +132,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::choption] and not(preceding-sibling::p or following-sibling::p)`,
 		t('paragraph'),
 		{
-			emptyElementPlaceholderText: t('type the option'),
+			emptyElementPlaceholderText: t('Type the option'),
 		}
 	);
 
@@ -140,7 +140,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The <choptionhd> element provides a specific label for the list of options that a user chooses from
 	//     to accomplish a step. The default label for options is Option. Category: Task elements
 	configureAsStructure(sxModule, xq`self::choptionhd`, t('title'), {
-		emptyElementPlaceholderText: t('type the title for the options'),
+		emptyElementPlaceholderText: t('Type the title for the options'),
 		defaultTextContainer: 'p',
 	});
 
@@ -150,7 +150,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::p[parent::choptionhd] and not(preceding-sibling::p or following-sibling::p)`,
 		t('paragraph'),
 		{
-			emptyElementPlaceholderText: t('type the title for the options'),
+			emptyElementPlaceholderText: t('Type the title for the options'),
 		}
 	);
 
@@ -176,7 +176,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     the step needs additional explanation, this can follow the <cmd> element inside an <info > element.
 	//     Category: Task elements
 	configureAsLine(sxModule, xq`self::cmd`, t('command'), {
-		emptyElementPlaceholderText: t('type a single sentence instruction'),
+		emptyElementPlaceholderText: t('Type a single sentence instruction'),
 	});
 
 	// context
@@ -186,7 +186,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     although the context section may include some conceptual information. Category: Task elements
 	configureAsFrame(sxModule, xq`self::context`, t('context'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type a context for this task'),
+		emptyElementPlaceholderText: t('Type a context for this task'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -207,7 +207,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     <related-links> section. Category: Task elements
 	configureAsFrame(sxModule, xq`self::postreq`, t('postrequisites'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the postrequisites for this task'),
+		emptyElementPlaceholderText: t('Type the postrequisites for this task'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -218,7 +218,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     <prereq> section. Category: Task elements
 	configureAsFrame(sxModule, xq`self::prereq`, t('prerequisites'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the prerequisites for this task'),
+		emptyElementPlaceholderText: t('Type the prerequisites for this task'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -226,7 +226,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The <result> element describes the expected outcome for the task as a whole. Category: Task elements
 	configureAsFrame(sxModule, xq`self::result`, t('result'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type a result for this task'),
+		emptyElementPlaceholderText: t('Type a result for this task'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -341,7 +341,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     be used for every step, as this quickly becomes tedious. Category: Task elements
 	configureAsFrame(sxModule, xq`self::stepresult`, t('result'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type a result for this step'),
+		emptyElementPlaceholderText: t('Type a result for this step'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -365,7 +365,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':steps-informal-replace-with-steps-unordered' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the informal steps'),
+		emptyElementPlaceholderText: t('Type the informal steps'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -410,7 +410,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t(
-				'type troubleshooting information for this step'
+				'Type troubleshooting information for this step'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
@@ -421,7 +421,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     couple of words, or an entire paragraph. Category: Task elements
 	configureAsFrame(sxModule, xq`self::stepxmp`, t('example'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type an example for this step'),
+		emptyElementPlaceholderText: t('Type an example for this step'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -547,7 +547,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t(
-				'type troubleshooting information for this task'
+				'Type troubleshooting information for this task'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
@@ -563,7 +563,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t(
-				'type additional tutorial information'
+				'Type additional tutorial information'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}

@@ -21,7 +21,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('abbreviation'),
 		{
 			emptyElementPlaceholderText: t(
-				'type the abbreviation for this term'
+				'Type the abbreviation for this term'
 			),
 			isRemovableIfEmpty: false,
 			blockHeaderLeft: [createMarkupLabelWidget()],
@@ -32,7 +32,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The <glossAcronym> element defines an acronym as an alternate form for the term defined in the
 	//     <glossterm> element.
 	configureAsFrameWithBlock(sxModule, xq`self::glossAcronym`, t('acronym'), {
-		emptyElementPlaceholderText: t('type the acronym for this term'),
+		emptyElementPlaceholderText: t('Type the acronym for this term'),
 		isRemovableIfEmpty: false,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
@@ -149,7 +149,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::glossShortForm`,
 		t('short form'),
 		{
-			emptyElementPlaceholderText: t('type the short form for this term'),
+			emptyElementPlaceholderText: t('Type the short form for this term'),
 			isRemovableIfEmpty: false,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
@@ -173,7 +173,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// glossSynonym
 	//     Provides a term that is a synonym of the primary value in the <glossterm> element.
 	configureAsFrameWithBlock(sxModule, xq`self::glossSynonym`, t('synonym'), {
-		emptyElementPlaceholderText: t('type the synonym for this term'),
+		emptyElementPlaceholderText: t('Type the synonym for this term'),
 		isRemovableIfEmpty: false,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
@@ -183,7 +183,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     same term has multiple senses, create a separate <glossentry> topic for each sense. Category:
 	//     Glossentry elements
 	configureAsTitleFrame(sxModule, xq`self::glossterm`, t('term'), {
-		emptyElementPlaceholderText: t('type the term'),
+		emptyElementPlaceholderText: t('Type the term'),
 	});
 
 	// glossUsage

@@ -28,7 +28,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     previews. Category: Topic elements
 	configureAsFrame(sxModule, xq`self::abstract`, t('abstract'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the summary'),
+		emptyElementPlaceholderText: t('Type the summary'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -49,7 +49,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	configureAsFrame(sxModule, xq`self::bodydiv`, t('body division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-bodydiv' }],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the content'),
+		emptyElementPlaceholderText: t('Type the content'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -64,7 +64,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-unwrap-example' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the content'),
+		emptyElementPlaceholderText: t('Type the content'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -176,7 +176,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     the text for the specified link; when used within a map, it will be used as the text for generated
 	//     links that point to the specified topic. Category: Related Links elements
 	configureAsLine(sxModule, xq`self::linktext`, t('linktext'), {
-		emptyElementPlaceholderText: t('type the link text'),
+		emptyElementPlaceholderText: t('Type the link text'),
 	});
 
 	// no-topic-nesting
@@ -224,7 +224,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::searchtitle`,
 		t('search title'),
 		{
-			emptyElementPlaceholderText: t('type the search title'),
+			emptyElementPlaceholderText: t('Type the search title'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -243,7 +243,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-unwrap-section' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the content'),
+		emptyElementPlaceholderText: t('Type the content'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -268,7 +268,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	configureAsFrame(sxModule, xq`self::sectiondiv`, t('section division'), {
 		contextualOperations: [{ name: ':contextual-unwrap-sectiondiv' }],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the content'),
+		emptyElementPlaceholderText: t('Type the content'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -284,7 +284,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::shortdesc`,
 		t('short description'),
 		{
-			emptyElementPlaceholderText: t('type the short description'),
+			emptyElementPlaceholderText: t('Type the short description'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);

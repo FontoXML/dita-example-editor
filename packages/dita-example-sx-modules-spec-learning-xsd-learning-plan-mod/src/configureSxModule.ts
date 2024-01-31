@@ -17,7 +17,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The <lcAge> provides the age range of the intended learner audience, for use by curriculum
 	//     developers and course planners.
 	configureAsFrameWithBlock(sxModule, xq`self::lcAge`, t('age'), {
-		emptyElementPlaceholderText: t('type the age'),
+		emptyElementPlaceholderText: t('Type the age'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -28,7 +28,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcAssessment`,
 		t('assessment'),
 		{
-			emptyElementPlaceholderText: t('type the assessment plans'),
+			emptyElementPlaceholderText: t('Type the assessment plans'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -36,7 +36,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// lcAttitude
 	//     The <lcAttitude> describes mental state that influences the choices of personal actions.
 	configureAsFrameWithBlock(sxModule, xq`self::lcAttitude`, t('attitude'), {
-		emptyElementPlaceholderText: t('type the attitude'),
+		emptyElementPlaceholderText: t('Type the attitude'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -48,7 +48,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcBackground`,
 		t('background'),
 		{
-			emptyElementPlaceholderText: t('type the background'),
+			emptyElementPlaceholderText: t('Type the background'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -61,7 +61,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcCIN' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the alternate identifier'),
+		emptyElementPlaceholderText: t('Type the alternate identifier'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -75,7 +75,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcClassroom' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the classroom environment'),
+		emptyElementPlaceholderText: t('Type the classroom environment'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -89,7 +89,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcClient' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the clients name'),
+		emptyElementPlaceholderText: t('Type the clients name'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -104,7 +104,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcConstraints' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the constraints'),
+		emptyElementPlaceholderText: t('Type the constraints'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -118,7 +118,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcDelivDate' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the delivery date'),
+		emptyElementPlaceholderText: t('Type the delivery date'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -127,7 +127,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// lcDelivery
 	//     The <lcDelivery> describes the delivery method for this learning content.
 	configureAsFrameWithBlock(sxModule, xq`self::lcDelivery`, t('delivery'), {
-		emptyElementPlaceholderText: t('type the delivery method'),
+		emptyElementPlaceholderText: t('Type the delivery method'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -140,7 +140,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcDownloadTime' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the download time'),
+		emptyElementPlaceholderText: t('Type the download time'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -154,7 +154,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcEdLevel`,
 		t('education level'),
 		{
-			emptyElementPlaceholderText: t('type the education level'),
+			emptyElementPlaceholderText: t('Type the education level'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -171,7 +171,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 				{ name: ':contextual-delete-lcFileSizeLimitations' },
 			],
 			defaultTextContainer: 'p',
-			emptyElementPlaceholderText: t('type the file size limitations'),
+			emptyElementPlaceholderText: t('Type the file size limitations'),
 			titleQuery: xq`./title`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -235,7 +235,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcGeneralDescription`,
 		t('general description'),
 		{
-			emptyElementPlaceholderText: t('type the general description'),
+			emptyElementPlaceholderText: t('Type the general description'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -245,7 +245,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     effort. These goals may require concurrent efforts outside of training such as technology
 	//     acquisition, reorganization, and so forth.
 	configureAsFrameWithBlock(sxModule, xq`self::lcGoals`, t('goals'), {
-		emptyElementPlaceholderText: t('type the goals'),
+		emptyElementPlaceholderText: t('Type the goals'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -258,7 +258,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcGraphics' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the graphic requirements'),
+		emptyElementPlaceholderText: t('Type the graphic requirements'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -273,7 +273,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcHandouts' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the handouts'),
+		emptyElementPlaceholderText: t('Type the handouts'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -325,14 +325,14 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The <lcJtaItem> provides description of job task analysis (JTA) as related to a particular learning
 	//     objective.
 	configureAsFrameWithBlock(sxModule, xq`self::lcJtaItem`, t('JTA'), {
-		emptyElementPlaceholderText: t('type the job task analysis'),
+		emptyElementPlaceholderText: t('Type the job task analysis'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
 	// lcKnowledge
 	//     <lcKnowledge> provides the learners' current knowledge of the learning topics.
 	configureAsFrameWithBlock(sxModule, xq`self::lcKnowledge`, t('knowledge'), {
-		emptyElementPlaceholderText: t('type the knowledge'),
+		emptyElementPlaceholderText: t('Type the knowledge'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -344,7 +344,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcLearnStrat`,
 		t('learning strategy'),
 		{
-			emptyElementPlaceholderText: t('type the learning strategy'),
+			emptyElementPlaceholderText: t('Type the learning strategy'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -357,7 +357,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcLMS' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the LMS name'),
+		emptyElementPlaceholderText: t('Type the LMS name'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -371,7 +371,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcModDate' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the modification date'),
+		emptyElementPlaceholderText: t('Type the modification date'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -384,7 +384,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcMotivation`,
 		t('motivation'),
 		{
-			emptyElementPlaceholderText: t('type the motivation'),
+			emptyElementPlaceholderText: t('Type the motivation'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -392,7 +392,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// lcNeeds
 	//     The <lcNeeds> provides the needs behind the outcomes described by the <lcGoals>.
 	configureAsFrameWithBlock(sxModule, xq`self::lcNeeds`, t('needs'), {
-		emptyElementPlaceholderText: t('type the needs'),
+		emptyElementPlaceholderText: t('Type the needs'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -446,7 +446,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcOJT' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the on-the-job-training aspects'),
+		emptyElementPlaceholderText: t('Type the on-the-job-training aspects'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -485,7 +485,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('organizational constraints'),
 		{
 			emptyElementPlaceholderText: t(
-				'type the organizational constraints'
+				'Type the organizational constraints'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
@@ -521,7 +521,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcPlanDescrip' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the plan description'),
+		emptyElementPlaceholderText: t('Type the plan description'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -534,7 +534,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcPlanObjective`,
 		t('plan objective'),
 		{
-			emptyElementPlaceholderText: t('type the plan objective'),
+			emptyElementPlaceholderText: t('Type the plan objective'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -552,7 +552,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 				{ name: ':contextual-delete-lcPlanPrereqs' },
 			],
 			defaultTextContainer: 'p',
-			emptyElementPlaceholderText: t('type the plan prerequisites'),
+			emptyElementPlaceholderText: t('Type the plan prerequisites'),
 			titleQuery: xq`./title`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -566,7 +566,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcPlanResources`,
 		t('plan resources'),
 		{
-			emptyElementPlaceholderText: t('type the plan resources'),
+			emptyElementPlaceholderText: t('Type the plan resources'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -579,7 +579,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcPlanSubject' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the plan subject'),
+		emptyElementPlaceholderText: t('Type the plan subject'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -593,7 +593,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcPlanTitle' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the plan title'),
+		emptyElementPlaceholderText: t('Type the plan title'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -607,7 +607,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcPlayers' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the players'),
+		emptyElementPlaceholderText: t('Type the players'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -616,7 +616,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// lcProcesses
 	//     The <lcProcesses> describes processes learners routinely follow.
 	configureAsFrameWithBlock(sxModule, xq`self::lcProcesses`, t('processes'), {
-		emptyElementPlaceholderText: t('type the processes'),
+		emptyElementPlaceholderText: t('Type the processes'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -650,7 +650,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcResolution' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the resolution'),
+		emptyElementPlaceholderText: t('Type the resolution'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -664,7 +664,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcSecurity' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the security'),
+		emptyElementPlaceholderText: t('Type the security'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -673,7 +673,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// lcSkills
 	//     The <lcSkills> describes the learners' current skill set and the relevancy to the learning plan.
 	configureAsFrameWithBlock(sxModule, xq`self::lcSkills`, t('skills'), {
-		emptyElementPlaceholderText: t('type the skills'),
+		emptyElementPlaceholderText: t('Type the skills'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -685,7 +685,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcSpecChars`,
 		t('specific characteristics'),
 		{
-			emptyElementPlaceholderText: t('type the specific characteristics'),
+			emptyElementPlaceholderText: t('Type the specific characteristics'),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -715,7 +715,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// lcTaskItem
 	//     The <lcTaskItem> describes a discreet task to be taught.
 	configureAsFrameWithBlock(sxModule, xq`self::lcTaskItem`, t('task item'), {
-		emptyElementPlaceholderText: t('type the task item'),
+		emptyElementPlaceholderText: t('Type the task item'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -751,7 +751,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// lcValues
 	//     The <lcValues> describes affective components of desired instructional outcomes.
 	configureAsFrameWithBlock(sxModule, xq`self::lcValues`, t('values'), {
-		emptyElementPlaceholderText: t('type the values'),
+		emptyElementPlaceholderText: t('Type the values'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -763,7 +763,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcViewers' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the viewers'),
+		emptyElementPlaceholderText: t('Type the viewers'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -777,7 +777,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcW3C' },
 		],
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the W3C requirements'),
+		emptyElementPlaceholderText: t('Type the W3C requirements'),
 		titleQuery: xq`./title`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -809,7 +809,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('work environment description'),
 		{
 			emptyElementPlaceholderText: t(
-				'type the work environment description'
+				'Type the work environment description'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}

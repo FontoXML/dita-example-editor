@@ -21,7 +21,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('answer option content'),
 		{
 			defaultTextContainer: 'p',
-			emptyElementPlaceholderText: t('type the incorrect answer option'),
+			emptyElementPlaceholderText: t('Type the incorrect answer option'),
 		}
 	);
 
@@ -29,7 +29,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		sxModule,
 		xq`self::lcAnswerContent2[following-sibling::lcCorrectResponse2]`,
 		{
-			emptyElementPlaceholderText: t('type the correct answer option'),
+			emptyElementPlaceholderText: t('Type the correct answer option'),
 		}
 	);
 
@@ -37,7 +37,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		sxModule,
 		xq`self::lcAnswerContent2[parent::lcSequenceOption2]`,
 		{
-			emptyElementPlaceholderText: t('type the answer option'),
+			emptyElementPlaceholderText: t('Type the answer option'),
 		}
 	);
 
@@ -194,7 +194,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		sxModule,
 		xq`self::lcFeedback2 or self::p[parent::lcFeedback2 and not(preceding-sibling::*)]`,
 		{
-			emptyElementPlaceholderText: t('type the feedback'),
+			emptyElementPlaceholderText: t('Type the feedback'),
 		}
 	);
 
@@ -211,7 +211,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::lcFeedback2[parent::lcMatchingItemFeedback2]`,
 		{
 			markupLabel: t('neutral feedback'),
-			emptyElementPlaceholderText: t('type the feedback'),
+			emptyElementPlaceholderText: t('Type the feedback'),
 			blockBefore: [],
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
@@ -227,7 +227,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t(
-				'type the feedback for a correct response'
+				'Type the feedback for a correct response'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockBefore: [createIconWidget('thumbs-up')],
@@ -245,7 +245,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t(
-				'type the feedback for a incorrect response'
+				'Type the feedback for a incorrect response'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockBefore: [createIconWidget('thumbs-down')],
@@ -282,7 +282,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t(
-				'type a note for the course instructor'
+				'Type a note for the course instructor'
 			),
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
@@ -293,7 +293,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     match item in a match table.
 	configureAsStructure(sxModule, xq`self::lcItem2`, t('item'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the item'),
+		emptyElementPlaceholderText: t('Type the item'),
 	});
 
 	// lcMatching2
@@ -345,7 +345,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('matching item'),
 		{
 			defaultTextContainer: 'p',
-			emptyElementPlaceholderText: t('type the matching item'),
+			emptyElementPlaceholderText: t('Type the matching item'),
 		}
 	);
 
@@ -415,7 +415,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     Use <lcOpenAnswer2> to provide a suggested answer for an <lcOpenQuestion2> interaction.
 	configureAsFrame(sxModule, xq`self::lcOpenAnswer2`, t('answer'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the answer'),
+		emptyElementPlaceholderText: t('Type the answer'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
@@ -432,7 +432,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     Use the <lcQuestion2> element in an interaction to ask the question.
 	configureAsFrame(sxModule, xq`self::lcQuestion2`, t('question'), {
 		defaultTextContainer: 'p',
-		emptyElementPlaceholderText: t('type the question'),
+		emptyElementPlaceholderText: t('Type the question'),
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 

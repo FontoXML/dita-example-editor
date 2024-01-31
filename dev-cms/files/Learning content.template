@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <learningContent id="stubbed-template-id" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:fontoxml:names:tc:dita:spec:learning:xsd:learningContent.xsd:1.3">
-	<title><?fontoxml-text-placeholder text="Learning content title" ?></title>
+	<title><?fontoxml-text-placeholder text="Type the learning content title" ?></title>
 	<learningContentbody>
-		<section><p><?fontoxml-text-placeholder text="Type your content" ?></p></section>
+		<section><p><?fontoxml-text-placeholder text="Type the content" ?></p></section>
 	</learningContentbody>
 </learningContent>
