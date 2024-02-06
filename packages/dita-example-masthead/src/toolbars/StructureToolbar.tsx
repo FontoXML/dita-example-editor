@@ -162,10 +162,6 @@ const StructureToolbar: FC = () => {
 									<FxOperationMenuItem operationName=":insert-note[@type=danger]--task" />
 									<FxOperationMenuItem operationName=":insert-note[@type=tip]--task" />
 									<FxOperationMenuItem operationName=":insert-note[@type=warning]--task" />
-								</MenuGroup>
-
-								<MenuGroup>
-									<FxOperationMenuItem operationName=":insert-note[@conref]" />
 									<MenuItemWithDrop
 										label={t('Other note types')}
 										renderDrop={() => (
@@ -183,6 +179,10 @@ const StructureToolbar: FC = () => {
 											</Drop>
 										)}
 									/>
+								</MenuGroup>
+
+								<MenuGroup>
+									<FxOperationMenuItem operationName=":insert-note[@conref]" />
 								</MenuGroup>
 							</Menu>
 						</Drop>

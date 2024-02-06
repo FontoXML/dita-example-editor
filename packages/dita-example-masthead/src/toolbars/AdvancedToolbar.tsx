@@ -48,9 +48,6 @@ const AdvancedToolbar: FC = () => {
 									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=danger]" />
 									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=tip]" />
 									<FxOperationMenuItem operationName=":insert-hazardstatement[@type=warning]" />
-								</MenuGroup>
-
-								<MenuGroup>
 									<MenuItemWithDrop
 										label={t('Other hazard types')}
 										renderDrop={() => (
