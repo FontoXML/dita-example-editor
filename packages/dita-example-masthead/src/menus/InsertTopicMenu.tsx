@@ -244,17 +244,6 @@ const InsertTopicMenu: FC = () => {
 					{content}
 				</MenuGroup>
 			))}
-			<MenuGroup>
-				<FxOperationMenuItem
-					icon="sitemap"
-					label={t('View the outline')}
-					operationData={{
-						disableWhenAlreadyOpen: true,
-					}}
-					operationName="open-structure-view"
-					tooltipContent="Document outline"
-				/>
-			</MenuGroup>
 		</Menu>
 	);
 
