@@ -2,6 +2,7 @@ import configureAsFrame from 'fontoxml-families/src/configureAsFrame';
 import configureAsFrameWithBlock from 'fontoxml-families/src/configureAsFrameWithBlock';
 import configureAsInlineFrame from 'fontoxml-families/src/configureAsInlineFrame';
 import configureAsTitleFrame from 'fontoxml-families/src/configureAsTitleFrame';
+import configureProperties from 'fontoxml-families/src/configureProperties';
 import createElementMenuButtonWidget from 'fontoxml-families/src/createElementMenuButtonWidget';
 import createMarkupLabelWidget from 'fontoxml-families/src/createMarkupLabelWidget';
 import t from 'fontoxml-localization/src/t';
@@ -43,24 +44,61 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::equation-figure`,
 		t('equation figure'),
 		{
-			contextualOperations: [
-				{ name: ':equation-figure-insert-title' },
-				{ name: ':equation-figure-insert-desc' },
-				{
-					name: ':equation-figure-append-mathml',
-					hideIn: ['context-menu'],
+			contextualOperations: {
+				titleOperations: {
+					priority: 20,
+					contextualOperations: [
+						{ name: ':equation-figure-insert-title' },
+					],
 				},
-				{
-					name: ':equation-figure-insert-mathml',
-					hideIn: ['element-menu', 'breadcrumbs-menu'],
+				descOperations: {
+					priority: 10,
+					contextualOperations: [
+						{ name: ':equation-figure-insert-desc' },
+					],
 				},
-				{ name: ':contextual-delete-equation-figure' },
-			],
+				otherOperations: {
+					priority: 0,
+					contextualOperations: [
+						{
+							name: ':equation-figure-append-mathml',
+							hideIn: ['context-menu'],
+						},
+						{
+							name: ':equation-figure-insert-mathml',
+							hideIn: ['element-menu', 'breadcrumbs-menu'],
+						},
+						{ name: ':contextual-delete-equation-figure' },
+					],
+				},
+			},
 			titleQuery: xq`./title`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
 	);
+
+	configureProperties(sxModule, xq`self::equation-figure[child::title]`, {
+		contextualOperations: {
+			titleOperations: {
+				priority: 20,
+				contextualOperations: [
+					{ name: ':equation-figure-delete-title' },
+				],
+			},
+		},
+	});
+
+	configureProperties(sxModule, xq`self::equation-figure[child::desc]`, {
+		contextualOperations: {
+			descOperations: {
+				priority: 10,
+				contextualOperations: [
+					{ name: ':equation-figure-delete-desc' },
+				],
+			},
+		},
+	});
 
 	// title in equation-figure
 	configureAsTitleFrame(

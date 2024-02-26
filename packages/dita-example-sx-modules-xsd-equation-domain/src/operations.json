@@ -31,6 +31,7 @@
 	},
 	":equation-figure-insert-desc": {
 		"label": "t__Add description",
+		"icon": "plus",
 		"description": "t__Contains further information, e.g. photo credits or citations.",
 		"steps": {
 			"type": "operation/horizontal-insert",
@@ -39,6 +40,16 @@
 					"desc",
 					[{ "bindTo": "selection", "empty": true }]
 				]
+			}
+		}
+	},
+	":equation-figure-delete-desc": {
+		"label": "t__Remove description",
+		"icon": "trash-can",
+		"steps": {
+			"type": "operation/delete-node",
+			"data": {
+				"contextNodeId": "x__$data?contextNode/desc"
 			}
 		}
 	},
@@ -67,6 +78,7 @@
 	},
 	":equation-figure-insert-title": {
 		"label": "t__Add title",
+		"icon": "plus",
 		"description": "t__A short, descriptive title for the equation.",
 		"steps": {
 			"type": "operation/horizontal-insert",
@@ -75,6 +87,16 @@
 					"title",
 					[{ "bindTo": "selection", "empty": true }]
 				]
+			}
+		}
+	},
+	":equation-figure-delete-title": {
+		"label": "t__Remove title",
+		"icon": "trash-can",
+		"steps": {
+			"type": "operation/delete-node",
+			"data": {
+				"contextNodeId": "x__$data?contextNode/title"
 			}
 		}
 	},
