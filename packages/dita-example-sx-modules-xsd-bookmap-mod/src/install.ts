@@ -27,6 +27,10 @@ async function isDocumentAMapPromise(
 	const remoteDocumentId = (stepData.selectedDocumentTemplateId ||
 		stepData.remoteDocumentId) as RemoteDocumentId;
 
+	if (!stepData.documentId && !remoteDocumentId) {
+		return false;
+	}
+
 	const getDocumentId = (
 		stepData.documentId
 			? Promise.resolve(stepData.documentId)
@@ -79,11 +83,13 @@ export default function install(): void {
 		async function (stepData) {
 			if (await isDocumentAMapPromise(stepData)) {
 				return {
+					active: false,
 					enabled: false,
 				};
 			}
 
 			return {
+				active: false,
 				enabled: true,
 			};
 		}
