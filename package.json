@@ -5,7 +5,7 @@
 	"private": true,
 	"scripts": {
 		"start": "fdt editor run",
-		"postinstall": "fdt editor upgrade --non-interactive --version 8.8.0",
+		"postinstall": "fdt editor upgrade --non-interactive --version 8.8.1",
 		"lint": "eslint \"./packages/**/*.ts\" \"./packages/**/*.tsx\" \"./config/**/*.ts\""
 	},
 	"devDependencies": {
