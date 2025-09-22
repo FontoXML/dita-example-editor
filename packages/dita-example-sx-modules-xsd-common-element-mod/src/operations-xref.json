@@ -71,7 +71,8 @@
 		"label": "t__Hyperlink",
 		"description": "t__Insert a link to a web address.",
 		"icon": "globe",
-		"keyBinding": "ctrl+k/cmd+k",
+		"keyBinding": "ctrl+k",
+		"osxKeyBinding": "cmd+k",
 		"steps": [
 			{
 				"type": "operation/:_open-web-reference-modal-for-insert"

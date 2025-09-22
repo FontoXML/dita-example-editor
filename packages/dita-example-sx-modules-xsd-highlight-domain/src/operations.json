@@ -3,7 +3,8 @@
 		"label": "t__Bold",
 		"description": "t__Applies bold formatting to text.",
 		"icon": "bold",
-		"keyBinding": "ctrl+b/cmd+b",
+		"keyBinding": "ctrl+b",
+		"osxKeyBinding": "cmd+b",
 		"steps": {
 			"type": "operation/toggle-inline-formatting-element",
 			"data": {
@@ -15,7 +16,8 @@
 		"label": "t__Italic",
 		"description": "t__Applies italic formatting to text.",
 		"icon": "italic",
-		"keyBinding": "ctrl+i/cmd+i",
+		"keyBinding": "ctrl+i",
+		"osxKeyBinding": "cmd+i",
 		"steps": {
 			"type": "operation/toggle-inline-formatting-element",
 			"data": {
@@ -48,7 +50,8 @@
 		"label": "t__Subscript",
 		"description": "t__Small text that is positioned below the baseline.",
 		"icon": "subscript",
-		"keyBinding": "ctrl+=/cmd+=",
+		"keyBinding": "ctrl+=",
+		"osxKeyBinding": "cmd+=",
 		"steps": {
 			"type": "operation/toggle-inline-formatting-element",
 			"data": {
@@ -60,7 +63,8 @@
 		"label": "t__Superscript",
 		"description": "t__Small text that is positioned above the baseline.",
 		"icon": "superscript",
-		"keyBinding": "ctrl+shift+=/cmd+shift+=",
+		"keyBinding": "ctrl+shift+=",
+		"osxKeyBinding": "cmd+shift+=",
 		"steps": {
 			"type": "operation/toggle-inline-formatting-element",
 			"data": {
@@ -82,7 +86,8 @@
 		"label": "t__Underline",
 		"description": "t__Applies underline highlighting to the text.",
 		"icon": "underline",
-		"keyBinding": "ctrl+u/cmd+u",
+		"keyBinding": "ctrl+u",
+		"osxKeyBinding": "cmd+u",
 		"steps": {
 			"type": "operation/toggle-inline-formatting-element",
 			"data": {
