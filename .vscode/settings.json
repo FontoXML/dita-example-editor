@@ -1,0 +1,28 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.insertSpaces": false,
+	"editor.rulers": [80, 100],
+
+	"eslint.format.enable": false,
+	"eslint.useFlatConfig": true,
+
+	"files.eol": "\n",
+
+	"prettier.requireConfig": true,
+
+	"search.exclude": {
+		// These files should never be edited via this project.
+		"dist/**": true,
+		"node_modules/**": true,
+		"platform/**": true,
+		"platform-linked/**": true
+	},
+	"search.useIgnoreFiles": false,
+
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true
+}
