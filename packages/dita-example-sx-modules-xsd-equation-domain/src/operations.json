@@ -21,10 +21,7 @@
 			{
 				"type": "operation/append-structure",
 				"data": {
-					"childNodeStructure": [
-						"mathml",
-						"{{mathMlPart}}"
-					]
+					"childNodeStructure": ["mathml", "{{mathMlPart}}"]
 				}
 			}
 		]
@@ -68,10 +65,7 @@
 			{
 				"type": "operation/horizontal-insert",
 				"data": {
-					"childNodeStructure": [
-						"mathml",
-						"{{mathMlPart}}"
-					]
+					"childNodeStructure": ["mathml", "{{mathMlPart}}"]
 				}
 			}
 		]
@@ -117,9 +111,7 @@
 				"data": {
 					"childNodeStructure": [
 						"equation-block",
-						["mathml",
-							"{{mathMlPart}}"
-						]
+						["mathml", "{{mathMlPart}}"]
 					]
 				}
 			}
@@ -142,13 +134,9 @@
 				"data": {
 					"childNodeStructure": [
 						"equation-figure",
-						["title",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["title", [{ "bindTo": "selection", "empty": true }]],
 						["desc"],
-						["mathml",
-							"{{mathMlPart}}"
-						]
+						["mathml", "{{mathMlPart}}"]
 					]
 				}
 			}
@@ -171,9 +159,7 @@
 				"data": {
 					"childNodeStructure": [
 						"equation-inline",
-						["mathml",
-							"{{mathMlPart}}"
-						]
+						["mathml", "{{mathMlPart}}"]
 					]
 				}
 			}

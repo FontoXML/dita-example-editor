@@ -35,10 +35,16 @@
 				"data": {
 					"contextStencil": [
 						null,
-						["title", [{"required": false, "multiple": true}]],
+						["title", [{ "required": false, "multiple": true }]],
 						[
 							"titlealts",
-							[{ "required": false, "multiple": true, "bindTo": "childNodes"}]
+							[
+								{
+									"required": false,
+									"multiple": true,
+									"bindTo": "childNodes"
+								}
+							]
 						],
 						[{ "required": false, "multiple": true }]
 					],

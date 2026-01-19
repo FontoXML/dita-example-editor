@@ -39,7 +39,7 @@ export default function replaceNodesWithMappedStructure(
 	// The operation is only a success if all mappings can be applied.
 	const opSuccess = Object.keys(
 		stepData.queryToReplacementStructureMapping
-	).every(function (query) {
+	).every((query) => {
 		const alignedStencil = createStencil(
 			stepData.queryToReplacementStructureMapping[query]
 		).generate(blueprint, format, documentNode);

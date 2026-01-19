@@ -31,7 +31,13 @@
 						[
 							"p",
 							[{ "bindTo": "selection.start", "empty": true }],
-							[{ "bindTo": "transclude", "multiple": true, "required": false }],
+							[
+								{
+									"bindTo": "transclude",
+									"multiple": true,
+									"required": false
+								}
+							],
 							[{ "bindTo": "selection.end", "empty": true }]
 						]
 					]
@@ -56,12 +62,21 @@
 			{
 				"type": "operation/wrap-selection-or-container-in-structure",
 				"data": {
-					"childNodeStructure": ["p",[
-						"fn",
-						[{ "bindTo": "selection.start", "empty": true }],
-						[{ "bindTo": "transclude", "multiple": true, "required": false }],
-						[{ "bindTo": "selection.end", "empty": true }]
-					]]
+					"childNodeStructure": [
+						"p",
+						[
+							"fn",
+							[{ "bindTo": "selection.start", "empty": true }],
+							[
+								{
+									"bindTo": "transclude",
+									"multiple": true,
+									"required": false
+								}
+							],
+							[{ "bindTo": "selection.end", "empty": true }]
+						]
+					]
 				}
 			}
 		]

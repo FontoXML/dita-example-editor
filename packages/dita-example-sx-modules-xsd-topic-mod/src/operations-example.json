@@ -22,9 +22,27 @@
 				"data": {
 					"contextStencil": [
 						null,
-						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
-						[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
-						[{ "required": false, "multiple": true, "restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"}]
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"multiple": false,
+								"bindTo": "childNodes"
+							}
+						],
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"
+							}
+						]
 					],
 					"contextNodeId": "{{contextNodeId}}",
 					"insertionStencils": {
@@ -43,10 +61,7 @@
 	":insert-example": {
 		"label": "t__Example",
 		"description": "t__Give an example that illustrates or supports the current topic.",
-		"alternatives": [
-			":_wrap-in-example",
-			":_horizontal-insert-example"
-		]
+		"alternatives": [":_wrap-in-example", ":_horizontal-insert-example"]
 	},
 	":_wrap-in-example": {
 		"steps": [
@@ -63,7 +78,13 @@
 						"example",
 						["title"],
 						[{ "bindTo": "selection.start", "empty": true }],
-						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[
+							{
+								"bindTo": "transclude",
+								"multiple": true,
+								"required": false
+							}
+						],
 						[{ "bindTo": "selection.end", "empty": true }]
 					],
 					"contextNodeId": "{{contextNodeId}}"
@@ -84,9 +105,7 @@
 				"data": {
 					"childNodeStructure": [
 						"example",
-						["title",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["title", [{ "bindTo": "selection", "empty": true }]],
 						["p"]
 					]
 				}

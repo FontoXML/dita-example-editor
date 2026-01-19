@@ -15,14 +15,27 @@
 			"data": {
 				"contextStencil": [
 					null,
-					[{ "required": true, "multiple": true, "bindTo": "childNodes" }],
-					[{ "required": false, "multiple": true, "restrictTo": "self::hazardsymbol"}]
+					[
+						{
+							"required": true,
+							"multiple": true,
+							"bindTo": "childNodes"
+						}
+					],
+					[
+						{
+							"required": false,
+							"multiple": true,
+							"restrictTo": "self::hazardsymbol"
+						}
+					]
 				],
 				"insertionStencils": {
 					"childNodes.end": {
 						"stencil": [
 							"messagepanel",
-							["typeofhazard",
+							[
+								"typeofhazard",
 								[{ "bindTo": "selection", "empty": true }]
 							],
 							["howtoavoid"]
@@ -41,7 +54,8 @@
 			"data": {
 				"childNodeStructure": [
 					"messagepanel",
-					["typeofhazard",
+					[
+						"typeofhazard",
 						[{ "bindTo": "selection", "empty": true }]
 					],
 					["howtoavoid"]
@@ -59,7 +73,13 @@
 				"contextStencil": [
 					null,
 					[{ "multiple": true, "bindTo": "childNodes" }],
-					[{ "required": true, "multiple": true, "restrictTo": "self::howtoavoid"}]
+					[
+						{
+							"required": true,
+							"multiple": true,
+							"restrictTo": "self::howtoavoid"
+						}
+					]
 				],
 				"insertionStencils": {
 					"childNodes.end": {

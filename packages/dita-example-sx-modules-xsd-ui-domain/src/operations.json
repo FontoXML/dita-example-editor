@@ -18,13 +18,8 @@
 			"data": {
 				"childNodeStructure": [
 					"menucascade",
-					[
-						"uicontrol",
-						[{ "bindTo": "selection", "empty": true }]
-					],
-					[
-						"uicontrol"
-					]
+					["uicontrol", [{ "bindTo": "selection", "empty": true }]],
+					["uicontrol"]
 				]
 			}
 		}
@@ -59,10 +54,7 @@
 	":insert-screen": {
 		"label": "t__Screen",
 		"description": "t__Contains or refers to a textual representation of a computer screen or user interface window.",
-		"alternatives": [
-			":_wrap-in-screen",
-			":_insert-screen"
-		]
+		"alternatives": [":_wrap-in-screen", ":_insert-screen"]
 	},
 	":_insert-uicontrol--in-menucascade": {
 		"steps": [

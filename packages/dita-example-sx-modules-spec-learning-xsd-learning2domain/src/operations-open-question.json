@@ -26,16 +26,21 @@
 		"initialData": {
 			"childNodeStructure": [
 				"lcOpenQuestion2",
-				["lcQuestion2",
-					[{ "bindTo": "selection", "empty": true }]
-				],
+				["lcQuestion2", [{ "bindTo": "selection", "empty": true }]],
 				["lcOpenAnswer2"]
 			],
 			"wrapChildNodeStructure": [
 				"lcOpenQuestion2",
-				["lcQuestion2",
+				[
+					"lcQuestion2",
 					[{ "bindTo": "selection.start", "empty": true }],
-					[{ "bindTo": "transclude", "multiple": true, "required": false }],
+					[
+						{
+							"bindTo": "transclude",
+							"multiple": true,
+							"required": false
+						}
+					],
 					[{ "bindTo": "selection.end", "empty": true }]
 				],
 				["lcOpenAnswer2"]

@@ -16,10 +16,7 @@
 	":insert-section": {
 		"label": "t__Section",
 		"description": "t__Divides a topic into parts.",
-		"alternatives": [
-			":_wrap-in-section",
-			":_horizontal-insert-section"
-		]
+		"alternatives": [":_wrap-in-section", ":_horizontal-insert-section"]
 	},
 	":_wrap-in-section": {
 		"steps": [
@@ -36,7 +33,13 @@
 						"section",
 						["title"],
 						[{ "bindTo": "selection.start", "empty": true }],
-						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[
+							{
+								"bindTo": "transclude",
+								"multiple": true,
+								"required": false
+							}
+						],
 						[{ "bindTo": "selection.end", "empty": true }]
 					],
 					"contextNodeId": "{{contextNodeId}}"
@@ -60,9 +63,7 @@
 				"data": {
 					"childNodeStructure": [
 						"section",
-						["title",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["title", [{ "bindTo": "selection", "empty": true }]],
 						["p"]
 					]
 				}
@@ -78,9 +79,27 @@
 				"data": {
 					"contextStencil": [
 						null,
-						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
-						[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
-						[{ "required": false, "multiple": true, "restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"}]
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"multiple": false,
+								"bindTo": "childNodes"
+							}
+						],
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"
+							}
+						]
 					],
 					"contextNodeId": "{{contextNodeId}}",
 					"insertionStencils": {

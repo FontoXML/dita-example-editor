@@ -1,5 +1,4 @@
 {
-
 	":contextual-delete-lcArea2": {
 		"label": "t__Remove area",
 		"icon": "trash-can",
@@ -23,7 +22,8 @@
 				"side": "before",
 				"childNodeStructure": [
 					"lcAnswerOption2",
-					["lcAnswerContent2",
+					[
+						"lcAnswerContent2",
 						[{ "bindTo": "selection", "empty": true }]
 					]
 				]
@@ -39,7 +39,8 @@
 				"side": "after",
 				"childNodeStructure": [
 					"lcAnswerOption2",
-					["lcAnswerContent2",
+					[
+						"lcAnswerContent2",
 						[{ "bindTo": "selection", "empty": true }]
 					]
 				]
@@ -121,9 +122,21 @@
 						[{ "required": true, "multiple": true }],
 						[
 							"lcAsset2",
-							[{ "required": false, "multiple": true, "bindTo": "childNodes" }]
+							[
+								{
+									"required": false,
+									"multiple": true,
+									"bindTo": "childNodes"
+								}
+							]
 						],
-						[{ "required": false, "multiple": true, "restrictTo": "not(self::lcInteractionLabel2 or self::lcQuestion2 or self::lcAsset2)"}]
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "not(self::lcInteractionLabel2 or self::lcQuestion2 or self::lcAsset2)"
+							}
+						]
 					],
 					"insertionStencils": {
 						"childNodes": {
@@ -139,7 +152,7 @@
 			}
 		]
 	},
-	":_append-image--in-lcAsset2":{
+	":_append-image--in-lcAsset2": {
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
@@ -182,7 +195,8 @@
 					"contextNodeId": "x__$data('contextNode')/child::lcAnswerOptionGroup2",
 					"childNodeStructure": [
 						"lcAnswerOption2",
-						["lcAnswerContent2",
+						[
+							"lcAnswerContent2",
 							[{ "bindTo": "selection", "empty": true }]
 						]
 					]
@@ -280,9 +294,7 @@
 		"steps": {
 			"type": "operation/horizontal-insert",
 			"data": {
-				"childNodeStructure": [
-					"lcCorrectResponse2"
-				]
+				"childNodeStructure": ["lcCorrectResponse2"]
 			}
 		}
 	},
@@ -296,7 +308,7 @@
 			}
 		}
 	},
-	":_wrap-in-{question}":{
+	":_wrap-in-{question}": {
 		"steps": [
 			{
 				"type": "action/requireSelectionCollapsed",
@@ -319,7 +331,7 @@
 			}
 		]
 	},
-	":_append-{question}--in-lcInteraction":{
+	":_append-{question}--in-lcInteraction": {
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToPrecedinglcInteraction"
@@ -332,7 +344,7 @@
 			}
 		]
 	},
-	":_merge-and-insert-{question}--in-lcInteraction":{
+	":_merge-and-insert-{question}--in-lcInteraction": {
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
@@ -348,9 +360,21 @@
 						[{ "required": false, "multiple": true }],
 						[
 							"lcInteraction",
-							[{ "required": false, "multiple": true, "bindTo": "childNodes" }]
+							[
+								{
+									"required": false,
+									"multiple": true,
+									"bindTo": "childNodes"
+								}
+							]
 						],
-						[{ "required": false, "multiple": true, "restrictTo": "self::section or self::lcSummary"}]
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "self::section or self::lcSummary"
+							}
+						]
 					],
 					"contextNodeId": "{{contextNodeId}}",
 					"insertionStencils": {
@@ -362,7 +386,7 @@
 			}
 		]
 	},
-	":_vertical-insert-{question}":{
+	":_vertical-insert-{question}": {
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",

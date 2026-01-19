@@ -35,7 +35,7 @@ export default function install(): void {
 
 			let isFirstCell = true;
 			stepData.childNodeStructure = [stepData.rowNodeName];
-			stepData.columns.forEach(function (column) {
+			stepData.columns.forEach((column) => {
 				if (
 					!evaluateXPathToBoolean(
 						xq`child::*/child::*[name() = ${column.currentNodeName}]`,
@@ -48,8 +48,7 @@ export default function install(): void {
 				}
 
 				if (
-					column.otherNodeNames &&
-					column.otherNodeNames.some((nodeName) =>
+					column.otherNodeNames?.some((nodeName) =>
 						evaluateXPathToBoolean(
 							xq`child::*/child::*[name() = ${nodeName}]`,
 							tableNode,

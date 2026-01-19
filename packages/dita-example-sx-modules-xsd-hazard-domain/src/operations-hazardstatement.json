@@ -295,8 +295,10 @@
 				"childNodeStructure": [
 					"hazardstatement",
 					{ "type": "{{hazardstatementType}}" },
-					["messagepanel",
-						["typeofhazard",
+					[
+						"messagepanel",
+						[
+							"typeofhazard",
 							[{ "bindTo": "selection", "empty": true }]
 						],
 						["howtoavoid"]

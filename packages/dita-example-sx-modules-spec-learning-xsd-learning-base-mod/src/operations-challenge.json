@@ -35,9 +35,27 @@
 			"data": {
 				"contextStencil": [
 					null,
-					[{ "required": false, "multiple": true, "restrictTo": "self::title"}],
-					[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
-					[{ "required": false, "multiple": true, "restrictTo": "not(self::title)"}]
+					[
+						{
+							"required": false,
+							"multiple": true,
+							"restrictTo": "self::title"
+						}
+					],
+					[
+						{
+							"required": false,
+							"multiple": false,
+							"bindTo": "childNodes"
+						}
+					],
+					[
+						{
+							"required": false,
+							"multiple": true,
+							"restrictTo": "not(self::title)"
+						}
+					]
 				],
 				"contextNodeId": "{{contextNodeId}}",
 				"insertionStencils": {

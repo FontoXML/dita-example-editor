@@ -29,9 +29,7 @@
 				"side": "before",
 				"childNodeStructure": [
 					"chrow",
-					["choption",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["choption", [{ "bindTo": "selection", "empty": true }]],
 					["chdesc"]
 				]
 			}
@@ -46,9 +44,7 @@
 				"side": "after",
 				"childNodeStructure": [
 					"chrow",
-					["choption",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["choption", [{ "bindTo": "selection", "empty": true }]],
 					["chdesc"]
 				]
 			}
@@ -104,7 +100,8 @@
 				"data": {
 					"childNodeStructure": [
 						"chhead",
-						["choptionhd",
+						[
+							"choptionhd",
 							[{ "bindTo": "selection", "empty": true }]
 						],
 						["chdeschd"]
@@ -129,8 +126,10 @@
 				"data": {
 					"childNodeStructure": [
 						"choicetable",
-						["chrow",
-							["choption",
+						[
+							"chrow",
+							[
+								"choption",
 								[{ "bindTo": "selection", "empty": true }]
 							],
 							["chdesc"]
@@ -155,7 +154,8 @@
 				"data": {
 					"childNodeStructure": [
 						"chrow",
-						["choption",
+						[
+							"choption",
 							[{ "bindTo": "selection", "empty": true }]
 						],
 						["chdesc"]
@@ -179,7 +179,8 @@
 				"data": {
 					"childNodeStructure": [
 						"chrow",
-						["choption",
+						[
+							"choption",
 							[{ "bindTo": "selection", "empty": true }]
 						],
 						["chdesc"]
@@ -204,8 +205,10 @@
 				"data": {
 					"childNodeStructure": [
 						"choicetable",
-						["chrow",
-							["choption",
+						[
+							"chrow",
+							[
+								"choption",
 								[{ "bindTo": "selection", "empty": true }]
 							],
 							["chdesc"]

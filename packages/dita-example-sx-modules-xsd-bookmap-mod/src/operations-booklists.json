@@ -3,7 +3,7 @@
 		"label": "t__Book lists",
 		"description": "t__Insert a book lists container element under the frontmatter or backmatter.",
 		"steps": {
-			"type":"operation/:_contextual-insert-{elementName}--placeholder-container",
+			"type": "operation/:_contextual-insert-{elementName}--placeholder-container",
 			"data": {
 				"elementName": "booklists"
 			}

@@ -84,7 +84,7 @@ const SHELLS = [
 const schemaLocationToSchemaExperienceResolver =
 	new SchemaLocationToSchemaExperienceResolver();
 
-SHELLS.forEach(function (shell) {
+SHELLS.forEach((shell) => {
 	schemaLocationToSchemaExperienceResolver.register(
 		sxManager.defineSchemaExperience(
 			`assets/schemas/${shell.package}.json`,

@@ -22,9 +22,7 @@
 				"side": "before",
 				"childNodeStructure": [
 					"plentry",
-					["pt",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["pt", [{ "bindTo": "selection", "empty": true }]],
 					["pd"]
 				]
 			}
@@ -39,9 +37,7 @@
 				"side": "after",
 				"childNodeStructure": [
 					"plentry",
-					["pt",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["pt", [{ "bindTo": "selection", "empty": true }]],
 					["pd"]
 				]
 			}
@@ -99,10 +95,7 @@
 					"parml",
 					[
 						"plentry",
-						[
-							"pt",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["pt", [{ "bindTo": "selection", "empty": true }]],
 						["pd"]
 					]
 				]
@@ -124,9 +117,7 @@
 				"data": {
 					"childNodeStructure": [
 						"plentry",
-						["pt",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["pt", [{ "bindTo": "selection", "empty": true }]],
 						["pd"]
 					]
 				}
@@ -148,9 +139,7 @@
 				"data": {
 					"childNodeStructure": [
 						"plentry",
-						["pt",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["pt", [{ "bindTo": "selection", "empty": true }]],
 						["pd"]
 					]
 				}

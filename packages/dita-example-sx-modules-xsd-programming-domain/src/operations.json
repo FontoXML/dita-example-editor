@@ -40,10 +40,7 @@
 	":insert-codeblock": {
 		"label": "t__Code block",
 		"description": "t__Contains multiple lines of program code.",
-		"alternatives": [
-			":_wrap-in-codeblock",
-			":_insert-codeblock"
-		]
+		"alternatives": [":_wrap-in-codeblock", ":_insert-codeblock"]
 	},
 	":toggle-apiname": {
 		"label": "t__API name",

@@ -41,7 +41,7 @@ async function isDocumentAMapPromise(
 	const documentNode = documentId
 		? (documentsManager.getDocumentNode(
 				documentId
-		  ) as FontoDocumentNode<'readable'>)
+			) as FontoDocumentNode<'readable'>)
 		: null;
 	if (!documentNode) {
 		return true;
@@ -99,9 +99,7 @@ export default function install(): void {
 		'setHierarchyNodeIdToLastChildForDocumentForBookmap',
 		function setHierarchyNodeIdToLastChildForDocumentForBookmap(stepData) {
 			const hierarchyNodeId = stepData.hierarchyNodeId;
-			const currentHierarchyNode = documentsHierarchy.find(function (
-				node
-			) {
+			const currentHierarchyNode = documentsHierarchy.find((node) => {
 				return node.getId() === hierarchyNodeId;
 			});
 			if (!currentHierarchyNode) {
@@ -113,7 +111,7 @@ export default function install(): void {
 			const targetHierarchyNode = currentHierarchyNode.children
 				.concat()
 				.reverse()
-				.find(function (node) {
+				.find((node) => {
 					return (
 						node.documentReference &&
 						node.documentReference.documentId === documentId

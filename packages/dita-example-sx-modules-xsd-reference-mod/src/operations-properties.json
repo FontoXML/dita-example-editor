@@ -37,9 +37,18 @@
 					"tableNodeId": "x__$data('contextNode')/parent::properties",
 					"rowNodeName": "property",
 					"columns": [
-						{ "currentNodeName": "proptype", "otherNodeNames": ["proptypehd"] },
-						{ "currentNodeName": "propvalue", "otherNodeNames": ["propvaluehd"] },
-						{ "currentNodeName": "propdesc", "otherNodeNames": ["propdeschd"] }
+						{
+							"currentNodeName": "proptype",
+							"otherNodeNames": ["proptypehd"]
+						},
+						{
+							"currentNodeName": "propvalue",
+							"otherNodeNames": ["propvaluehd"]
+						},
+						{
+							"currentNodeName": "propdesc",
+							"otherNodeNames": ["propdeschd"]
+						}
 					]
 				}
 			},
@@ -62,9 +71,18 @@
 					"tableNodeId": "{{contextNodeId}}",
 					"rowNodeName": "property",
 					"columns": [
-						{ "currentNodeName": "proptype", "otherNodeNames": ["proptypehd"] },
-						{ "currentNodeName": "propvalue", "otherNodeNames": ["propvaluehd"] },
-						{ "currentNodeName": "propdesc", "otherNodeNames": ["propdeschd"] }
+						{
+							"currentNodeName": "proptype",
+							"otherNodeNames": ["proptypehd"]
+						},
+						{
+							"currentNodeName": "propvalue",
+							"otherNodeNames": ["propvaluehd"]
+						},
+						{
+							"currentNodeName": "propdesc",
+							"otherNodeNames": ["propdeschd"]
+						}
 					]
 				}
 			},
@@ -143,8 +161,10 @@
 				"data": {
 					"childNodeStructure": [
 						"properties",
-						["property",
-							["proptype",
+						[
+							"property",
+							[
+								"proptype",
 								[{ "bindTo": "selection", "empty": true }]
 							],
 							["propvalue"],
@@ -171,9 +191,18 @@
 					"tableNodeId": "{{contextNodeId}}",
 					"rowNodeName": "property",
 					"columns": [
-						{ "currentNodeName": "proptype", "otherNodeNames": ["proptypehd"] },
-						{ "currentNodeName": "propvalue", "otherNodeNames": ["propvaluehd"] },
-						{ "currentNodeName": "propdesc", "otherNodeNames": ["propdeschd"] }
+						{
+							"currentNodeName": "proptype",
+							"otherNodeNames": ["proptypehd"]
+						},
+						{
+							"currentNodeName": "propvalue",
+							"otherNodeNames": ["propvaluehd"]
+						},
+						{
+							"currentNodeName": "propdesc",
+							"otherNodeNames": ["propdeschd"]
+						}
 					]
 				}
 			},
@@ -201,9 +230,18 @@
 					"tableNodeId": "{{contextNodeId}}",
 					"rowNodeName": "property",
 					"columns": [
-						{ "currentNodeName": "proptype", "otherNodeNames": ["proptypehd"] },
-						{ "currentNodeName": "propvalue", "otherNodeNames": ["propvaluehd"] },
-						{ "currentNodeName": "propdesc", "otherNodeNames": ["propdeschd"] }
+						{
+							"currentNodeName": "proptype",
+							"otherNodeNames": ["proptypehd"]
+						},
+						{
+							"currentNodeName": "propvalue",
+							"otherNodeNames": ["propvaluehd"]
+						},
+						{
+							"currentNodeName": "propdesc",
+							"otherNodeNames": ["propdeschd"]
+						}
 					]
 				}
 			},
@@ -231,9 +269,18 @@
 					"tableNodeId": "{{contextNodeId}}",
 					"rowNodeName": "prophead",
 					"columns": [
-						{ "currentNodeName": "proptypehd", "otherNodeNames": ["proptype"] },
-						{ "currentNodeName": "propvaluehd", "otherNodeNames": ["propvalue"] },
-						{ "currentNodeName": "propdeschd", "otherNodeNames": ["propdesc"] }
+						{
+							"currentNodeName": "proptypehd",
+							"otherNodeNames": ["proptype"]
+						},
+						{
+							"currentNodeName": "propvaluehd",
+							"otherNodeNames": ["propvalue"]
+						},
+						{
+							"currentNodeName": "propdeschd",
+							"otherNodeNames": ["propdesc"]
+						}
 					]
 				}
 			},

@@ -42,7 +42,13 @@
 					"childNodeStructure": [
 						"refbodydiv",
 						[{ "bindTo": "selection.start", "empty": true }],
-						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[
+							{
+								"bindTo": "transclude",
+								"multiple": true,
+								"required": false
+							}
+						],
 						[{ "bindTo": "selection.end", "empty": true }]
 					],
 					"contextNodeId": "{{contextNodeId}}"
@@ -73,10 +79,7 @@
 	":insert-refsyn": {
 		"label": "t__Reference syntax",
 		"description": "t__Contains syntax or signature content, for example a command-line utility's calling syntax, or an API’s signature.",
-		"alternatives": [
-			":_wrap-in-refsyn",
-			":_horizontal-insert-refsyn"
-		]
+		"alternatives": [":_wrap-in-refsyn", ":_horizontal-insert-refsyn"]
 	},
 	":_wrap-in-refsyn": {
 		"steps": [
@@ -93,7 +96,13 @@
 						"refsyn",
 						["title"],
 						[{ "bindTo": "selection.start", "empty": true }],
-						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[
+							{
+								"bindTo": "transclude",
+								"multiple": true,
+								"required": false
+							}
+						],
 						[{ "bindTo": "selection.end", "empty": true }]
 					],
 					"contextNodeId": "{{contextNodeId}}"
@@ -117,9 +126,7 @@
 				"data": {
 					"childNodeStructure": [
 						"refsyn",
-						["title",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["title", [{ "bindTo": "selection", "empty": true }]],
 						["p"]
 					]
 				}
@@ -134,9 +141,27 @@
 			"data": {
 				"contextStencil": [
 					null,
-					[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
-					[{ "required": false, "multiple": false, "bindTo": "childNodes"}],
-					[{ "required": false, "multiple": true, "restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"}]
+					[
+						{
+							"required": false,
+							"multiple": true,
+							"restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"
+						}
+					],
+					[
+						{
+							"required": false,
+							"multiple": false,
+							"bindTo": "childNodes"
+						}
+					],
+					[
+						{
+							"required": false,
+							"multiple": true,
+							"restrictTo": "not(self::*[fonto:dita-class(., 'topic/title')])"
+						}
+					]
 				],
 				"contextNodeId": "{{contextNodeId}}",
 				"insertionStencils": {

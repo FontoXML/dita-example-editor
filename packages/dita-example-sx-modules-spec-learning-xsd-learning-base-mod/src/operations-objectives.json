@@ -49,12 +49,11 @@
 				"data": {
 					"childNodeStructure": [
 						"lcObjectives",
-						["lcObjectivesStem",
+						[
+							"lcObjectivesStem",
 							[{ "bindTo": "selection", "empty": true }]
 						],
-						["lcObjectivesGroup",
-							["lcObjective"]
-						]
+						["lcObjectivesGroup", ["lcObjective"]]
 					]
 				}
 			}
@@ -68,9 +67,7 @@
 			"data": {
 				"childNodeStructure": [
 					"lcObjectivesGroup",
-					["lcObjective",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["lcObjective", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}
@@ -83,9 +80,7 @@
 			"data": {
 				"childNodeStructure": [
 					"lcObjectivesGroup",
-					["lcObjective",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["lcObjective", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}

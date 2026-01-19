@@ -37,7 +37,7 @@ export default function insertNodeAndRemoveFromSiblings(
 				stepData.referenceNodeQuery,
 				contextNode,
 				blueprint
-		  )
+			)
 		: null;
 
 	blueprint.insertBefore(contextNode, newNode, referenceNode);
@@ -50,7 +50,7 @@ export default function insertNodeAndRemoveFromSiblings(
 				blueprint
 			)
 		)
-		.forEach(function (siblingNode) {
+		.forEach((siblingNode) => {
 			const removeNode = evaluateXPathToFirstNode(
 				xq`child::*[name() = ${stepData.nodeName}]`,
 				siblingNode,

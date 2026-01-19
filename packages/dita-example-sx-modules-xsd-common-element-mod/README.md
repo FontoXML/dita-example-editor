@@ -1,11 +1,10 @@
 # dita-example-sx-modules-xsd-common-element-mod
 
 > This is an example configuration for DITA 1.3 element support in FontoXML. The code in this repository is for
-  educational purposes. FontoXML does not provide any warranty with regards to feature-completeness or stability of this
-  package. Please see the license file for more information.
+> educational purposes. FontoXML does not provide any warranty with regards to feature-completeness or stability of this
+> package. Please see the license file for more information.
 
-The elements configured in this package correlate to definitions in [the example schema bundle](
-https://github.com/fontoxml/dita-example-schema-bundle):
+The elements configured in this package correlate to definitions in [the example schema bundle](https://github.com/fontoxml/dita-example-schema-bundle):
 
 > /schema/base/xsd/commonElementMod.xsd
 
@@ -19,37 +18,39 @@ https://github.com/fontoxml/dita-example-schema-bundle):
 
 This package needs additional operations to be fully effective. Please make sure the following operations are defined
 in your own code. In those operations you can use any add-on or additional operation steps that you need. For an example
-of these supplemental operations, please see the [dita-example-sx-integration package of the example editor](
-https://github.com/fontoxml/dita-example-editor/tree/develop/packages/dita-example-sx-integration).
+of these supplemental operations, please see the [dita-example-sx-integration package of the example editor](https://github.com/fontoxml/dita-example-editor/tree/develop/packages/dita-example-sx-integration).
 
-### :_open-image-browser-for-insert
-### :_open-image-browser-for-edit
+### :\_open-image-browser-for-insert
+
+### :\_open-image-browser-for-edit
 
 Could import operation data
 
-- `{NodeId}` contextNodeId, points to the image node that is being edited. 
+- `{NodeId}` contextNodeId, points to the image node that is being edited.
 
 Exports operation data
 
 - `{string}` reference, a path or identifier that points to an image.
 
-### :_open-document-with-link-selector-browser-for-insert
-### :_open-document-with-link-selector-browser-for-edit
+### :\_open-document-with-link-selector-browser-for-insert
+
+### :\_open-document-with-link-selector-browser-for-edit
 
 Could import operation data
 
-- `{NodeId}` contextNodeId, points to the cross reference node that is being edited. 
+- `{NodeId}` contextNodeId, points to the cross reference node that is being edited.
 
 Exports operation data
 
 - `{string}` reference, a path or identifier that points to another element, possibly in another document.
 
-### :_open-web-reference-modal-for-insert
-### :_open-web-reference-modal-for-edit
+### :\_open-web-reference-modal-for-insert
+
+### :\_open-web-reference-modal-for-edit
 
 Could import operation data
 
-- `{NodeId}` contextNodeId, points to the hyperlink node that is being edited. 
+- `{NodeId}` contextNodeId, points to the hyperlink node that is being edited.
 
 Exports operation data
 

@@ -12,15 +12,13 @@
 				"data": {
 					"childNodeStructure": [
 						"lcHotspot2",
-						["lcQuestion2",
+						[
+							"lcQuestion2",
 							[{ "bindTo": "selection", "empty": true }]
 						],
 						[
 							"lcHotspotMap2",
-							[
-								"image",
-								{ "href": "{{reference}}" }
-							],
+							["image", { "href": "{{reference}}" }],
 							[
 								"lcArea2",
 								["lcAreaShape2", "rect"],
@@ -31,17 +29,21 @@
 					],
 					"wrapChildNodeStructure": [
 						"lcHotspot2",
-						["lcQuestion2",
+						[
+							"lcQuestion2",
 							[{ "bindTo": "selection.start", "empty": true }],
-							[{ "bindTo": "transclude", "multiple": true, "required": false }],
+							[
+								{
+									"bindTo": "transclude",
+									"multiple": true,
+									"required": false
+								}
+							],
 							[{ "bindTo": "selection.end", "empty": true }]
 						],
 						[
 							"lcHotspotMap2",
-							[
-								"image",
-								{ "href": "{{reference}}" }
-							],
+							["image", { "href": "{{reference}}" }],
 							[
 								"lcArea2",
 								["lcAreaShape2", "rect"],
@@ -93,7 +95,9 @@
 		"icon": "pencil",
 		"getStateSteps": [],
 		"steps": [
-			{ "type": "operation/:_open-shape-editor-modal-for-edit--lcHotspot2" },
+			{
+				"type": "operation/:_open-shape-editor-modal-for-edit--lcHotspot2"
+			},
 			{
 				"type": "custom-mutation/replace-nodes-with-mapped-structure",
 				"data": {
@@ -155,7 +159,10 @@
 						"lcArea2",
 						["lcAreaShape2", "{{areaShape}}"],
 						["lcAreaCoords2", "{{areaCoords}}"],
-						["lcFeedback2", [{ "bindTo": "selection", "empty": true }]]
+						[
+							"lcFeedback2",
+							[{ "bindTo": "selection", "empty": true }]
+						]
 					]
 				}
 			}

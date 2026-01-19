@@ -305,7 +305,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{ name: ':note-convert-to-@type=other' },
 	];
 	function getContextualOperationsForNoteType(noteType) {
-		return NOTE_CONVERT_OPERATIONS.filter(function (element) {
+		return NOTE_CONVERT_OPERATIONS.filter((element) => {
 			return !element.name.includes(noteType);
 		}).concat([{ name: ':contextual-delete-note' }]);
 	}
@@ -326,7 +326,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		'tip',
 		'warning',
 		'other',
-	].forEach(function (noteType) {
+	].forEach((noteType) => {
 		configureContextualOperations(
 			sxModule,
 			xq`self::note[@type=${noteType} and (parent::step or parent::substep)]`,

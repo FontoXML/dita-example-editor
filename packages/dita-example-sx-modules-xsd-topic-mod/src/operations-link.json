@@ -60,16 +60,53 @@
 				"data": {
 					"contextStencil": [
 						null,
-						[{ "required": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/titlealts')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/shortdesc') or fonto:dita-class(., 'topic/abstract')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/prolog')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/body')]"}],
+						[
+							{
+								"required": true,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/titlealts')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/shortdesc') or fonto:dita-class(., 'topic/abstract')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/prolog')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/body')]"
+							}
+						],
 						[
 							"related-links",
-							[{ "required": false, "multiple": true, "bindTo": "childNodes"}]
+							[
+								{
+									"required": false,
+									"multiple": true,
+									"bindTo": "childNodes"
+								}
+							]
 						],
-						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/topic')]"}]
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/topic')]"
+							}
+						]
 					],
 					"contextNodeId": "{{contextNodeId}}",
 					"insertionStencils": {
@@ -80,7 +117,8 @@
 									"href": "{{reference}}",
 									"format": "dita"
 								},
-								["linktext",
+								[
+									"linktext",
 									[{ "bindTo": "selection", "empty": true }]
 								]
 							]
@@ -109,16 +147,53 @@
 				"data": {
 					"contextStencil": [
 						null,
-						[{ "required": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/titlealts')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/shortdesc') or fonto:dita-class(., 'topic/abstract')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/prolog')]"}],
-						[{ "required": false, "restrictTo": "self::*[fonto:dita-class(., 'topic/body')]"}],
+						[
+							{
+								"required": true,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/title')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/titlealts')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/shortdesc') or fonto:dita-class(., 'topic/abstract')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/prolog')]"
+							}
+						],
+						[
+							{
+								"required": false,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/body')]"
+							}
+						],
 						[
 							"related-links",
-							[{ "required": false, "multiple": true, "bindTo": "childNodes"}]
+							[
+								{
+									"required": false,
+									"multiple": true,
+									"bindTo": "childNodes"
+								}
+							]
 						],
-						[{ "required": false, "multiple": true, "restrictTo": "self::*[fonto:dita-class(., 'topic/topic')]"}]
+						[
+							{
+								"required": false,
+								"multiple": true,
+								"restrictTo": "self::*[fonto:dita-class(., 'topic/topic')]"
+							}
+						]
 					],
 					"contextNodeId": "{{contextNodeId}}",
 					"insertionStencils": {
@@ -130,7 +205,8 @@
 									"format": "html",
 									"scope": "external"
 								},
-								["linktext",
+								[
+									"linktext",
 									[{ "bindTo": "selection", "empty": true }]
 								]
 							]

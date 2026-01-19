@@ -21,7 +21,8 @@
 				"data": {
 					"childNodeStructure": [
 						"lcGapAnalysis",
-						["lcGapItem",
+						[
+							"lcGapItem",
 							[{ "bindTo": "selection", "empty": true }]
 						]
 					]

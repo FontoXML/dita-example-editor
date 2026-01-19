@@ -32,12 +32,7 @@
 		"description": "t__Insert a generic table that allows, merging and splitting of cells, as well as row or column headers.",
 		"icon": "table",
 		"initialData": {
-			"childNodeStructure": [
-				"table",
-				[
-					"tgroup"
-				]
-			],
+			"childNodeStructure": ["table", ["tgroup"]],
 			"rows": 1,
 			"columns": 1
 		},

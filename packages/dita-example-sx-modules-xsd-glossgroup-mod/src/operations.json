@@ -19,9 +19,7 @@
 							"glossterm",
 							[{ "bindTo": "selection", "empty": true }]
 						],
-						[
-							"glossdef"
-						]
+						["glossdef"]
 					]
 				}
 			}

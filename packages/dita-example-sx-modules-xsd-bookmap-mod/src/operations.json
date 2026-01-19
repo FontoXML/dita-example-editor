@@ -87,9 +87,7 @@
 				"type": "operation/append-structure",
 				"data": {
 					"contextNodeId": "{{contextNodeId}}",
-					"childNodeStructure": [
-						"{{elementName}}"
-					]
+					"childNodeStructure": ["{{elementName}}"]
 				}
 			}
 		],
@@ -98,9 +96,7 @@
 				"type": "operation/append-structure",
 				"data": {
 					"contextNodeId": "{{contextNodeId}}",
-					"childNodeStructure": [
-						"{{elementName}}"
-					]
+					"childNodeStructure": ["{{elementName}}"]
 				}
 			},
 			{

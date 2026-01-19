@@ -9,10 +9,7 @@
 	":insert-bodydiv": {
 		"label": "t__Body division",
 		"description": "t__Groups content without implying meaning.",
-		"alternatives": [
-			":_wrap-in-bodydiv",
-			":_horizontal-insert-bodydiv"
-		]
+		"alternatives": [":_wrap-in-bodydiv", ":_horizontal-insert-bodydiv"]
 	},
 	":_wrap-in-bodydiv": {
 		"steps": [
@@ -28,7 +25,13 @@
 					"childNodeStructure": [
 						"bodydiv",
 						[{ "bindTo": "selection.start", "empty": true }],
-						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[
+							{
+								"bindTo": "transclude",
+								"multiple": true,
+								"required": false
+							}
+						],
 						[{ "bindTo": "selection.end", "empty": true }]
 					],
 					"contextNodeId": "{{contextNodeId}}"

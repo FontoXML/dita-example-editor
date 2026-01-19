@@ -22,9 +22,7 @@
 				"side": "before",
 				"childNodeStructure": [
 					"lcMatchingPair2",
-					["lcItem2",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["lcItem2", [{ "bindTo": "selection", "empty": true }]],
 					["lcMatchingItem2"]
 				]
 			}
@@ -39,9 +37,7 @@
 				"side": "after",
 				"childNodeStructure": [
 					"lcMatchingPair2",
-					["lcItem2",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["lcItem2", [{ "bindTo": "selection", "empty": true }]],
 					["lcMatchingItem2"]
 				]
 			}
@@ -93,7 +89,8 @@
 				"data": {
 					"childNodeStructure": [
 						"lcMatchingItemFeedback2",
-						["{{nodeName}}",
+						[
+							"{{nodeName}}",
 							[{ "bindTo": "selection", "empty": true }]
 						]
 					]
@@ -127,28 +124,29 @@
 		"initialData": {
 			"childNodeStructure": [
 				"lcMatching2",
-				["lcQuestion2",
-					[{ "bindTo": "selection", "empty": true }]
-				],
-				["lcMatchTable2",
-					["lcMatchingPair2",
-						["lcItem2"],
-						["lcMatchingItem2"]
-					]
+				["lcQuestion2", [{ "bindTo": "selection", "empty": true }]],
+				[
+					"lcMatchTable2",
+					["lcMatchingPair2", ["lcItem2"], ["lcMatchingItem2"]]
 				]
 			],
 			"wrapChildNodeStructure": [
 				"lcMatching2",
-				["lcQuestion2",
+				[
+					"lcQuestion2",
 					[{ "bindTo": "selection.start", "empty": true }],
-					[{ "bindTo": "transclude", "multiple": true, "required": false }],
+					[
+						{
+							"bindTo": "transclude",
+							"multiple": true,
+							"required": false
+						}
+					],
 					[{ "bindTo": "selection.end", "empty": true }]
 				],
-				["lcMatchTable2",
-					["lcMatchingPair2",
-						["lcItem2"],
-						["lcMatchingItem2"]
-					]
+				[
+					"lcMatchTable2",
+					["lcMatchingPair2", ["lcItem2"], ["lcMatchingItem2"]]
 				]
 			]
 		},
@@ -175,9 +173,7 @@
 					"contextNodeId": "x__$data('contextNode')/child::lcMatchTable2",
 					"childNodeStructure": [
 						"lcMatchingHeader2",
-						["lcItem2",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["lcItem2", [{ "bindTo": "selection", "empty": true }]],
 						["lcMatchingItem2"]
 					]
 				}
@@ -200,9 +196,7 @@
 					"contextNodeId": "x__$data('contextNode')/child::lcMatchTable2",
 					"childNodeStructure": [
 						"lcMatchingPair2",
-						["lcItem2",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["lcItem2", [{ "bindTo": "selection", "empty": true }]],
 						["lcMatchingItem2"]
 					]
 				}

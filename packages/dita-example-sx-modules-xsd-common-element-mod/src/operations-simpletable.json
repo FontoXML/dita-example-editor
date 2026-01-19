@@ -11,16 +11,7 @@
 		"description": "t__A table with a regular structure wrapped in a figure.",
 		"icon": "table",
 		"initialData": {
-			"childNodeStructure":
-			[
-				"fig",
-				[
-					"title"
-				],
-				[
-					"simpletable"
-				]
-			],
+			"childNodeStructure": ["fig", ["title"], ["simpletable"]],
 			"rows": 1,
 			"columns": 1
 		},

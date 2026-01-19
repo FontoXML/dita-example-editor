@@ -40,7 +40,7 @@ export default function removePropertiesColumn(
 		blueprint
 	);
 
-	columnNodes.forEach(function (node) {
+	columnNodes.forEach((node) => {
 		const parentNode = blueprint.getParentNode(node);
 		blueprint.removeChild(parentNode, node);
 	});

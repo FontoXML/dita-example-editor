@@ -146,7 +146,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational or self::lcPlanAudience" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcOrganizational or self::lcPlanAudience"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -178,7 +180,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcOrganizational"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -210,7 +214,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -274,7 +280,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcOrganizational"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -403,7 +411,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcOrganizational"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -540,7 +550,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -559,7 +571,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcPlanAudience or self::lcTask"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -680,7 +694,13 @@
 				"contextStencil": [
 					null,
 					[{ "multiple": true, "bindTo": "childNodes" }],
-					[{ "required": false, "multiple": true, "restrictTo": "self::lcKnowledge or self::lcSkills or self::lcAttitude"}]
+					[
+						{
+							"required": false,
+							"multiple": true,
+							"restrictTo": "self::lcKnowledge or self::lcSkills or self::lcAttitude"
+						}
+					]
 				],
 				"insertionStencils": {
 					"childNodes.end": {
@@ -744,7 +764,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcOrganizational" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcOrganizational"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",

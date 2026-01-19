@@ -18,7 +18,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcInterventionItem" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcInterventionItem"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -50,7 +52,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcInterventionItem" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcInterventionItem"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",
@@ -85,7 +89,8 @@
 				"data": {
 					"childNodeStructure": [
 						"lcIntervention",
-						["lcInterventionItem",
+						[
+							"lcInterventionItem",
 							[{ "bindTo": "selection", "empty": true }]
 						]
 					]
@@ -196,7 +201,9 @@
 		"steps": [
 			{
 				"type": "transform/setContextNodeIdToSelectionAncestor",
-				"data": { "selectionAncestorNodeSpec": "self::lcInterventionItem" }
+				"data": {
+					"selectionAncestorNodeSpec": "self::lcInterventionItem"
+				}
 			},
 			{
 				"type": "operation/horizontal-insert",

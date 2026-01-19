@@ -66,9 +66,7 @@
 				"side": "before",
 				"childNodeStructure": [
 					"step",
-					["cmd",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["cmd", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}
@@ -82,9 +80,7 @@
 				"side": "after",
 				"childNodeStructure": [
 					"step",
-					["cmd",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["cmd", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}
@@ -127,9 +123,7 @@
 				"side": "before",
 				"childNodeStructure": [
 					"substep",
-					["cmd",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["cmd", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}
@@ -143,9 +137,7 @@
 				"side": "after",
 				"childNodeStructure": [
 					"substep",
-					["cmd",
-						[{ "bindTo": "selection", "empty": true }]
-					]
+					["cmd", [{ "bindTo": "selection", "empty": true }]]
 				]
 			}
 		}
@@ -290,10 +282,7 @@
 				"data": {
 					"childNodeStructure": [
 						"choices",
-						[
-							"choice",
-							[{ "bindTo": "selection", "empty": true }]
-						]
+						["choice", [{ "bindTo": "selection", "empty": true }]]
 					]
 				}
 			}
@@ -323,10 +312,9 @@
 			"data": {
 				"childNodeStructure": [
 					"substeps",
-					["substep",
-						["cmd",
-							[{ "bindTo": "selection", "empty": true }]
-						]
+					[
+						"substep",
+						["cmd", [{ "bindTo": "selection", "empty": true }]]
 					]
 				]
 			}

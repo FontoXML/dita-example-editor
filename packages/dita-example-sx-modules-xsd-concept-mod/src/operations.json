@@ -28,7 +28,13 @@
 					"childNodeStructure": [
 						"conbodydiv",
 						[{ "bindTo": "selection.start", "empty": true }],
-						[{ "bindTo": "transclude", "multiple": true, "required": false }],
+						[
+							{
+								"bindTo": "transclude",
+								"multiple": true,
+								"required": false
+							}
+						],
 						[{ "bindTo": "selection.end", "empty": true }]
 					],
 					"contextNodeId": "{{contextNodeId}}"

@@ -528,7 +528,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	};
 
 	function getContextualOperationsForNoteType(noteType) {
-		return NOTE_CONVERT_OPERATIONS.filter(function (element) {
+		return NOTE_CONVERT_OPERATIONS.filter((element) => {
 			return !element.name.includes(noteType);
 		}).concat([{ name: ':contextual-unwrap-note' }]);
 	}
@@ -553,7 +553,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		blockOutsideAfter: [],
 	});
 
-	Object.keys(NOTE_VISUALIZATION_BY_TYPE).forEach(function (noteType) {
+	Object.keys(NOTE_VISUALIZATION_BY_TYPE).forEach((noteType) => {
 		const noteVisualization = NOTE_VISUALIZATION_BY_TYPE[noteType];
 		configureProperties(sxModule, xq`self::note[@type=${noteType}]`, {
 			markupLabel: noteVisualization.label,

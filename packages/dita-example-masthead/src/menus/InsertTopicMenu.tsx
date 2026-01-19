@@ -231,12 +231,11 @@ const InsertTopicMenu: FC = () => {
 					key={index}
 					heading={
 						index === 0
-							? bookmapElementLabels[refElementName] &&
-							  bookmapElementLabels[refElementName].markupLabel
+							? bookmapElementLabels[refElementName]?.markupLabel
 								? uppercaseFirstLetter(
 										bookmapElementLabels[refElementName]
 											.markupLabel
-								  )
+									)
 								: null
 							: null
 					}

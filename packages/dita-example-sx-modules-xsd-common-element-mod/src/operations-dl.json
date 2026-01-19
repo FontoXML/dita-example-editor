@@ -29,9 +29,7 @@
 				"side": "before",
 				"childNodeStructure": [
 					"dlentry",
-					["dt",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["dt", [{ "bindTo": "selection", "empty": true }]],
 					["dd"]
 				]
 			}
@@ -46,9 +44,7 @@
 				"side": "after",
 				"childNodeStructure": [
 					"dlentry",
-					["dt",
-						[{ "bindTo": "selection", "empty": true }]
-					],
+					["dt", [{ "bindTo": "selection", "empty": true }]],
 					["dd"]
 				]
 			}
@@ -124,10 +120,9 @@
 			"data": {
 				"childNodeStructure": [
 					"dl",
-					["dlentry",
-						["dt",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+					[
+						"dlentry",
+						["dt", [{ "bindTo": "selection", "empty": true }]],
 						["dd"]
 					]
 				]
@@ -149,9 +144,7 @@
 				"data": {
 					"childNodeStructure": [
 						"dlentry",
-						["dt",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["dt", [{ "bindTo": "selection", "empty": true }]],
 						["dd"]
 					]
 				}
@@ -173,9 +166,7 @@
 				"data": {
 					"childNodeStructure": [
 						"dlentry",
-						["dt",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["dt", [{ "bindTo": "selection", "empty": true }]],
 						["dd"]
 					]
 				}
@@ -197,9 +188,7 @@
 				"data": {
 					"childNodeStructure": [
 						"dlhead",
-						["dthd",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["dthd", [{ "bindTo": "selection", "empty": true }]],
 						["ddhd"]
 					]
 				}

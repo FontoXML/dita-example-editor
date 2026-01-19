@@ -22,13 +22,8 @@
 				"side": "before",
 				"childNodeStructure": [
 					"glossentry",
-					[
-						"glossterm",
-						[{ "bindTo": "selection", "empty": true }]
-					],
-					[
-						"glossdef"
-					]
+					["glossterm", [{ "bindTo": "selection", "empty": true }]],
+					["glossdef"]
 				]
 			}
 		}
@@ -42,13 +37,8 @@
 				"side": "after",
 				"childNodeStructure": [
 					"glossentry",
-					[
-						"glossterm",
-						[{ "bindTo": "selection", "empty": true }]
-					],
-					[
-						"glossdef"
-					]
+					["glossterm", [{ "bindTo": "selection", "empty": true }]],
+					["glossdef"]
 				]
 			}
 		}
@@ -230,7 +220,7 @@
 					[{ "multiple": true }],
 					[
 						"glossBody",
-						[{ "multiple": true, "bindTo": "childNodes"}]
+						[{ "multiple": true, "bindTo": "childNodes" }]
 					]
 				],
 				"insertionStencils": {
@@ -254,7 +244,8 @@
 				"data": {
 					"childNodeStructure": [
 						"glossAlt",
-						["{{nodeName}}",
+						[
+							"{{nodeName}}",
 							[{ "bindTo": "selection", "empty": true }]
 						]
 					]

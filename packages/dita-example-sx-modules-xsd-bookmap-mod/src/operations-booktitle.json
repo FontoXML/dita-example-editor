@@ -2,10 +2,7 @@
 	":bookmap-insert-title": {
 		"label": "t__Title",
 		"description": "t__Insert a title, this replaces the book title if this exists",
-		"alternatives": [
-			":_bookmap-replace-title",
-			":_bookmap-insert-title"
-		]
+		"alternatives": [":_bookmap-replace-title", ":_bookmap-insert-title"]
 	},
 	":_bookmap-replace-title": {
 		"steps": [

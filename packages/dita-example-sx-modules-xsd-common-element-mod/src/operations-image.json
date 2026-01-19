@@ -48,10 +48,7 @@
 				"data": {
 					"childNodeStructure": [
 						"fig",
-						[
-							"title",
-							[{ "bindTo": "selection", "empty": true }]
-						],
+						["title", [{ "bindTo": "selection", "empty": true }]],
 						["desc"],
 						[
 							"image",

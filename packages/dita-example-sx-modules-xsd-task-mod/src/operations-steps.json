@@ -35,9 +35,7 @@
 				"data": {
 					"childNodeStructure": [
 						"step",
-							["cmd",
-							[{ "bindTo": "selection", "empty": true }]
-						]
+						["cmd", [{ "bindTo": "selection", "empty": true }]]
 					]
 				}
 			}
@@ -57,10 +55,15 @@
 				"type": "operation/merge-and-insert",
 				"data": {
 					"contextNodeId": "x__$data('contextNode')/parent::*[self::steps or self::steps-unordered]",
-					"contextStencil":
-					[
+					"contextStencil": [
 						null,
-						[{ "bindTo": "nonSelectedNodes", "multiple": true, "doesNotContainSelection": "before" }],
+						[
+							{
+								"bindTo": "nonSelectedNodes",
+								"multiple": true,
+								"doesNotContainSelection": "before"
+							}
+						],
 						[{ "multiple": true }]
 					],
 					"insertionStencils": {
@@ -94,10 +97,7 @@
 						"steps",
 						[
 							"step",
-							[
-								"cmd",
-								[{ "bindTo": "selection", "empty": true }]
-							]
+							["cmd", [{ "bindTo": "selection", "empty": true }]]
 						]
 					]
 				}
@@ -145,10 +145,7 @@
 						"steps-unordered",
 						[
 							"step",
-							[
-								"cmd",
-								[{ "bindTo": "selection", "empty": true }]
-							]
+							["cmd", [{ "bindTo": "selection", "empty": true }]]
 						]
 					]
 				}

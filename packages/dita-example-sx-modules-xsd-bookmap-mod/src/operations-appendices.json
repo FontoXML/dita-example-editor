@@ -111,9 +111,7 @@
 			{
 				"type": "operation/horizontal-insert",
 				"data": {
-					"childNodeStructure": [
-						"appendices"
-					]
+					"childNodeStructure": ["appendices"]
 				}
 			}
 		],
@@ -121,9 +119,7 @@
 			{
 				"type": "operation/horizontal-insert",
 				"data": {
-					"childNodeStructure": [
-						"appendices"
-					]
+					"childNodeStructure": ["appendices"]
 				}
 			},
 			{
@@ -170,10 +166,7 @@
 			{
 				"type": "operation/horizontal-insert",
 				"data": {
-					"childNodeStructure": [
-						"appendices",
-						{ "href": "someHref" }
-					]
+					"childNodeStructure": ["appendices", { "href": "someHref" }]
 				}
 			}
 		],

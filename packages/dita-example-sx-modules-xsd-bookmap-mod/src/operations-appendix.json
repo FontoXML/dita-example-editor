@@ -98,20 +98,59 @@
 				"contextNodeId": "{{contextNodeId}}",
 				"contextStencil": [
 					null,
-					[{ "multiple": false, "required": false, "restrictTo": "self::title or self::booktitle"}],
-					[{ "multiple": false, "required": false, "restrictTo": "self::bookmeta"}],
-					[{ "multiple": false, "required": false, "restrictTo": "self::frontmatter"}],
-					[{ "multiple": true, "required": false, "restrictTo": "self::chapter or self::part" }],
-					[{ "multiple": true, "restrictTo": "self::appendix", "bindTo": "childNodes" }],
-					[{ "multiple": false, "required": false, "restrictTo": "self::backmatter" }],
-					[{ "multiple": true, "required": false, "restrictTo": "self::reltable" }]
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::title or self::booktitle"
+						}
+					],
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::bookmeta"
+						}
+					],
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::frontmatter"
+						}
+					],
+					[
+						{
+							"multiple": true,
+							"required": false,
+							"restrictTo": "self::chapter or self::part"
+						}
+					],
+					[
+						{
+							"multiple": true,
+							"restrictTo": "self::appendix",
+							"bindTo": "childNodes"
+						}
+					],
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::backmatter"
+						}
+					],
+					[
+						{
+							"multiple": true,
+							"required": false,
+							"restrictTo": "self::reltable"
+						}
+					]
 				],
 				"insertionStencils": {
 					"childNodes.end": {
-						"stencil": [
-							"appendix",
-							"{{attributes}}"
-						]
+						"stencil": ["appendix", "{{attributes}}"]
 					}
 				}
 			}

@@ -98,21 +98,66 @@
 				"contextNodeId": "{{contextNodeId}}",
 				"contextStencil": [
 					null,
-					[{ "multiple": false, "required": false, "restrictTo": "self::title or self::booktitle"}],
-					[{ "multiple": false, "required": false, "restrictTo": "self::bookmeta"}],
-					[{ "multiple": false, "required": false, "restrictTo": "self::frontmatter"}],
-					[{ "multiple": true, "restrictTo": "self::chapter", "bindTo": "childNodes" }],
-					[{ "multiple": true, "required": false, "restrictTo": "self::part" }],
-					[{ "multiple": true, "required": false, "restrictTo": "self::appendices or self::appendix" }],
-					[{ "multiple": false, "required": false, "restrictTo": "self::backmatter" }],
-					[{ "multiple": true, "required": false, "restrictTo": "self::reltable" }]
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::title or self::booktitle"
+						}
+					],
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::bookmeta"
+						}
+					],
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::frontmatter"
+						}
+					],
+					[
+						{
+							"multiple": true,
+							"restrictTo": "self::chapter",
+							"bindTo": "childNodes"
+						}
+					],
+					[
+						{
+							"multiple": true,
+							"required": false,
+							"restrictTo": "self::part"
+						}
+					],
+					[
+						{
+							"multiple": true,
+							"required": false,
+							"restrictTo": "self::appendices or self::appendix"
+						}
+					],
+					[
+						{
+							"multiple": false,
+							"required": false,
+							"restrictTo": "self::backmatter"
+						}
+					],
+					[
+						{
+							"multiple": true,
+							"required": false,
+							"restrictTo": "self::reltable"
+						}
+					]
 				],
 				"insertionStencils": {
 					"childNodes.end": {
-						"stencil": [
-							"chapter",
-							"{{attributes}}"
-						]
+						"stencil": ["chapter", "{{attributes}}"]
 					}
 				}
 			}

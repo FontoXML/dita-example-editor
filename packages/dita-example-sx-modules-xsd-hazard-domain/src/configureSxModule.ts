@@ -108,7 +108,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			},
 		]
 			.concat(
-				HAZARD_CONVERT_OPERATIONS.filter(function (element) {
+				HAZARD_CONVERT_OPERATIONS.filter((element) => {
 					return !element.name.includes(hazardType);
 				})
 			)
@@ -130,7 +130,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		}
 	);
 
-	Object.keys(HAZARD_VISUALIZATION_BY_TYPE).forEach(function (hazardType) {
+	Object.keys(HAZARD_VISUALIZATION_BY_TYPE).forEach((hazardType) => {
 		const hazardVisualization = HAZARD_VISUALIZATION_BY_TYPE[hazardType];
 		configureProperties(
 			sxModule,

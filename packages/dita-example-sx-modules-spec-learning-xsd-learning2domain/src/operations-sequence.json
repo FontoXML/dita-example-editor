@@ -15,12 +15,11 @@
 					"side": "before",
 					"childNodeStructure": [
 						"lcSequenceOption2",
-						["lcAnswerContent2",
+						[
+							"lcAnswerContent2",
 							[{ "bindTo": "selection", "empty": true }]
 						],
-						["lcSequence2",
-							{ "value": "{{value}}" }
-						]
+						["lcSequence2", { "value": "{{value}}" }]
 					]
 				}
 			}
@@ -42,12 +41,11 @@
 					"side": "after",
 					"childNodeStructure": [
 						"lcSequenceOption2",
-						["lcAnswerContent2",
+						[
+							"lcAnswerContent2",
 							[{ "bindTo": "selection", "empty": true }]
 						],
-						["lcSequence2",
-							{ "value": "{{value}}" }
-						]
+						["lcSequence2", { "value": "{{value}}" }]
 					]
 				}
 			}
@@ -75,12 +73,11 @@
 				"data": {
 					"childNodeStructure": [
 						"lcSequenceOption2",
-						["lcAnswerContent2",
+						[
+							"lcAnswerContent2",
 							[{ "bindTo": "selection", "empty": true }]
 						],
-						["lcSequence2",
-							{ "value": "{{value}}" }
-						]
+						["lcSequence2", { "value": "{{value}}" }]
 					]
 				}
 			}
@@ -92,43 +89,46 @@
 		"initialData": {
 			"childNodeStructure": [
 				"lcSequencing2",
-				["lcQuestion2",
-					[{ "bindTo": "selection", "empty": true }]
-				],
-				["lcSequenceOptionGroup2",
-					["lcSequenceOption2",
+				["lcQuestion2", [{ "bindTo": "selection", "empty": true }]],
+				[
+					"lcSequenceOptionGroup2",
+					[
+						"lcSequenceOption2",
 						["lcAnswerContent2"],
-						["lcSequence2",
-							{ "value": "1" }
-						]
+						["lcSequence2", { "value": "1" }]
 					],
-					["lcSequenceOption2",
+					[
+						"lcSequenceOption2",
 						["lcAnswerContent2"],
-						["lcSequence2",
-							{ "value": "2" }
-						]
+						["lcSequence2", { "value": "2" }]
 					]
 				]
 			],
 			"wrapChildNodeStructure": [
 				"lcSequencing2",
-				["lcQuestion2",
+				[
+					"lcQuestion2",
 					[{ "bindTo": "selection.start", "empty": true }],
-					[{ "bindTo": "transclude", "multiple": true, "required": false }],
+					[
+						{
+							"bindTo": "transclude",
+							"multiple": true,
+							"required": false
+						}
+					],
 					[{ "bindTo": "selection.end", "empty": true }]
 				],
-				["lcSequenceOptionGroup2",
-					["lcSequenceOption2",
+				[
+					"lcSequenceOptionGroup2",
+					[
+						"lcSequenceOption2",
 						["lcAnswerContent2"],
-						["lcSequence2",
-							{ "value": "1" }
-						]
+						["lcSequence2", { "value": "1" }]
 					],
-					["lcSequenceOption2",
+					[
+						"lcSequenceOption2",
 						["lcAnswerContent2"],
-						["lcSequence2",
-							{ "value": "2" }
-						]
+						["lcSequence2", { "value": "2" }]
 					]
 				]
 			]

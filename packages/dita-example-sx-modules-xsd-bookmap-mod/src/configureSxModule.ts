@@ -158,11 +158,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		['xs:string'],
 		'xs:string?',
 		function (_dynamicContext, nodeName: string) {
-			return (
-				(bookmapElementLabels[nodeName] &&
-					bookmapElementLabels[nodeName].markupLabel) ||
-				null
-			);
+			return bookmapElementLabels[nodeName]?.markupLabel || null;
 		}
 	);
 
