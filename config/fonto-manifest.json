@@ -19,7 +19,6 @@
 		"dita-example-sx-shells-reference": "packages/dita-example-sx-shells-reference",
 		"dita-example-sx-shells-task": "packages/dita-example-sx-shells-task",
 		"dita-example-sx-shells-topic": "packages/dita-example-sx-shells-topic",
-		"fontoxml-clipboard-instruction-modal": "platform/fontoxml-clipboard-instruction-modal",
 		"fontoxml-cms-browser": "platform/fontoxml-cms-browser",
 		"fontoxml-crosslink-references": "platform/fontoxml-crosslink-references",
 		"fontoxml-dita": "platform/fontoxml-dita",

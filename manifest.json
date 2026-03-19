@@ -1,6 +1,5 @@
 {
 	"addonNames": [
-		"fontoxml-clipboard-instruction-modal",
 		"fontoxml-cms-browser",
 		"fontoxml-crosslink-references",
 		"fontoxml-dita",
@@ -17,6 +16,6 @@
 	],
 	"edition": "fontoxml-platform-base",
 	"name": "Fonto Editor DITA Example",
-	"sdkBuildDate": "2026-01-27T14:30:29.463Z",
-	"sdkVersion": "8.15.1"
+	"sdkBuildDate": "2026-03-19T12:08:24.812Z",
+	"sdkVersion": "8.16.0"
 }
