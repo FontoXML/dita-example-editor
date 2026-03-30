@@ -184,7 +184,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			contextualOperations: formatContextualOperationListWithGroups(
 				getPlaceholderOrContainerOperations('placeholder')
 			),
-			titleQuery: 'upper-case(bookmap:retrieve-element-label(name()))',
+			titleQuery: xq`upper-case(bookmap:retrieve-element-label(name()))`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
 	);
@@ -676,9 +676,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 				},
 			],
 			defaultTextContainer: 'title',
-			titleQuery: xq`
-			let $title := if(./title) then ./title else ./booktitle/mainbooktitle
-			return $title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+			titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else if (./booktitle/mainbooktitle) then fonto:curated-text-in-node(./booktitle/mainbooktitle) else ()`,
 			visibleChildSelector: xq`self::title or self::booktitle`,
 			blockFooter: [
 				createRelatedNodesQueryWidget(

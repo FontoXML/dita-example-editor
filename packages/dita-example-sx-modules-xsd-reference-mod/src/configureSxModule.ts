@@ -317,7 +317,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the syntax'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});

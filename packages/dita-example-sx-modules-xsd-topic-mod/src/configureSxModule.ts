@@ -65,7 +65,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the content'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -244,7 +244,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the content'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -332,7 +332,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		{
 			titleQuery: xq`
 					let $refNodeName := fonto:hierarchy-source-node(fonto:current-hierarchy-node-id())/name(),
-						$title := fonto:curated-text-in-node(./*[fonto:dita-class(., "topic/title")])
+						$title := fonto:curated-text-in-node(./*[fonto:dita-class(., "topic/title")][1])
 
 					return
 						if(not($refNodeName) or not(bookmap:retrieve-element-label($refNodeName)))

@@ -53,7 +53,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':cals-table-insert-desc' },
 		],
 		markupLabel: t('table figure'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});

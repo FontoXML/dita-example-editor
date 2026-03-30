@@ -72,7 +72,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 					],
 				},
 			},
-			titleQuery: xq`./title`,
+			titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}

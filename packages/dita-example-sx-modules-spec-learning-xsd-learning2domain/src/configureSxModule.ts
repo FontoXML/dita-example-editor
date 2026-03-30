@@ -261,7 +261,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-move-down' },
 			{ name: ':contextual-delete-question' },
 		],
-		titleQuery: xq`./lcInteractionLabel2`,
+		titleQuery: xq`if (./lcInteractionLabel2) then fonto:curated-text-in-node(./lcInteractionLabel2) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -305,7 +305,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-move-down' },
 			{ name: ':contextual-delete-question' },
 		],
-		titleQuery: xq`./lcInteractionLabel2`,
+		titleQuery: xq`if (./lcInteractionLabel2) then fonto:curated-text-in-node(./lcInteractionLabel2) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -405,7 +405,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 				{ name: ':contextual-move-down' },
 				{ name: ':contextual-delete-question' },
 			],
-			titleQuery: xq`./lcInteractionLabel2`,
+			titleQuery: xq`if (./lcInteractionLabel2) then fonto:curated-text-in-node(./lcInteractionLabel2) else ()`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
@@ -423,7 +423,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     Use <lcOpenQuestion2> to pose an open-ended question in an assessment interaction.
 	configureAsFrame(sxModule, xq`self::lcOpenQuestion2`, t('open question'), {
 		contextualOperations: [{ name: ':contextual-delete-question' }],
-		titleQuery: xq`./lcInteractionLabel2`,
+		titleQuery: xq`if (./lcInteractionLabel2) then fonto:curated-text-in-node(./lcInteractionLabel2) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -524,7 +524,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 				{ name: ':contextual-move-down' },
 				{ name: ':contextual-delete-question' },
 			],
-			titleQuery: xq`./lcInteractionLabel2`,
+			titleQuery: xq`if (./lcInteractionLabel2) then fonto:curated-text-in-node(./lcInteractionLabel2) else ()`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
@@ -538,7 +538,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-move-down' },
 			{ name: ':contextual-delete-question' },
 		],
-		titleQuery: xq`./lcInteractionLabel2`,
+		titleQuery: xq`if (./lcInteractionLabel2) then fonto:curated-text-in-node(./lcInteractionLabel2) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -552,7 +552,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-move-down' },
 			{ name: ':contextual-delete-question' },
 		],
-		titleQuery: xq`./lcInteractionLabel2`,
+		titleQuery: xq`if (./lcInteractionLabel2) then fonto:curated-text-in-node(./lcInteractionLabel2) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});

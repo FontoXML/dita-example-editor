@@ -266,7 +266,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-step' },
 		],
 		defaultTextContainer: 'cmd',
-		titleQuery: xq`./cmd`,
+		titleQuery: xq`fonto:curated-text-in-node(./cmd)`,
 		blockBefore: [
 			createNumberingWidget(xq`self::step`, {
 				containerSelector: xq`self::steps`,
@@ -283,7 +283,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('step'),
 		{
 			defaultTextContainer: 'cmd',
-			titleQuery: xq`./cmd`,
+			titleQuery: xq`fonto:curated-text-in-node(./cmd)`,
 			blockBefore: [createLabelWidget('step')],
 			blockBeforeWidth: 'wide',
 		}
@@ -450,7 +450,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-substep' },
 		],
 		defaultTextContainer: 'cmd',
-		titleQuery: xq`./cmd`,
+		titleQuery: xq`fonto:curated-text-in-node(./cmd)`,
 		blockBefore: [
 			createNumberingWidget(xq`self::substep`, {
 				numberingStyle: 'lowerAlpha',
@@ -468,7 +468,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		t('substep'),
 		{
 			defaultTextContainer: 'cmd',
-			titleQuery: xq`./cmd`,
+			titleQuery: xq`fonto:curated-text-in-node(./cmd)`,
 			blockBefore: [createLabelWidget('step')],
 			blockBeforeWidth: 'wide',
 		}

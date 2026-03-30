@@ -62,7 +62,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the alternate identifier'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -76,7 +76,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the classroom environment'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -90,7 +90,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the clients name'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -105,7 +105,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the constraints'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -119,7 +119,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the delivery date'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -141,7 +141,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the download time'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -172,7 +172,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			],
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t('Type the file size limitations'),
-			titleQuery: xq`./title`,
+			titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
@@ -187,7 +187,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'lcGapItem',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -207,7 +207,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideBefore: [createLabelQueryWidget(xq`"\u25cf"`)],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -259,7 +259,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the graphic requirements'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -274,7 +274,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the handouts'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -289,7 +289,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'lcInterventionItem',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -314,7 +314,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			],
 			defaultTextContainer: 'title',
 			isIgnoredForNavigation: false,
-			titleQuery: xq`./title`,
+			titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideBefore: [createLabelQueryWidget(xq`"\u25cf"`)],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
@@ -358,7 +358,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the LMS name'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -372,7 +372,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the modification date'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -418,7 +418,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -432,7 +432,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			{ name: ':contextual-delete-lcNoLMS' },
 		],
 		defaultTextContainer: 'p',
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -447,7 +447,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the on-the-job-training aspects'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -470,7 +470,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			],
 			defaultTextContainer: 'title',
 			isIgnoredForNavigation: false,
-			titleQuery: xq`./title`,
+			titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
@@ -508,7 +508,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -522,7 +522,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the plan description'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -553,7 +553,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 			],
 			defaultTextContainer: 'p',
 			emptyElementPlaceholderText: t('Type the plan prerequisites'),
-			titleQuery: xq`./title`,
+			titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 			blockOutsideAfter: [createElementMenuButtonWidget()],
 		}
@@ -580,7 +580,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the plan subject'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -594,7 +594,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the plan title'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -608,7 +608,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the players'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -637,7 +637,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -651,7 +651,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the resolution'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -665,7 +665,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the security'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -707,7 +707,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -743,7 +743,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -764,7 +764,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the viewers'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -778,7 +778,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the W3C requirements'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -795,7 +795,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});

@@ -22,7 +22,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the audience'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -38,7 +38,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the challenge'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -53,7 +53,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'title',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -67,7 +67,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the instruction'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -91,7 +91,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the intro'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -105,7 +105,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the next steps'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -139,7 +139,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'lcObjectivesStem',
 		isIgnoredForNavigation: false,
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -168,7 +168,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the prerequisites'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -183,7 +183,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the resources'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -197,7 +197,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the review'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});
@@ -212,7 +212,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		],
 		defaultTextContainer: 'p',
 		emptyElementPlaceholderText: t('Type the summary'),
-		titleQuery: xq`./title`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title[1]) else ()`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 		blockOutsideAfter: [createElementMenuButtonWidget()],
 	});

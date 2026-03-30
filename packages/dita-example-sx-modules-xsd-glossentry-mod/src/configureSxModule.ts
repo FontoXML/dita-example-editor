@@ -89,7 +89,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     terms in <term> elements and display the definition on hover or click. Glossary entries for
 	//     different term senses can be reused independently of one another. Category: Glossentry elements
 	configureAsSheetFrame(sxModule, xq`self::glossentry`, t('entry'), {
-		titleQuery: xq`./glossterm//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+		titleQuery: xq`fonto:curated-text-in-node(./glossterm)`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(xq`./related-links`),
 			createRelatedNodesQueryWidget(

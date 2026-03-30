@@ -18,7 +18,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// map
 	configureAsSheetFrame(sxModule, xq`self::map`, t('map'), {
 		defaultTextContainer: 'title',
-		titleQuery: xq`title//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()`,
+		titleQuery: xq`if (./title) then fonto:curated-text-in-node(./title) else ()`,
 		visibleChildSelector: xq`self::title`,
 		blockFooter: [
 			createRelatedNodesQueryWidget(
@@ -66,7 +66,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
 	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
 	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
-		titleQuery: xq`if (topicmeta/navtitle) then (topicmeta/navtitle//text()[not(ancestor::*[name() = ("sort-at", "draft-comment", "foreign", "unknown", "required-cleanup", "image")])]/string() => string-join()) else string(./@navtitle)`,
+		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
 		visibleChildSelector: xq`self::topicmeta`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
@@ -81,6 +81,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 		xq`self::topicgroup`,
 		t('untitled topic group'),
 		{
+			titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
 			visibleChildSelector: xq`self::topicmeta`,
 			blockHeaderLeft: [createMarkupLabelWidget()],
 		}
