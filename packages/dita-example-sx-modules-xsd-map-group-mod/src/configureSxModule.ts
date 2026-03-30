@@ -32,7 +32,7 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// topichead
 	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
 	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
-	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
+	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic head'), {
 		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
 		visibleChildSelector: xq`self::topicmeta`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
@@ -60,14 +60,26 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     hierarchy, as opposed to nested < topicref> elements within a <topicref>, which does imply a
 	//     structural hierarchy. It is typically used outside a hierarchy to identify groups for linking
 	//     without affecting the resulting toc/navigation output. Category: Mapgroup elements
-	configureAsSheetFrame(
+	configureAsSheetFrame(sxModule, xq`self::topicgroup`, t('topic group'), {
 		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
+		visibleChildSelector: xq`self::topicmeta`,
+		blockHeaderLeft: [createMarkupLabelWidget()],
+	});
+
+	// topicmeta in topicgroup
+	configureAsStructure(
 		sxModule,
-		xq`self::topicgroup`,
-		t('untitled topic group'),
+		xq`self::topicmeta[parent::topicgroup]`,
+		undefined
+	);
+
+	// navtitle in topicmeta in topicgroup
+	configureAsTitleFrame(
+		sxModule,
+		xq`self::navtitle and parent::topicmeta[parent::topicgroup]`,
+		undefined,
 		{
-			visibleChildSelector: xq`self::topicmeta`,
-			blockHeaderLeft: [createMarkupLabelWidget()],
+			fontVariation: 'document-title',
 		}
 	);
 

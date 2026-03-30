@@ -62,34 +62,19 @@ export default function configureSxModule(sxModule: SxModule): void {
 	//     <topicref> can be used to override the short description in the topic. Category: Topic elements
 	configureAsRemoved(sxModule, xq`self::shortdesc`, t('introduction'));
 
+	// topicmeta
+	configureAsRemoved(sxModule, xq`self::topicmeta`, t('topic metadata'));
+
 	// topichead
 	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
 	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
-	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic group'), {
+	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic head'), {
 		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
 		visibleChildSelector: xq`self::topicmeta`,
 		blockHeaderLeft: [createMarkupLabelWidget()],
 	});
 
-	// topicgroup
-	//     The <topicgroup> element is for creating groups of <topicref> elements without affecting the
-	//     hierarchy, as opposed to nested < topicref> elements within a <topicref>, which does imply a
-	//     structural hierarchy. It is typically used outside a hierarchy to identify groups for linking
-	//     without affecting the resulting toc/navigation output. Category: Mapgroup elements
-	configureAsSheetFrame(
-		sxModule,
-		xq`self::topicgroup`,
-		t('untitled topic group'),
-		{
-			titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
-			visibleChildSelector: xq`self::topicmeta`,
-			blockHeaderLeft: [createMarkupLabelWidget()],
-		}
-	);
-
-	// topicmeta
-	configureAsRemoved(sxModule, xq`self::topicmeta`, t('topic metadata'));
-
+	// topicmeta in topichead
 	configureAsStructure(
 		sxModule,
 		xq`self::topicmeta[parent::topichead]`,
@@ -100,6 +85,34 @@ export default function configureSxModule(sxModule: SxModule): void {
 	configureAsTitleFrame(
 		sxModule,
 		xq`self::navtitle and parent::topicmeta[parent::topichead]`,
+		undefined,
+		{
+			fontVariation: 'document-title',
+		}
+	);
+
+	// topicgroup
+	//     The <topicgroup> element is for creating groups of <topicref> elements without affecting the
+	//     hierarchy, as opposed to nested < topicref> elements within a <topicref>, which does imply a
+	//     structural hierarchy. It is typically used outside a hierarchy to identify groups for linking
+	//     without affecting the resulting toc/navigation output. Category: Mapgroup elements
+	configureAsSheetFrame(sxModule, xq`self::topicgroup`, t('topic group'), {
+		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
+		visibleChildSelector: xq`self::topicmeta`,
+		blockHeaderLeft: [createMarkupLabelWidget()],
+	});
+
+	// topicmeta in topicgroup
+	configureAsStructure(
+		sxModule,
+		xq`self::topicmeta[parent::topicgroup]`,
+		undefined
+	);
+
+	// navtitle in topicmeta in topicgroup
+	configureAsTitleFrame(
+		sxModule,
+		xq`self::navtitle and parent::topicmeta[parent::topicgroup]`,
 		undefined,
 		{
 			fontVariation: 'document-title',
