@@ -45,16 +45,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 		undefined
 	);
 
-	// navtitle in topicmeta in topichead
-	configureAsTitleFrame(
-		sxModule,
-		xq`self::navtitle and parent::topicmeta[parent::topichead]`,
-		undefined,
-		{
-			fontVariation: 'document-title',
-		}
-	);
-
 	// topicgroup
 	//     The <topicgroup> element is for creating groups of <topicref> elements without affecting the
 	//     hierarchy, as opposed to nested < topicref> elements within a <topicref>, which does imply a
@@ -71,16 +61,6 @@ export default function configureSxModule(sxModule: SxModule): void {
 		sxModule,
 		xq`self::topicmeta[parent::topicgroup]`,
 		undefined
-	);
-
-	// navtitle in topicmeta in topicgroup
-	configureAsTitleFrame(
-		sxModule,
-		xq`self::navtitle and parent::topicmeta[parent::topicgroup]`,
-		undefined,
-		{
-			fontVariation: 'document-title',
-		}
 	);
 
 	// topicset

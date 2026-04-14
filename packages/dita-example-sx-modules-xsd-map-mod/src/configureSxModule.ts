@@ -65,54 +65,10 @@ export default function configureSxModule(sxModule: SxModule): void {
 	// topicmeta
 	configureAsRemoved(sxModule, xq`self::topicmeta`, t('topic metadata'));
 
-	// topichead
-	//     The <topichead> element provides a title-only entry in a navigation map, as an alternative to the
-	//     fully-linked title provided by the <topicref> element. Category: Mapgroup elements
-	configureAsSheetFrame(sxModule, xq`self::topichead`, t('topic head'), {
-		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
-		visibleChildSelector: xq`self::topicmeta`,
-		blockHeaderLeft: [createMarkupLabelWidget()],
-	});
-
-	// topicmeta in topichead
-	configureAsStructure(
-		sxModule,
-		xq`self::topicmeta[parent::topichead]`,
-		undefined
-	);
-
-	// navtitle in topicmeta in topichead
+	// navtitle in topicmeta (in topichead and topicgroup)
 	configureAsTitleFrame(
 		sxModule,
-		xq`self::navtitle and parent::topicmeta[parent::topichead]`,
-		undefined,
-		{
-			fontVariation: 'document-title',
-		}
-	);
-
-	// topicgroup
-	//     The <topicgroup> element is for creating groups of <topicref> elements without affecting the
-	//     hierarchy, as opposed to nested < topicref> elements within a <topicref>, which does imply a
-	//     structural hierarchy. It is typically used outside a hierarchy to identify groups for linking
-	//     without affecting the resulting toc/navigation output. Category: Mapgroup elements
-	configureAsSheetFrame(sxModule, xq`self::topicgroup`, t('topic group'), {
-		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
-		visibleChildSelector: xq`self::topicmeta`,
-		blockHeaderLeft: [createMarkupLabelWidget()],
-	});
-
-	// topicmeta in topicgroup
-	configureAsStructure(
-		sxModule,
-		xq`self::topicmeta[parent::topicgroup]`,
-		undefined
-	);
-
-	// navtitle in topicmeta in topicgroup
-	configureAsTitleFrame(
-		sxModule,
-		xq`self::navtitle and parent::topicmeta[parent::topicgroup]`,
+		xq`self::navtitle and parent::topicmeta`,
 		undefined,
 		{
 			fontVariation: 'document-title',
@@ -120,7 +76,11 @@ export default function configureSxModule(sxModule: SxModule): void {
 	);
 
 	// topicref
-	configureAsRemoved(sxModule, xq`self::topicref`, t('link to topic'));
+	configureAsRemoved(sxModule, xq`self::topicref`, t('link to topic'), {
+		// For topicrefs referencing documents that are not loaded, show the navtitle instead of the
+		// topic title if one is available
+		titleQuery: xq`if (./topicmeta/navtitle) then fonto:curated-text-in-node(./topicmeta/navtitle) else string(./@navtitle)`,
+	});
 
 	// ux-window
 	configureAsRemoved(sxModule, xq`self::ux-window`, t('ux-window'));
