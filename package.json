@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"start": "fdt editor run",
-		"postinstall": "fdt editor upgrade --non-interactive --version 8.16.0",
+		"postinstall": "fdt editor upgrade --non-interactive --version 8.17.0",
 		"lint": "eslint",
 		"prettier": "prettier . --check"
 	},
